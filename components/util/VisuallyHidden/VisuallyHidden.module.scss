@@ -1,0 +1,15 @@
+@use '@styles/base/mq-settings';
+@use '~sass-mq/mq' as *;
+@use '~sass-rem' as *;
+@use '@styles/base/variables' as *;
+@use '@styles/base/helpers' as *;
+
+.root:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}

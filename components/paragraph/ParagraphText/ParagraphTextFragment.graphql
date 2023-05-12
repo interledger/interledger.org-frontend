@@ -1,0 +1,7 @@
+fragment ParagraphTextFragment on ParagraphText {
+  __typename
+  id
+  text {
+    processed
+  }
+}

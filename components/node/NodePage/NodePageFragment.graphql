@@ -1,0 +1,19 @@
+fragment NodePageFragment on NodePage {
+  __typename
+  id
+  title
+  path
+  sections {
+    ...ParagraphsFragment
+  }
+  metatag {
+    ...MetaTagFragment
+  }
+}
+
+fragment NodePageCardFragment on NodePage {
+  __typename
+  id
+  title
+  path
+}

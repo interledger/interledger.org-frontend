@@ -1,0 +1,15 @@
+@use '@styles/base/mq-settings';
+@use '~sass-mq/mq' as *;
+@use '~sass-rem' as *;
+@use '@styles/base/variables' as *;
+@use '@styles/base/helpers' as *;
+
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 0;
+  text-decoration: none;
+  appearance: none;
+  cursor: pointer;
+}

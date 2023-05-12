@@ -1,0 +1,59 @@
+@use '@styles/base/mq-settings';
+@use '~sass-mq/mq' as *;
+@use '~sass-rem' as *;
+@use '@styles/base/variables' as *;
+@use '@styles/base/helpers' as *;
+
+.root {
+  margin-top: 0;
+  line-height: 1.3;
+}
+
+.h1 {
+  font-size: rem(26px);
+  font-weight: 600;
+}
+
+.h2 {
+  font-size: rem(20px);
+  font-weight: 600;
+}
+
+.h3 {
+  font-size: rem(16px);
+  font-weight: 600;
+}
+
+.h4 {
+  font-size: rem(13px);
+  font-weight: 600;
+}
+
+.h5 {
+  font-size: rem(13px);
+  font-weight: 600;
+}
+
+.h6 {
+  font-size: rem(13px);
+  font-weight: 600;
+}
+
+.body1 {
+  font-size: rem(15px);
+  margin-bottom: 1rem;
+  line-height: 1.466;
+}
+
+.body2 {
+  font-size: rem(13px);
+  margin-bottom: 1em;
+  line-height: 1.538;
+}
+
+.quote {
+  font-size: rem(15px);
+  margin-bottom: 1rem;
+  line-height: 1.466;
+  display: block;
+}

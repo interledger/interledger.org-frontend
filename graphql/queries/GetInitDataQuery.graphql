@@ -1,0 +1,8 @@
+query GetInitDataQuery {
+  mainMenu: menu(name: MAIN) {
+    ...MainMenuFragment
+  }
+  footerMenu: menu(name: FOOTER) {
+    ...FooterMenuFragment
+  }
+}

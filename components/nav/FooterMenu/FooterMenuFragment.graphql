@@ -1,0 +1,6 @@
+fragment FooterMenuFragment on Menu {
+  __typename
+  items {
+    ...MenuItemFragment
+  }
+}

@@ -1,0 +1,13 @@
+@use '~sass-mq/mq' as *;
+@use '~sass-rem' as *;
+@use '@styles/base/variables' as *;
+@use '@styles/base/helpers' as *;
+
+body {
+  overflow-x: hidden;
+}
+
+.root {
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}

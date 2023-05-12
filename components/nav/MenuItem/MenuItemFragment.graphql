@@ -1,0 +1,14 @@
+fragment MenuItemFragment on MenuItem {
+  __typename
+  title
+  route {
+    ...RouteUnionFragment
+  }
+  children {
+    __typename
+    title
+    route {
+      ...RouteUnionFragment
+    }
+  }
+}

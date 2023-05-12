@@ -1,0 +1,78 @@
+@use '@styles/base/mq-settings';
+@use '~sass-mq/mq';
+@use '@styles/base/root' as *;
+@use '@styles/base/variables' as *;
+@use '@styles/base/helpers' as *;
+@use '@styles/base/normalize' as *;
+
+html,
+body,
+#__next {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+a {
+  color: var(--color-link);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+ul,
+ol,
+li {
+  margin: 0 0 10px;
+  padding: 0;
+
+  &::marker {
+    color: var(--color-bullets);
+  }
+}
+
+ul,
+ol {
+  padding-left: 20px;
+  margin-bottom: 1.5rem;
+}
+
+li {
+  padding-left: 10px;
+  font-size: rem(18px);
+  line-height: 1.466;
+}
+
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+  padding-inline-start: 0;
+}
+
+*:focus {
+  outline: 0.1em #aa2b2b solid;
+  outline-offset: 0.1rem;
+}
+
+*:focus:not(:focus-visible) {
+  outline: 0;
+  outline-offset: 0.25rem;
+}
+
+*:focus-visible {
+  outline: 0.1em #aa2b2b solid;
+  outline-offset: 0.1rem;
+}
+
+article {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  word-break: break-all;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}

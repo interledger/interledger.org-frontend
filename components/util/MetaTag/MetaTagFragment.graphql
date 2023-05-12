@@ -1,0 +1,24 @@
+fragment MetaTagFragment on MetaTag {
+  __typename
+  ... on MetaTagLink {
+    tag
+    attributes {
+      href
+      rel
+    }
+  }
+  ... on MetaTagValue {
+    tag
+    attributes {
+      content
+      name
+    }
+  }
+  ... on MetaTagProperty {
+    tag
+    attributes {
+      content
+      property
+    }
+  }
+}

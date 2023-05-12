@@ -1,0 +1,43 @@
+@use '@styles/base/mq-settings';
+@use '~sass-mq/mq' as *;
+@use '~sass-rem' as *;
+@use '@styles/base/variables' as *;
+@use '@styles/base/helpers' as *;
+
+.root {
+    position: relative;
+}
+
+.thumbnail {
+    position: relative;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+.thumbnailImage {
+    width: 100%;
+    height: 100%;
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+.play {
+    grid-area: 1 / 1 / 2 / 2;
+    align-self: center;
+    justify-self: center;
+}
+
+.playerWrapper {
+    position: relative;
+    padding-top: 56.25%;
+}
+
+.player {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    :global video {
+        object-fit: cover;
+    }
+}

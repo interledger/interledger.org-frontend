@@ -1,0 +1,12 @@
+query GetNodesPathsQuery($first: Int) {
+  nodes(first: $first) {
+    nodes {
+      ... on NodeArticle {
+        path
+      }
+      ... on NodePage {
+        path
+      }
+    }
+  }
+}

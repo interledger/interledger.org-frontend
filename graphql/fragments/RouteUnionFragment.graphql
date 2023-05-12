@@ -1,0 +1,12 @@
+fragment RouteUnionFragment on RouteUnion {
+  ... on RouteInternal {
+    __typename
+    url
+    internal
+  }
+  ... on RouteExternal {
+    __typename
+    internal
+    url
+  }
+}

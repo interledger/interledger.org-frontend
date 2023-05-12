@@ -1,0 +1,5 @@
+fragment MediaRemoteVideoFragment on MediaRemoteVideo {
+  __typename
+  id
+  mediaOembedVideo
+}

@@ -1,0 +1,25 @@
+@use '~sass-mq/mq' as *;
+@use '~sass-rem' as *;
+
+:root {
+  --page-width: #{rem(1245px)};
+  --page-gutter: #{rem(20px)};
+  --vertical-spacing: #{rem(30px)};
+  --horizontal-spacing: #{rem(30px)};
+  --grid-vertical-spacing: #{rem(15px)};
+  --grid-horizontal-spacing: #{rem(15px)};
+
+  // Colors
+
+  --color-divider: lightgrey;
+  --color-bullets: red;
+  --color-link: blue;
+
+  @include mq($from: tablet) {
+    --page-gutter: #{rem(40px)};
+    --vertical-spacing: #{rem(60px)};
+    --horizontal-spacing: #{rem(60px)};
+    --grid-vertical-spacing: #{rem(30px)};
+    --grid-horizontal-spacing: #{rem(30px)};
+  }
+}

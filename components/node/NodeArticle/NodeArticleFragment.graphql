@@ -1,0 +1,24 @@
+fragment NodeArticleFragment on NodeArticle {
+  __typename
+  id
+  title
+  path
+  sections {
+    ...ParagraphsFragment
+  }
+  metatag {
+    ...MetaTagFragment
+  }
+}
+
+fragment NodeArticleCardFragment on NodeArticle {
+  __typename
+  id
+  title
+  path
+  image {
+    ... on MediaImage {
+      ...MediaImageLandscapeFragment
+    }
+  }
+}

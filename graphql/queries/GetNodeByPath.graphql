@@ -1,0 +1,29 @@
+query GetNodeByPathQuery($slug: String!) {
+  route(path: $slug) {
+    ... on RouteInternal {
+      __typename
+      internal
+      url
+      entity {
+        ... on NodeArticle {
+          ...NodeArticleFragment
+        }
+        ... on NodePage {
+          ...NodePageFragment
+        }
+      }
+    }
+    ... on RouteExternal {
+      __typename
+      internal
+      url
+    }
+    ... on RouteRedirect {
+      __typename
+      internal
+      redirect
+      status
+      url
+    }
+  }
+}

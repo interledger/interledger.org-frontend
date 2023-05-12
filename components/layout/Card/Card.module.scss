@@ -1,0 +1,36 @@
+@use '@styles/base/mq-settings';
+@use '~sass-mq/mq' as *;
+@use '~sass-rem' as *;
+@use '@styles/base/variables' as *;
+@use '@styles/base/helpers' as *;
+
+.root {
+  position: relative;
+  border: 1px solid transparent;
+
+  &:hover {
+    border: 1px solid black;
+  }
+}
+
+.image {
+  margin-bottom: rem(20px);
+}
+
+.content {
+  padding: rem(20px);
+
+  >*:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.link {
+  &::after {
+    position: absolute;
+    inset-block: 0;
+    inset-inline: 0;
+    cursor: pointer;
+    content: '';
+  }
+}

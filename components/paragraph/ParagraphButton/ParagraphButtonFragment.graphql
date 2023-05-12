@@ -1,0 +1,7 @@
+fragment ParagraphButtonFragment on ParagraphButton {
+  __typename
+  id
+  link {
+    ...LinkFragment
+  }
+}

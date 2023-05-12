@@ -1,0 +1,29 @@
+query GetNodesQuery(
+  $first: Int
+  $after: Cursor
+  $before: Cursor
+  $last: Int
+  $filter: ConnectionFilter
+  $sortKey: ConnectionSortKeys
+  $reverse: Boolean
+) {
+  nodes(
+    first: $first
+    after: $after
+    before: $before
+    last: $last
+    filter: $filter
+    sortKey: $sortKey
+    reverse: $reverse
+  ) {
+    nodes {
+      ...NodeCardFragment
+    }
+    pageInfo {
+      endCursor
+      hasNextPage
+      hasPreviousPage
+      startCursor
+    }
+  }
+}

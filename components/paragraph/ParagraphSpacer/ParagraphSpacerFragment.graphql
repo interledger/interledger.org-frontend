@@ -1,0 +1,6 @@
+fragment ParagraphSpacerFragment on ParagraphSpacer {
+  __typename
+  id
+  spacerSize
+  spacerLine
+}

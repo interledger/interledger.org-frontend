@@ -1,0 +1,15 @@
+@use '@styles/base/mq-settings';
+@use '~sass-mq/mq' as *;
+@use '~sass-rem' as *;
+@use '@styles/base/variables' as *;
+@use '@styles/base/helpers' as *;
+
+.root {
+  padding-left: calc(var(--page-gutter) + env(safe-area-inset-left));
+  padding-right: calc(var(--page-gutter) + env(safe-area-inset-right));
+}
+
+.container {
+  max-width: var(--page-width);
+  margin: 0 auto;
+}

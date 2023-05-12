@@ -1,0 +1,11 @@
+fragment ParagraphsFragment on ParagraphInterface {
+  ... on ParagraphButton {
+    ...ParagraphButtonFragment
+  }
+  ... on ParagraphText {
+    ...ParagraphTextFragment
+  }
+  ... on ParagraphSpacer {
+    ...ParagraphSpacerFragment
+  }
+}

@@ -1,0 +1,35 @@
+fragment MediaImageSquareFragment on MediaImage {
+  __typename
+  id
+  mediaImage {
+    alt
+    responsive(name: ASPECT_RATIO_SQUARE_1_1) {
+      ...ResponsiveImageStyleFragment
+    }
+  }
+}
+
+fragment MediaImageLandscapeFragment on MediaImage {
+  __typename
+  id
+  mediaImage {
+    alt
+    responsive(name: ASPECT_RATIO_LANDSCAPE_16_9) {
+      ...ResponsiveImageStyleFragment
+    }
+  }
+}
+
+fragment MediaImageFragment on MediaImage {
+  __typename
+  id
+  mediaImage {
+    alt
+    style(name: MEDIUM) {
+      ...ImageStyleFragment
+    }
+    responsive(name: ASPECT_RATIO_LANDSCAPE_16_9) {
+      ...ResponsiveImageStyleFragment
+    }
+  }
+}

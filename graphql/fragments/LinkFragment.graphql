@@ -1,0 +1,4 @@
+fragment LinkFragment on Link {
+  url
+  title
+}
