@@ -1,0 +1,22 @@
+fragment TwoColumnContentFragment on ParagraphInterface {
+  ... on ParagraphButton {
+    ...ParagraphButtonFragment
+  }
+  ... on ParagraphText {
+    ...ParagraphTextFragment
+  }
+  ... on ParagraphSpacer {
+    ...ParagraphSpacerFragment
+  }
+}
+
+fragment ParagraphTwoColumnContentFragment on ParagraphTwoColumnContent {
+  __typename
+  id
+  firstColumn {
+    ...TwoColumnContentFragment
+  }
+  secondColumn {
+    ...TwoColumnContentFragment
+  }
+}

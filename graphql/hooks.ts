@@ -159,6 +159,31 @@ export const ParagraphSpacerFragment = /*#__PURE__*/ `
   spacerLine
 }
     `;
+export const TwoColumnContentFragment = /*#__PURE__*/ `
+    fragment TwoColumnContentFragment on ParagraphInterface {
+  ... on ParagraphButton {
+    ...ParagraphButtonFragment
+  }
+  ... on ParagraphText {
+    ...ParagraphTextFragment
+  }
+  ... on ParagraphSpacer {
+    ...ParagraphSpacerFragment
+  }
+}
+    `;
+export const ParagraphTwoColumnContentFragment = /*#__PURE__*/ `
+    fragment ParagraphTwoColumnContentFragment on ParagraphTwoColumnContent {
+  __typename
+  id
+  firstColumn {
+    ...TwoColumnContentFragment
+  }
+  secondColumn {
+    ...TwoColumnContentFragment
+  }
+}
+    `;
 export const ParagraphsFragment = /*#__PURE__*/ `
     fragment ParagraphsFragment on ParagraphInterface {
   ... on ParagraphButton {
@@ -169,6 +194,9 @@ export const ParagraphsFragment = /*#__PURE__*/ `
   }
   ... on ParagraphSpacer {
     ...ParagraphSpacerFragment
+  }
+  ... on ParagraphTwoColumnContent {
+    ...ParagraphTwoColumnContentFragment
   }
 }
     `;
@@ -346,6 +374,8 @@ ${ParagraphButtonFragment}
 ${LinkFragment}
 ${ParagraphTextFragment}
 ${ParagraphSpacerFragment}
+${ParagraphTwoColumnContentFragment}
+${TwoColumnContentFragment}
 ${MetaTagFragment}
 ${NodePageFragment}`;
 export const useGetNodeByPathQuery = <

@@ -8,4 +8,7 @@ fragment ParagraphsFragment on ParagraphInterface {
   ... on ParagraphSpacer {
     ...ParagraphSpacerFragment
   }
+  ... on ParagraphTwoColumnContent {
+    ...ParagraphTwoColumnContentFragment
+  }
 }

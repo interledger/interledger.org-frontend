@@ -238,6 +238,42 @@ export type NodePageFragment = {
         id: string;
         text: { __typename?: 'Text'; processed?: any | null };
       }
+    | {
+        __typename: 'ParagraphTwoColumnContent';
+        id: string;
+        firstColumn?: Array<
+          | {
+              __typename: 'ParagraphButton';
+              id: string;
+              link: {
+                __typename?: 'Link';
+                url?: string | null;
+                title?: string | null;
+              };
+            }
+          | {
+              __typename: 'ParagraphText';
+              id: string;
+              text: { __typename?: 'Text'; processed?: any | null };
+            }
+        > | null;
+        secondColumn?: Array<
+          | {
+              __typename: 'ParagraphButton';
+              id: string;
+              link: {
+                __typename?: 'Link';
+                url?: string | null;
+                title?: string | null;
+              };
+            }
+          | {
+              __typename: 'ParagraphText';
+              id: string;
+              text: { __typename?: 'Text'; processed?: any | null };
+            }
+        > | null;
+      }
   > | null;
   metatag: Array<
     | {
@@ -294,6 +330,72 @@ export type ParagraphTextFragment = {
   __typename: 'ParagraphText';
   id: string;
   text: { __typename?: 'Text'; processed?: any | null };
+};
+
+type TwoColumnContentFragment_ParagraphButton_ = {
+  __typename: 'ParagraphButton';
+  id: string;
+  link: { __typename?: 'Link'; url?: string | null; title?: string | null };
+};
+
+type TwoColumnContentFragment_ParagraphSpacer_ = {
+  __typename: 'ParagraphSpacer';
+  id: string;
+  spacerSize: string;
+  spacerLine?: boolean | null;
+};
+
+type TwoColumnContentFragment_ParagraphText_ = {
+  __typename: 'ParagraphText';
+  id: string;
+  text: { __typename?: 'Text'; processed?: any | null };
+};
+
+type TwoColumnContentFragment_ParagraphTwoColumnContent_ = {
+  __typename?: 'ParagraphTwoColumnContent';
+};
+
+export type TwoColumnContentFragment =
+  | TwoColumnContentFragment_ParagraphButton_
+  | TwoColumnContentFragment_ParagraphSpacer_
+  | TwoColumnContentFragment_ParagraphText_
+  | TwoColumnContentFragment_ParagraphTwoColumnContent_;
+
+export type ParagraphTwoColumnContentFragment = {
+  __typename: 'ParagraphTwoColumnContent';
+  id: string;
+  firstColumn?: Array<
+    | {
+        __typename: 'ParagraphButton';
+        id: string;
+        link: {
+          __typename?: 'Link';
+          url?: string | null;
+          title?: string | null;
+        };
+      }
+    | {
+        __typename: 'ParagraphText';
+        id: string;
+        text: { __typename?: 'Text'; processed?: any | null };
+      }
+  > | null;
+  secondColumn?: Array<
+    | {
+        __typename: 'ParagraphButton';
+        id: string;
+        link: {
+          __typename?: 'Link';
+          url?: string | null;
+          title?: string | null;
+        };
+      }
+    | {
+        __typename: 'ParagraphText';
+        id: string;
+        text: { __typename?: 'Text'; processed?: any | null };
+      }
+  > | null;
 };
 
 type MetaTagFragment_MetaTagLink_ = {
@@ -375,6 +477,10 @@ type NodeCardFragment_ParagraphSpacer_ = { __typename?: 'ParagraphSpacer' };
 
 type NodeCardFragment_ParagraphText_ = { __typename?: 'ParagraphText' };
 
+type NodeCardFragment_ParagraphTwoColumnContent_ = {
+  __typename?: 'ParagraphTwoColumnContent';
+};
+
 export type NodeCardFragment =
   | NodeCardFragment_MediaImage_
   | NodeCardFragment_MediaRemoteVideo_
@@ -384,7 +490,8 @@ export type NodeCardFragment =
   | NodeCardFragment_NodePage_
   | NodeCardFragment_ParagraphButton_
   | NodeCardFragment_ParagraphSpacer_
-  | NodeCardFragment_ParagraphText_;
+  | NodeCardFragment_ParagraphText_
+  | NodeCardFragment_ParagraphTwoColumnContent_;
 
 type ParagraphsFragment_ParagraphButton_ = {
   __typename: 'ParagraphButton';
@@ -405,10 +512,48 @@ type ParagraphsFragment_ParagraphText_ = {
   text: { __typename?: 'Text'; processed?: any | null };
 };
 
+type ParagraphsFragment_ParagraphTwoColumnContent_ = {
+  __typename: 'ParagraphTwoColumnContent';
+  id: string;
+  firstColumn?: Array<
+    | {
+        __typename: 'ParagraphButton';
+        id: string;
+        link: {
+          __typename?: 'Link';
+          url?: string | null;
+          title?: string | null;
+        };
+      }
+    | {
+        __typename: 'ParagraphText';
+        id: string;
+        text: { __typename?: 'Text'; processed?: any | null };
+      }
+  > | null;
+  secondColumn?: Array<
+    | {
+        __typename: 'ParagraphButton';
+        id: string;
+        link: {
+          __typename?: 'Link';
+          url?: string | null;
+          title?: string | null;
+        };
+      }
+    | {
+        __typename: 'ParagraphText';
+        id: string;
+        text: { __typename?: 'Text'; processed?: any | null };
+      }
+  > | null;
+};
+
 export type ParagraphsFragment =
   | ParagraphsFragment_ParagraphButton_
   | ParagraphsFragment_ParagraphSpacer_
-  | ParagraphsFragment_ParagraphText_;
+  | ParagraphsFragment_ParagraphText_
+  | ParagraphsFragment_ParagraphTwoColumnContent_;
 
 type RouteUnionFragment_RouteExternal_ = {
   __typename: 'RouteExternal';
@@ -564,6 +709,42 @@ export type GetNodeByPathQuery = {
                     __typename: 'ParagraphText';
                     id: string;
                     text: { __typename?: 'Text'; processed?: any | null };
+                  }
+                | {
+                    __typename: 'ParagraphTwoColumnContent';
+                    id: string;
+                    firstColumn?: Array<
+                      | {
+                          __typename: 'ParagraphButton';
+                          id: string;
+                          link: {
+                            __typename?: 'Link';
+                            url?: string | null;
+                            title?: string | null;
+                          };
+                        }
+                      | {
+                          __typename: 'ParagraphText';
+                          id: string;
+                          text: { __typename?: 'Text'; processed?: any | null };
+                        }
+                    > | null;
+                    secondColumn?: Array<
+                      | {
+                          __typename: 'ParagraphButton';
+                          id: string;
+                          link: {
+                            __typename?: 'Link';
+                            url?: string | null;
+                            title?: string | null;
+                          };
+                        }
+                      | {
+                          __typename: 'ParagraphText';
+                          id: string;
+                          text: { __typename?: 'Text'; processed?: any | null };
+                        }
+                    > | null;
                   }
               > | null;
               metatag: Array<

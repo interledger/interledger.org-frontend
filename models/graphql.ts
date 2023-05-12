@@ -556,7 +556,10 @@ export type NodePageEdge = Edge & {
   node: NodePage;
 };
 
-export type NodePageFieldSectionsUnion = ParagraphButton | ParagraphText;
+export type NodePageFieldSectionsUnion =
+  | ParagraphButton
+  | ParagraphText
+  | ParagraphTwoColumnContent;
 
 export type NodeUnion = NodeArticle | NodePage;
 
@@ -624,7 +627,35 @@ export type ParagraphText = Node &
     text: Text;
   };
 
-export type ParagraphUnion = ParagraphButton | ParagraphSpacer | ParagraphText;
+/** Entity type paragraph. */
+export type ParagraphTwoColumnContent = Node &
+  ParagraphInterface & {
+    __typename?: 'ParagraphTwoColumnContent';
+    /** The time that the Paragraph was created. */
+    created: DateTime;
+    /** First Column */
+    firstColumn?: Maybe<Array<ParagraphTwoColumnContentFieldFirstColumnUnion>>;
+    /** UUID */
+    id: Scalars['ID'];
+    /** Second Column */
+    secondColumn?: Maybe<
+      Array<ParagraphTwoColumnContentFieldSecondColumnUnion>
+    >;
+  };
+
+export type ParagraphTwoColumnContentFieldFirstColumnUnion =
+  | ParagraphButton
+  | ParagraphText;
+
+export type ParagraphTwoColumnContentFieldSecondColumnUnion =
+  | ParagraphButton
+  | ParagraphText;
+
+export type ParagraphUnion =
+  | ParagraphButton
+  | ParagraphSpacer
+  | ParagraphText
+  | ParagraphTwoColumnContent;
 
 /**
  * The schema's entry-point for queries. This acts as the public, top-level API

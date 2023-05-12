@@ -2,6 +2,7 @@ import {
   ParagraphButtonFragment,
   ParagraphSpacerFragment,
   ParagraphTextFragment,
+  ParagraphTwoColumnContentFragment,
 } from '@models/operations';
 import dynamic from 'next/dynamic';
 
@@ -23,10 +24,17 @@ const ParagraphSpacer = dynamic(() =>
   )
 );
 
+const ParagraphTwoColumnContent = dynamic(() =>
+  import('@components/paragraph/ParagraphTwoColumnContent/ParagraphTwoColumnContent').then(
+    (paragraph) => paragraph.ParagraphTwoColumnContent
+  )
+);
+
 export type ParagraphTypes =
   | ParagraphButtonFragment
   | ParagraphTextFragment
   | ParagraphSpacerFragment
+  | ParagraphTwoColumnContentFragment
   | null;
 
 export interface ParagraphsProps {
@@ -50,6 +58,8 @@ const Paragraph = ({ paragraph }: ParagraphProps) => {
       return <ParagraphText key={paragraph.id} paragraph={paragraph} />;
     case 'ParagraphSpacer':
       return <ParagraphSpacer key={paragraph.id} paragraph={paragraph} />;
+    case 'ParagraphTwoColumnContent':
+      return <ParagraphTwoColumnContent key={paragraph.id} paragraph={paragraph} />;
     default:
       return null;
   }
