@@ -21,32 +21,20 @@ function fetcher<TData, TVariables>(query: string, variables?: TVariables) {
     return json.data;
   };
 }
+export const ImageStyleFragment = /*#__PURE__*/ `
+    fragment ImageStyleFragment on ImageStylePathDerivative {
+  __typename
+  height
+  path
+  width
+}
+    `;
 export const ResponsiveImageStyleFragment = /*#__PURE__*/ `
     fragment ResponsiveImageStyleFragment on ResponsiveImageStyleDerivative {
   __typename
   height
   path
   srcSetPath
-  width
-}
-    `;
-export const MediaImageSquareFragment = /*#__PURE__*/ `
-    fragment MediaImageSquareFragment on MediaImage {
-  __typename
-  id
-  mediaImage {
-    alt
-    responsive(name: ASPECT_RATIO_SQUARE_1_1) {
-      ...ResponsiveImageStyleFragment
-    }
-  }
-}
-    `;
-export const ImageStyleFragment = /*#__PURE__*/ `
-    fragment ImageStyleFragment on ImageStylePathDerivative {
-  __typename
-  height
-  path
   width
 }
     `;
@@ -240,6 +228,42 @@ export const NodeArticleFragment = /*#__PURE__*/ `
   }
 }
     `;
+export const MediaImageSquareFragment = /*#__PURE__*/ `
+    fragment MediaImageSquareFragment on MediaImage {
+  __typename
+  id
+  mediaImage {
+    alt
+    responsive(name: ASPECT_RATIO_SQUARE_1_1) {
+      ...ResponsiveImageStyleFragment
+    }
+  }
+}
+    `;
+export const MediaImageLandscapeFragment = /*#__PURE__*/ `
+    fragment MediaImageLandscapeFragment on MediaImage {
+  __typename
+  id
+  mediaImage {
+    alt
+    responsive(name: ASPECT_RATIO_LANDSCAPE_16_9) {
+      ...ResponsiveImageStyleFragment
+    }
+  }
+}
+    `;
+export const ParagraphTeaserFragment = /*#__PURE__*/ `
+    fragment ParagraphTeaserFragment on ParagraphTeaser {
+  __typename
+  id
+  squareImage: image {
+    ...MediaImageSquareFragment
+  }
+  landscapeImage: image {
+    ...MediaImageLandscapeFragment
+  }
+}
+    `;
 export const NodePageFragment = /*#__PURE__*/ `
     fragment NodePageFragment on NodePage {
   __typename
@@ -252,25 +276,8 @@ export const NodePageFragment = /*#__PURE__*/ `
   metatag {
     ...MetaTagFragment
   }
-}
-    `;
-export const NodePageCardFragment = /*#__PURE__*/ `
-    fragment NodePageCardFragment on NodePage {
-  __typename
-  id
-  title
-  path
-}
-    `;
-export const MediaImageLandscapeFragment = /*#__PURE__*/ `
-    fragment MediaImageLandscapeFragment on MediaImage {
-  __typename
-  id
-  mediaImage {
-    alt
-    responsive(name: ASPECT_RATIO_LANDSCAPE_16_9) {
-      ...ResponsiveImageStyleFragment
-    }
+  teaser {
+    ...ParagraphTeaserFragment
   }
 }
     `;
@@ -287,10 +294,24 @@ export const NodeArticleCardFragment = /*#__PURE__*/ `
   }
 }
     `;
+export const NodePageCardFragment = /*#__PURE__*/ `
+    fragment NodePageCardFragment on NodePage {
+  __typename
+  id
+  title
+  path
+  teaser {
+    ...ParagraphTeaserFragment
+  }
+}
+    `;
 export const NodeCardFragment = /*#__PURE__*/ `
     fragment NodeCardFragment on Node {
   ... on NodeArticle {
     ...NodeArticleCardFragment
+  }
+  ... on NodePage {
+    ...NodePageCardFragment
   }
 }
     `;
@@ -377,7 +398,11 @@ ${ParagraphSpacerFragment}
 ${ParagraphTwoColumnContentFragment}
 ${TwoColumnContentFragment}
 ${MetaTagFragment}
-${NodePageFragment}`;
+${NodePageFragment}
+${ParagraphTeaserFragment}
+${MediaImageSquareFragment}
+${ResponsiveImageStyleFragment}
+${MediaImageLandscapeFragment}`;
 export const useGetNodeByPathQuery = <
   TData = OperationTypes.GetNodeByPathQuery,
   TError = unknown
@@ -474,7 +499,10 @@ export const GetNodesQueryDocument = /*#__PURE__*/ `
     ${NodeCardFragment}
 ${NodeArticleCardFragment}
 ${MediaImageLandscapeFragment}
-${ResponsiveImageStyleFragment}`;
+${ResponsiveImageStyleFragment}
+${NodePageCardFragment}
+${ParagraphTeaserFragment}
+${MediaImageSquareFragment}`;
 export const useGetNodesQuery = <
   TData = OperationTypes.GetNodesQuery,
   TError = unknown

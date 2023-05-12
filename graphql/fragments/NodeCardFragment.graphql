@@ -2,4 +2,7 @@ fragment NodeCardFragment on Node {
   ... on NodeArticle {
     ...NodeArticleCardFragment
   }
+  ... on NodePage {
+    ...NodePageCardFragment
+  }
 }

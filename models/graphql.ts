@@ -537,6 +537,8 @@ export type NodePage = Node &
     status: Scalars['Boolean'];
     /** Sticky at top of lists */
     sticky: Scalars['Boolean'];
+    /** Preview image pulled in when post displayed in listings */
+    teaser: ParagraphTeaser;
     /** Title */
     title: Scalars['String'];
   };
@@ -616,6 +618,18 @@ export type ParagraphSpacer = Node &
   };
 
 /** Entity type paragraph. */
+export type ParagraphTeaser = Node &
+  ParagraphInterface & {
+    __typename?: 'ParagraphTeaser';
+    /** The time that the Paragraph was created. */
+    created: DateTime;
+    /** UUID */
+    id: Scalars['ID'];
+    /** Image */
+    image: MediaImage;
+  };
+
+/** Entity type paragraph. */
 export type ParagraphText = Node &
   ParagraphInterface & {
     __typename?: 'ParagraphText';
@@ -654,6 +668,7 @@ export type ParagraphTwoColumnContentFieldSecondColumnUnion =
 export type ParagraphUnion =
   | ParagraphButton
   | ParagraphSpacer
+  | ParagraphTeaser
   | ParagraphText
   | ParagraphTwoColumnContent;
 

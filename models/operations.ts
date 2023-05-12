@@ -304,6 +304,40 @@ export type NodePageFragment = {
         };
       }
   >;
+  teaser: {
+    __typename: 'ParagraphTeaser';
+    id: string;
+    squareImage: {
+      __typename: 'MediaImage';
+      id: string;
+      mediaImage: {
+        __typename?: 'Image';
+        alt?: string | null;
+        responsive?: {
+          __typename: 'ResponsiveImageStyleDerivative';
+          height?: number | null;
+          path?: string | null;
+          srcSetPath?: string | null;
+          width?: number | null;
+        } | null;
+      };
+    };
+    landscapeImage: {
+      __typename: 'MediaImage';
+      id: string;
+      mediaImage: {
+        __typename?: 'Image';
+        alt?: string | null;
+        responsive?: {
+          __typename: 'ResponsiveImageStyleDerivative';
+          height?: number | null;
+          path?: string | null;
+          srcSetPath?: string | null;
+          width?: number | null;
+        } | null;
+      };
+    };
+  };
 };
 
 export type NodePageCardFragment = {
@@ -311,6 +345,40 @@ export type NodePageCardFragment = {
   id: string;
   title: string;
   path: string;
+  teaser: {
+    __typename: 'ParagraphTeaser';
+    id: string;
+    squareImage: {
+      __typename: 'MediaImage';
+      id: string;
+      mediaImage: {
+        __typename?: 'Image';
+        alt?: string | null;
+        responsive?: {
+          __typename: 'ResponsiveImageStyleDerivative';
+          height?: number | null;
+          path?: string | null;
+          srcSetPath?: string | null;
+          width?: number | null;
+        } | null;
+      };
+    };
+    landscapeImage: {
+      __typename: 'MediaImage';
+      id: string;
+      mediaImage: {
+        __typename?: 'Image';
+        alt?: string | null;
+        responsive?: {
+          __typename: 'ResponsiveImageStyleDerivative';
+          height?: number | null;
+          path?: string | null;
+          srcSetPath?: string | null;
+          width?: number | null;
+        } | null;
+      };
+    };
+  };
 };
 
 export type ParagraphButtonFragment = {
@@ -324,6 +392,41 @@ export type ParagraphSpacerFragment = {
   id: string;
   spacerSize: string;
   spacerLine?: boolean | null;
+};
+
+export type ParagraphTeaserFragment = {
+  __typename: 'ParagraphTeaser';
+  id: string;
+  squareImage: {
+    __typename: 'MediaImage';
+    id: string;
+    mediaImage: {
+      __typename?: 'Image';
+      alt?: string | null;
+      responsive?: {
+        __typename: 'ResponsiveImageStyleDerivative';
+        height?: number | null;
+        path?: string | null;
+        srcSetPath?: string | null;
+        width?: number | null;
+      } | null;
+    };
+  };
+  landscapeImage: {
+    __typename: 'MediaImage';
+    id: string;
+    mediaImage: {
+      __typename?: 'Image';
+      alt?: string | null;
+      responsive?: {
+        __typename: 'ResponsiveImageStyleDerivative';
+        height?: number | null;
+        path?: string | null;
+        srcSetPath?: string | null;
+        width?: number | null;
+      } | null;
+    };
+  };
 };
 
 export type ParagraphTextFragment = {
@@ -345,6 +448,10 @@ type TwoColumnContentFragment_ParagraphSpacer_ = {
   spacerLine?: boolean | null;
 };
 
+type TwoColumnContentFragment_ParagraphTeaser_ = {
+  __typename?: 'ParagraphTeaser';
+};
+
 type TwoColumnContentFragment_ParagraphText_ = {
   __typename: 'ParagraphText';
   id: string;
@@ -358,6 +465,7 @@ type TwoColumnContentFragment_ParagraphTwoColumnContent_ = {
 export type TwoColumnContentFragment =
   | TwoColumnContentFragment_ParagraphButton_
   | TwoColumnContentFragment_ParagraphSpacer_
+  | TwoColumnContentFragment_ParagraphTeaser_
   | TwoColumnContentFragment_ParagraphText_
   | TwoColumnContentFragment_ParagraphTwoColumnContent_;
 
@@ -469,11 +577,52 @@ type NodeCardFragment_NodeArticle_ = {
   } | null;
 };
 
-type NodeCardFragment_NodePage_ = { __typename?: 'NodePage' };
+type NodeCardFragment_NodePage_ = {
+  __typename: 'NodePage';
+  id: string;
+  title: string;
+  path: string;
+  teaser: {
+    __typename: 'ParagraphTeaser';
+    id: string;
+    squareImage: {
+      __typename: 'MediaImage';
+      id: string;
+      mediaImage: {
+        __typename?: 'Image';
+        alt?: string | null;
+        responsive?: {
+          __typename: 'ResponsiveImageStyleDerivative';
+          height?: number | null;
+          path?: string | null;
+          srcSetPath?: string | null;
+          width?: number | null;
+        } | null;
+      };
+    };
+    landscapeImage: {
+      __typename: 'MediaImage';
+      id: string;
+      mediaImage: {
+        __typename?: 'Image';
+        alt?: string | null;
+        responsive?: {
+          __typename: 'ResponsiveImageStyleDerivative';
+          height?: number | null;
+          path?: string | null;
+          srcSetPath?: string | null;
+          width?: number | null;
+        } | null;
+      };
+    };
+  };
+};
 
 type NodeCardFragment_ParagraphButton_ = { __typename?: 'ParagraphButton' };
 
 type NodeCardFragment_ParagraphSpacer_ = { __typename?: 'ParagraphSpacer' };
+
+type NodeCardFragment_ParagraphTeaser_ = { __typename?: 'ParagraphTeaser' };
 
 type NodeCardFragment_ParagraphText_ = { __typename?: 'ParagraphText' };
 
@@ -490,6 +639,7 @@ export type NodeCardFragment =
   | NodeCardFragment_NodePage_
   | NodeCardFragment_ParagraphButton_
   | NodeCardFragment_ParagraphSpacer_
+  | NodeCardFragment_ParagraphTeaser_
   | NodeCardFragment_ParagraphText_
   | NodeCardFragment_ParagraphTwoColumnContent_;
 
@@ -505,6 +655,8 @@ type ParagraphsFragment_ParagraphSpacer_ = {
   spacerSize: string;
   spacerLine?: boolean | null;
 };
+
+type ParagraphsFragment_ParagraphTeaser_ = { __typename?: 'ParagraphTeaser' };
 
 type ParagraphsFragment_ParagraphText_ = {
   __typename: 'ParagraphText';
@@ -552,6 +704,7 @@ type ParagraphsFragment_ParagraphTwoColumnContent_ = {
 export type ParagraphsFragment =
   | ParagraphsFragment_ParagraphButton_
   | ParagraphsFragment_ParagraphSpacer_
+  | ParagraphsFragment_ParagraphTeaser_
   | ParagraphsFragment_ParagraphText_
   | ParagraphsFragment_ParagraphTwoColumnContent_;
 
@@ -776,6 +929,40 @@ export type GetNodeByPathQuery = {
                     };
                   }
               >;
+              teaser: {
+                __typename: 'ParagraphTeaser';
+                id: string;
+                squareImage: {
+                  __typename: 'MediaImage';
+                  id: string;
+                  mediaImage: {
+                    __typename?: 'Image';
+                    alt?: string | null;
+                    responsive?: {
+                      __typename: 'ResponsiveImageStyleDerivative';
+                      height?: number | null;
+                      path?: string | null;
+                      srcSetPath?: string | null;
+                      width?: number | null;
+                    } | null;
+                  };
+                };
+                landscapeImage: {
+                  __typename: 'MediaImage';
+                  id: string;
+                  mediaImage: {
+                    __typename?: 'Image';
+                    alt?: string | null;
+                    responsive?: {
+                      __typename: 'ResponsiveImageStyleDerivative';
+                      height?: number | null;
+                      path?: string | null;
+                      srcSetPath?: string | null;
+                      width?: number | null;
+                    } | null;
+                  };
+                };
+              };
             }
           | null;
       }
@@ -840,7 +1027,46 @@ export type GetNodesQuery = {
             };
           } | null;
         }
-      | { __typename?: 'NodePage' }
+      | {
+          __typename: 'NodePage';
+          id: string;
+          title: string;
+          path: string;
+          teaser: {
+            __typename: 'ParagraphTeaser';
+            id: string;
+            squareImage: {
+              __typename: 'MediaImage';
+              id: string;
+              mediaImage: {
+                __typename?: 'Image';
+                alt?: string | null;
+                responsive?: {
+                  __typename: 'ResponsiveImageStyleDerivative';
+                  height?: number | null;
+                  path?: string | null;
+                  srcSetPath?: string | null;
+                  width?: number | null;
+                } | null;
+              };
+            };
+            landscapeImage: {
+              __typename: 'MediaImage';
+              id: string;
+              mediaImage: {
+                __typename?: 'Image';
+                alt?: string | null;
+                responsive?: {
+                  __typename: 'ResponsiveImageStyleDerivative';
+                  height?: number | null;
+                  path?: string | null;
+                  srcSetPath?: string | null;
+                  width?: number | null;
+                } | null;
+              };
+            };
+          };
+        }
     >;
     pageInfo: {
       __typename?: 'ConnectionPageInfo';
