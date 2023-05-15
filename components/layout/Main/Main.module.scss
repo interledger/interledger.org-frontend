@@ -13,5 +13,7 @@
   main {
     padding: rem(60px) 0;
     min-width: 0; // Fixes swiper layout issues
+    overflow: hidden; // to contain background swirl
+    position: relative; // to contain background swirl
   }
 }

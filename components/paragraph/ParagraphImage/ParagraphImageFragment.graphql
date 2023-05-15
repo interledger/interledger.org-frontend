@@ -1,0 +1,7 @@
+fragment ParagraphImageFragment on ParagraphImage {
+  __typename
+  id
+  image {
+    ...MediaImageSquareFragment
+  }
+}

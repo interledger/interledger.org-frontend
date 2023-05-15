@@ -233,6 +233,42 @@ export type NodePageFragment = {
           title?: string | null;
         };
       }
+    | { __typename?: 'ParagraphContentTitle' }
+    | {
+        __typename: 'ParagraphHighlightedList';
+        id: string;
+        listItem?: Array<string> | null;
+      }
+    | {
+        __typename: 'ParagraphImage';
+        id: string;
+        image: {
+          __typename: 'MediaImage';
+          id: string;
+          mediaImage: {
+            __typename?: 'Image';
+            alt?: string | null;
+            responsive?: {
+              __typename: 'ResponsiveImageStyleDerivative';
+              height?: number | null;
+              path?: string | null;
+              srcSetPath?: string | null;
+              width?: number | null;
+            } | null;
+          };
+        };
+      }
+    | {
+        __typename: 'ParagraphLargeCalloutText';
+        id: string;
+        largeCalloutText?: string | null;
+      }
+    | {
+        __typename: 'ParagraphSpacer';
+        id: string;
+        spacerSize: string;
+        spacerLine?: boolean | null;
+      }
     | {
         __typename: 'ParagraphText';
         id: string;
@@ -252,6 +288,17 @@ export type NodePageFragment = {
               };
             }
           | {
+              __typename: 'ParagraphContentTitle';
+              id: string;
+              title?: string | null;
+            }
+          | {
+              __typename: 'ParagraphSpacer';
+              id: string;
+              spacerSize: string;
+              spacerLine?: boolean | null;
+            }
+          | {
               __typename: 'ParagraphText';
               id: string;
               text: { __typename?: 'Text'; processed?: any | null };
@@ -266,6 +313,17 @@ export type NodePageFragment = {
                 url?: string | null;
                 title?: string | null;
               };
+            }
+          | {
+              __typename: 'ParagraphContentTitle';
+              id: string;
+              title?: string | null;
+            }
+          | {
+              __typename: 'ParagraphSpacer';
+              id: string;
+              spacerSize: string;
+              spacerLine?: boolean | null;
             }
           | {
               __typename: 'ParagraphText';
@@ -387,6 +445,44 @@ export type ParagraphButtonFragment = {
   link: { __typename?: 'Link'; url?: string | null; title?: string | null };
 };
 
+export type ParagraphContentTitleFragment = {
+  __typename: 'ParagraphContentTitle';
+  id: string;
+  title?: string | null;
+};
+
+export type ParagraphHighlightedListFragment = {
+  __typename: 'ParagraphHighlightedList';
+  id: string;
+  listItem?: Array<string> | null;
+};
+
+export type ParagraphImageFragment = {
+  __typename: 'ParagraphImage';
+  id: string;
+  image: {
+    __typename: 'MediaImage';
+    id: string;
+    mediaImage: {
+      __typename?: 'Image';
+      alt?: string | null;
+      responsive?: {
+        __typename: 'ResponsiveImageStyleDerivative';
+        height?: number | null;
+        path?: string | null;
+        srcSetPath?: string | null;
+        width?: number | null;
+      } | null;
+    };
+  };
+};
+
+export type ParagraphLargeCalloutTextFragment = {
+  __typename: 'ParagraphLargeCalloutText';
+  id: string;
+  largeCalloutText?: string | null;
+};
+
 export type ParagraphSpacerFragment = {
   __typename: 'ParagraphSpacer';
   id: string;
@@ -441,6 +537,24 @@ type TwoColumnContentFragment_ParagraphButton_ = {
   link: { __typename?: 'Link'; url?: string | null; title?: string | null };
 };
 
+type TwoColumnContentFragment_ParagraphContentTitle_ = {
+  __typename: 'ParagraphContentTitle';
+  id: string;
+  title?: string | null;
+};
+
+type TwoColumnContentFragment_ParagraphHighlightedList_ = {
+  __typename?: 'ParagraphHighlightedList';
+};
+
+type TwoColumnContentFragment_ParagraphImage_ = {
+  __typename?: 'ParagraphImage';
+};
+
+type TwoColumnContentFragment_ParagraphLargeCalloutText_ = {
+  __typename?: 'ParagraphLargeCalloutText';
+};
+
 type TwoColumnContentFragment_ParagraphSpacer_ = {
   __typename: 'ParagraphSpacer';
   id: string;
@@ -464,6 +578,10 @@ type TwoColumnContentFragment_ParagraphTwoColumnContent_ = {
 
 export type TwoColumnContentFragment =
   | TwoColumnContentFragment_ParagraphButton_
+  | TwoColumnContentFragment_ParagraphContentTitle_
+  | TwoColumnContentFragment_ParagraphHighlightedList_
+  | TwoColumnContentFragment_ParagraphImage_
+  | TwoColumnContentFragment_ParagraphLargeCalloutText_
   | TwoColumnContentFragment_ParagraphSpacer_
   | TwoColumnContentFragment_ParagraphTeaser_
   | TwoColumnContentFragment_ParagraphText_
@@ -482,6 +600,13 @@ export type ParagraphTwoColumnContentFragment = {
           title?: string | null;
         };
       }
+    | { __typename: 'ParagraphContentTitle'; id: string; title?: string | null }
+    | {
+        __typename: 'ParagraphSpacer';
+        id: string;
+        spacerSize: string;
+        spacerLine?: boolean | null;
+      }
     | {
         __typename: 'ParagraphText';
         id: string;
@@ -497,6 +622,13 @@ export type ParagraphTwoColumnContentFragment = {
           url?: string | null;
           title?: string | null;
         };
+      }
+    | { __typename: 'ParagraphContentTitle'; id: string; title?: string | null }
+    | {
+        __typename: 'ParagraphSpacer';
+        id: string;
+        spacerSize: string;
+        spacerLine?: boolean | null;
       }
     | {
         __typename: 'ParagraphText';
@@ -620,6 +752,20 @@ type NodeCardFragment_NodePage_ = {
 
 type NodeCardFragment_ParagraphButton_ = { __typename?: 'ParagraphButton' };
 
+type NodeCardFragment_ParagraphContentTitle_ = {
+  __typename?: 'ParagraphContentTitle';
+};
+
+type NodeCardFragment_ParagraphHighlightedList_ = {
+  __typename?: 'ParagraphHighlightedList';
+};
+
+type NodeCardFragment_ParagraphImage_ = { __typename?: 'ParagraphImage' };
+
+type NodeCardFragment_ParagraphLargeCalloutText_ = {
+  __typename?: 'ParagraphLargeCalloutText';
+};
+
 type NodeCardFragment_ParagraphSpacer_ = { __typename?: 'ParagraphSpacer' };
 
 type NodeCardFragment_ParagraphTeaser_ = { __typename?: 'ParagraphTeaser' };
@@ -638,6 +784,10 @@ export type NodeCardFragment =
   | NodeCardFragment_NodeArticle_
   | NodeCardFragment_NodePage_
   | NodeCardFragment_ParagraphButton_
+  | NodeCardFragment_ParagraphContentTitle_
+  | NodeCardFragment_ParagraphHighlightedList_
+  | NodeCardFragment_ParagraphImage_
+  | NodeCardFragment_ParagraphLargeCalloutText_
   | NodeCardFragment_ParagraphSpacer_
   | NodeCardFragment_ParagraphTeaser_
   | NodeCardFragment_ParagraphText_
@@ -647,6 +797,42 @@ type ParagraphsFragment_ParagraphButton_ = {
   __typename: 'ParagraphButton';
   id: string;
   link: { __typename?: 'Link'; url?: string | null; title?: string | null };
+};
+
+type ParagraphsFragment_ParagraphContentTitle_ = {
+  __typename?: 'ParagraphContentTitle';
+};
+
+type ParagraphsFragment_ParagraphHighlightedList_ = {
+  __typename: 'ParagraphHighlightedList';
+  id: string;
+  listItem?: Array<string> | null;
+};
+
+type ParagraphsFragment_ParagraphImage_ = {
+  __typename: 'ParagraphImage';
+  id: string;
+  image: {
+    __typename: 'MediaImage';
+    id: string;
+    mediaImage: {
+      __typename?: 'Image';
+      alt?: string | null;
+      responsive?: {
+        __typename: 'ResponsiveImageStyleDerivative';
+        height?: number | null;
+        path?: string | null;
+        srcSetPath?: string | null;
+        width?: number | null;
+      } | null;
+    };
+  };
+};
+
+type ParagraphsFragment_ParagraphLargeCalloutText_ = {
+  __typename: 'ParagraphLargeCalloutText';
+  id: string;
+  largeCalloutText?: string | null;
 };
 
 type ParagraphsFragment_ParagraphSpacer_ = {
@@ -677,6 +863,13 @@ type ParagraphsFragment_ParagraphTwoColumnContent_ = {
           title?: string | null;
         };
       }
+    | { __typename: 'ParagraphContentTitle'; id: string; title?: string | null }
+    | {
+        __typename: 'ParagraphSpacer';
+        id: string;
+        spacerSize: string;
+        spacerLine?: boolean | null;
+      }
     | {
         __typename: 'ParagraphText';
         id: string;
@@ -693,6 +886,13 @@ type ParagraphsFragment_ParagraphTwoColumnContent_ = {
           title?: string | null;
         };
       }
+    | { __typename: 'ParagraphContentTitle'; id: string; title?: string | null }
+    | {
+        __typename: 'ParagraphSpacer';
+        id: string;
+        spacerSize: string;
+        spacerLine?: boolean | null;
+      }
     | {
         __typename: 'ParagraphText';
         id: string;
@@ -703,6 +903,10 @@ type ParagraphsFragment_ParagraphTwoColumnContent_ = {
 
 export type ParagraphsFragment =
   | ParagraphsFragment_ParagraphButton_
+  | ParagraphsFragment_ParagraphContentTitle_
+  | ParagraphsFragment_ParagraphHighlightedList_
+  | ParagraphsFragment_ParagraphImage_
+  | ParagraphsFragment_ParagraphLargeCalloutText_
   | ParagraphsFragment_ParagraphSpacer_
   | ParagraphsFragment_ParagraphTeaser_
   | ParagraphsFragment_ParagraphText_
@@ -858,6 +1062,42 @@ export type GetNodeByPathQuery = {
                       title?: string | null;
                     };
                   }
+                | { __typename?: 'ParagraphContentTitle' }
+                | {
+                    __typename: 'ParagraphHighlightedList';
+                    id: string;
+                    listItem?: Array<string> | null;
+                  }
+                | {
+                    __typename: 'ParagraphImage';
+                    id: string;
+                    image: {
+                      __typename: 'MediaImage';
+                      id: string;
+                      mediaImage: {
+                        __typename?: 'Image';
+                        alt?: string | null;
+                        responsive?: {
+                          __typename: 'ResponsiveImageStyleDerivative';
+                          height?: number | null;
+                          path?: string | null;
+                          srcSetPath?: string | null;
+                          width?: number | null;
+                        } | null;
+                      };
+                    };
+                  }
+                | {
+                    __typename: 'ParagraphLargeCalloutText';
+                    id: string;
+                    largeCalloutText?: string | null;
+                  }
+                | {
+                    __typename: 'ParagraphSpacer';
+                    id: string;
+                    spacerSize: string;
+                    spacerLine?: boolean | null;
+                  }
                 | {
                     __typename: 'ParagraphText';
                     id: string;
@@ -877,6 +1117,17 @@ export type GetNodeByPathQuery = {
                           };
                         }
                       | {
+                          __typename: 'ParagraphContentTitle';
+                          id: string;
+                          title?: string | null;
+                        }
+                      | {
+                          __typename: 'ParagraphSpacer';
+                          id: string;
+                          spacerSize: string;
+                          spacerLine?: boolean | null;
+                        }
+                      | {
                           __typename: 'ParagraphText';
                           id: string;
                           text: { __typename?: 'Text'; processed?: any | null };
@@ -891,6 +1142,17 @@ export type GetNodeByPathQuery = {
                             url?: string | null;
                             title?: string | null;
                           };
+                        }
+                      | {
+                          __typename: 'ParagraphContentTitle';
+                          id: string;
+                          title?: string | null;
+                        }
+                      | {
+                          __typename: 'ParagraphSpacer';
+                          id: string;
+                          spacerSize: string;
+                          spacerLine?: boolean | null;
                         }
                       | {
                           __typename: 'ParagraphText';

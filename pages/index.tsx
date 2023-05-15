@@ -5,6 +5,7 @@ import { getRouteEntity } from '@graphql/helpers';
 import { useGetNodeByPathQuery } from '@graphql/hooks';
 import { dehydrate } from '@tanstack/react-query';
 import { GetStaticProps, NextPage } from 'next';
+import { BackgroundSwirl } from '@components/ui/BackgroundSwirl/BackgroundSwirl';
 
 interface HomeProps {
   slug: string;
@@ -24,6 +25,7 @@ const Home: NextPage<HomeProps> = ({ slug }) => {
     <>
       {page?.metatag && <MetaTag metatags={page.metatag} />}
       {page && <NodePage node={page} />}
+      <BackgroundSwirl />
     </>
   );
 };

@@ -9,6 +9,9 @@ fragment NodePageFragment on NodePage {
   metatag {
     ...MetaTagFragment
   }
+  teaser {
+    ...ParagraphTeaserFragment
+  }
 }
 
 fragment NodePageCardFragment on NodePage {
@@ -16,4 +19,7 @@ fragment NodePageCardFragment on NodePage {
   id
   title
   path
+  teaser {
+    ...ParagraphTeaserFragment
+  }
 }

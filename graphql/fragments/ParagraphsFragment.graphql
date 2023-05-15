@@ -11,4 +11,13 @@ fragment ParagraphsFragment on ParagraphInterface {
   ... on ParagraphTwoColumnContent {
     ...ParagraphTwoColumnContentFragment
   }
+  ... on ParagraphLargeCalloutText {
+    ...ParagraphLargeCalloutTextFragment
+  }
+  ... on ParagraphHighlightedList {
+    ...ParagraphHighlightedListFragment
+  }
+  ... on ParagraphImage {
+    ...ParagraphImageFragment
+  }
 }

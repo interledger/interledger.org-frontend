@@ -7,6 +7,7 @@ import { NodeArticleFragment, NodePageFragment } from '@models/operations';
 import { QueryClient, dehydrate } from '@tanstack/react-query';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import dynamic from 'next/dynamic';
+import { BackgroundSwirl } from '@components/ui/BackgroundSwirl/BackgroundSwirl';
 
 const NodeArticle = dynamic(() =>
   import('@components/node/NodeArticle/NodeArticle').then(
@@ -52,6 +53,7 @@ const BasicPage: NextPage<BasicProps> = ({ slug }) => {
     <>
       {page && 'metatag' in page && <MetaTag metatags={page.metatag} />}
       {page && <NodeSelector node={page} />}
+      <BackgroundSwirl />
     </>
   );
 };

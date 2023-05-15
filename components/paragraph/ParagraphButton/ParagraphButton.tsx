@@ -2,6 +2,7 @@ import cn from 'classnames';
 import { ParagraphButtonFragment } from '@models/operations';
 import styles from './ParagraphButton.module.scss';
 import { ButtonLink } from '@components/ui/Button/ButtonLink';
+import { MediaImage } from '@components/media/MediaImage/MediaImage';
 
 export interface ParagraphButtonProps {
   /** Optional className for ParagraphButton, pass in a sass module class to override component default */
@@ -22,6 +23,7 @@ export const ParagraphButton = ({
   return (
     <section className={rootClassName}>
       <ButtonLink href={paragraph.link.url}>{paragraph.link.title}</ButtonLink>
+      <img src="icon-arrow.svg" alt="" />
     </section>
   );
 };

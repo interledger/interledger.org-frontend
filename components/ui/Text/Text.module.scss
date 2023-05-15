@@ -40,9 +40,13 @@
 }
 
 .body1 {
-  font-size: rem(15px);
   margin-bottom: 1rem;
   line-height: 1.466;
+  font-size: rem(18px);
+
+  @include mq($from: tablet) {
+    font-size: rem(25px);
+  }
 }
 
 .body2 {

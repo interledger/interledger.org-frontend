@@ -4,4 +4,27 @@
 @use '@styles/base/variables' as *;
 @use '@styles/base/helpers' as *;
 
-.root {}
+.root {
+  display: flex;
+  flex-direction: column;
+  grid-column-gap: 30px;
+  gap: 30px;
+
+  @include mq($from: tablet) {
+    flex-direction: row;
+  }
+
+  .column {
+    width: calc(90%);
+
+    @include mq($from: tablet) {
+      width: calc(50% - 30px);
+    }
+  }
+
+  .firstColumn {
+  }
+
+  .secondColumn {
+  }
+}

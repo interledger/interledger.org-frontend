@@ -18,12 +18,12 @@ export const ParagraphTwoColumnContent = ({ className, paragraph }: ParagraphTwo
   return (
     <div className={rootClassName}>
       {paragraph.firstColumn && (
-        <div className="left">
+        <div className={cn(styles.column, styles.firstColumn)}>
           <Paragraphs paragraphs={paragraph.firstColumn} />
         </div>
       )}
       {paragraph.secondColumn && (
-        <div className="left">
+        <div className={cn(styles.column, styles.secondColumn)}>
           <Paragraphs paragraphs={paragraph.secondColumn} />
         </div>
       )}

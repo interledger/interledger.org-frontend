@@ -147,6 +147,13 @@ export const ParagraphSpacerFragment = /*#__PURE__*/ `
   spacerLine
 }
     `;
+export const ParagraphContentTitleFragment = /*#__PURE__*/ `
+    fragment ParagraphContentTitleFragment on ParagraphContentTitle {
+  __typename
+  id
+  title
+}
+    `;
 export const TwoColumnContentFragment = /*#__PURE__*/ `
     fragment TwoColumnContentFragment on ParagraphInterface {
   ... on ParagraphButton {
@@ -154,6 +161,12 @@ export const TwoColumnContentFragment = /*#__PURE__*/ `
   }
   ... on ParagraphText {
     ...ParagraphTextFragment
+  }
+  ... on ParagraphSpacer {
+    ...ParagraphSpacerFragment
+  }
+  ... on ParagraphContentTitle {
+    ...ParagraphContentTitleFragment
   }
   ... on ParagraphSpacer {
     ...ParagraphSpacerFragment
@@ -172,6 +185,41 @@ export const ParagraphTwoColumnContentFragment = /*#__PURE__*/ `
   }
 }
     `;
+export const ParagraphLargeCalloutTextFragment = /*#__PURE__*/ `
+    fragment ParagraphLargeCalloutTextFragment on ParagraphLargeCalloutText {
+  __typename
+  id
+  largeCalloutText
+}
+    `;
+export const ParagraphHighlightedListFragment = /*#__PURE__*/ `
+    fragment ParagraphHighlightedListFragment on ParagraphHighlightedList {
+  __typename
+  id
+  listItem
+}
+    `;
+export const MediaImageSquareFragment = /*#__PURE__*/ `
+    fragment MediaImageSquareFragment on MediaImage {
+  __typename
+  id
+  mediaImage {
+    alt
+    responsive(name: ASPECT_RATIO_SQUARE_1_1) {
+      ...ResponsiveImageStyleFragment
+    }
+  }
+}
+    `;
+export const ParagraphImageFragment = /*#__PURE__*/ `
+    fragment ParagraphImageFragment on ParagraphImage {
+  __typename
+  id
+  image {
+    ...MediaImageSquareFragment
+  }
+}
+    `;
 export const ParagraphsFragment = /*#__PURE__*/ `
     fragment ParagraphsFragment on ParagraphInterface {
   ... on ParagraphButton {
@@ -185,6 +233,15 @@ export const ParagraphsFragment = /*#__PURE__*/ `
   }
   ... on ParagraphTwoColumnContent {
     ...ParagraphTwoColumnContentFragment
+  }
+  ... on ParagraphLargeCalloutText {
+    ...ParagraphLargeCalloutTextFragment
+  }
+  ... on ParagraphHighlightedList {
+    ...ParagraphHighlightedListFragment
+  }
+  ... on ParagraphImage {
+    ...ParagraphImageFragment
   }
 }
     `;
@@ -225,18 +282,6 @@ export const NodeArticleFragment = /*#__PURE__*/ `
   }
   metatag {
     ...MetaTagFragment
-  }
-}
-    `;
-export const MediaImageSquareFragment = /*#__PURE__*/ `
-    fragment MediaImageSquareFragment on MediaImage {
-  __typename
-  id
-  mediaImage {
-    alt
-    responsive(name: ASPECT_RATIO_SQUARE_1_1) {
-      ...ResponsiveImageStyleFragment
-    }
   }
 }
     `;
@@ -397,11 +442,15 @@ ${ParagraphTextFragment}
 ${ParagraphSpacerFragment}
 ${ParagraphTwoColumnContentFragment}
 ${TwoColumnContentFragment}
+${ParagraphContentTitleFragment}
+${ParagraphLargeCalloutTextFragment}
+${ParagraphHighlightedListFragment}
+${ParagraphImageFragment}
+${MediaImageSquareFragment}
+${ResponsiveImageStyleFragment}
 ${MetaTagFragment}
 ${NodePageFragment}
 ${ParagraphTeaserFragment}
-${MediaImageSquareFragment}
-${ResponsiveImageStyleFragment}
 ${MediaImageLandscapeFragment}`;
 export const useGetNodeByPathQuery = <
   TData = OperationTypes.GetNodeByPathQuery,

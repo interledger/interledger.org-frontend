@@ -16,7 +16,6 @@ export interface ParagraphTeaserProps {
 
 export const ParagraphTeaser = ({ className, paragraph, imageType }: ParagraphTeaserProps) => {
   const rootClassName = cn(styles.root, className);
-  let image = '';
   return (
     <div className={rootClassName}>
       <MediaImage media={paragraph[imageType]} fit />

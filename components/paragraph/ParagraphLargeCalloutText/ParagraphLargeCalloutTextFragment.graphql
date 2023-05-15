@@ -1,0 +1,5 @@
+fragment ParagraphLargeCalloutTextFragment on ParagraphLargeCalloutText {
+  __typename
+  id
+  largeCalloutText
+}

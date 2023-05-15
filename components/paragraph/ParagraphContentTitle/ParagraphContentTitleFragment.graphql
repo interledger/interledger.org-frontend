@@ -1,0 +1,5 @@
+fragment ParagraphContentTitleFragment on ParagraphContentTitle {
+  __typename
+  id
+  title
+}

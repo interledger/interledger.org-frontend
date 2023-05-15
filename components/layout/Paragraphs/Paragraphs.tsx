@@ -3,8 +3,36 @@ import {
   ParagraphSpacerFragment,
   ParagraphTextFragment,
   ParagraphTwoColumnContentFragment,
+  ParagraphLargeCalloutTextFragment,
+  ParagraphContentTitleFragment,
+  ParagraphHighlightedListFragment,
+  ParagraphImageFragment,
 } from '@models/operations';
 import dynamic from 'next/dynamic';
+
+const ParagraphImage = dynamic(() =>
+  import('@components/paragraph/ParagraphImage/ParagraphImage').then(
+    (paragraph) => paragraph.ParagraphImage
+  )
+);
+
+const ParagraphHighlightedList = dynamic(() =>
+  import('@components/paragraph/ParagraphHighlightedList/ParagraphHighlightedList').then(
+    (paragraph) => paragraph.ParagraphHighlightedList
+  )
+);
+
+const ParagraphContentTitle = dynamic(() =>
+  import('@components/paragraph/ParagraphContentTitle/ParagraphContentTitle').then(
+    (paragraph) => paragraph.ParagraphContentTitle
+  )
+);
+
+const ParagraphLargeCalloutText = dynamic(() =>
+  import('@components/paragraph/ParagraphLargeCalloutText/ParagraphLargeCalloutText').then(
+    (paragraph) => paragraph.ParagraphLargeCalloutText
+  )
+);
 
 const ParagraphButton = dynamic(() =>
   import('@components/paragraph/ParagraphButton/ParagraphButton').then(
@@ -31,10 +59,14 @@ const ParagraphTwoColumnContent = dynamic(() =>
 );
 
 export type ParagraphTypes =
+  | ParagraphLargeCalloutTextFragment
   | ParagraphButtonFragment
   | ParagraphTextFragment
   | ParagraphSpacerFragment
   | ParagraphTwoColumnContentFragment
+  | ParagraphContentTitleFragment
+  | ParagraphHighlightedListFragment
+  | ParagraphImageFragment
   | null;
 
 export interface ParagraphsProps {
@@ -52,6 +84,14 @@ const Paragraph = ({ paragraph }: ParagraphProps) => {
   }
 
   switch (paragraph.__typename) {
+    case 'ParagraphImage':
+      return <ParagraphImage key={paragraph.id} paragraph={paragraph} />;
+    case 'ParagraphContentTitle':
+      return <ParagraphContentTitle key={paragraph.id} paragraph={paragraph} />;
+    case 'ParagraphHighlightedList':
+      return <ParagraphHighlightedList key={paragraph.id} paragraph={paragraph} />;
+    case 'ParagraphLargeCalloutText':
+      return <ParagraphLargeCalloutText key={paragraph.id} paragraph={paragraph} />;
     case 'ParagraphButton':
       return <ParagraphButton key={paragraph.id} paragraph={paragraph} />;
     case 'ParagraphText':

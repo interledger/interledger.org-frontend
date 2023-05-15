@@ -560,6 +560,11 @@ export type NodePageEdge = Edge & {
 
 export type NodePageFieldSectionsUnion =
   | ParagraphButton
+  | ParagraphContentTitle
+  | ParagraphHighlightedList
+  | ParagraphImage
+  | ParagraphLargeCalloutText
+  | ParagraphSpacer
   | ParagraphText
   | ParagraphTwoColumnContent;
 
@@ -596,12 +601,60 @@ export type ParagraphButton = Node &
   };
 
 /** Entity type paragraph. */
+export type ParagraphContentTitle = Node &
+  ParagraphInterface & {
+    __typename?: 'ParagraphContentTitle';
+    /** The time that the Paragraph was created. */
+    created: DateTime;
+    /** UUID */
+    id: Scalars['ID'];
+    /** Content Title */
+    title?: Maybe<Scalars['String']>;
+  };
+
+/** Entity type paragraph. */
+export type ParagraphHighlightedList = Node &
+  ParagraphInterface & {
+    __typename?: 'ParagraphHighlightedList';
+    /** The time that the Paragraph was created. */
+    created: DateTime;
+    /** UUID */
+    id: Scalars['ID'];
+    /** List Item */
+    listItem?: Maybe<Array<Scalars['String']>>;
+  };
+
+/** Entity type paragraph. */
+export type ParagraphImage = Node &
+  ParagraphInterface & {
+    __typename?: 'ParagraphImage';
+    /** The time that the Paragraph was created. */
+    created: DateTime;
+    /** UUID */
+    id: Scalars['ID'];
+    /** Image */
+    image: MediaImage;
+  };
+
+/** Entity type paragraph. */
 export type ParagraphInterface = {
   /** The time that the Paragraph was created. */
   created?: Maybe<DateTime>;
   /** UUID */
   id?: Maybe<Scalars['ID']>;
 };
+
+/** Entity type paragraph. */
+export type ParagraphLargeCalloutText = Node &
+  ParagraphInterface & {
+    __typename?: 'ParagraphLargeCalloutText';
+    /** The time that the Paragraph was created. */
+    created: DateTime;
+    /** UUID */
+    id: Scalars['ID'];
+    /** Large Callout Text */
+    largeCalloutText?: Maybe<Scalars['String']>;
+  };
 
 /** Entity type paragraph. */
 export type ParagraphSpacer = Node &
@@ -659,14 +712,22 @@ export type ParagraphTwoColumnContent = Node &
 
 export type ParagraphTwoColumnContentFieldFirstColumnUnion =
   | ParagraphButton
+  | ParagraphContentTitle
+  | ParagraphSpacer
   | ParagraphText;
 
 export type ParagraphTwoColumnContentFieldSecondColumnUnion =
   | ParagraphButton
+  | ParagraphContentTitle
+  | ParagraphSpacer
   | ParagraphText;
 
 export type ParagraphUnion =
   | ParagraphButton
+  | ParagraphContentTitle
+  | ParagraphHighlightedList
+  | ParagraphImage
+  | ParagraphLargeCalloutText
   | ParagraphSpacer
   | ParagraphTeaser
   | ParagraphText

@@ -10,10 +10,13 @@
   --grid-horizontal-spacing: #{rem(15px)};
 
   // Colors
-
   --color-divider: lightgrey;
   --color-bullets: red;
   --color-link: blue;
+
+  --color-white: #fff;
+  --color-primary: #01ffff;
+  --color-secondary: #6200b1;
 
   @include mq($from: tablet) {
     --page-gutter: #{rem(40px)};

@@ -4,34 +4,43 @@
 @use '@styles/base/variables' as *;
 @use '@styles/base/helpers' as *;
 
-.root {}
+.root {
+}
 
 .small {
-    padding-bottom: rem(28px);
+  padding-bottom: rem(36px);
+
+  @include mq($from: tablet) {
+    padding-bottom: rem(50px);
+  }
 }
 
 .medium {
-    padding-bottom: rem(70px);
+  padding-bottom: rem(100px);
 }
 
 .large {
-    padding-bottom: rem(100px);
+  padding-bottom: rem(200px);
 }
 
 .spacerLine {
-    &.small {
-        padding-top: rem(28px);
-    }
+  &.small {
+    padding-bottom: rem(36px);
 
-    &.medium {
-        padding-top: rem(70px);
+    @include mq($from: tablet) {
+      padding-bottom: rem(50px);
     }
+  }
 
-    &.large {
-        padding-top: rem(100px);
-    }
+  &.medium {
+    padding-top: rem(100px);
+  }
+
+  &.large {
+    padding-top: rem(200px);
+  }
 }
 
 .line {
-    border-bottom: 1px dashed var(--color-divider);
+  border-bottom: 1px dashed var(--color-divider);
 }

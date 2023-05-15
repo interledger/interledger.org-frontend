@@ -1,0 +1,5 @@
+fragment ParagraphHighlightedListFragment on ParagraphHighlightedList {
+  __typename
+  id
+  listItem
+}
