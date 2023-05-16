@@ -1,7 +1,10 @@
 fragment ParagraphImageFragment on ParagraphImage {
   __typename
   id
-  image {
+  landscapeImage: singleImage {
+    ...MediaImageLandscapeFragment
+  }
+  squareIamge: singleImage {
     ...MediaImageSquareFragment
   }
 }

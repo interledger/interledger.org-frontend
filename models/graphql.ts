@@ -521,6 +521,8 @@ export type NodePage = Node &
     changed: DateTime;
     /** The time that the node was created. */
     created: DateTime;
+    /** Header */
+    header?: Maybe<ParagraphHeroHeader>;
     /** UUID */
     id: Scalars['ID'];
     /** Language */
@@ -563,12 +565,48 @@ export type NodePageFieldSectionsUnion =
   | ParagraphContentTitle
   | ParagraphHighlightedList
   | ParagraphImage
+  | ParagraphImageCarousel
   | ParagraphLargeCalloutText
   | ParagraphSpacer
   | ParagraphText
   | ParagraphTwoColumnContent;
 
-export type NodeUnion = NodeArticle | NodePage;
+/** Entity type node. */
+export type NodeSpeaker = Node &
+  NodeInterface & {
+    __typename?: 'NodeSpeaker';
+    /** The time that the node was last edited. */
+    changed: DateTime;
+    /** The time that the node was created. */
+    created: DateTime;
+    /** UUID */
+    id: Scalars['ID'];
+    /** Language */
+    langcode: Language;
+    /** The computed meta tags for the entity. */
+    metatag: Array<MetaTagUnion>;
+    /** URL alias */
+    path: Scalars['String'];
+    /** Promoted to front page */
+    promote: Scalars['Boolean'];
+    /** Sections */
+    sections?: Maybe<Array<NodeSpeakerFieldSectionsUnion>>;
+    /** Published */
+    status: Scalars['Boolean'];
+    /** Sticky at top of lists */
+    sticky: Scalars['Boolean'];
+    /** Teaser */
+    teaser: ParagraphTeaser;
+    /** Title */
+    title: Scalars['String'];
+  };
+
+export type NodeSpeakerFieldSectionsUnion =
+  | ParagraphButton
+  | ParagraphContentTitle
+  | ParagraphText;
+
+export type NodeUnion = NodeArticle | NodePage | NodeSpeaker;
 
 /** A paginated set of results for Nodes */
 export type NodesConnection = NodesUnionConnection & {
@@ -613,6 +651,28 @@ export type ParagraphContentTitle = Node &
   };
 
 /** Entity type paragraph. */
+export type ParagraphHeroHeader = Node &
+  ParagraphInterface & {
+    __typename?: 'ParagraphHeroHeader';
+    /** The time that the Paragraph was created. */
+    created: DateTime;
+    /** UUID */
+    id: Scalars['ID'];
+    /** Poster Image */
+    singleImage: MediaImage;
+    /** Header Title */
+    title?: Maybe<Scalars['String']>;
+    /** Video */
+    video?: Maybe<ParagraphHeroHeaderFieldVideoUnion>;
+    /** When text */
+    whenText?: Maybe<Scalars['String']>;
+    /** Where text */
+    whereText?: Maybe<Scalars['String']>;
+  };
+
+export type ParagraphHeroHeaderFieldVideoUnion = MediaRemoteVideo | MediaVideo;
+
+/** Entity type paragraph. */
 export type ParagraphHighlightedList = Node &
   ParagraphInterface & {
     __typename?: 'ParagraphHighlightedList';
@@ -633,7 +693,19 @@ export type ParagraphImage = Node &
     /** UUID */
     id: Scalars['ID'];
     /** Image */
-    image: MediaImage;
+    singleImage: MediaImage;
+  };
+
+/** Entity type paragraph. */
+export type ParagraphImageCarousel = Node &
+  ParagraphInterface & {
+    __typename?: 'ParagraphImageCarousel';
+    /** The time that the Paragraph was created. */
+    created: DateTime;
+    /** UUID */
+    id: Scalars['ID'];
+    /** Multiple Images */
+    multipleImages?: Maybe<Array<MediaImage>>;
   };
 
 /** Entity type paragraph. */
@@ -678,8 +750,8 @@ export type ParagraphTeaser = Node &
     created: DateTime;
     /** UUID */
     id: Scalars['ID'];
-    /** Image */
-    image: MediaImage;
+    /** Teaser Image */
+    singleImage: MediaImage;
   };
 
 /** Entity type paragraph. */
@@ -725,8 +797,10 @@ export type ParagraphTwoColumnContentFieldSecondColumnUnion =
 export type ParagraphUnion =
   | ParagraphButton
   | ParagraphContentTitle
+  | ParagraphHeroHeader
   | ParagraphHighlightedList
   | ParagraphImage
+  | ParagraphImageCarousel
   | ParagraphLargeCalloutText
   | ParagraphSpacer
   | ParagraphTeaser

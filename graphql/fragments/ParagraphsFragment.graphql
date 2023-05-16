@@ -20,4 +20,7 @@ fragment ParagraphsFragment on ParagraphInterface {
   ... on ParagraphImage {
     ...ParagraphImageFragment
   }
+  ... on ParagraphImageCarousel {
+    ...ParagraphImageCarouselFragment
+  }
 }

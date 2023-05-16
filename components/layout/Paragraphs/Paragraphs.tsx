@@ -7,8 +7,15 @@ import {
   ParagraphContentTitleFragment,
   ParagraphHighlightedListFragment,
   ParagraphImageFragment,
+  ParagraphImageCarouselFragment,
 } from '@models/operations';
 import dynamic from 'next/dynamic';
+
+const ParagraphImageCarousel = dynamic(() =>
+  import('@components/paragraph/ParagraphImageCarousel/ParagraphImageCarousel').then(
+    (paragraph) => paragraph.ParagraphImageCarousel
+  )
+);
 
 const ParagraphImage = dynamic(() =>
   import('@components/paragraph/ParagraphImage/ParagraphImage').then(
@@ -67,6 +74,7 @@ export type ParagraphTypes =
   | ParagraphContentTitleFragment
   | ParagraphHighlightedListFragment
   | ParagraphImageFragment
+  | ParagraphImageCarouselFragment
   | null;
 
 export interface ParagraphsProps {
@@ -84,6 +92,8 @@ const Paragraph = ({ paragraph }: ParagraphProps) => {
   }
 
   switch (paragraph.__typename) {
+    case 'ParagraphImageCarousel':
+      return <ParagraphImageCarousel key={paragraph.id} paragraph={paragraph} />;
     case 'ParagraphImage':
       return <ParagraphImage key={paragraph.id} paragraph={paragraph} />;
     case 'ParagraphContentTitle':

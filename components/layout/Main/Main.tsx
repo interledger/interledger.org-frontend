@@ -1,7 +1,9 @@
+import { useRouter } from 'next/router'
 import { useGetInitDataQuery } from '@graphql/hooks';
 import cn from 'classnames';
 import { Footer } from '../Footer/Footer';
 import { Header } from '../Header/Header';
+import { BackgroundSwirl } from '@components/ui/BackgroundSwirl/BackgroundSwirl';
 import styles from './Main.module.scss';
 
 export interface MainProps {
@@ -11,7 +13,9 @@ export interface MainProps {
 }
 
 export const Main = ({ className, children }: MainProps) => {
-  const rootClassName = cn(styles.root, className);
+  const router = useRouter();
+  const { asPath } = router;
+  const rootClassName = cn(styles.root, className, asPath);
 
   const { data: initData } = useGetInitDataQuery();
 
@@ -20,6 +24,7 @@ export const Main = ({ className, children }: MainProps) => {
       <Header mainMenu={initData?.mainMenu} />
       <main>{children}</main>
       <Footer footerMenu={initData?.footerMenu} />
+      <BackgroundSwirl />
     </div>
   );
 };

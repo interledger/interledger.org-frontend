@@ -1,10 +1,10 @@
 fragment ParagraphTeaserFragment on ParagraphTeaser {
   __typename
   id
-  squareImage: image {
+  squareImage: singleImage {
     ...MediaImageSquareFragment
   }
-  landscapeImage: image {
+  landscapeImage: singleImage {
     ...MediaImageLandscapeFragment
   }
 }

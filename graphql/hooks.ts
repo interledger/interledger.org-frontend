@@ -60,15 +60,6 @@ export const MediaRemoteVideoFragment = /*#__PURE__*/ `
   mediaOembedVideo
 }
     `;
-export const MediaVideoFragment = /*#__PURE__*/ `
-    fragment MediaVideoFragment on MediaVideo {
-  __typename
-  id
-  mediaVideoFile {
-    url
-  }
-}
-    `;
 export const RouteUnionFragment = /*#__PURE__*/ `
     fragment RouteUnionFragment on RouteUnion {
   ... on RouteInternal {
@@ -199,6 +190,18 @@ export const ParagraphHighlightedListFragment = /*#__PURE__*/ `
   listItem
 }
     `;
+export const MediaImageLandscapeFragment = /*#__PURE__*/ `
+    fragment MediaImageLandscapeFragment on MediaImage {
+  __typename
+  id
+  mediaImage {
+    alt
+    responsive(name: ASPECT_RATIO_LANDSCAPE_16_9) {
+      ...ResponsiveImageStyleFragment
+    }
+  }
+}
+    `;
 export const MediaImageSquareFragment = /*#__PURE__*/ `
     fragment MediaImageSquareFragment on MediaImage {
   __typename
@@ -215,8 +218,22 @@ export const ParagraphImageFragment = /*#__PURE__*/ `
     fragment ParagraphImageFragment on ParagraphImage {
   __typename
   id
-  image {
+  landscapeImage: singleImage {
+    ...MediaImageLandscapeFragment
+  }
+  squareIamge: singleImage {
     ...MediaImageSquareFragment
+  }
+}
+    `;
+export const ParagraphImageCarouselFragment = /*#__PURE__*/ `
+    fragment ParagraphImageCarouselFragment on ParagraphImageCarousel {
+  __typename
+  id
+  multipleImages {
+    ... on MediaImage {
+      ...MediaImageLandscapeFragment
+    }
   }
 }
     `;
@@ -242,6 +259,9 @@ export const ParagraphsFragment = /*#__PURE__*/ `
   }
   ... on ParagraphImage {
     ...ParagraphImageFragment
+  }
+  ... on ParagraphImageCarousel {
+    ...ParagraphImageCarouselFragment
   }
 }
     `;
@@ -285,27 +305,41 @@ export const NodeArticleFragment = /*#__PURE__*/ `
   }
 }
     `;
-export const MediaImageLandscapeFragment = /*#__PURE__*/ `
-    fragment MediaImageLandscapeFragment on MediaImage {
-  __typename
-  id
-  mediaImage {
-    alt
-    responsive(name: ASPECT_RATIO_LANDSCAPE_16_9) {
-      ...ResponsiveImageStyleFragment
-    }
-  }
-}
-    `;
 export const ParagraphTeaserFragment = /*#__PURE__*/ `
     fragment ParagraphTeaserFragment on ParagraphTeaser {
   __typename
   id
-  squareImage: image {
+  squareImage: singleImage {
     ...MediaImageSquareFragment
   }
-  landscapeImage: image {
+  landscapeImage: singleImage {
     ...MediaImageLandscapeFragment
+  }
+}
+    `;
+export const MediaVideoFragment = /*#__PURE__*/ `
+    fragment MediaVideoFragment on MediaVideo {
+  __typename
+  id
+  mediaVideoFile {
+    url
+  }
+}
+    `;
+export const ParagraphHeroHeaderFragment = /*#__PURE__*/ `
+    fragment ParagraphHeroHeaderFragment on ParagraphHeroHeader {
+  __typename
+  id
+  title
+  whereText
+  whenText
+  image: singleImage {
+    ... on MediaImage {
+      ...MediaImageLandscapeFragment
+    }
+  }
+  video {
+    ...MediaVideoFragment
   }
 }
     `;
@@ -323,6 +357,9 @@ export const NodePageFragment = /*#__PURE__*/ `
   }
   teaser {
     ...ParagraphTeaserFragment
+  }
+  header {
+    ...ParagraphHeroHeaderFragment
   }
 }
     `;
@@ -446,12 +483,15 @@ ${ParagraphContentTitleFragment}
 ${ParagraphLargeCalloutTextFragment}
 ${ParagraphHighlightedListFragment}
 ${ParagraphImageFragment}
-${MediaImageSquareFragment}
+${MediaImageLandscapeFragment}
 ${ResponsiveImageStyleFragment}
+${MediaImageSquareFragment}
+${ParagraphImageCarouselFragment}
 ${MetaTagFragment}
 ${NodePageFragment}
 ${ParagraphTeaserFragment}
-${MediaImageLandscapeFragment}`;
+${ParagraphHeroHeaderFragment}
+${MediaVideoFragment}`;
 export const useGetNodeByPathQuery = <
   TData = OperationTypes.GetNodeByPathQuery,
   TError = unknown

@@ -11,6 +11,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import type { AppProps } from 'next/app';
 import { Router } from 'next/router';
 import { useState } from 'react';
+import { PT_Sans } from 'next/font/google';
 import '../styles/globals.scss';
 
 function syncDrupalPreviewRoutes(path: string) {
@@ -30,18 +31,35 @@ type PageProps = {
   dehydratedState?: DehydratedState;
 };
 
+const PTSansRegular = PT_Sans({
+  subsets: ['latin'],
+  weight: '400'
+});
+const PTSansBold = PT_Sans({
+  subsets: ['latin'],
+  weight: '700'
+});
+
 export default function App({ Component, pageProps }: AppProps<PageProps>) {
   const [queryClient] = useState(() => new QueryClient(queryOptions));
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <Hydrate state={pageProps.dehydratedState}>
-        <GoogleAnalytics trackPageViews />
-        <Main>
-          <Component {...pageProps} />
-        </Main>
-      </Hydrate>
-      <ReactQueryDevtools initialIsOpen={false} />
-    </QueryClientProvider>
+    <>
+      <style jsx global>{`
+      :root {
+        --font-base: ${PTSansRegular.style.fontFamily};
+        --font-display: ${PTSansBold.style.fontFamily};
+      }
+    `}</style>
+      <QueryClientProvider client={queryClient}>
+        <Hydrate state={pageProps.dehydratedState}>
+          <GoogleAnalytics trackPageViews />
+          <Main>
+            <Component {...pageProps} />
+          </Main>
+        </Hydrate>
+        <ReactQueryDevtools initialIsOpen={false} />
+      </QueryClientProvider>
+    </>
   );
 }

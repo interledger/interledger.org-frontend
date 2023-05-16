@@ -9,11 +9,11 @@
   display: grid;
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 100%;
+  overflow: hidden; // to contain background swirl
+  position: relative; // to contain background swirl
 
   main {
-    padding: rem(60px) 0;
+    padding: 0;
     min-width: 0; // Fixes swiper layout issues
-    overflow: hidden; // to contain background swirl
-    position: relative; // to contain background swirl
   }
 }

@@ -17,6 +17,11 @@ export const BackgroundSwirl = ({ className }: BackgroundSwirlProps) => {
   return (
     <div className={rootClassName}>
       <img src="/logo-swirl-large.svg" alt="" />
+      <img src="/logo-swirl-large.svg" alt="" />
+      <img src="/logo-swirl-large.svg" alt="" />
+      <img src="/logo-swirl-large.svg" alt="" />
+      <img src="/logo-swirl-large.svg" alt="" />
+      <img src="/logo-swirl-large.svg" alt="" />
     </div>
   );
 };

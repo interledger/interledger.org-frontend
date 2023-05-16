@@ -23,14 +23,14 @@ export const MediaImage = ({
   const rootClassName = cn(styles.root, className);
   return (
     <>
-      {media.mediaImage.responsive ? (
+      {media?.mediaImage?.responsive ? (
         <Image
           className={rootClassName}
           responsiveImageStyle={media.mediaImage.responsive}
           alt={media.mediaImage.alt ?? ''}
           {...rest}
         />
-      ) : media.mediaImage.style ? (
+      ) : media?.mediaImage?.style ? (
         <Image
           className={rootClassName}
           imageStyle={media.mediaImage.style}

@@ -12,6 +12,9 @@ fragment NodePageFragment on NodePage {
   teaser {
     ...ParagraphTeaserFragment
   }
+  header {
+    ...ParagraphHeroHeaderFragment
+  }
 }
 
 fragment NodePageCardFragment on NodePage {

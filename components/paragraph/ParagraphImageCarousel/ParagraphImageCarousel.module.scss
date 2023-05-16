@@ -7,7 +7,5 @@
 .root {
   @include breakContainer;
 
-  @include mq($from: tablet) {
-    padding: 0 var(--page-gutter);
-  }
+  padding: 0 var(--page-gutter);
 }

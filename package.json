@@ -38,6 +38,7 @@
     "sass": "^1.56.1",
     "sass-mq": "^6.0.0",
     "sass-rem": "^3.0.0",
+    "swiper": "^8.4.7",
     "typescript": "^5.0.4"
   },
   "devDependencies": {

@@ -1,0 +1,9 @@
+fragment ParagraphImageCarouselFragment on ParagraphImageCarousel {
+  __typename
+  id
+  multipleImages {
+    ... on MediaImage {
+      ...MediaImageLandscapeFragment
+    }
+  }
+}

@@ -1,0 +1,15 @@
+fragment ParagraphHeroHeaderFragment on ParagraphHeroHeader {
+  __typename
+  id
+  title
+  whereText
+  whenText
+  image: singleImage {
+    ... on MediaImage {
+      ...MediaImageLandscapeFragment
+    }
+  }
+  video {
+    ...MediaVideoFragment
+  }
+}
