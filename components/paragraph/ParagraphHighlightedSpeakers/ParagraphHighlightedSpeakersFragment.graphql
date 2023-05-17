@@ -1,0 +1,11 @@
+fragment ParagraphHighlightedSpeakersFragment on ParagraphHighlightedSpeakers {
+  __typename
+  id
+  speakers {
+    id
+    title
+    teaser {
+      ...ParagraphTeaserFragment
+    }
+  }
+}

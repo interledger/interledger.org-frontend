@@ -1,0 +1,86 @@
+@use '@styles/base/mq-settings';
+@use '~sass-mq/mq' as *;
+@use '~sass-rem' as *;
+@use '@styles/base/variables' as *;
+@use '@styles/base/helpers' as *;
+
+.root {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  grid-column-gap: rem(20px);
+  grid-row-gap: rem(100px);
+
+  @include mq($from: tablet) {
+    grid-column-gap: rem(30px);
+    grid-row-gap: rem(30px);
+    gap: rem(30px);
+  }
+}
+
+.speakerContainer {
+  max-width: rem(525px);
+  max-width: calc(50% - rem(20px));
+
+  h2 {
+    margin: rem(10px) 0 rem(7px);
+    font-size: rem(20px);
+    line-height: rem(26px);
+
+    @include mq($from: tablet) {
+      margin: rem(20px) 0 rem(10px);
+      font-size: rem(24px);
+      line-height: rem(30px);
+    }
+  }
+
+  p {
+    font-size: rem(18px);
+    margin: 0;
+  }
+
+  @include mq($from: tablet) {
+    &:nth-child(1) {
+      align-self: flex-end;
+      position: relative;
+
+      .speaker {
+        max-width: rem(303px);
+        top: rem(130px);
+        position: relative;
+      }
+    }
+
+    &:nth-child(2) {
+      padding-right: rem(30px);
+
+      .speaker {
+        max-width: rem(575px);
+      }
+    }
+
+    &:nth-child(3) {
+      display: flex;
+      justify-content: flex-end;
+      padding-right: rem(20px);
+      width: 100%;
+
+      .speaker {
+        max-width: rem(414px);
+        padding-top: rem(250px);
+      }
+    }
+
+    &:nth-child(4) {
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+
+      .speaker {
+        max-width: rem(303px);
+        padding-top: rem(100px);
+        width: 100%;
+      }
+    }
+  }
+}

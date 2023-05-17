@@ -8,6 +8,7 @@ import {
   QueryClientProvider,
 } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { LazyMotion } from 'framer-motion';
 import type { AppProps } from 'next/app';
 import { Router } from 'next/router';
 import { useState } from 'react';
@@ -26,6 +27,9 @@ function syncDrupalPreviewRoutes(path: string) {
 Router.events.on('routeChangeStart', function (path) {
   syncDrupalPreviewRoutes(path);
 });
+
+export const loadFeatures = () =>
+  import('../lib/framerFeatures').then((res) => res.default);
 
 type PageProps = {
   dehydratedState?: DehydratedState;
@@ -54,9 +58,11 @@ export default function App({ Component, pageProps }: AppProps<PageProps>) {
       <QueryClientProvider client={queryClient}>
         <Hydrate state={pageProps.dehydratedState}>
           <GoogleAnalytics trackPageViews />
-          <Main>
-            <Component {...pageProps} />
-          </Main>
+          <LazyMotion features={loadFeatures} strict>
+            <Main>
+              <Component {...pageProps} />
+            </Main>
+          </LazyMotion>
         </Hydrate>
         <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>

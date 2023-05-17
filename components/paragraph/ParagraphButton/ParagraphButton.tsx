@@ -1,7 +1,8 @@
 import cn from 'classnames';
 import { ParagraphButtonFragment } from '@models/operations';
-import styles from './ParagraphButton.module.scss';
 import { ButtonLink } from '@components/ui/Button/ButtonLink';
+import { Arrow } from '@components/icon/Arrow/Arrow';
+import styles from './ParagraphButton.module.scss';
 
 export interface ParagraphButtonProps {
   /** Optional className for ParagraphButton, pass in a sass module class to override component default */
@@ -19,11 +20,27 @@ export const ParagraphButton = ({
     return null;
   }
 
+  let titleMarkup;
+  if (paragraph.link?.title) {
+    const title = paragraph.link?.title;
+    const titleSplit = title.split(' ');
+    const titlePop = titleSplit.pop();
+    const titleMinusLastWord = titleSplit.join(' ');
+    const wrapTitlePop = `<span>${titlePop}</span>`
+
+    titleMarkup = `${titleMinusLastWord} ${wrapTitlePop}`
+  }
+
   return (
     <section className={rootClassName}>
       <ButtonLink href={paragraph.link.url}>
-        {paragraph.link.title}
-        <img src="icon-arrow.svg" alt="" />
+        {titleMarkup && (
+          <span
+            className={styles.titleMarkup}
+            dangerouslySetInnerHTML={{ __html: titleMarkup }}
+          />
+        )}
+        <Arrow />
       </ButtonLink>
     </section>
   );

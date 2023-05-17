@@ -2,7 +2,7 @@
 @use '~sass-rem' as *;
 
 :root {
-  --page-width: #{rem(1245px)};
+  --page-width: #{rem(1118px)};
   --page-gutter: #{rem(20px)};
   --vertical-spacing: #{rem(30px)};
   --horizontal-spacing: #{rem(30px)};
@@ -13,11 +13,14 @@
   --color-divider: lightgrey;
   --color-bullets: red;
   --color-link: blue;
+  --color-swiper-pagination: var(--color-white);
 
   --color-black: #000;
   --color-white: #fff;
   --color-primary: #01ffff;
   --color-secondary: #6200b1;
+
+  --color-text: var(--color-white);
 
   @include mq($from: tablet) {
     --page-gutter: #{rem(40px)};

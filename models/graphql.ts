@@ -564,8 +564,10 @@ export type NodePageFieldSectionsUnion =
   | ParagraphButton
   | ParagraphContentTitle
   | ParagraphHighlightedList
+  | ParagraphHighlightedSpeakers
   | ParagraphImage
   | ParagraphImageCarousel
+  | ParagraphImageGallery
   | ParagraphLargeCalloutText
   | ParagraphSpacer
   | ParagraphText
@@ -600,6 +602,21 @@ export type NodeSpeaker = Node &
     /** Title */
     title: Scalars['String'];
   };
+
+/** A paginated set of results for NodeSpeaker. */
+export type NodeSpeakerConnection = Connection & {
+  __typename?: 'NodeSpeakerConnection';
+  edges: Array<NodeSpeakerEdge>;
+  nodes: Array<NodeSpeaker>;
+  pageInfo: ConnectionPageInfo;
+};
+
+/** Edge for NodeSpeaker. */
+export type NodeSpeakerEdge = Edge & {
+  __typename?: 'NodeSpeakerEdge';
+  cursor: Scalars['Cursor'];
+  node: NodeSpeaker;
+};
 
 export type NodeSpeakerFieldSectionsUnion =
   | ParagraphButton
@@ -685,6 +702,18 @@ export type ParagraphHighlightedList = Node &
   };
 
 /** Entity type paragraph. */
+export type ParagraphHighlightedSpeakers = Node &
+  ParagraphInterface & {
+    __typename?: 'ParagraphHighlightedSpeakers';
+    /** The time that the Paragraph was created. */
+    created: DateTime;
+    /** UUID */
+    id: Scalars['ID'];
+    /** Speakers */
+    speakers?: Maybe<Array<NodeSpeaker>>;
+  };
+
+/** Entity type paragraph. */
 export type ParagraphImage = Node &
   ParagraphInterface & {
     __typename?: 'ParagraphImage';
@@ -705,7 +734,19 @@ export type ParagraphImageCarousel = Node &
     /** UUID */
     id: Scalars['ID'];
     /** Multiple Images */
-    multipleImages?: Maybe<Array<MediaImage>>;
+    multipleImages: Array<MediaImage>;
+  };
+
+/** Entity type paragraph. */
+export type ParagraphImageGallery = Node &
+  ParagraphInterface & {
+    __typename?: 'ParagraphImageGallery';
+    /** The time that the Paragraph was created. */
+    created: DateTime;
+    /** UUID */
+    id: Scalars['ID'];
+    /** Gallery Images */
+    multipleImages: Array<MediaImage>;
   };
 
 /** Entity type paragraph. */
@@ -799,8 +840,10 @@ export type ParagraphUnion =
   | ParagraphContentTitle
   | ParagraphHeroHeader
   | ParagraphHighlightedList
+  | ParagraphHighlightedSpeakers
   | ParagraphImage
   | ParagraphImageCarousel
+  | ParagraphImageGallery
   | ParagraphLargeCalloutText
   | ParagraphSpacer
   | ParagraphTeaser
@@ -821,6 +864,8 @@ export type Query = {
   nodeArticles: NodeArticleConnection;
   /** List of all NodePage on the platform. */
   nodePages: NodePageConnection;
+  /** List of all NodeSpeaker on the platform. */
+  nodeSpeakers: NodeSpeakerConnection;
   /** List of all Nodes on the platform. Results are access controlled. */
   nodes: NodesConnection;
   /** Load a Route by path. */
@@ -854,6 +899,20 @@ export type QueryNodeArticlesArgs = {
  * from which all queries must start.
  */
 export type QueryNodePagesArgs = {
+  after?: InputMaybe<Scalars['Cursor']>;
+  before?: InputMaybe<Scalars['Cursor']>;
+  filter?: InputMaybe<ConnectionFilter>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
+  reverse?: InputMaybe<Scalars['Boolean']>;
+  sortKey?: InputMaybe<ConnectionSortKeys>;
+};
+
+/**
+ * The schema's entry-point for queries. This acts as the public, top-level API
+ * from which all queries must start.
+ */
+export type QueryNodeSpeakersArgs = {
   after?: InputMaybe<Scalars['Cursor']>;
   before?: InputMaybe<Scalars['Cursor']>;
   filter?: InputMaybe<ConnectionFilter>;
@@ -927,7 +986,7 @@ export type Route = {
 };
 
 /** A list of possible entites that can be returned by URL. */
-export type RouteEntityUnion = NodeArticle | NodePage;
+export type RouteEntityUnion = NodeArticle | NodePage | NodeSpeaker;
 
 /** Route outside of this website. */
 export type RouteExternal = Route & {

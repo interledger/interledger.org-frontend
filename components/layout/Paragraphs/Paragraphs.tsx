@@ -8,8 +8,22 @@ import {
   ParagraphHighlightedListFragment,
   ParagraphImageFragment,
   ParagraphImageCarouselFragment,
+  ParagraphHighlightedSpeakersFragment,
+  ParagraphImageGalleryFragment,
 } from '@models/operations';
 import dynamic from 'next/dynamic';
+
+const ParagraphImageGallery = dynamic(() =>
+  import('@components/paragraph/ParagraphImageGallery/ParagraphImageGallery').then(
+    (paragraph) => paragraph.ParagraphImageGallery
+  )
+);
+
+const ParagraphHighlightedSpeakers = dynamic(() =>
+  import('@components/paragraph/ParagraphHighlightedSpeakers/ParagraphHighlightedSpeakers').then(
+    (paragraph) => paragraph.ParagraphHighlightedSpeakers
+  )
+);
 
 const ParagraphImageCarousel = dynamic(() =>
   import('@components/paragraph/ParagraphImageCarousel/ParagraphImageCarousel').then(
@@ -75,6 +89,8 @@ export type ParagraphTypes =
   | ParagraphHighlightedListFragment
   | ParagraphImageFragment
   | ParagraphImageCarouselFragment
+  | ParagraphHighlightedSpeakersFragment
+  | ParagraphImageGalleryFragment
   | null;
 
 export interface ParagraphsProps {
@@ -92,6 +108,10 @@ const Paragraph = ({ paragraph }: ParagraphProps) => {
   }
 
   switch (paragraph.__typename) {
+    case 'ParagraphImageGallery':
+      return <ParagraphImageGallery key={paragraph.id} paragraph={paragraph} />;
+    case 'ParagraphHighlightedSpeakers':
+      return <ParagraphHighlightedSpeakers key={paragraph.id} paragraph={paragraph} />;
     case 'ParagraphImageCarousel':
       return <ParagraphImageCarousel key={paragraph.id} paragraph={paragraph} />;
     case 'ParagraphImage':

@@ -1,18 +1,24 @@
 import { Container } from '@components/layout/Container/Container';
 import { Paragraphs } from '@components/layout/Paragraphs/Paragraphs';
 import { NodePageFragment } from '@models/operations';
+import { ParagraphHeroHeader } from '@components/paragraph/ParagraphHeroHeader/ParagraphHeroHeader';
 import cn from 'classnames';
 import styles from './NodePage.module.scss';
-import { ParagraphHeroHeader } from '@components/paragraph/ParagraphHeroHeader/ParagraphHeroHeader';
 
 export interface NodePageProps {
   /** Optional className for NodePage, pass in a sass module class to override component default */
   className?: string;
   node: NodePageFragment;
+  theme?: string;
 }
 
-export const NodePage = ({ className, node }: NodePageProps) => {
-  const rootClassName = cn(styles.root, className);
+export const NodePage = ({ className, node, theme }: NodePageProps) => {
+  const rootClassName = cn(
+    styles.root,
+    className,
+    theme && styles[theme]
+  );
+
   return (
     <Container className={rootClassName}>
       <ParagraphHeroHeader paragraph={node.header} />

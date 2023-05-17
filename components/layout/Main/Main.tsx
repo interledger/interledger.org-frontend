@@ -13,9 +13,7 @@ export interface MainProps {
 }
 
 export const Main = ({ className, children }: MainProps) => {
-  const router = useRouter();
-  const { asPath } = router;
-  const rootClassName = cn(styles.root, className, asPath);
+  const rootClassName = cn(styles.root, className);
 
   const { data: initData } = useGetInitDataQuery();
 
@@ -24,7 +22,7 @@ export const Main = ({ className, children }: MainProps) => {
       <Header mainMenu={initData?.mainMenu} />
       <main>{children}</main>
       <Footer footerMenu={initData?.footerMenu} />
-      <BackgroundSwirl />
+      <BackgroundSwirl theme={children?.props?.theme} />
     </div>
   );
 };

@@ -6,3 +6,20 @@
 
 .root {
 }
+
+.light {
+  :root & {
+    --color-background: #fff;
+    --color-primary: #6200b1;
+    --color-text: var(--color-black);
+    --color-swiper-pagination: var(--color-black);
+
+    color: var(--color-text);
+  }
+}
+
+.dark {
+  &:root & {
+    --color-background: #000;
+  }
+}

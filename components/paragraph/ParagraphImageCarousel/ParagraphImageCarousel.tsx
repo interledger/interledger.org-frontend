@@ -19,7 +19,6 @@ export interface ParagraphImageCarouselProps {
 
 export const ParagraphImageCarousel = ({ className, paragraph }: ParagraphImageCarouselProps) => {
   const rootClassName = cn(styles.root, className);
-  console.log({ paragraph });
   return (
     <Swiper
       className={rootClassName}

@@ -9,17 +9,24 @@
     text-decoration: none;
     color: var(--color-primary);
     font-size: rem(24px);
+    text-transform: capitalize;
 
     @include mq($from: tablet) {
       font-size: rem(30px);
     }
 
-    img {
+    svg {
       margin-left: rem(20px);
 
       @include mq($from: tablet) {
         margin-left: rem(35px);
       }
+    }
+  }
+
+  .titleMarkup {
+    span {
+      font-family: var(--font-display);
     }
   }
 }

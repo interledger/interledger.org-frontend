@@ -1,0 +1,9 @@
+fragment ParagraphImageGalleryFragment on ParagraphImageGallery {
+  __typename
+  id
+  multipleImages {
+    ... on MediaImage {
+      ...MediaImageLandscapeFragment
+    }
+  }
+}

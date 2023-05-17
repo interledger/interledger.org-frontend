@@ -7,8 +7,8 @@
 .root {
   display: flex;
   flex-direction: column;
-  grid-column-gap: 30px;
-  gap: 30px;
+  grid-column-gap: rem(30px);
+  gap: rem(30px);
 
   @include mq($from: tablet) {
     flex-direction: row;
@@ -18,7 +18,7 @@
     width: calc(90%);
 
     @include mq($from: tablet) {
-      width: calc(50% - 30px);
+      width: calc(50% - rem(15px));
     }
   }
 

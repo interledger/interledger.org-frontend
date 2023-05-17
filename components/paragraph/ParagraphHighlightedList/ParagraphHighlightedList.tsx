@@ -1,4 +1,6 @@
 import cn from 'classnames';
+import { Text } from '@components/ui/Text/Text';
+import { m, useTransform, useScroll, MotionValue } from 'framer-motion';
 import { ParagraphHighlightedListFragment } from '@models/operations';
 import styles from './ParagraphHighlightedList.module.scss';
 
@@ -17,7 +19,15 @@ export const ParagraphHighlightedList = ({ className, paragraph }: ParagraphHigh
   return (
     <div className={rootClassName}>
       {paragraph.listItem?.map((item, index) => (
-        <h2 key={index}>{item}</h2>
+        <m.h2
+          key={index}
+          initial={{ opacity: 0, x: 25 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: false, margin: "-200px" }}
+        >
+          {item}
+        </m.h2>
       ))}
     </div>
   );

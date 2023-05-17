@@ -237,6 +237,42 @@ export const ParagraphImageCarouselFragment = /*#__PURE__*/ `
   }
 }
     `;
+export const ParagraphTeaserFragment = /*#__PURE__*/ `
+    fragment ParagraphTeaserFragment on ParagraphTeaser {
+  __typename
+  id
+  squareImage: singleImage {
+    ...MediaImageSquareFragment
+  }
+  landscapeImage: singleImage {
+    ...MediaImageLandscapeFragment
+  }
+}
+    `;
+export const ParagraphHighlightedSpeakersFragment = /*#__PURE__*/ `
+    fragment ParagraphHighlightedSpeakersFragment on ParagraphHighlightedSpeakers {
+  __typename
+  id
+  speakers {
+    id
+    title
+    teaser {
+      ...ParagraphTeaserFragment
+    }
+  }
+}
+    `;
+export const ParagraphImageGalleryFragment = /*#__PURE__*/ `
+    fragment ParagraphImageGalleryFragment on ParagraphImageGallery {
+  __typename
+  id
+  multipleImages {
+    ... on MediaImage {
+      ...MediaImageLandscapeFragment
+    }
+  }
+}
+    `;
 export const ParagraphsFragment = /*#__PURE__*/ `
     fragment ParagraphsFragment on ParagraphInterface {
   ... on ParagraphButton {
@@ -262,6 +298,12 @@ export const ParagraphsFragment = /*#__PURE__*/ `
   }
   ... on ParagraphImageCarousel {
     ...ParagraphImageCarouselFragment
+  }
+  ... on ParagraphHighlightedSpeakers {
+    ...ParagraphHighlightedSpeakersFragment
+  }
+  ... on ParagraphImageGallery {
+    ...ParagraphImageGalleryFragment
   }
 }
     `;
@@ -302,18 +344,6 @@ export const NodeArticleFragment = /*#__PURE__*/ `
   }
   metatag {
     ...MetaTagFragment
-  }
-}
-    `;
-export const ParagraphTeaserFragment = /*#__PURE__*/ `
-    fragment ParagraphTeaserFragment on ParagraphTeaser {
-  __typename
-  id
-  squareImage: singleImage {
-    ...MediaImageSquareFragment
-  }
-  landscapeImage: singleImage {
-    ...MediaImageLandscapeFragment
   }
 }
     `;
@@ -487,9 +517,11 @@ ${MediaImageLandscapeFragment}
 ${ResponsiveImageStyleFragment}
 ${MediaImageSquareFragment}
 ${ParagraphImageCarouselFragment}
+${ParagraphHighlightedSpeakersFragment}
+${ParagraphTeaserFragment}
+${ParagraphImageGalleryFragment}
 ${MetaTagFragment}
 ${NodePageFragment}
-${ParagraphTeaserFragment}
 ${ParagraphHeroHeaderFragment}
 ${MediaVideoFragment}`;
 export const useGetNodeByPathQuery = <

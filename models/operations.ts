@@ -240,6 +240,49 @@ export type NodePageFragment = {
         listItem?: Array<string> | null;
       }
     | {
+        __typename: 'ParagraphHighlightedSpeakers';
+        id: string;
+        speakers?: Array<{
+          __typename?: 'NodeSpeaker';
+          id: string;
+          title: string;
+          teaser: {
+            __typename: 'ParagraphTeaser';
+            id: string;
+            squareImage: {
+              __typename: 'MediaImage';
+              id: string;
+              mediaImage: {
+                __typename?: 'Image';
+                alt?: string | null;
+                responsive?: {
+                  __typename: 'ResponsiveImageStyleDerivative';
+                  height?: number | null;
+                  path?: string | null;
+                  srcSetPath?: string | null;
+                  width?: number | null;
+                } | null;
+              };
+            };
+            landscapeImage: {
+              __typename: 'MediaImage';
+              id: string;
+              mediaImage: {
+                __typename?: 'Image';
+                alt?: string | null;
+                responsive?: {
+                  __typename: 'ResponsiveImageStyleDerivative';
+                  height?: number | null;
+                  path?: string | null;
+                  srcSetPath?: string | null;
+                  width?: number | null;
+                } | null;
+              };
+            };
+          };
+        }> | null;
+      }
+    | {
         __typename: 'ParagraphImage';
         id: string;
         landscapeImage: {
@@ -276,7 +319,7 @@ export type NodePageFragment = {
     | {
         __typename: 'ParagraphImageCarousel';
         id: string;
-        multipleImages?: Array<{
+        multipleImages: Array<{
           __typename: 'MediaImage';
           id: string;
           mediaImage: {
@@ -290,7 +333,26 @@ export type NodePageFragment = {
               width?: number | null;
             } | null;
           };
-        }> | null;
+        }>;
+      }
+    | {
+        __typename: 'ParagraphImageGallery';
+        id: string;
+        multipleImages: Array<{
+          __typename: 'MediaImage';
+          id: string;
+          mediaImage: {
+            __typename?: 'Image';
+            alt?: string | null;
+            responsive?: {
+              __typename: 'ResponsiveImageStyleDerivative';
+              height?: number | null;
+              path?: string | null;
+              srcSetPath?: string | null;
+              width?: number | null;
+            } | null;
+          };
+        }>;
       }
     | {
         __typename: 'ParagraphLargeCalloutText';
@@ -552,6 +614,50 @@ export type ParagraphHighlightedListFragment = {
   listItem?: Array<string> | null;
 };
 
+export type ParagraphHighlightedSpeakersFragment = {
+  __typename: 'ParagraphHighlightedSpeakers';
+  id: string;
+  speakers?: Array<{
+    __typename?: 'NodeSpeaker';
+    id: string;
+    title: string;
+    teaser: {
+      __typename: 'ParagraphTeaser';
+      id: string;
+      squareImage: {
+        __typename: 'MediaImage';
+        id: string;
+        mediaImage: {
+          __typename?: 'Image';
+          alt?: string | null;
+          responsive?: {
+            __typename: 'ResponsiveImageStyleDerivative';
+            height?: number | null;
+            path?: string | null;
+            srcSetPath?: string | null;
+            width?: number | null;
+          } | null;
+        };
+      };
+      landscapeImage: {
+        __typename: 'MediaImage';
+        id: string;
+        mediaImage: {
+          __typename?: 'Image';
+          alt?: string | null;
+          responsive?: {
+            __typename: 'ResponsiveImageStyleDerivative';
+            height?: number | null;
+            path?: string | null;
+            srcSetPath?: string | null;
+            width?: number | null;
+          } | null;
+        };
+      };
+    };
+  }> | null;
+};
+
 export type ParagraphImageFragment = {
   __typename: 'ParagraphImage';
   id: string;
@@ -590,7 +696,7 @@ export type ParagraphImageFragment = {
 export type ParagraphImageCarouselFragment = {
   __typename: 'ParagraphImageCarousel';
   id: string;
-  multipleImages?: Array<{
+  multipleImages: Array<{
     __typename: 'MediaImage';
     id: string;
     mediaImage: {
@@ -604,7 +710,27 @@ export type ParagraphImageCarouselFragment = {
         width?: number | null;
       } | null;
     };
-  }> | null;
+  }>;
+};
+
+export type ParagraphImageGalleryFragment = {
+  __typename: 'ParagraphImageGallery';
+  id: string;
+  multipleImages: Array<{
+    __typename: 'MediaImage';
+    id: string;
+    mediaImage: {
+      __typename?: 'Image';
+      alt?: string | null;
+      responsive?: {
+        __typename: 'ResponsiveImageStyleDerivative';
+        height?: number | null;
+        path?: string | null;
+        srcSetPath?: string | null;
+        width?: number | null;
+      } | null;
+    };
+  }>;
 };
 
 export type ParagraphLargeCalloutTextFragment = {
@@ -681,12 +807,20 @@ type TwoColumnContentFragment_ParagraphHighlightedList_ = {
   __typename?: 'ParagraphHighlightedList';
 };
 
+type TwoColumnContentFragment_ParagraphHighlightedSpeakers_ = {
+  __typename?: 'ParagraphHighlightedSpeakers';
+};
+
 type TwoColumnContentFragment_ParagraphImage_ = {
   __typename?: 'ParagraphImage';
 };
 
 type TwoColumnContentFragment_ParagraphImageCarousel_ = {
   __typename?: 'ParagraphImageCarousel';
+};
+
+type TwoColumnContentFragment_ParagraphImageGallery_ = {
+  __typename?: 'ParagraphImageGallery';
 };
 
 type TwoColumnContentFragment_ParagraphLargeCalloutText_ = {
@@ -719,8 +853,10 @@ export type TwoColumnContentFragment =
   | TwoColumnContentFragment_ParagraphContentTitle_
   | TwoColumnContentFragment_ParagraphHeroHeader_
   | TwoColumnContentFragment_ParagraphHighlightedList_
+  | TwoColumnContentFragment_ParagraphHighlightedSpeakers_
   | TwoColumnContentFragment_ParagraphImage_
   | TwoColumnContentFragment_ParagraphImageCarousel_
+  | TwoColumnContentFragment_ParagraphImageGallery_
   | TwoColumnContentFragment_ParagraphLargeCalloutText_
   | TwoColumnContentFragment_ParagraphSpacer_
   | TwoColumnContentFragment_ParagraphTeaser_
@@ -906,10 +1042,18 @@ type NodeCardFragment_ParagraphHighlightedList_ = {
   __typename?: 'ParagraphHighlightedList';
 };
 
+type NodeCardFragment_ParagraphHighlightedSpeakers_ = {
+  __typename?: 'ParagraphHighlightedSpeakers';
+};
+
 type NodeCardFragment_ParagraphImage_ = { __typename?: 'ParagraphImage' };
 
 type NodeCardFragment_ParagraphImageCarousel_ = {
   __typename?: 'ParagraphImageCarousel';
+};
+
+type NodeCardFragment_ParagraphImageGallery_ = {
+  __typename?: 'ParagraphImageGallery';
 };
 
 type NodeCardFragment_ParagraphLargeCalloutText_ = {
@@ -938,8 +1082,10 @@ export type NodeCardFragment =
   | NodeCardFragment_ParagraphContentTitle_
   | NodeCardFragment_ParagraphHeroHeader_
   | NodeCardFragment_ParagraphHighlightedList_
+  | NodeCardFragment_ParagraphHighlightedSpeakers_
   | NodeCardFragment_ParagraphImage_
   | NodeCardFragment_ParagraphImageCarousel_
+  | NodeCardFragment_ParagraphImageGallery_
   | NodeCardFragment_ParagraphLargeCalloutText_
   | NodeCardFragment_ParagraphSpacer_
   | NodeCardFragment_ParagraphTeaser_
@@ -964,6 +1110,50 @@ type ParagraphsFragment_ParagraphHighlightedList_ = {
   __typename: 'ParagraphHighlightedList';
   id: string;
   listItem?: Array<string> | null;
+};
+
+type ParagraphsFragment_ParagraphHighlightedSpeakers_ = {
+  __typename: 'ParagraphHighlightedSpeakers';
+  id: string;
+  speakers?: Array<{
+    __typename?: 'NodeSpeaker';
+    id: string;
+    title: string;
+    teaser: {
+      __typename: 'ParagraphTeaser';
+      id: string;
+      squareImage: {
+        __typename: 'MediaImage';
+        id: string;
+        mediaImage: {
+          __typename?: 'Image';
+          alt?: string | null;
+          responsive?: {
+            __typename: 'ResponsiveImageStyleDerivative';
+            height?: number | null;
+            path?: string | null;
+            srcSetPath?: string | null;
+            width?: number | null;
+          } | null;
+        };
+      };
+      landscapeImage: {
+        __typename: 'MediaImage';
+        id: string;
+        mediaImage: {
+          __typename?: 'Image';
+          alt?: string | null;
+          responsive?: {
+            __typename: 'ResponsiveImageStyleDerivative';
+            height?: number | null;
+            path?: string | null;
+            srcSetPath?: string | null;
+            width?: number | null;
+          } | null;
+        };
+      };
+    };
+  }> | null;
 };
 
 type ParagraphsFragment_ParagraphImage_ = {
@@ -1004,7 +1194,7 @@ type ParagraphsFragment_ParagraphImage_ = {
 type ParagraphsFragment_ParagraphImageCarousel_ = {
   __typename: 'ParagraphImageCarousel';
   id: string;
-  multipleImages?: Array<{
+  multipleImages: Array<{
     __typename: 'MediaImage';
     id: string;
     mediaImage: {
@@ -1018,7 +1208,27 @@ type ParagraphsFragment_ParagraphImageCarousel_ = {
         width?: number | null;
       } | null;
     };
-  }> | null;
+  }>;
+};
+
+type ParagraphsFragment_ParagraphImageGallery_ = {
+  __typename: 'ParagraphImageGallery';
+  id: string;
+  multipleImages: Array<{
+    __typename: 'MediaImage';
+    id: string;
+    mediaImage: {
+      __typename?: 'Image';
+      alt?: string | null;
+      responsive?: {
+        __typename: 'ResponsiveImageStyleDerivative';
+        height?: number | null;
+        path?: string | null;
+        srcSetPath?: string | null;
+        width?: number | null;
+      } | null;
+    };
+  }>;
 };
 
 type ParagraphsFragment_ParagraphLargeCalloutText_ = {
@@ -1098,8 +1308,10 @@ export type ParagraphsFragment =
   | ParagraphsFragment_ParagraphContentTitle_
   | ParagraphsFragment_ParagraphHeroHeader_
   | ParagraphsFragment_ParagraphHighlightedList_
+  | ParagraphsFragment_ParagraphHighlightedSpeakers_
   | ParagraphsFragment_ParagraphImage_
   | ParagraphsFragment_ParagraphImageCarousel_
+  | ParagraphsFragment_ParagraphImageGallery_
   | ParagraphsFragment_ParagraphLargeCalloutText_
   | ParagraphsFragment_ParagraphSpacer_
   | ParagraphsFragment_ParagraphTeaser_
@@ -1263,6 +1475,49 @@ export type GetNodeByPathQuery = {
                     listItem?: Array<string> | null;
                   }
                 | {
+                    __typename: 'ParagraphHighlightedSpeakers';
+                    id: string;
+                    speakers?: Array<{
+                      __typename?: 'NodeSpeaker';
+                      id: string;
+                      title: string;
+                      teaser: {
+                        __typename: 'ParagraphTeaser';
+                        id: string;
+                        squareImage: {
+                          __typename: 'MediaImage';
+                          id: string;
+                          mediaImage: {
+                            __typename?: 'Image';
+                            alt?: string | null;
+                            responsive?: {
+                              __typename: 'ResponsiveImageStyleDerivative';
+                              height?: number | null;
+                              path?: string | null;
+                              srcSetPath?: string | null;
+                              width?: number | null;
+                            } | null;
+                          };
+                        };
+                        landscapeImage: {
+                          __typename: 'MediaImage';
+                          id: string;
+                          mediaImage: {
+                            __typename?: 'Image';
+                            alt?: string | null;
+                            responsive?: {
+                              __typename: 'ResponsiveImageStyleDerivative';
+                              height?: number | null;
+                              path?: string | null;
+                              srcSetPath?: string | null;
+                              width?: number | null;
+                            } | null;
+                          };
+                        };
+                      };
+                    }> | null;
+                  }
+                | {
                     __typename: 'ParagraphImage';
                     id: string;
                     landscapeImage: {
@@ -1299,7 +1554,7 @@ export type GetNodeByPathQuery = {
                 | {
                     __typename: 'ParagraphImageCarousel';
                     id: string;
-                    multipleImages?: Array<{
+                    multipleImages: Array<{
                       __typename: 'MediaImage';
                       id: string;
                       mediaImage: {
@@ -1313,7 +1568,26 @@ export type GetNodeByPathQuery = {
                           width?: number | null;
                         } | null;
                       };
-                    }> | null;
+                    }>;
+                  }
+                | {
+                    __typename: 'ParagraphImageGallery';
+                    id: string;
+                    multipleImages: Array<{
+                      __typename: 'MediaImage';
+                      id: string;
+                      mediaImage: {
+                        __typename?: 'Image';
+                        alt?: string | null;
+                        responsive?: {
+                          __typename: 'ResponsiveImageStyleDerivative';
+                          height?: number | null;
+                          path?: string | null;
+                          srcSetPath?: string | null;
+                          width?: number | null;
+                        } | null;
+                      };
+                    }>;
                   }
                 | {
                     __typename: 'ParagraphLargeCalloutText';
@@ -1484,6 +1758,7 @@ export type GetNodeByPathQuery = {
                   | null;
               } | null;
             }
+          | { __typename?: 'NodeSpeaker' }
           | null;
       }
     | {

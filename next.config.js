@@ -41,6 +41,28 @@ const nextConfig = {
       },
     ];
   },
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.optimization.splitChunks.minSize = 20000;
+      config.optimization.splitChunks.chunks = 'all';
+      config.optimization.splitChunks.cacheGroups = {
+        ...config.optimization.splitChunks.cacheGroups,
+        swiper: {
+          test: /[\\/]node_modules[\\/](swiper)[\\/]/,
+          name: 'swiper',
+          priority: 10,
+          reuseExistingChunk: false,
+        },
+        'framer-motion': {
+          test: /[\\/]node_modules[\\/](framer-motion)[\\/]/,
+          name: 'framer-motion',
+          priority: 10,
+          reuseExistingChunk: false,
+        },
+      };
+    }
+    return config;
+  },
 };
 
 module.exports = withBundleAnalyzer(nextConfig);
