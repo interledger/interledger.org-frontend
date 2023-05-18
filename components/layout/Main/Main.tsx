@@ -10,9 +10,10 @@ export interface MainProps {
   /** Optional className for Main, pass in a sass module class to override component default */
   className?: string;
   children: React.ReactNode;
+  theme?: 'dark' | 'light';
 }
 
-export const Main = ({ className, children }: MainProps) => {
+export const Main = ({ className, children, theme }: MainProps) => {
   const rootClassName = cn(styles.root, className);
 
   const { data: initData } = useGetInitDataQuery();
@@ -22,7 +23,7 @@ export const Main = ({ className, children }: MainProps) => {
       <Header mainMenu={initData?.mainMenu} />
       <main>{children}</main>
       <Footer footerMenu={initData?.footerMenu} />
-      <BackgroundSwirl theme={children?.props?.theme} />
+      <BackgroundSwirl theme={theme} />
     </div>
   );
 };

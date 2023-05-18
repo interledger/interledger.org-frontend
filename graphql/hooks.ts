@@ -305,6 +305,9 @@ export const ParagraphsFragment = /*#__PURE__*/ `
   ... on ParagraphImageGallery {
     ...ParagraphImageGalleryFragment
   }
+  ... on ParagraphContentTitle {
+    ...ParagraphContentTitleFragment
+  }
 }
     `;
 export const MetaTagFragment = /*#__PURE__*/ `

@@ -21,7 +21,7 @@ export const NodePage = ({ className, node, theme }: NodePageProps) => {
 
   return (
     <Container className={rootClassName}>
-      <ParagraphHeroHeader paragraph={node.header} />
+      {node.header && <ParagraphHeroHeader paragraph={node.header} />}
       {node.sections && <Paragraphs paragraphs={node.sections} />}
     </Container>
   );

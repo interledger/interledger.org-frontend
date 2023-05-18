@@ -233,7 +233,7 @@ export type NodePageFragment = {
           title?: string | null;
         };
       }
-    | { __typename?: 'ParagraphContentTitle' }
+    | { __typename: 'ParagraphContentTitle'; id: string; title?: string | null }
     | {
         __typename: 'ParagraphHighlightedList';
         id: string;
@@ -1093,7 +1093,9 @@ type ParagraphsFragment_ParagraphButton_ = {
 };
 
 type ParagraphsFragment_ParagraphContentTitle_ = {
-  __typename?: 'ParagraphContentTitle';
+  __typename: 'ParagraphContentTitle';
+  id: string;
+  title?: string | null;
 };
 
 type ParagraphsFragment_ParagraphHeroHeader_ = {
@@ -1462,7 +1464,11 @@ export type GetNodeByPathQuery = {
                       title?: string | null;
                     };
                   }
-                | { __typename?: 'ParagraphContentTitle' }
+                | {
+                    __typename: 'ParagraphContentTitle';
+                    id: string;
+                    title?: string | null;
+                  }
                 | {
                     __typename: 'ParagraphHighlightedList';
                     id: string;

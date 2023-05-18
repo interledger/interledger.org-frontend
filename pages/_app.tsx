@@ -32,6 +32,7 @@ export const loadFeatures = () =>
   import('../lib/framerFeatures').then((res) => res.default);
 
 type PageProps = {
+  theme?: 'dark' | 'light';
   dehydratedState?: DehydratedState;
 };
 
@@ -59,7 +60,7 @@ export default function App({ Component, pageProps }: AppProps<PageProps>) {
         <Hydrate state={pageProps.dehydratedState}>
           <GoogleAnalytics trackPageViews />
           <LazyMotion features={loadFeatures} strict>
-            <Main>
+            <Main theme={pageProps.theme}>
               <Component {...pageProps} />
             </Main>
           </LazyMotion>

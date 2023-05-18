@@ -29,4 +29,7 @@ fragment ParagraphsFragment on ParagraphInterface {
   ... on ParagraphImageGallery {
     ...ParagraphImageGalleryFragment
   }
+  ... on ParagraphContentTitle {
+    ...ParagraphContentTitleFragment
+  }
 }
