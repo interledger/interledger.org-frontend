@@ -21,6 +21,7 @@ export const ParagraphHeroHeader = ({ className, paragraph }: ParagraphHeroHeade
   const [headerHeight, setHeaderHeight] = useState(0);
   const headerEl = useRef<HTMLDivElement>(null);
   const rootClassName = cn(styles.root, className);
+
   useEffect(() => {
     if (headerEl?.current) {
       setHeaderHeight(headerEl?.current?.clientHeight);
@@ -29,7 +30,25 @@ export const ParagraphHeroHeader = ({ className, paragraph }: ParagraphHeroHeade
 
   return (
     <div className={rootClassName} ref={headerEl}>
-      <MediaImage className={styles.headerImage} media={paragraph.image} />
+      {paragraph.video && (
+        <VideoPlayer
+          className={styles.headerMedia}
+          video={paragraph.video}
+          image={paragraph.image}
+          autoPlay={true}
+          muted={true}
+          playsInline={true}
+          loop={true}
+          controls={false}
+          setHeight
+        />
+      )}
+      {!paragraph.video && (
+        <MediaImage
+          className={styles.headerMedia}
+          media={paragraph.image}
+        />
+      )}
       <div className={styles.overlayContent}>
         <div className={styles.textContainer}>
           <div className={styles.titleContainer}>

@@ -5,39 +5,49 @@
 @use '@styles/base/helpers' as *;
 
 .root {
-    position: relative;
+  position: relative;
 }
 
 .thumbnail {
-    position: relative;
-    display: grid;
-    align-items: center;
-    justify-content: center;
+  position: relative;
+  display: grid;
+  align-items: center;
+  justify-content: center;
 }
 
 .thumbnailImage {
-    width: 100%;
-    height: 100%;
-    grid-area: 1 / 1 / 2 / 2;
+  width: 100%;
+  height: 100%;
+  grid-area: 1 / 1 / 2 / 2;
 }
 
 .play {
-    grid-area: 1 / 1 / 2 / 2;
-    align-self: center;
-    justify-self: center;
+  grid-area: 1 / 1 / 2 / 2;
+  align-self: center;
+  justify-self: center;
+  position: absolute;
+  bottom: rem(40px);
+  right: rem(40px);
+  background-color: transparent;
+  padding: rem(10px);
+
+  svg {
+    max-width: 25px;
+    height: 25px;
+  }
 }
 
 .playerWrapper {
-    position: relative;
-    padding-top: 56.25%;
+  position: relative;
+  padding-top: 56.25%;
 }
 
 .player {
-    position: absolute;
-    top: 0;
-    left: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
 
-    :global video {
-        object-fit: cover;
-    }
+  :global video {
+    object-fit: cover;
+  }
 }

@@ -26,8 +26,8 @@ const getAnimationValues = (count: number) => {
   switch (count) {
     case 1:
       animationValues = {
-        animateFromDistance: 150,
-        animateToDistance: -300,
+        animateFromDistance: 100,
+        animateToDistance: -100,
         animateFromOffset: "start end",
         animateToOffset: "end start"
       }
@@ -43,15 +43,15 @@ const getAnimationValues = (count: number) => {
     case 3:
       animationValues = {
         animateFromDistance: 150,
-        animateToDistance: -250,
+        animateToDistance: -150,
         animateFromOffset: "start end",
         animateToOffset: "end start"
       }
       break;
     case 4:
       animationValues = {
-        animateFromDistance: 200,
-        animateToDistance: 0,
+        animateFromDistance: 100,
+        animateToDistance: -300,
         animateFromOffset: "start end",
         animateToOffset: "end start"
       }
@@ -80,7 +80,7 @@ const GalleryImage = ({ className, image }: any) => {
         ref={imageRef}
         style={{ y }}
       >
-        <MediaImage media={image} />
+        <MediaImage media={image} className={styles.mediaImage} />
       </m.div>
     </div>
   )
@@ -93,8 +93,9 @@ export const ParagraphImageGallery = ({ className, paragraph }: ParagraphImageGa
   const imagesWithAnimationValues = paragraph.multipleImages?.map(image => {
     count += 1;
     if (count === 5) {
-      count = 0;
+      count = 1;
     }
+
     const animationValues = getAnimationValues(count);
 
     return (

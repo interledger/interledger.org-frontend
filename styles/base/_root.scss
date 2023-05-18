@@ -11,8 +11,8 @@
 
   // Colors
   --color-divider: lightgrey;
-  --color-bullets: red;
-  --color-link: blue;
+  --color-bullets: var(--color-primary);
+  --color-link: var(--color-primary);
   --color-swiper-pagination: var(--color-white);
 
   --color-black: #000;

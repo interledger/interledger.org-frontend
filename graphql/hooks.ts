@@ -560,6 +560,9 @@ export const GetNodesPathsQueryDocument = /*#__PURE__*/ `
       ... on NodePage {
         path
       }
+      ... on NodeSpeaker {
+        path
+      }
     }
   }
 }

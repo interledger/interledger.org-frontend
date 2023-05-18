@@ -513,14 +513,11 @@ export type NodePageFragment = {
         } | null;
       };
     };
-    video?:
-      | { __typename?: 'MediaRemoteVideo' }
-      | {
-          __typename: 'MediaVideo';
-          id: string;
-          mediaVideoFile: { __typename?: 'File'; url: string };
-        }
-      | null;
+    video?: {
+      __typename: 'MediaVideo';
+      id: string;
+      mediaVideoFile: { __typename?: 'File'; url: string };
+    } | null;
   } | null;
 };
 
@@ -598,14 +595,11 @@ export type ParagraphHeroHeaderFragment = {
       } | null;
     };
   };
-  video?:
-    | { __typename?: 'MediaRemoteVideo' }
-    | {
-        __typename: 'MediaVideo';
-        id: string;
-        mediaVideoFile: { __typename?: 'File'; url: string };
-      }
-    | null;
+  video?: {
+    __typename: 'MediaVideo';
+    id: string;
+    mediaVideoFile: { __typename?: 'File'; url: string };
+  } | null;
 };
 
 export type ParagraphHighlightedListFragment = {
@@ -1748,14 +1742,11 @@ export type GetNodeByPathQuery = {
                     } | null;
                   };
                 };
-                video?:
-                  | { __typename?: 'MediaRemoteVideo' }
-                  | {
-                      __typename: 'MediaVideo';
-                      id: string;
-                      mediaVideoFile: { __typename?: 'File'; url: string };
-                    }
-                  | null;
+                video?: {
+                  __typename: 'MediaVideo';
+                  id: string;
+                  mediaVideoFile: { __typename?: 'File'; url: string };
+                } | null;
               } | null;
             }
           | { __typename?: 'NodeSpeaker' }
@@ -1782,7 +1773,7 @@ export type GetNodesPathsQuery = {
     nodes: Array<
       | { __typename?: 'NodeArticle'; path: string }
       | { __typename?: 'NodePage'; path: string }
-      | { __typename?: 'NodeSpeaker' }
+      | { __typename?: 'NodeSpeaker'; path: string }
     >;
   };
 };

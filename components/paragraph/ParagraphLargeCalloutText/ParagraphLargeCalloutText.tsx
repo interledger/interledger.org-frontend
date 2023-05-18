@@ -1,4 +1,5 @@
 import cn from 'classnames';
+import { m } from 'framer-motion';
 import { ParagraphLargeCalloutTextFragment } from '@models/operations';
 import styles from './ParagraphLargeCalloutText.module.scss';
 
@@ -16,7 +17,14 @@ export const ParagraphLargeCalloutText = ({ className, paragraph }: ParagraphLar
   const rootClassName = cn(styles.root, className);
   return (
     <div className={rootClassName}>
-      <h2>{paragraph.largeCalloutText}</h2>
+      <m.h2
+        initial={{ opacity: 0, y: 25 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true, margin: "-300px 0px 0px 0px" }}
+      >
+        {paragraph.largeCalloutText}
+      </m.h2>
     </div>
   );
 };

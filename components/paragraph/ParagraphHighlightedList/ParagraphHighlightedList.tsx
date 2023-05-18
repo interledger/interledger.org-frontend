@@ -1,6 +1,5 @@
 import cn from 'classnames';
-import { Text } from '@components/ui/Text/Text';
-import { m, useTransform, useScroll, MotionValue } from 'framer-motion';
+import { m } from 'framer-motion';
 import { ParagraphHighlightedListFragment } from '@models/operations';
 import styles from './ParagraphHighlightedList.module.scss';
 

@@ -10,6 +10,8 @@ import {
 import { MediaImage } from '@components/media/MediaImage/MediaImage';
 import { MediaVideo } from '@components/media/MediaVideo/MediaVideo';
 import { MediaRemoteVideo } from '@components/media/MediaRemoteVideo/MediaRemoteVideo';
+import { Play } from '@components/icon/Play/Play';
+import { Pause } from '@components/icon/Pause/Pause';
 import { Button } from '../Button/Button';
 
 const ReactPlayerLazy = dynamic(
@@ -19,18 +21,38 @@ const ReactPlayerLazy = dynamic(
 
 interface VideoProps {
   url: string;
+  autoPlay?: boolean;
+  muted?: boolean;
+  playsInline?: boolean;
+  loop?: boolean;
+  controls?: boolean;
+  playing?: boolean;
+  className?: string;
 }
 
-const Video = ({ url }: VideoProps) => {
+const Video = ({
+  url,
+  autoPlay = false,
+  muted = false,
+  playsInline = false,
+  loop = false,
+  controls = false,
+  playing = false,
+  className,
+}: VideoProps) => {
   return (
     <div className={styles.playerWrapper}>
       <ReactPlayerLazy
-        className={styles.player}
-        controls
+        className={cn(styles.player, className)}
         url={url}
         width="100%"
         height="100%"
-        playing
+        playing={playing}
+        autoPlay={autoPlay}
+        muted={muted}
+        playsInline={playsInline}
+        loop={loop}
+        controls={controls}
       />
     </div>
   );
@@ -42,6 +64,12 @@ export interface VideoPlayerProps {
   video: MediaVideoFragment | MediaRemoteVideoFragment;
   image: MediaImageFragment;
   priority?: boolean;
+  autoPlay?: boolean;
+  muted?: boolean;
+  playsInline?: boolean;
+  loop?: boolean;
+  controls?: boolean;
+  setHeight?: boolean;
 }
 
 /**
@@ -53,33 +81,45 @@ export const VideoPlayer = ({
   video,
   image,
   priority = false,
+  autoPlay = false,
+  muted = false,
+  playsInline = false,
+  loop = false,
+  controls = false,
+  setHeight = false,
 }: VideoPlayerProps) => {
-  const [play, setPlay] = useState(false);
-  const rootClassName = cn(styles.root, className);
+  const [play, setPlay] = useState(autoPlay);
+  const rootClassName = cn(styles.root, className, { [styles.setHeight]: setHeight });
+
   return (
     <div className={rootClassName}>
-      {play ? (
-        <>
-          {video.__typename === 'MediaVideo' && (
-            <MediaVideo media={video}>
-              {(url) => <Video url={url} />}
-            </MediaVideo>
-          )}
+      <>
+        {video.__typename === 'MediaVideo' && (
+          <MediaVideo media={video}>
+            {(url) => (
+              <Video
+                url={url}
+                autoPlay={autoPlay}
+                muted={muted}
+                playsInline={playsInline}
+                loop={loop}
+                controls={controls}
+                playing={play}
+                className={className}
+              />
+            )}
+          </MediaVideo>
+        )}
 
-          {video.__typename === 'MediaRemoteVideo' && (
-            <MediaRemoteVideo media={video}>
-              {(url) => <Video url={url} />}
-            </MediaRemoteVideo>
-          )}
-        </>
-      ) : (
-        <div className={styles.thumbnail}>
-          <MediaImage className={styles.thumbnailImage} media={image} />
-          <Button className={styles.play} onClick={() => setPlay(true)}>
-            Play
-          </Button>
-        </div>
-      )}
+        {video.__typename === 'MediaRemoteVideo' && (
+          <MediaRemoteVideo media={video}>
+            {(url) => <Video url={url} />}
+          </MediaRemoteVideo>
+        )}
+      </>
+      <Button className={styles.play} onClick={() => setPlay(play => !play)}>
+        {play ? <Pause /> : <Play />}
+      </Button>
     </div>
   );
 };

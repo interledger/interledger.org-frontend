@@ -10,7 +10,8 @@
   @include breakContainer;
 }
 
-.headerImage {
+.headerMedia {
+  opacity: 0.8;
   min-height: rem(830px);
 
   @include mq($from: tablet) {
@@ -35,12 +36,14 @@
   flex-direction: column;
   grid-row-gap: rem(100px);
   gap: rem(100px);
+  padding: 0 var(--page-gutter);
 
   @include mq($from: tablet) {
     align-items: flex-end;
     flex-direction: row;
     grid-column-gap: 56 / 1080 * 100%;
     gap: 56 / 1080 * 100%;
+    padding: 0;
   }
 }
 
@@ -108,7 +111,7 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    padding-top: rem(80px);
-    top: rem(80px);
+    padding-top: rem(70px);
+    top: rem(70px);
   }
 }

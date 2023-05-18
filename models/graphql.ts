@@ -680,14 +680,12 @@ export type ParagraphHeroHeader = Node &
     /** Header Title */
     title?: Maybe<Scalars['String']>;
     /** Video */
-    video?: Maybe<ParagraphHeroHeaderFieldVideoUnion>;
+    video?: Maybe<MediaVideo>;
     /** When text */
     whenText?: Maybe<Scalars['String']>;
     /** Where text */
     whereText?: Maybe<Scalars['String']>;
   };
-
-export type ParagraphHeroHeaderFieldVideoUnion = MediaRemoteVideo | MediaVideo;
 
 /** Entity type paragraph. */
 export type ParagraphHighlightedList = Node &

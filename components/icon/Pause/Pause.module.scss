@@ -4,12 +4,4 @@
 @use '@styles/base/variables' as *;
 @use '@styles/base/helpers' as *;
 
-.root {
-  a {
-    color: var(--color-link);
-  }
-
-  > *:last-child {
-    margin-bottom: 0;
-  }
-}
+.root {}

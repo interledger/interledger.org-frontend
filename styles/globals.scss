@@ -90,3 +90,8 @@ article {
   -webkit-hyphens: auto;
   hyphens: auto;
 }
+
+strong {
+  font-family: var(--font-display);
+  font-weight: normal;
+}

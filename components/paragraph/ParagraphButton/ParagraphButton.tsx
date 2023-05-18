@@ -1,5 +1,6 @@
 import cn from 'classnames';
 import { ParagraphButtonFragment } from '@models/operations';
+import { m, useSpring } from 'framer-motion';
 import { ButtonLink } from '@components/ui/Button/ButtonLink';
 import { Arrow } from '@components/icon/Arrow/Arrow';
 import styles from './ParagraphButton.module.scss';
@@ -32,7 +33,13 @@ export const ParagraphButton = ({
   }
 
   return (
-    <section className={rootClassName}>
+    <m.section
+      className={rootClassName}
+      initial={{ y: 350 }}
+      whileInView={{ y: 0 }}
+      transition={{ duration: 0.3 }}
+      viewport={{ once: true, margin: "350px", amount: "all" }}
+    >
       <ButtonLink href={paragraph.link.url}>
         {titleMarkup && (
           <span
@@ -42,6 +49,6 @@ export const ParagraphButton = ({
         )}
         <Arrow />
       </ButtonLink>
-    </section>
+    </m.section>
   );
 };
