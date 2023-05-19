@@ -273,6 +273,29 @@ export const ParagraphImageGalleryFragment = /*#__PURE__*/ `
   }
 }
     `;
+export const MediaVideoFragment = /*#__PURE__*/ `
+    fragment MediaVideoFragment on MediaVideo {
+  __typename
+  id
+  mediaVideoFile {
+    url
+  }
+}
+    `;
+export const ParagraphVideoFragment = /*#__PURE__*/ `
+    fragment ParagraphVideoFragment on ParagraphVideo {
+  __typename
+  id
+  video {
+    ...MediaVideoFragment
+  }
+  image: singleImage {
+    ... on MediaImage {
+      ...MediaImageLandscapeFragment
+    }
+  }
+}
+    `;
 export const ParagraphsFragment = /*#__PURE__*/ `
     fragment ParagraphsFragment on ParagraphInterface {
   ... on ParagraphButton {
@@ -307,6 +330,9 @@ export const ParagraphsFragment = /*#__PURE__*/ `
   }
   ... on ParagraphContentTitle {
     ...ParagraphContentTitleFragment
+  }
+  ... on ParagraphVideo {
+    ...ParagraphVideoFragment
   }
 }
     `;
@@ -347,15 +373,6 @@ export const NodeArticleFragment = /*#__PURE__*/ `
   }
   metatag {
     ...MetaTagFragment
-  }
-}
-    `;
-export const MediaVideoFragment = /*#__PURE__*/ `
-    fragment MediaVideoFragment on MediaVideo {
-  __typename
-  id
-  mediaVideoFile {
-    url
   }
 }
     `;
@@ -523,10 +540,11 @@ ${ParagraphImageCarouselFragment}
 ${ParagraphHighlightedSpeakersFragment}
 ${ParagraphTeaserFragment}
 ${ParagraphImageGalleryFragment}
+${ParagraphVideoFragment}
+${MediaVideoFragment}
 ${MetaTagFragment}
 ${NodePageFragment}
-${ParagraphHeroHeaderFragment}
-${MediaVideoFragment}`;
+${ParagraphHeroHeaderFragment}`;
 export const useGetNodeByPathQuery = <
   TData = OperationTypes.GetNodeByPathQuery,
   TError = unknown

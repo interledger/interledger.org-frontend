@@ -26,15 +26,15 @@ const getAnimationValues = (count: number) => {
   switch (count) {
     case 1:
       animationValues = {
-        animateFromDistance: 100,
-        animateToDistance: -100,
+        animateFromDistance: 200,
+        animateToDistance: 0,
         animateFromOffset: "start end",
         animateToOffset: "end start"
       }
       break;
     case 2:
       animationValues = {
-        animateFromDistance: 100,
+        animateFromDistance: 350,
         animateToDistance: -50,
         animateFromOffset: "start end",
         animateToOffset: "end start"
@@ -42,7 +42,7 @@ const getAnimationValues = (count: number) => {
       break;
     case 3:
       animationValues = {
-        animateFromDistance: 150,
+        animateFromDistance: 450,
         animateToDistance: -150,
         animateFromOffset: "start end",
         animateToOffset: "end start"
@@ -51,7 +51,7 @@ const getAnimationValues = (count: number) => {
     case 4:
       animationValues = {
         animateFromDistance: 100,
-        animateToDistance: -300,
+        animateToDistance: -100,
         animateFromOffset: "start end",
         animateToOffset: "end start"
       }

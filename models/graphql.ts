@@ -571,7 +571,8 @@ export type NodePageFieldSectionsUnion =
   | ParagraphLargeCalloutText
   | ParagraphSpacer
   | ParagraphText
-  | ParagraphTwoColumnContent;
+  | ParagraphTwoColumnContent
+  | ParagraphVideo;
 
 /** Entity type node. */
 export type NodeSpeaker = Node &
@@ -846,7 +847,22 @@ export type ParagraphUnion =
   | ParagraphSpacer
   | ParagraphTeaser
   | ParagraphText
-  | ParagraphTwoColumnContent;
+  | ParagraphTwoColumnContent
+  | ParagraphVideo;
+
+/** Entity type paragraph. */
+export type ParagraphVideo = Node &
+  ParagraphInterface & {
+    __typename?: 'ParagraphVideo';
+    /** The time that the Paragraph was created. */
+    created: DateTime;
+    /** UUID */
+    id: Scalars['ID'];
+    /** Poster Image */
+    singleImage: MediaImage;
+    /** Video */
+    video: MediaVideo;
+  };
 
 /**
  * The schema's entry-point for queries. This acts as the public, top-level API

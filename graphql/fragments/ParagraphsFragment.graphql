@@ -32,4 +32,7 @@ fragment ParagraphsFragment on ParagraphInterface {
   ... on ParagraphContentTitle {
     ...ParagraphContentTitleFragment
   }
+  ... on ParagraphVideo {
+    ...ParagraphVideoFragment
+  }
 }

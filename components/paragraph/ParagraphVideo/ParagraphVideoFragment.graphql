@@ -1,0 +1,12 @@
+fragment ParagraphVideoFragment on ParagraphVideo {
+  __typename
+  id
+  video {
+    ...MediaVideoFragment
+  }
+  image: singleImage {
+    ... on MediaImage {
+      ...MediaImageLandscapeFragment
+    }
+  }
+}

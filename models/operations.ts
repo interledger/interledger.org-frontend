@@ -428,6 +428,30 @@ export type NodePageFragment = {
             }
         > | null;
       }
+    | {
+        __typename: 'ParagraphVideo';
+        id: string;
+        video: {
+          __typename: 'MediaVideo';
+          id: string;
+          mediaVideoFile: { __typename?: 'File'; url: string };
+        };
+        image: {
+          __typename: 'MediaImage';
+          id: string;
+          mediaImage: {
+            __typename?: 'Image';
+            alt?: string | null;
+            responsive?: {
+              __typename: 'ResponsiveImageStyleDerivative';
+              height?: number | null;
+              path?: string | null;
+              srcSetPath?: string | null;
+              width?: number | null;
+            } | null;
+          };
+        };
+      }
   > | null;
   metatag: Array<
     | {
@@ -842,6 +866,10 @@ type TwoColumnContentFragment_ParagraphTwoColumnContent_ = {
   __typename?: 'ParagraphTwoColumnContent';
 };
 
+type TwoColumnContentFragment_ParagraphVideo_ = {
+  __typename?: 'ParagraphVideo';
+};
+
 export type TwoColumnContentFragment =
   | TwoColumnContentFragment_ParagraphButton_
   | TwoColumnContentFragment_ParagraphContentTitle_
@@ -855,7 +883,8 @@ export type TwoColumnContentFragment =
   | TwoColumnContentFragment_ParagraphSpacer_
   | TwoColumnContentFragment_ParagraphTeaser_
   | TwoColumnContentFragment_ParagraphText_
-  | TwoColumnContentFragment_ParagraphTwoColumnContent_;
+  | TwoColumnContentFragment_ParagraphTwoColumnContent_
+  | TwoColumnContentFragment_ParagraphVideo_;
 
 export type ParagraphTwoColumnContentFragment = {
   __typename: 'ParagraphTwoColumnContent';
@@ -906,6 +935,31 @@ export type ParagraphTwoColumnContentFragment = {
         text: { __typename?: 'Text'; processed?: any | null };
       }
   > | null;
+};
+
+export type ParagraphVideoFragment = {
+  __typename: 'ParagraphVideo';
+  id: string;
+  video: {
+    __typename: 'MediaVideo';
+    id: string;
+    mediaVideoFile: { __typename?: 'File'; url: string };
+  };
+  image: {
+    __typename: 'MediaImage';
+    id: string;
+    mediaImage: {
+      __typename?: 'Image';
+      alt?: string | null;
+      responsive?: {
+        __typename: 'ResponsiveImageStyleDerivative';
+        height?: number | null;
+        path?: string | null;
+        srcSetPath?: string | null;
+        width?: number | null;
+      } | null;
+    };
+  };
 };
 
 type MetaTagFragment_MetaTagLink_ = {
@@ -1064,6 +1118,8 @@ type NodeCardFragment_ParagraphTwoColumnContent_ = {
   __typename?: 'ParagraphTwoColumnContent';
 };
 
+type NodeCardFragment_ParagraphVideo_ = { __typename?: 'ParagraphVideo' };
+
 export type NodeCardFragment =
   | NodeCardFragment_MediaImage_
   | NodeCardFragment_MediaRemoteVideo_
@@ -1084,7 +1140,8 @@ export type NodeCardFragment =
   | NodeCardFragment_ParagraphSpacer_
   | NodeCardFragment_ParagraphTeaser_
   | NodeCardFragment_ParagraphText_
-  | NodeCardFragment_ParagraphTwoColumnContent_;
+  | NodeCardFragment_ParagraphTwoColumnContent_
+  | NodeCardFragment_ParagraphVideo_;
 
 type ParagraphsFragment_ParagraphButton_ = {
   __typename: 'ParagraphButton';
@@ -1299,6 +1356,31 @@ type ParagraphsFragment_ParagraphTwoColumnContent_ = {
   > | null;
 };
 
+type ParagraphsFragment_ParagraphVideo_ = {
+  __typename: 'ParagraphVideo';
+  id: string;
+  video: {
+    __typename: 'MediaVideo';
+    id: string;
+    mediaVideoFile: { __typename?: 'File'; url: string };
+  };
+  image: {
+    __typename: 'MediaImage';
+    id: string;
+    mediaImage: {
+      __typename?: 'Image';
+      alt?: string | null;
+      responsive?: {
+        __typename: 'ResponsiveImageStyleDerivative';
+        height?: number | null;
+        path?: string | null;
+        srcSetPath?: string | null;
+        width?: number | null;
+      } | null;
+    };
+  };
+};
+
 export type ParagraphsFragment =
   | ParagraphsFragment_ParagraphButton_
   | ParagraphsFragment_ParagraphContentTitle_
@@ -1312,7 +1394,8 @@ export type ParagraphsFragment =
   | ParagraphsFragment_ParagraphSpacer_
   | ParagraphsFragment_ParagraphTeaser_
   | ParagraphsFragment_ParagraphText_
-  | ParagraphsFragment_ParagraphTwoColumnContent_;
+  | ParagraphsFragment_ParagraphTwoColumnContent_
+  | ParagraphsFragment_ParagraphVideo_;
 
 type RouteUnionFragment_RouteExternal_ = {
   __typename: 'RouteExternal';
@@ -1662,6 +1745,30 @@ export type GetNodeByPathQuery = {
                           text: { __typename?: 'Text'; processed?: any | null };
                         }
                     > | null;
+                  }
+                | {
+                    __typename: 'ParagraphVideo';
+                    id: string;
+                    video: {
+                      __typename: 'MediaVideo';
+                      id: string;
+                      mediaVideoFile: { __typename?: 'File'; url: string };
+                    };
+                    image: {
+                      __typename: 'MediaImage';
+                      id: string;
+                      mediaImage: {
+                        __typename?: 'Image';
+                        alt?: string | null;
+                        responsive?: {
+                          __typename: 'ResponsiveImageStyleDerivative';
+                          height?: number | null;
+                          path?: string | null;
+                          srcSetPath?: string | null;
+                          width?: number | null;
+                        } | null;
+                      };
+                    };
                   }
               > | null;
               metatag: Array<

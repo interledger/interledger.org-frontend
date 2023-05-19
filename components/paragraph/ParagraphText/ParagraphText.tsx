@@ -11,6 +11,7 @@ export interface ParagraphTextProps {
 
 export const ParagraphText = ({ className, paragraph }: ParagraphTextProps) => {
   const rootClassName = cn(styles.root, className);
+
   return (
     <section className={rootClassName}>
       {paragraph.text?.processed && (

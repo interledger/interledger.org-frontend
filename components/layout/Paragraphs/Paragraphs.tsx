@@ -10,8 +10,15 @@ import {
   ParagraphImageCarouselFragment,
   ParagraphHighlightedSpeakersFragment,
   ParagraphImageGalleryFragment,
+  ParagraphVideoFragment,
 } from '@models/operations';
 import dynamic from 'next/dynamic';
+
+const ParagraphVideo = dynamic(() =>
+  import('@components/paragraph/ParagraphVideo/ParagraphVideo').then(
+    (paragraph) => paragraph.ParagraphVideo
+  )
+);
 
 const ParagraphImageGallery = dynamic(() =>
   import('@components/paragraph/ParagraphImageGallery/ParagraphImageGallery').then(
@@ -91,6 +98,7 @@ export type ParagraphTypes =
   | ParagraphImageCarouselFragment
   | ParagraphHighlightedSpeakersFragment
   | ParagraphImageGalleryFragment
+  | ParagraphVideoFragment
   | null;
 
 export interface ParagraphsProps {
@@ -108,6 +116,8 @@ const Paragraph = ({ paragraph }: ParagraphProps) => {
   }
 
   switch (paragraph.__typename) {
+    case 'ParagraphVideo':
+      return <ParagraphVideo key={paragraph.id} paragraph={paragraph} />;
     case 'ParagraphImageGallery':
       return <ParagraphImageGallery key={paragraph.id} paragraph={paragraph} />;
     case 'ParagraphHighlightedSpeakers':
