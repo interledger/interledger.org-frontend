@@ -49,8 +49,9 @@ const Video = ({
         height="100%"
         playing={playing}
         autoPlay={autoPlay}
+        volume={0}
         muted={muted}
-        playsInline={playsInline}
+        playsinline={playsInline}
         loop={loop}
         controls={controls}
       />

@@ -9,18 +9,25 @@
   flex-wrap: wrap;
   justify-content: space-between;
   grid-column-gap: rem(20px);
-  grid-row-gap: rem(100px);
+  grid-row-gap: rem(40px);
+  flex-direction: column;
 
   @include mq($from: tablet) {
     grid-column-gap: rem(30px);
     grid-row-gap: rem(30px);
     gap: rem(30px);
+    flex-direction: row;
+    grid-row-gap: rem(100px);
   }
 }
 
 .imageContainer {
-  max-width: rem(525px);
-  max-width: calc(50% - rem(20px));
+  max-width: 100%;
+
+  @include mq($from: tablet) {
+    max-width: rem(525px);
+    max-width: calc(50% - rem(20px));
+  }
 
   @include mq($until: tablet) {
     .image {
