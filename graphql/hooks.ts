@@ -230,9 +230,15 @@ export const ParagraphImageCarouselFragment = /*#__PURE__*/ `
     fragment ParagraphImageCarouselFragment on ParagraphImageCarousel {
   __typename
   id
-  multipleImages {
-    ... on MediaImage {
-      ...MediaImageLandscapeFragment
+  carouselItem {
+    id
+    link {
+      ...LinkFragment
+    }
+    image: singleImage {
+      ... on MediaImage {
+        ...MediaImageLandscapeFragment
+      }
     }
   }
 }

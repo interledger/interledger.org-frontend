@@ -16,7 +16,7 @@ export interface ParagraphVideoProps {
 
 export const ParagraphVideo = ({ className, paragraph }: ParagraphVideoProps) => {
   const rootClassName = cn(styles.root, className);
-  console.log({ paragraph });
+
   return (
     <ContainerEdge className={rootClassName}>
       {paragraph.video && (

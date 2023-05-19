@@ -319,21 +319,30 @@ export type NodePageFragment = {
     | {
         __typename: 'ParagraphImageCarousel';
         id: string;
-        multipleImages: Array<{
-          __typename: 'MediaImage';
+        carouselItem?: Array<{
+          __typename?: 'ParagraphCarouselItem';
           id: string;
-          mediaImage: {
-            __typename?: 'Image';
-            alt?: string | null;
-            responsive?: {
-              __typename: 'ResponsiveImageStyleDerivative';
-              height?: number | null;
-              path?: string | null;
-              srcSetPath?: string | null;
-              width?: number | null;
-            } | null;
+          link?: {
+            __typename?: 'Link';
+            url?: string | null;
+            title?: string | null;
+          } | null;
+          image: {
+            __typename: 'MediaImage';
+            id: string;
+            mediaImage: {
+              __typename?: 'Image';
+              alt?: string | null;
+              responsive?: {
+                __typename: 'ResponsiveImageStyleDerivative';
+                height?: number | null;
+                path?: string | null;
+                srcSetPath?: string | null;
+                width?: number | null;
+              } | null;
+            };
           };
-        }>;
+        }> | null;
       }
     | {
         __typename: 'ParagraphImageGallery';
@@ -714,21 +723,30 @@ export type ParagraphImageFragment = {
 export type ParagraphImageCarouselFragment = {
   __typename: 'ParagraphImageCarousel';
   id: string;
-  multipleImages: Array<{
-    __typename: 'MediaImage';
+  carouselItem?: Array<{
+    __typename?: 'ParagraphCarouselItem';
     id: string;
-    mediaImage: {
-      __typename?: 'Image';
-      alt?: string | null;
-      responsive?: {
-        __typename: 'ResponsiveImageStyleDerivative';
-        height?: number | null;
-        path?: string | null;
-        srcSetPath?: string | null;
-        width?: number | null;
-      } | null;
+    link?: {
+      __typename?: 'Link';
+      url?: string | null;
+      title?: string | null;
+    } | null;
+    image: {
+      __typename: 'MediaImage';
+      id: string;
+      mediaImage: {
+        __typename?: 'Image';
+        alt?: string | null;
+        responsive?: {
+          __typename: 'ResponsiveImageStyleDerivative';
+          height?: number | null;
+          path?: string | null;
+          srcSetPath?: string | null;
+          width?: number | null;
+        } | null;
+      };
     };
-  }>;
+  }> | null;
 };
 
 export type ParagraphImageGalleryFragment = {
@@ -811,6 +829,10 @@ type TwoColumnContentFragment_ParagraphButton_ = {
   link: { __typename?: 'Link'; url?: string | null; title?: string | null };
 };
 
+type TwoColumnContentFragment_ParagraphCarouselItem_ = {
+  __typename?: 'ParagraphCarouselItem';
+};
+
 type TwoColumnContentFragment_ParagraphContentTitle_ = {
   __typename: 'ParagraphContentTitle';
   id: string;
@@ -872,6 +894,7 @@ type TwoColumnContentFragment_ParagraphVideo_ = {
 
 export type TwoColumnContentFragment =
   | TwoColumnContentFragment_ParagraphButton_
+  | TwoColumnContentFragment_ParagraphCarouselItem_
   | TwoColumnContentFragment_ParagraphContentTitle_
   | TwoColumnContentFragment_ParagraphHeroHeader_
   | TwoColumnContentFragment_ParagraphHighlightedList_
@@ -1078,6 +1101,10 @@ type NodeCardFragment_NodeSpeaker_ = { __typename?: 'NodeSpeaker' };
 
 type NodeCardFragment_ParagraphButton_ = { __typename?: 'ParagraphButton' };
 
+type NodeCardFragment_ParagraphCarouselItem_ = {
+  __typename?: 'ParagraphCarouselItem';
+};
+
 type NodeCardFragment_ParagraphContentTitle_ = {
   __typename?: 'ParagraphContentTitle';
 };
@@ -1129,6 +1156,7 @@ export type NodeCardFragment =
   | NodeCardFragment_NodePage_
   | NodeCardFragment_NodeSpeaker_
   | NodeCardFragment_ParagraphButton_
+  | NodeCardFragment_ParagraphCarouselItem_
   | NodeCardFragment_ParagraphContentTitle_
   | NodeCardFragment_ParagraphHeroHeader_
   | NodeCardFragment_ParagraphHighlightedList_
@@ -1147,6 +1175,10 @@ type ParagraphsFragment_ParagraphButton_ = {
   __typename: 'ParagraphButton';
   id: string;
   link: { __typename?: 'Link'; url?: string | null; title?: string | null };
+};
+
+type ParagraphsFragment_ParagraphCarouselItem_ = {
+  __typename?: 'ParagraphCarouselItem';
 };
 
 type ParagraphsFragment_ParagraphContentTitle_ = {
@@ -1247,21 +1279,30 @@ type ParagraphsFragment_ParagraphImage_ = {
 type ParagraphsFragment_ParagraphImageCarousel_ = {
   __typename: 'ParagraphImageCarousel';
   id: string;
-  multipleImages: Array<{
-    __typename: 'MediaImage';
+  carouselItem?: Array<{
+    __typename?: 'ParagraphCarouselItem';
     id: string;
-    mediaImage: {
-      __typename?: 'Image';
-      alt?: string | null;
-      responsive?: {
-        __typename: 'ResponsiveImageStyleDerivative';
-        height?: number | null;
-        path?: string | null;
-        srcSetPath?: string | null;
-        width?: number | null;
-      } | null;
+    link?: {
+      __typename?: 'Link';
+      url?: string | null;
+      title?: string | null;
+    } | null;
+    image: {
+      __typename: 'MediaImage';
+      id: string;
+      mediaImage: {
+        __typename?: 'Image';
+        alt?: string | null;
+        responsive?: {
+          __typename: 'ResponsiveImageStyleDerivative';
+          height?: number | null;
+          path?: string | null;
+          srcSetPath?: string | null;
+          width?: number | null;
+        } | null;
+      };
     };
-  }>;
+  }> | null;
 };
 
 type ParagraphsFragment_ParagraphImageGallery_ = {
@@ -1383,6 +1424,7 @@ type ParagraphsFragment_ParagraphVideo_ = {
 
 export type ParagraphsFragment =
   | ParagraphsFragment_ParagraphButton_
+  | ParagraphsFragment_ParagraphCarouselItem_
   | ParagraphsFragment_ParagraphContentTitle_
   | ParagraphsFragment_ParagraphHeroHeader_
   | ParagraphsFragment_ParagraphHighlightedList_
@@ -1637,21 +1679,30 @@ export type GetNodeByPathQuery = {
                 | {
                     __typename: 'ParagraphImageCarousel';
                     id: string;
-                    multipleImages: Array<{
-                      __typename: 'MediaImage';
+                    carouselItem?: Array<{
+                      __typename?: 'ParagraphCarouselItem';
                       id: string;
-                      mediaImage: {
-                        __typename?: 'Image';
-                        alt?: string | null;
-                        responsive?: {
-                          __typename: 'ResponsiveImageStyleDerivative';
-                          height?: number | null;
-                          path?: string | null;
-                          srcSetPath?: string | null;
-                          width?: number | null;
-                        } | null;
+                      link?: {
+                        __typename?: 'Link';
+                        url?: string | null;
+                        title?: string | null;
+                      } | null;
+                      image: {
+                        __typename: 'MediaImage';
+                        id: string;
+                        mediaImage: {
+                          __typename?: 'Image';
+                          alt?: string | null;
+                          responsive?: {
+                            __typename: 'ResponsiveImageStyleDerivative';
+                            height?: number | null;
+                            path?: string | null;
+                            srcSetPath?: string | null;
+                            width?: number | null;
+                          } | null;
+                        };
                       };
-                    }>;
+                    }> | null;
                   }
                 | {
                     __typename: 'ParagraphImageGallery';

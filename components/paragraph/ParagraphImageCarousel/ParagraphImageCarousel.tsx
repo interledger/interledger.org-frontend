@@ -4,6 +4,8 @@ import { Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { SwiperPagination } from '@components/ui/SwiperPagination/SwiperPagination';
 import { MediaImage } from '@components/media/MediaImage/MediaImage';
+import { ButtonLink } from '@components/ui/Button/ButtonLink';
+import { VisuallyHidden } from '@components/util/VisuallyHidden/VisuallyHidden';
 import 'swiper/css';
 import styles from './ParagraphImageCarousel.module.scss';
 
@@ -32,9 +34,16 @@ export const ParagraphImageCarousel = ({ className, paragraph }: ParagraphImageC
       threshold={10}
       speed={1000}
     >
-      {paragraph?.multipleImages?.map(image => (
-        <SwiperSlide className={styles.slide} key={image.id}>
-          <MediaImage className={styles.headerImage} media={image} key={image.id} />
+      {paragraph?.carouselItem?.map(carouselItem => (
+        <SwiperSlide className={styles.slide} key={carouselItem.id}>
+          <MediaImage className={styles.headerImage} media={carouselItem.image} />
+          {carouselItem?.link?.url && (
+            <ButtonLink href={carouselItem.link.url}>
+              <VisuallyHidden>
+                {carouselItem.link?.title}
+              </VisuallyHidden>
+            </ButtonLink>
+          )}
         </SwiperSlide>
       ))}
       <SwiperPagination />

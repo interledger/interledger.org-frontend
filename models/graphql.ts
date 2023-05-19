@@ -657,6 +657,20 @@ export type ParagraphButton = Node &
   };
 
 /** Entity type paragraph. */
+export type ParagraphCarouselItem = Node &
+  ParagraphInterface & {
+    __typename?: 'ParagraphCarouselItem';
+    /** The time that the Paragraph was created. */
+    created: DateTime;
+    /** UUID */
+    id: Scalars['ID'];
+    /** Link */
+    link?: Maybe<Link>;
+    /** Image */
+    singleImage: MediaImage;
+  };
+
+/** Entity type paragraph. */
 export type ParagraphContentTitle = Node &
   ParagraphInterface & {
     __typename?: 'ParagraphContentTitle';
@@ -728,6 +742,8 @@ export type ParagraphImage = Node &
 export type ParagraphImageCarousel = Node &
   ParagraphInterface & {
     __typename?: 'ParagraphImageCarousel';
+    /** Carousel Item */
+    carouselItem?: Maybe<Array<ParagraphCarouselItem>>;
     /** The time that the Paragraph was created. */
     created: DateTime;
     /** UUID */
@@ -836,6 +852,7 @@ export type ParagraphTwoColumnContentFieldSecondColumnUnion =
 
 export type ParagraphUnion =
   | ParagraphButton
+  | ParagraphCarouselItem
   | ParagraphContentTitle
   | ParagraphHeroHeader
   | ParagraphHighlightedList
