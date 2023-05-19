@@ -16,6 +16,8 @@
     }
 
     svg {
+      position: relative;
+      top: 5px;
       margin-left: rem(20px);
 
       @include mq($from: tablet) {

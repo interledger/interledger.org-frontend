@@ -28,6 +28,10 @@
     }
   }
 
+  img {
+    display: block;
+  }
+
   @include mq($from: tablet) {
     &:nth-child(4n + 1) {
       align-self: flex-end;
@@ -69,12 +73,6 @@
         max-width: rem(555px);
         padding-top: rem(300px);
         width: 100%;
-      }
-    }
-
-    .mediaImage {
-      img {
-        display: block;
       }
     }
   }

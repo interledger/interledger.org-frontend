@@ -15,6 +15,7 @@ export interface ParagraphHighlightedListProps {
 
 export const ParagraphHighlightedList = ({ className, paragraph }: ParagraphHighlightedListProps) => {
   const rootClassName = cn(styles.root, className);
+
   return (
     <div className={rootClassName}>
       {paragraph.listItem?.map((item, index) => (
@@ -23,7 +24,7 @@ export const ParagraphHighlightedList = ({ className, paragraph }: ParagraphHigh
           initial={{ opacity: 0, x: 150 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.4 }}
-          viewport={{ once: false, margin: "-200px" }}
+          viewport={{ once: false, margin: "0px 0px -200px 0px" }}
         >
           {item}
         </m.h2>

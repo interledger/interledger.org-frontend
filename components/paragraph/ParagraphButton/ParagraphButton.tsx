@@ -1,6 +1,6 @@
 import cn from 'classnames';
 import { ParagraphButtonFragment } from '@models/operations';
-import { m, useSpring } from 'framer-motion';
+import { m } from 'framer-motion';
 import { ButtonLink } from '@components/ui/Button/ButtonLink';
 import { Arrow } from '@components/icon/Arrow/Arrow';
 import styles from './ParagraphButton.module.scss';
