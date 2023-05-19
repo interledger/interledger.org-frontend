@@ -27,17 +27,25 @@
   svg {
     position: relative;
     left: 0;
-    width: 200%;
     transition-duration: 1s;
     transition-property: transform;
     animation: spin 10s linear infinite;
+    width: 300%;
+
+    @include mq($from: tablet) {
+      width: 200%;
+    }
 
     &:nth-child(odd) {
       left: 0;
     }
 
     &:nth-child(even) {
-      left: -100%;
+      left: -200%;
+
+      @include mq($from: tablet) {
+        left: -100%;
+      }
     }
   }
 }

@@ -101,6 +101,11 @@
   border: 0;
   padding: rem(15px);
   cursor: pointer;
+  transition: 0.4s ease transform;
+
+  &:hover {
+    transform: translateY(rem(10px));
+  }
 }
 
 .scrollChevron {
