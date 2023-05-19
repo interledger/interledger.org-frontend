@@ -748,8 +748,6 @@ export type ParagraphImageCarousel = Node &
     created: DateTime;
     /** UUID */
     id: Scalars['ID'];
-    /** Multiple Images */
-    multipleImages: Array<MediaImage>;
   };
 
 /** Entity type paragraph. */
