@@ -33,31 +33,31 @@ const getAnimationValues = (count: number) => {
     case 1:
       animationValues = {
         animateFromDistance: 150,
-        animateToDistance: -300,
-        animateFromOffset: "start end",
+        animateToDistance: -450,
+        animateFromOffset: "end end",
         animateToOffset: "end start"
       }
       break;
     case 2:
       animationValues = {
-        animateFromDistance: 100,
-        animateToDistance: -50,
+        animateFromDistance: 250,
+        animateToDistance: -100,
         animateFromOffset: "start end",
         animateToOffset: "end start"
       }
       break;
     case 3:
       animationValues = {
-        animateFromDistance: 150,
-        animateToDistance: -250,
+        animateFromDistance: 250,
+        animateToDistance: -300,
         animateFromOffset: "start end",
-        animateToOffset: "end start"
+        animateToOffset: "end center"
       }
       break;
     case 4:
       animationValues = {
-        animateFromDistance: 200,
-        animateToDistance: 0,
+        animateFromDistance: 300,
+        animateToDistance: -100,
         animateFromOffset: "start end",
         animateToOffset: "end start"
       }

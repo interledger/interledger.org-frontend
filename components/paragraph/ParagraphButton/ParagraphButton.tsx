@@ -35,10 +35,10 @@ export const ParagraphButton = ({
   return (
     <m.section
       className={rootClassName}
-      initial={{ y: 350 }}
+      initial={{ y: 100 }}
       whileInView={{ y: 0 }}
-      transition={{ duration: 0.3 }}
-      viewport={{ once: true, margin: "350px", amount: "all" }}
+      transition={{ duration: 0.5 }}
+      viewport={{ once: true, margin: "0px", amount: "all" }}
     >
       <ButtonLink href={paragraph.link.url}>
         {titleMarkup && (

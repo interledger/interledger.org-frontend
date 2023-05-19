@@ -15,5 +15,9 @@ export interface ParagraphImageProps {
 
 export const ParagraphImage = ({ className, paragraph }: ParagraphImageProps) => {
   const rootClassName = cn(styles.root, className);
-  return <MediaImage className={rootClassName} media={paragraph.landscapeImage} fit />
+  return (
+    <div className={rootClassName}>
+      <MediaImage media={paragraph.landscapeImage} fit />
+    </div>
+  )
 };

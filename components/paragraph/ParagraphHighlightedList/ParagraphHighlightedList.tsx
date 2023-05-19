@@ -20,9 +20,9 @@ export const ParagraphHighlightedList = ({ className, paragraph }: ParagraphHigh
       {paragraph.listItem?.map((item, index) => (
         <m.h2
           key={index}
-          initial={{ opacity: 0, x: 25 }}
+          initial={{ opacity: 0, x: 150 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.4 }}
           viewport={{ once: false, margin: "-200px" }}
         >
           {item}

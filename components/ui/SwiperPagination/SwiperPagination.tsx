@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import { useSwiper } from 'swiper/react';
 
 import styles from './SwiperPagination.module.scss';
@@ -17,8 +17,13 @@ export const SwiperPagination = ({ className }: SwiperPaginationProps) => {
   const rootClassName = cn(styles.root, className);
   const swiper = useSwiper();
   const [activeIndex, setActiveIndex] = useState(swiper.activeIndex);
+  const [bullets, setBullets] = useState<number[]>();
 
-  const bullets = Array.from({ length: swiper.snapGrid.length }, (x, i) => i);
+  useEffect(() => {
+    if (swiper && swiper.snapGrid) {
+      setBullets(Array.from({ length: swiper.snapGrid?.length }, (x, i) => i));
+    }
+  }, [swiper]);
 
   useEffect(() => {
     swiper.on('slideChange', () => {
@@ -34,7 +39,7 @@ export const SwiperPagination = ({ className }: SwiperPaginationProps) => {
 
   return (
     <div className={rootClassName}>
-      {bullets.map((b, i) => (
+      {bullets && bullets.map((b, i) => (
         <button
           key={i}
           className={cn(styles.bullet, {
