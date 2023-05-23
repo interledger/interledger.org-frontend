@@ -24,18 +24,18 @@
     svg {
       position: relative;
       top: 5px;
-      margin-left: rem(20px);
       transition: 0.4s ease transform;
-
-      @include mq($from: tablet) {
-        margin-left: rem(35px);
-      }
     }
   }
 
   .titleMarkup {
     span {
       font-family: var(--font-display);
+      margin-right: rem(20px);
+
+      @include mq($from: tablet) {
+        margin-right: rem(35px);
+      }
     }
   }
 }
