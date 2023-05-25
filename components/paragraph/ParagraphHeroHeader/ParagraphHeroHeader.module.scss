@@ -79,9 +79,10 @@
   }
 
   .infoTitle {
+    color: var(--color-primary);
     font-family: var(--font-display);
-    font-size: rem(23px);
-    line-height: rem(25px);
+    font-size: rem(24px);
+    line-height: rem(26px);
     margin-bottom: 0;
 
     @include mq($from: tablet) {
@@ -90,8 +91,8 @@
   }
 
   .infoText {
-    font-size: rem(26px);
-    line-height: rem(30px);
+    font-size: rem(30px);
+    line-height: rem(32px);
     margin-bottom: 0;
   }
 }
