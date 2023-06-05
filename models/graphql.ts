@@ -840,13 +840,15 @@ export type ParagraphTwoColumnContentFieldFirstColumnUnion =
   | ParagraphButton
   | ParagraphContentTitle
   | ParagraphSpacer
-  | ParagraphText;
+  | ParagraphText
+  | ParagraphVideo;
 
 export type ParagraphTwoColumnContentFieldSecondColumnUnion =
   | ParagraphButton
   | ParagraphContentTitle
   | ParagraphSpacer
-  | ParagraphText;
+  | ParagraphText
+  | ParagraphVideo;
 
 export type ParagraphUnion =
   | ParagraphButton

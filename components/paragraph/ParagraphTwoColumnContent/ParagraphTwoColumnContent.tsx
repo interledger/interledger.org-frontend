@@ -14,17 +14,17 @@ export interface ParagraphTwoColumnContentProps {
  */
 
 export const ParagraphTwoColumnContent = ({ className, paragraph }: ParagraphTwoColumnContentProps) => {
-  const rootClassName = cn(styles.root, className);
+  const rootClassName = cn(styles.root, className, 'ParagraphTwoColumnContent');
   return (
     <div className={rootClassName}>
       {paragraph.firstColumn && (
         <div className={cn(styles.column, styles.firstColumn)}>
-          <Paragraphs paragraphs={paragraph.firstColumn} />
+          <Paragraphs className={styles.columnContainer} paragraphs={paragraph.firstColumn} />
         </div>
       )}
       {paragraph.secondColumn && (
         <div className={cn(styles.column, styles.secondColumn)}>
-          <Paragraphs paragraphs={paragraph.secondColumn} />
+          <Paragraphs className={styles.columnContainer} paragraphs={paragraph.secondColumn} />
         </div>
       )}
     </div>

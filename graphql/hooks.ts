@@ -145,6 +145,41 @@ export const ParagraphContentTitleFragment = /*#__PURE__*/ `
   title
 }
     `;
+export const MediaVideoFragment = /*#__PURE__*/ `
+    fragment MediaVideoFragment on MediaVideo {
+  __typename
+  id
+  mediaVideoFile {
+    url
+  }
+}
+    `;
+export const MediaImageLandscapeFragment = /*#__PURE__*/ `
+    fragment MediaImageLandscapeFragment on MediaImage {
+  __typename
+  id
+  mediaImage {
+    alt
+    responsive(name: ASPECT_RATIO_LANDSCAPE_16_9) {
+      ...ResponsiveImageStyleFragment
+    }
+  }
+}
+    `;
+export const ParagraphVideoFragment = /*#__PURE__*/ `
+    fragment ParagraphVideoFragment on ParagraphVideo {
+  __typename
+  id
+  video {
+    ...MediaVideoFragment
+  }
+  image: singleImage {
+    ... on MediaImage {
+      ...MediaImageLandscapeFragment
+    }
+  }
+}
+    `;
 export const TwoColumnContentFragment = /*#__PURE__*/ `
     fragment TwoColumnContentFragment on ParagraphInterface {
   ... on ParagraphButton {
@@ -161,6 +196,9 @@ export const TwoColumnContentFragment = /*#__PURE__*/ `
   }
   ... on ParagraphSpacer {
     ...ParagraphSpacerFragment
+  }
+  ... on ParagraphVideo {
+    ...ParagraphVideoFragment
   }
 }
     `;
@@ -188,18 +226,6 @@ export const ParagraphHighlightedListFragment = /*#__PURE__*/ `
   __typename
   id
   listItem
-}
-    `;
-export const MediaImageLandscapeFragment = /*#__PURE__*/ `
-    fragment MediaImageLandscapeFragment on MediaImage {
-  __typename
-  id
-  mediaImage {
-    alt
-    responsive(name: ASPECT_RATIO_LANDSCAPE_16_9) {
-      ...ResponsiveImageStyleFragment
-    }
-  }
 }
     `;
 export const MediaImageSquareFragment = /*#__PURE__*/ `
@@ -273,29 +299,6 @@ export const ParagraphImageGalleryFragment = /*#__PURE__*/ `
   __typename
   id
   multipleImages {
-    ... on MediaImage {
-      ...MediaImageLandscapeFragment
-    }
-  }
-}
-    `;
-export const MediaVideoFragment = /*#__PURE__*/ `
-    fragment MediaVideoFragment on MediaVideo {
-  __typename
-  id
-  mediaVideoFile {
-    url
-  }
-}
-    `;
-export const ParagraphVideoFragment = /*#__PURE__*/ `
-    fragment ParagraphVideoFragment on ParagraphVideo {
-  __typename
-  id
-  video {
-    ...MediaVideoFragment
-  }
-  image: singleImage {
     ... on MediaImage {
       ...MediaImageLandscapeFragment
     }
@@ -536,18 +539,18 @@ ${ParagraphSpacerFragment}
 ${ParagraphTwoColumnContentFragment}
 ${TwoColumnContentFragment}
 ${ParagraphContentTitleFragment}
+${ParagraphVideoFragment}
+${MediaVideoFragment}
+${MediaImageLandscapeFragment}
+${ResponsiveImageStyleFragment}
 ${ParagraphLargeCalloutTextFragment}
 ${ParagraphHighlightedListFragment}
 ${ParagraphImageFragment}
-${MediaImageLandscapeFragment}
-${ResponsiveImageStyleFragment}
 ${MediaImageSquareFragment}
 ${ParagraphImageCarouselFragment}
 ${ParagraphHighlightedSpeakersFragment}
 ${ParagraphTeaserFragment}
 ${ParagraphImageGalleryFragment}
-${ParagraphVideoFragment}
-${MediaVideoFragment}
 ${MetaTagFragment}
 ${NodePageFragment}
 ${ParagraphHeroHeaderFragment}`;

@@ -107,17 +107,18 @@ export interface ParagraphsProps {
 }
 
 interface ParagraphProps {
+  className?: string;
   paragraph: ParagraphTypes;
 }
 
-const Paragraph = ({ paragraph }: ParagraphProps) => {
+const Paragraph = ({ paragraph, className }: ParagraphProps) => {
   if (!paragraph?.__typename) {
     return null;
   }
 
   switch (paragraph.__typename) {
     case 'ParagraphVideo':
-      return <ParagraphVideo key={paragraph.id} paragraph={paragraph} />;
+      return <ParagraphVideo key={paragraph.id} paragraph={paragraph} className={className} />;
     case 'ParagraphImageGallery':
       return <ParagraphImageGallery key={paragraph.id} paragraph={paragraph} />;
     case 'ParagraphHighlightedSpeakers':
@@ -149,11 +150,11 @@ const Paragraph = ({ paragraph }: ParagraphProps) => {
  * Loads paragraphs by __typename
  */
 
-export const Paragraphs = ({ paragraphs }: ParagraphsProps) => {
+export const Paragraphs = ({ paragraphs, className }: ParagraphsProps) => {
   return (
     <>
       {paragraphs.map((p) => (
-        <Paragraph key={p?.id} paragraph={p} />
+        <Paragraph key={p?.id} paragraph={p} className={className} />
       ))}
     </>
   );
