@@ -20,8 +20,10 @@ export const Main = ({ className, children, theme }: MainProps) => {
 
   return (
     <div className={rootClassName}>
+      <Header mainMenu={initData?.mainMenu} />
       <main>{children}</main>
       <BackgroundSwirl theme={theme} />
+      <Footer footerMenu={initData?.footerMenu} />
     </div>
   );
 };

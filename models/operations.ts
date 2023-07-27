@@ -83,65 +83,18 @@ export type MediaVideoFragment = {
 
 export type FooterMenuFragment = {
   __typename: 'Menu';
-  items: Array<{
-    __typename: 'MenuItem';
-    title: string;
-    route?:
-      | { __typename: 'RouteExternal'; internal: boolean; url: string }
-      | { __typename: 'RouteInternal'; url: string; internal: boolean }
-      | { __typename?: 'RouteRedirect' }
-      | null;
-    children: Array<{
-      __typename: 'MenuItem';
-      title: string;
-      route?:
-        | { __typename: 'RouteExternal'; internal: boolean; url: string }
-        | { __typename: 'RouteInternal'; url: string; internal: boolean }
-        | { __typename?: 'RouteRedirect' }
-        | null;
-    }>;
-  }>;
+  items: Array<{ __typename: 'MenuItem'; title: string; url?: string | null }>;
 };
 
 export type MainMenuFragment = {
   __typename: 'Menu';
-  items: Array<{
-    __typename: 'MenuItem';
-    title: string;
-    route?:
-      | { __typename: 'RouteExternal'; internal: boolean; url: string }
-      | { __typename: 'RouteInternal'; url: string; internal: boolean }
-      | { __typename?: 'RouteRedirect' }
-      | null;
-    children: Array<{
-      __typename: 'MenuItem';
-      title: string;
-      route?:
-        | { __typename: 'RouteExternal'; internal: boolean; url: string }
-        | { __typename: 'RouteInternal'; url: string; internal: boolean }
-        | { __typename?: 'RouteRedirect' }
-        | null;
-    }>;
-  }>;
+  items: Array<{ __typename: 'MenuItem'; title: string; url?: string | null }>;
 };
 
 export type MenuItemFragment = {
   __typename: 'MenuItem';
   title: string;
-  route?:
-    | { __typename: 'RouteExternal'; internal: boolean; url: string }
-    | { __typename: 'RouteInternal'; url: string; internal: boolean }
-    | { __typename?: 'RouteRedirect' }
-    | null;
-  children: Array<{
-    __typename: 'MenuItem';
-    title: string;
-    route?:
-      | { __typename: 'RouteExternal'; internal: boolean; url: string }
-      | { __typename: 'RouteInternal'; url: string; internal: boolean }
-      | { __typename?: 'RouteRedirect' }
-      | null;
-  }>;
+  url?: string | null;
 };
 
 export type NodeArticleFragment = {
@@ -1620,20 +1573,7 @@ export type GetInitDataQuery = {
     items: Array<{
       __typename: 'MenuItem';
       title: string;
-      route?:
-        | { __typename: 'RouteExternal'; internal: boolean; url: string }
-        | { __typename: 'RouteInternal'; url: string; internal: boolean }
-        | { __typename?: 'RouteRedirect' }
-        | null;
-      children: Array<{
-        __typename: 'MenuItem';
-        title: string;
-        route?:
-          | { __typename: 'RouteExternal'; internal: boolean; url: string }
-          | { __typename: 'RouteInternal'; url: string; internal: boolean }
-          | { __typename?: 'RouteRedirect' }
-          | null;
-      }>;
+      url?: string | null;
     }>;
   } | null;
   footerMenu?: {
@@ -1641,20 +1581,7 @@ export type GetInitDataQuery = {
     items: Array<{
       __typename: 'MenuItem';
       title: string;
-      route?:
-        | { __typename: 'RouteExternal'; internal: boolean; url: string }
-        | { __typename: 'RouteInternal'; url: string; internal: boolean }
-        | { __typename?: 'RouteRedirect' }
-        | null;
-      children: Array<{
-        __typename: 'MenuItem';
-        title: string;
-        route?:
-          | { __typename: 'RouteExternal'; internal: boolean; url: string }
-          | { __typename: 'RouteInternal'; url: string; internal: boolean }
-          | { __typename?: 'RouteRedirect' }
-          | null;
-      }>;
+      url?: string | null;
     }>;
   } | null;
 };

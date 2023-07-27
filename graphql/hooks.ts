@@ -60,34 +60,11 @@ export const MediaRemoteVideoFragment = /*#__PURE__*/ `
   mediaOembedVideo
 }
     `;
-export const RouteUnionFragment = /*#__PURE__*/ `
-    fragment RouteUnionFragment on RouteUnion {
-  ... on RouteInternal {
-    __typename
-    url
-    internal
-  }
-  ... on RouteExternal {
-    __typename
-    internal
-    url
-  }
-}
-    `;
 export const MenuItemFragment = /*#__PURE__*/ `
     fragment MenuItemFragment on MenuItem {
   __typename
   title
-  route {
-    ...RouteUnionFragment
-  }
-  children {
-    __typename
-    title
-    route {
-      ...RouteUnionFragment
-    }
-  }
+  url
 }
     `;
 export const FooterMenuFragment = /*#__PURE__*/ `
@@ -484,6 +461,20 @@ export const NodeCardFragment = /*#__PURE__*/ `
   }
 }
     `;
+export const RouteUnionFragment = /*#__PURE__*/ `
+    fragment RouteUnionFragment on RouteUnion {
+  ... on RouteInternal {
+    __typename
+    url
+    internal
+  }
+  ... on RouteExternal {
+    __typename
+    internal
+    url
+  }
+}
+    `;
 export const GetInitDataQueryDocument = /*#__PURE__*/ `
     query GetInitDataQuery {
   mainMenu: menu(name: MAIN) {
@@ -495,7 +486,6 @@ export const GetInitDataQueryDocument = /*#__PURE__*/ `
 }
     ${MainMenuFragment}
 ${MenuItemFragment}
-${RouteUnionFragment}
 ${FooterMenuFragment}`;
 export const useGetInitDataQuery = <
   TData = OperationTypes.GetInitDataQuery,

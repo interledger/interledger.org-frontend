@@ -3,6 +3,7 @@ import { MenuItemFragment } from '@models/operations';
 import styles from './MenuItem.module.scss';
 import Link from 'next/link';
 import { MenuList } from '../MenuList/MenuList';
+import { useRouter } from 'next/router';
 
 export interface MenuItemProps {
   /** Optional className for MenuItem, pass in a sass module class to override component default */
@@ -11,6 +12,8 @@ export interface MenuItemProps {
 }
 
 export const MenuItem = ({ className, menuItem }: MenuItemProps) => {
+  const router = useRouter();
+  const currentRoute = router.pathname;
   const rootClassName = cn(styles.root, className);
 
   if (!menuItem) {
@@ -19,17 +22,21 @@ export const MenuItem = ({ className, menuItem }: MenuItemProps) => {
 
   return (
     <li>
-      {menuItem.route?.__typename === 'RouteInternal' ||
-      menuItem.route?.__typename === 'RouteExternal' ? (
-        <Link href={menuItem.route.url} className={rootClassName}>
+      {menuItem.url ? (
+        <Link
+          href={menuItem.url}
+          className={cn(rootClassName, {
+            [styles.active]: menuItem.url === currentRoute,
+          })}
+        >
           {menuItem.title}
         </Link>
       ) : (
         <span className={rootClassName}> {menuItem.title}</span>
       )}
-      {menuItem.children && menuItem.children.length > 0 ? (
+      {/* {!!menuItem.children.length ? (
         <MenuList menus={menuItem.children} />
-      ) : null}
+      ) : null} */}
     </li>
   );
 };

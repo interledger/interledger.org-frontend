@@ -4,14 +4,4 @@
 @use '@styles/base/variables' as *;
 @use '@styles/base/helpers' as *;
 
-.root {
-  text-decoration: none;
-
-  &:hover {
-    color: var(--color-secondary);
-  }
-}
-
-.active {
-  color: var(--color-secondary);
-}
+.root {}

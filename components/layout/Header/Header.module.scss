@@ -5,7 +5,26 @@
 @use '@styles/base/helpers' as *;
 
 .root {
-  padding: rem(15px) var(--page-gutter);
-  background-color: black;
-  color: white;
+  padding: rem(30px) var(--page-gutter);
+  background-color: transparent;
+  color: black;
+  display: flex;
+  align-items: center;
+}
+
+.headerItem {
+  flex: 1 1;
+  display: flex;
+  position: relative;
+  z-index: 11;
+}
+
+.logo {
+  width: rem(150px);
+}
+
+.menuWrapper {
+  nav {
+    margin: 0 auto;
+  }
 }
