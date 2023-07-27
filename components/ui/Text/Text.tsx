@@ -36,6 +36,7 @@ export interface TextProps {
   as?: Variants;
   color?: 'default' | 'primary' | 'secondary' | 'error';
   children: React.ReactNode;
+  noMargin?: boolean;
 }
 
 export const Text = ({
@@ -44,6 +45,7 @@ export const Text = ({
   as,
   color = 'default',
   children,
+  noMargin,
   ...props
 }: TextProps) => {
   const Component = variantsMapping[variant] as keyof JSX.IntrinsicElements;
@@ -52,6 +54,7 @@ export const Text = ({
     {
       [styles[as ? as : variant]]: variant,
       [styles[color!]]: color !== 'default',
+      [styles.noMargin]: noMargin,
     },
     className
   );

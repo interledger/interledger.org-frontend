@@ -17,10 +17,10 @@
 
   --color-black: #000;
   --color-white: #fff;
-  --color-primary: #01ffff;
+  --color-primary: #000;
   --color-secondary: #6200b1;
 
-  --color-text: var(--color-white);
+  --color-text: var(--color-black);
 
   @include mq($from: tablet) {
     --page-gutter: #{rem(40px)};

@@ -1,0 +1,26 @@
+fragment NodeSpeakerFragment on NodeSpeaker {
+  __typename
+  id
+  path
+  biography {
+    processed
+  }
+  company
+  role
+  summary {
+    value
+  }
+  title
+  email
+  socialMedia {
+    socialMediaLinks {
+      link {
+        url
+      }
+      socialMediaType
+    }
+  }
+  image {
+    ...MediaImageSquareFragment
+  }
+}

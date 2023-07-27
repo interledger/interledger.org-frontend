@@ -1,0 +1,24 @@
+@use '@styles/base/mq-settings';
+@use '~sass-mq/mq' as *;
+@use '~sass-rem' as *;
+@use '@styles/base/variables' as *;
+@use '@styles/base/helpers' as *;
+
+.root {
+}
+
+.header {
+  aspect-ratio: 15.3/9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow-y: hidden;
+}
+
+.headerImage {
+  position: absolute;
+  top: 0;
+  right: -50px;
+  width: 75%;
+}

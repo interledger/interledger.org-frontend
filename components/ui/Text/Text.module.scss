@@ -10,7 +10,7 @@
 }
 
 .h1 {
-  font-size: rem(26px);
+  font-size: rem(52px);
   font-weight: 600;
 }
 
@@ -60,4 +60,8 @@
   margin-bottom: 1rem;
   line-height: 1.466;
   display: block;
+}
+
+.noMargin {
+  margin-bottom: 0;
 }

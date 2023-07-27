@@ -4,7 +4,7 @@ const config: CodegenConfig = {
   overwrite: true,
   schema: [
     {
-      'http://drupal-headless-next.test/graphql': {
+      'http://admin.interledger.test/graphql': {
         loader: './lib/codegen-loader.ts',
       },
     },

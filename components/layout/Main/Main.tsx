@@ -1,4 +1,4 @@
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
 import { useGetInitDataQuery } from '@graphql/hooks';
 import cn from 'classnames';
 import { Footer } from '../Footer/Footer';

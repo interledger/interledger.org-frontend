@@ -11,19 +11,10 @@ query GetNodeByPathQuery($slug: String!) {
         ... on NodePage {
           ...NodePageFragment
         }
+        ... on NodeSpeaker {
+          ...NodeSpeakerFragment
+        }
       }
-    }
-    ... on RouteExternal {
-      __typename
-      internal
-      url
-    }
-    ... on RouteRedirect {
-      __typename
-      internal
-      redirect
-      status
-      url
     }
   }
 }

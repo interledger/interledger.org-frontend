@@ -45,8 +45,7 @@ export const getStaticProps: GetStaticProps = withInitData(
         preview: preview ?? false,
         dehydratedState: dehydrate(queryClient),
         slug,
-        theme: 'dark',
-        // theme: 'light',
+        theme: 'light',
       },
     };
   }

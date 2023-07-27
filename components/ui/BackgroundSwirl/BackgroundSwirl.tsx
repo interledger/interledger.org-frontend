@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import cn from 'classnames';
 
 import styles from './BackgroundSwirl.module.scss';
@@ -13,20 +14,7 @@ export interface BackgroundSwirlProps {
  */
 
 export const BackgroundSwirl = ({ className, theme }: BackgroundSwirlProps) => {
-  const rootClassName = cn(
-    styles.root,
-    className,
-    theme && styles[theme],
-  );
+  const rootClassName = cn(styles.root, className, theme && styles[theme]);
 
-  return (
-    <div className={rootClassName}>
-      <img src="/logo-swirl-large.svg" alt="" />
-      <img src="/logo-swirl-large.svg" alt="" />
-      <img src="/logo-swirl-large.svg" alt="" />
-      <img src="/logo-swirl-large.svg" alt="" />
-      <img src="/logo-swirl-large.svg" alt="" />
-      <img src="/logo-swirl-large.svg" alt="" />
-    </div>
-  );
+  return <div className={rootClassName} />;
 };

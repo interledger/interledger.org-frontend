@@ -1,4 +1,4 @@
-fragment NodeCardFragment on Node {
+fragment NodeCardFragment on EdgeNode {
   ... on NodeArticle {
     ...NodeArticleCardFragment
   }

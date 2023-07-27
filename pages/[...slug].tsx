@@ -3,7 +3,11 @@ import { MetaTag } from '@components/util/MetaTag/MetaTag';
 import { queryOptions } from '@graphql/graphql-client';
 import { getRouteEntity } from '@graphql/helpers';
 import { useGetNodeByPathQuery, useGetNodesPathsQuery } from '@graphql/hooks';
-import { NodeArticleFragment, NodePageFragment } from '@models/operations';
+import {
+  NodeArticleFragment,
+  NodePageFragment,
+  NodeSpeakerFragment,
+} from '@models/operations';
 import { QueryClient, dehydrate } from '@tanstack/react-query';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import dynamic from 'next/dynamic';
@@ -20,11 +24,20 @@ const NodePage = dynamic(() =>
   )
 );
 
+const NodeSpeaker = dynamic(() =>
+  import('@components/node/NodeSpeaker/NodeSpeaker').then(
+    (paragraph) => paragraph.NodeSpeaker
+  )
+);
+
 interface BasicProps {
   slug: string;
 }
 
-type NodeFragmentUnion = NodePageFragment | NodeArticleFragment;
+type NodeFragmentUnion =
+  | NodePageFragment
+  | NodeArticleFragment
+  | NodeSpeakerFragment;
 
 interface NodeSelectorProps {
   node: NodeFragmentUnion;
@@ -37,6 +50,12 @@ const NodeSelector = ({ node }: NodeSelectorProps) => {
 
   if (node.__typename === 'NodeArticle') {
     return <NodeArticle node={node} />;
+  }
+
+  if (node.__typename === 'NodeSpeaker') {
+    console.log('NodeSpeaker');
+
+    return <NodeSpeaker node={node} />;
   }
 
   return null;
@@ -84,7 +103,6 @@ export const getStaticProps: GetStaticProps = withInitData(
         dehydratedState: dehydrate(queryClient),
         slug,
       },
-      revalidate: 60,
     };
   }
 );

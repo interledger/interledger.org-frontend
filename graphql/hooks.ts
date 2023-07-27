@@ -422,6 +422,34 @@ export const NodePageFragment = /*#__PURE__*/ `
   }
 }
     `;
+export const NodeSpeakerFragment = /*#__PURE__*/ `
+    fragment NodeSpeakerFragment on NodeSpeaker {
+  __typename
+  id
+  path
+  biography {
+    processed
+  }
+  company
+  role
+  summary {
+    value
+  }
+  title
+  email
+  socialMedia {
+    socialMediaLinks {
+      link {
+        url
+      }
+      socialMediaType
+    }
+  }
+  image {
+    ...MediaImageSquareFragment
+  }
+}
+    `;
 export const NodeArticleCardFragment = /*#__PURE__*/ `
     fragment NodeArticleCardFragment on NodeArticle {
   __typename
@@ -447,7 +475,7 @@ export const NodePageCardFragment = /*#__PURE__*/ `
 }
     `;
 export const NodeCardFragment = /*#__PURE__*/ `
-    fragment NodeCardFragment on Node {
+    fragment NodeCardFragment on EdgeNode {
   ... on NodeArticle {
     ...NodeArticleCardFragment
   }
@@ -514,19 +542,10 @@ export const GetNodeByPathQueryDocument = /*#__PURE__*/ `
         ... on NodePage {
           ...NodePageFragment
         }
+        ... on NodeSpeaker {
+          ...NodeSpeakerFragment
+        }
       }
-    }
-    ... on RouteExternal {
-      __typename
-      internal
-      url
-    }
-    ... on RouteRedirect {
-      __typename
-      internal
-      redirect
-      status
-      url
     }
   }
 }
@@ -553,7 +572,8 @@ ${ParagraphTeaserFragment}
 ${ParagraphImageGalleryFragment}
 ${MetaTagFragment}
 ${NodePageFragment}
-${ParagraphHeroHeaderFragment}`;
+${ParagraphHeroHeaderFragment}
+${NodeSpeakerFragment}`;
 export const useGetNodeByPathQuery = <
   TData = OperationTypes.GetNodeByPathQuery,
   TError = unknown

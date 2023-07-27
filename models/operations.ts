@@ -83,59 +83,65 @@ export type MediaVideoFragment = {
 
 export type FooterMenuFragment = {
   __typename: 'Menu';
-  items?: Array<{
+  items: Array<{
     __typename: 'MenuItem';
-    title?: string | null;
-    route:
+    title: string;
+    route?:
       | { __typename: 'RouteExternal'; internal: boolean; url: string }
       | { __typename: 'RouteInternal'; url: string; internal: boolean }
-      | { __typename?: 'RouteRedirect' };
-    children?: Array<{
+      | { __typename?: 'RouteRedirect' }
+      | null;
+    children: Array<{
       __typename: 'MenuItem';
-      title?: string | null;
-      route:
+      title: string;
+      route?:
         | { __typename: 'RouteExternal'; internal: boolean; url: string }
         | { __typename: 'RouteInternal'; url: string; internal: boolean }
-        | { __typename?: 'RouteRedirect' };
-    }> | null;
-  }> | null;
+        | { __typename?: 'RouteRedirect' }
+        | null;
+    }>;
+  }>;
 };
 
 export type MainMenuFragment = {
   __typename: 'Menu';
-  items?: Array<{
+  items: Array<{
     __typename: 'MenuItem';
-    title?: string | null;
-    route:
+    title: string;
+    route?:
       | { __typename: 'RouteExternal'; internal: boolean; url: string }
       | { __typename: 'RouteInternal'; url: string; internal: boolean }
-      | { __typename?: 'RouteRedirect' };
-    children?: Array<{
+      | { __typename?: 'RouteRedirect' }
+      | null;
+    children: Array<{
       __typename: 'MenuItem';
-      title?: string | null;
-      route:
+      title: string;
+      route?:
         | { __typename: 'RouteExternal'; internal: boolean; url: string }
         | { __typename: 'RouteInternal'; url: string; internal: boolean }
-        | { __typename?: 'RouteRedirect' };
-    }> | null;
-  }> | null;
+        | { __typename?: 'RouteRedirect' }
+        | null;
+    }>;
+  }>;
 };
 
 export type MenuItemFragment = {
   __typename: 'MenuItem';
-  title?: string | null;
-  route:
+  title: string;
+  route?:
     | { __typename: 'RouteExternal'; internal: boolean; url: string }
     | { __typename: 'RouteInternal'; url: string; internal: boolean }
-    | { __typename?: 'RouteRedirect' };
-  children?: Array<{
+    | { __typename?: 'RouteRedirect' }
+    | null;
+  children: Array<{
     __typename: 'MenuItem';
-    title?: string | null;
-    route:
+    title: string;
+    route?:
       | { __typename: 'RouteExternal'; internal: boolean; url: string }
       | { __typename: 'RouteInternal'; url: string; internal: boolean }
-      | { __typename?: 'RouteRedirect' };
-  }> | null;
+      | { __typename?: 'RouteRedirect' }
+      | null;
+  }>;
 };
 
 export type NodeArticleFragment = {
@@ -643,6 +649,41 @@ export type NodePageCardFragment = {
   };
 };
 
+export type NodeSpeakerFragment = {
+  __typename: 'NodeSpeaker';
+  id: string;
+  path: string;
+  company?: string | null;
+  role?: string | null;
+  title: string;
+  email?: any | null;
+  biography?: { __typename?: 'Text'; processed?: any | null } | null;
+  summary?: { __typename?: 'Text'; value?: string | null } | null;
+  socialMedia?: {
+    __typename?: 'ParagraphSocialMedia';
+    socialMediaLinks?: Array<{
+      __typename?: 'ParagraphSocialMediaLink';
+      socialMediaType: string;
+      link: { __typename?: 'Link'; url?: string | null };
+    }> | null;
+  } | null;
+  image: {
+    __typename: 'MediaImage';
+    id: string;
+    mediaImage: {
+      __typename?: 'Image';
+      alt?: string | null;
+      responsive?: {
+        __typename: 'ResponsiveImageStyleDerivative';
+        height?: number | null;
+        path?: string | null;
+        srcSetPath?: string | null;
+        width?: number | null;
+      } | null;
+    };
+  };
+};
+
 export type ParagraphButtonFragment = {
   __typename: 'ParagraphButton';
   id: string;
@@ -915,6 +956,14 @@ type TwoColumnContentFragment_ParagraphLargeCalloutText_ = {
   __typename?: 'ParagraphLargeCalloutText';
 };
 
+type TwoColumnContentFragment_ParagraphSocialMedia_ = {
+  __typename?: 'ParagraphSocialMedia';
+};
+
+type TwoColumnContentFragment_ParagraphSocialMediaLink_ = {
+  __typename?: 'ParagraphSocialMediaLink';
+};
+
 type TwoColumnContentFragment_ParagraphSpacer_ = {
   __typename: 'ParagraphSpacer';
   id: string;
@@ -972,6 +1021,8 @@ export type TwoColumnContentFragment =
   | TwoColumnContentFragment_ParagraphImageCarousel_
   | TwoColumnContentFragment_ParagraphImageGallery_
   | TwoColumnContentFragment_ParagraphLargeCalloutText_
+  | TwoColumnContentFragment_ParagraphSocialMedia_
+  | TwoColumnContentFragment_ParagraphSocialMediaLink_
   | TwoColumnContentFragment_ParagraphSpacer_
   | TwoColumnContentFragment_ParagraphTeaser_
   | TwoColumnContentFragment_ParagraphText_
@@ -1143,14 +1194,6 @@ export type LinkFragment = {
   title?: string | null;
 };
 
-type NodeCardFragment_MediaImage_ = { __typename?: 'MediaImage' };
-
-type NodeCardFragment_MediaRemoteVideo_ = { __typename?: 'MediaRemoteVideo' };
-
-type NodeCardFragment_MediaVectorImage_ = { __typename?: 'MediaVectorImage' };
-
-type NodeCardFragment_MediaVideo_ = { __typename?: 'MediaVideo' };
-
 type NodeCardFragment_NodeArticle_ = {
   __typename: 'NodeArticle';
   id: string;
@@ -1216,77 +1259,10 @@ type NodeCardFragment_NodePage_ = {
 
 type NodeCardFragment_NodeSpeaker_ = { __typename?: 'NodeSpeaker' };
 
-type NodeCardFragment_ParagraphButton_ = { __typename?: 'ParagraphButton' };
-
-type NodeCardFragment_ParagraphCarouselItem_ = {
-  __typename?: 'ParagraphCarouselItem';
-};
-
-type NodeCardFragment_ParagraphContentTitle_ = {
-  __typename?: 'ParagraphContentTitle';
-};
-
-type NodeCardFragment_ParagraphHeroHeader_ = {
-  __typename?: 'ParagraphHeroHeader';
-};
-
-type NodeCardFragment_ParagraphHighlightedList_ = {
-  __typename?: 'ParagraphHighlightedList';
-};
-
-type NodeCardFragment_ParagraphHighlightedSpeakers_ = {
-  __typename?: 'ParagraphHighlightedSpeakers';
-};
-
-type NodeCardFragment_ParagraphImage_ = { __typename?: 'ParagraphImage' };
-
-type NodeCardFragment_ParagraphImageCarousel_ = {
-  __typename?: 'ParagraphImageCarousel';
-};
-
-type NodeCardFragment_ParagraphImageGallery_ = {
-  __typename?: 'ParagraphImageGallery';
-};
-
-type NodeCardFragment_ParagraphLargeCalloutText_ = {
-  __typename?: 'ParagraphLargeCalloutText';
-};
-
-type NodeCardFragment_ParagraphSpacer_ = { __typename?: 'ParagraphSpacer' };
-
-type NodeCardFragment_ParagraphTeaser_ = { __typename?: 'ParagraphTeaser' };
-
-type NodeCardFragment_ParagraphText_ = { __typename?: 'ParagraphText' };
-
-type NodeCardFragment_ParagraphTwoColumnContent_ = {
-  __typename?: 'ParagraphTwoColumnContent';
-};
-
-type NodeCardFragment_ParagraphVideo_ = { __typename?: 'ParagraphVideo' };
-
 export type NodeCardFragment =
-  | NodeCardFragment_MediaImage_
-  | NodeCardFragment_MediaRemoteVideo_
-  | NodeCardFragment_MediaVectorImage_
-  | NodeCardFragment_MediaVideo_
   | NodeCardFragment_NodeArticle_
   | NodeCardFragment_NodePage_
-  | NodeCardFragment_NodeSpeaker_
-  | NodeCardFragment_ParagraphButton_
-  | NodeCardFragment_ParagraphCarouselItem_
-  | NodeCardFragment_ParagraphContentTitle_
-  | NodeCardFragment_ParagraphHeroHeader_
-  | NodeCardFragment_ParagraphHighlightedList_
-  | NodeCardFragment_ParagraphHighlightedSpeakers_
-  | NodeCardFragment_ParagraphImage_
-  | NodeCardFragment_ParagraphImageCarousel_
-  | NodeCardFragment_ParagraphImageGallery_
-  | NodeCardFragment_ParagraphLargeCalloutText_
-  | NodeCardFragment_ParagraphSpacer_
-  | NodeCardFragment_ParagraphTeaser_
-  | NodeCardFragment_ParagraphText_
-  | NodeCardFragment_ParagraphTwoColumnContent_
-  | NodeCardFragment_ParagraphVideo_;
+  | NodeCardFragment_NodeSpeaker_;
 
 type ParagraphsFragment_ParagraphButton_ = {
   __typename: 'ParagraphButton';
@@ -1448,6 +1424,14 @@ type ParagraphsFragment_ParagraphLargeCalloutText_ = {
   largeCalloutText?: string | null;
 };
 
+type ParagraphsFragment_ParagraphSocialMedia_ = {
+  __typename?: 'ParagraphSocialMedia';
+};
+
+type ParagraphsFragment_ParagraphSocialMediaLink_ = {
+  __typename?: 'ParagraphSocialMediaLink';
+};
+
 type ParagraphsFragment_ParagraphSpacer_ = {
   __typename: 'ParagraphSpacer';
   id: string;
@@ -1598,6 +1582,8 @@ export type ParagraphsFragment =
   | ParagraphsFragment_ParagraphImageCarousel_
   | ParagraphsFragment_ParagraphImageGallery_
   | ParagraphsFragment_ParagraphLargeCalloutText_
+  | ParagraphsFragment_ParagraphSocialMedia_
+  | ParagraphsFragment_ParagraphSocialMediaLink_
   | ParagraphsFragment_ParagraphSpacer_
   | ParagraphsFragment_ParagraphTeaser_
   | ParagraphsFragment_ParagraphText_
@@ -1631,41 +1617,45 @@ export type GetInitDataQuery = {
   __typename?: 'Query';
   mainMenu?: {
     __typename: 'Menu';
-    items?: Array<{
+    items: Array<{
       __typename: 'MenuItem';
-      title?: string | null;
-      route:
+      title: string;
+      route?:
         | { __typename: 'RouteExternal'; internal: boolean; url: string }
         | { __typename: 'RouteInternal'; url: string; internal: boolean }
-        | { __typename?: 'RouteRedirect' };
-      children?: Array<{
+        | { __typename?: 'RouteRedirect' }
+        | null;
+      children: Array<{
         __typename: 'MenuItem';
-        title?: string | null;
-        route:
+        title: string;
+        route?:
           | { __typename: 'RouteExternal'; internal: boolean; url: string }
           | { __typename: 'RouteInternal'; url: string; internal: boolean }
-          | { __typename?: 'RouteRedirect' };
-      }> | null;
-    }> | null;
+          | { __typename?: 'RouteRedirect' }
+          | null;
+      }>;
+    }>;
   } | null;
   footerMenu?: {
     __typename: 'Menu';
-    items?: Array<{
+    items: Array<{
       __typename: 'MenuItem';
-      title?: string | null;
-      route:
+      title: string;
+      route?:
         | { __typename: 'RouteExternal'; internal: boolean; url: string }
         | { __typename: 'RouteInternal'; url: string; internal: boolean }
-        | { __typename?: 'RouteRedirect' };
-      children?: Array<{
+        | { __typename?: 'RouteRedirect' }
+        | null;
+      children: Array<{
         __typename: 'MenuItem';
-        title?: string | null;
-        route:
+        title: string;
+        route?:
           | { __typename: 'RouteExternal'; internal: boolean; url: string }
           | { __typename: 'RouteInternal'; url: string; internal: boolean }
-          | { __typename?: 'RouteRedirect' };
-      }> | null;
-    }> | null;
+          | { __typename?: 'RouteRedirect' }
+          | null;
+      }>;
+    }>;
   } | null;
 };
 
@@ -1676,7 +1666,7 @@ export type GetNodeByPathQueryVariables = GraphqlTypes.Exact<{
 export type GetNodeByPathQuery = {
   __typename?: 'Query';
   route?:
-    | { __typename: 'RouteExternal'; internal: boolean; url: string }
+    | { __typename?: 'RouteExternal' }
     | {
         __typename: 'RouteInternal';
         internal: boolean;
@@ -2132,16 +2122,46 @@ export type GetNodeByPathQuery = {
                 } | null;
               } | null;
             }
-          | { __typename?: 'NodeSpeaker' }
+          | {
+              __typename: 'NodeSpeaker';
+              id: string;
+              path: string;
+              company?: string | null;
+              role?: string | null;
+              title: string;
+              email?: any | null;
+              biography?: {
+                __typename?: 'Text';
+                processed?: any | null;
+              } | null;
+              summary?: { __typename?: 'Text'; value?: string | null } | null;
+              socialMedia?: {
+                __typename?: 'ParagraphSocialMedia';
+                socialMediaLinks?: Array<{
+                  __typename?: 'ParagraphSocialMediaLink';
+                  socialMediaType: string;
+                  link: { __typename?: 'Link'; url?: string | null };
+                }> | null;
+              } | null;
+              image: {
+                __typename: 'MediaImage';
+                id: string;
+                mediaImage: {
+                  __typename?: 'Image';
+                  alt?: string | null;
+                  responsive?: {
+                    __typename: 'ResponsiveImageStyleDerivative';
+                    height?: number | null;
+                    path?: string | null;
+                    srcSetPath?: string | null;
+                    width?: number | null;
+                  } | null;
+                };
+              };
+            }
           | null;
       }
-    | {
-        __typename: 'RouteRedirect';
-        internal: boolean;
-        redirect: boolean;
-        status: number;
-        url: string;
-      }
+    | { __typename?: 'RouteRedirect' }
     | null;
 };
 
@@ -2241,10 +2261,10 @@ export type GetNodesQuery = {
     >;
     pageInfo: {
       __typename?: 'ConnectionPageInfo';
-      endCursor: any;
+      endCursor?: any | null;
       hasNextPage: boolean;
       hasPreviousPage: boolean;
-      startCursor: any;
+      startCursor?: any | null;
     };
   };
 };
