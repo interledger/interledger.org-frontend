@@ -26,7 +26,7 @@ definitions:
           - mkdir deploy
           - cp -R {.ebextensions,Procfile,public,.next/standalone/*,.next/standalone/.next} deploy/
           - cp -R .next/static deploy/.next/
-          - zip -r application.zip deploy/
+          - cd deploy && zip -r application.zip .ebextensions .next lib node_modules public package.json Procfile server.js
           - export BITBUCKET_COMMIT_SHORT=$(echo $BITBUCKET_COMMIT | cut -c1-7)
           - pipe: atlassian/aws-elasticbeanstalk-deploy:1.1.1
             variables:
