@@ -56,13 +56,6 @@ definitions:
 
 pipelines:
   branches:
-    develop:
-      - stage:
-          deployment: develop
-          steps:
-            - step: *build
-            - step: *package
-            - step: *deploy
     staging:
       - stage:
           deployment: staging
