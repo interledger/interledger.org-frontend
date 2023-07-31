@@ -1,0 +1,30 @@
+@use '@styles/base/mq-settings';
+@use '~sass-mq/mq' as *;
+@use '~sass-rem' as *;
+@use '@styles/base/variables' as *;
+@use '@styles/base/helpers' as *;
+
+.root {
+  display: flex;
+  flex-direction: column;
+
+  @include mq($from: tablet) {
+    flex-direction: row;
+  }
+}
+
+.content {
+  flex: 1;
+
+  @include mq($from: tablet) {
+    margin-right: 10%;
+  }
+}
+
+.side {
+  width: 100%;
+
+  @include mq($from: tablet) {
+    width: 30%;
+  }
+}

@@ -7,6 +7,7 @@ import {
   NodeArticleFragment,
   NodePageFragment,
   NodeSpeakerFragment,
+  NodeTalkFragment,
 } from '@models/operations';
 import { QueryClient, dehydrate } from '@tanstack/react-query';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
@@ -30,6 +31,12 @@ const NodeSpeaker = dynamic(() =>
   )
 );
 
+const NodeTalk = dynamic(() =>
+  import('@components/node/NodeTalk/NodeTalk').then(
+    (paragraph) => paragraph.NodeTalk
+  )
+);
+
 interface BasicProps {
   slug: string;
 }
@@ -37,7 +44,8 @@ interface BasicProps {
 type NodeFragmentUnion =
   | NodePageFragment
   | NodeArticleFragment
-  | NodeSpeakerFragment;
+  | NodeSpeakerFragment
+  | NodeTalkFragment;
 
 interface NodeSelectorProps {
   node: NodeFragmentUnion;
@@ -53,9 +61,11 @@ const NodeSelector = ({ node }: NodeSelectorProps) => {
   }
 
   if (node.__typename === 'NodeSpeaker') {
-    console.log('NodeSpeaker');
-
     return <NodeSpeaker node={node} />;
+  }
+
+  if (node.__typename === 'NodeTalk') {
+    return <NodeTalk node={node} />;
   }
 
   return null;

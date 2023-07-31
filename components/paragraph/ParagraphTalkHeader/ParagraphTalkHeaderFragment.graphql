@@ -1,0 +1,13 @@
+fragment ParagraphTalkHeaderFragment on ParagraphTalkHeader {
+  __typename
+  id
+  headerBefore {
+    ...ParagraphMediaHeaderFragment
+  }
+  headerDuring {
+    ...ParagraphMediaHeaderFragment
+  }
+  headerAfter {
+    ...ParagraphMediaHeaderFragment
+  }
+}

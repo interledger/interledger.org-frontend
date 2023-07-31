@@ -13,16 +13,12 @@ export interface NodePageProps {
 }
 
 export const NodePage = ({ className, node, theme }: NodePageProps) => {
-  const rootClassName = cn(
-    styles.root,
-    className,
-    theme && styles[theme]
-  );
+  const rootClassName = cn(styles.root, className, theme && styles[theme]);
 
   return (
-    <Container className={rootClassName}>
+    <Container as="article" className={rootClassName}>
       {node.header && <ParagraphHeroHeader paragraph={node.header} />}
       {node.sections && <Paragraphs paragraphs={node.sections} />}
     </Container>
   );
-}; 
+};

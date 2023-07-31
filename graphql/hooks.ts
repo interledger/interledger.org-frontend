@@ -53,13 +53,6 @@ export const MediaImageFragment = /*#__PURE__*/ `
   }
 }
     `;
-export const MediaRemoteVideoFragment = /*#__PURE__*/ `
-    fragment MediaRemoteVideoFragment on MediaRemoteVideo {
-  __typename
-  id
-  mediaOembedVideo
-}
-    `;
 export const MenuItemFragment = /*#__PURE__*/ `
     fragment MenuItemFragment on MenuItem {
   __typename
@@ -427,6 +420,70 @@ export const NodeSpeakerFragment = /*#__PURE__*/ `
   }
 }
     `;
+export const MediaRemoteVideoFragment = /*#__PURE__*/ `
+    fragment MediaRemoteVideoFragment on MediaRemoteVideo {
+  __typename
+  id
+  mediaOembedVideo
+}
+    `;
+export const ParagraphMediaHeaderFragment = /*#__PURE__*/ `
+    fragment ParagraphMediaHeaderFragment on ParagraphMediaHeader {
+  __typename
+  id
+  image: singleImage {
+    ... on MediaImage {
+      ...MediaImageLandscapeFragment
+    }
+  }
+  video {
+    ...MediaRemoteVideoFragment
+  }
+}
+    `;
+export const ParagraphTalkHeaderFragment = /*#__PURE__*/ `
+    fragment ParagraphTalkHeaderFragment on ParagraphTalkHeader {
+  __typename
+  id
+  headerBefore {
+    ...ParagraphMediaHeaderFragment
+  }
+  headerDuring {
+    ...ParagraphMediaHeaderFragment
+  }
+  headerAfter {
+    ...ParagraphMediaHeaderFragment
+  }
+}
+    `;
+export const NodeTalkFragment = /*#__PURE__*/ `
+    fragment NodeTalkFragment on NodeTalk {
+  __typename
+  id
+  title
+  path
+  metatag {
+    ...MetaTagFragment
+  }
+  header {
+    ...ParagraphTalkHeaderFragment
+  }
+  description {
+    processed
+  }
+  duration
+  speakers {
+    id
+    title
+    path
+    company
+    role
+    teaser {
+      ...ParagraphTeaserFragment
+    }
+  }
+}
+    `;
 export const NodeArticleCardFragment = /*#__PURE__*/ `
     fragment NodeArticleCardFragment on NodeArticle {
   __typename
@@ -535,6 +592,9 @@ export const GetNodeByPathQueryDocument = /*#__PURE__*/ `
         ... on NodeSpeaker {
           ...NodeSpeakerFragment
         }
+        ... on NodeTalk {
+          ...NodeTalkFragment
+        }
       }
     }
   }
@@ -563,7 +623,11 @@ ${ParagraphImageGalleryFragment}
 ${MetaTagFragment}
 ${NodePageFragment}
 ${ParagraphHeroHeaderFragment}
-${NodeSpeakerFragment}`;
+${NodeSpeakerFragment}
+${NodeTalkFragment}
+${ParagraphTalkHeaderFragment}
+${ParagraphMediaHeaderFragment}
+${MediaRemoteVideoFragment}`;
 export const useGetNodeByPathQuery = <
   TData = OperationTypes.GetNodeByPathQuery,
   TError = unknown
@@ -601,6 +665,9 @@ export const GetNodesPathsQueryDocument = /*#__PURE__*/ `
         path
       }
       ... on NodeSpeaker {
+        path
+      }
+      ... on NodeTalk {
         path
       }
     }

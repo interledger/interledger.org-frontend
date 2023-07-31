@@ -1,0 +1,26 @@
+fragment NodeTalkFragment on NodeTalk {
+  __typename
+  id
+  title
+  path
+  metatag {
+    ...MetaTagFragment
+  }
+  header {
+    ...ParagraphTalkHeaderFragment
+  }
+  description {
+    processed
+  }
+  duration
+  speakers {
+    id
+    title
+    path
+    company
+    role
+    teaser {
+      ...ParagraphTeaserFragment
+    }
+  }
+}

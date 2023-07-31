@@ -10,6 +10,9 @@ query GetNodesPathsQuery($first: Int) {
       ... on NodeSpeaker {
         path
       }
+      ... on NodeTalk {
+        path
+      }
     }
   }
 }

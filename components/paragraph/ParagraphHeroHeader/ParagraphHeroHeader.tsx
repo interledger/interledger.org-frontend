@@ -44,12 +44,12 @@ export const ParagraphHeroHeader = ({
           loop={true}
           controls={false}
           setHeight
+          overlay
         />
       )}
       {!paragraph.video && (
         <MediaImage className={styles.headerMedia} media={paragraph.image} />
       )}
-      <div className={styles.overlay}></div>
       <div className={styles.overlayContent}>
         <div className={styles.textContainer}>
           <div className={styles.titleContainer}>

@@ -13,14 +13,10 @@
   }
 }
 
-.image {
-  margin-bottom: rem(20px);
-}
-
 .content {
-  padding: rem(20px);
+  padding: rem(20px) 0 0;
 
-  >*:last-child {
+  > *:last-child {
     margin-bottom: 0;
   }
 }

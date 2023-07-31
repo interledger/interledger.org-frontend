@@ -5,6 +5,7 @@ import { Container } from '@components/layout/Container/Container';
 import { Text } from '@components/ui/Text/Text';
 import { RichText } from '@components/util/RichText/RichText';
 import { MediaImage } from '@components/media/MediaImage/MediaImage';
+import { TwoColumn } from '@components/layout/TwoColumn/TwoColumn';
 export interface NodeSpeakerProps {
   /** Optional className for NodeSpeaker, pass in a sass module class to override component default */
   className?: string;
@@ -33,17 +34,19 @@ export const NodeSpeaker = ({ className, node }: NodeSpeakerProps) => {
           </Text>
         ) : null}
       </header>
-      <div>
-        {node.summary?.value ? (
-          <Text variant="body1" as="h1">
-            {node.summary.value}
-          </Text>
-        ) : null}
-        {node.biography?.processed ? (
-          <RichText html={node.biography.processed} />
-        ) : null}
-      </div>
-      <aside></aside>
+      <TwoColumn>
+        <TwoColumn.Content>
+          {node.summary?.value ? (
+            <Text variant="body1" as="h1">
+              {node.summary.value}
+            </Text>
+          ) : null}
+          {node.biography?.processed ? (
+            <RichText html={node.biography.processed} />
+          ) : null}
+        </TwoColumn.Content>
+        <TwoColumn.Side>dsfdsg</TwoColumn.Side>
+      </TwoColumn>
     </Container>
   );
 };

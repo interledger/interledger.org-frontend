@@ -660,7 +660,44 @@ export type NodeSpeakerEdge = Edge & {
   node: NodeSpeaker;
 };
 
-export type NodeUnion = NodeArticle | NodePage | NodeSpeaker;
+/** Entity type node. */
+export type NodeTalk = NodeInterface & {
+  __typename?: 'NodeTalk';
+  /** The time that the node was last edited. */
+  changed: DateTime;
+  /** The time that the node was created. */
+  created: DateTime;
+  /** Date & Time */
+  dateTime: DateTime;
+  /** Description */
+  description?: Maybe<Text>;
+  /** Enter talk duration in minutes */
+  duration: Scalars['Int'];
+  /** Header */
+  header?: Maybe<ParagraphTalkHeader>;
+  /** The Universally Unique IDentifier (UUID). */
+  id: Scalars['ID'];
+  /** Language */
+  langcode: Language;
+  /** The computed meta tags for the entity. */
+  metatag: Array<MetaTagUnion>;
+  /** URL alias */
+  path: Scalars['String'];
+  /** Promoted to front page */
+  promote: Scalars['Boolean'];
+  /** Speakers */
+  speakers?: Maybe<Array<NodeSpeaker>>;
+  /** Published */
+  status: Scalars['Boolean'];
+  /** Sticky at top of lists */
+  sticky: Scalars['Boolean'];
+  /** Preview image pulled in when post displayed in listings */
+  teaser: ParagraphTeaser;
+  /** Title */
+  title: Scalars['String'];
+};
+
+export type NodeUnion = NodeArticle | NodePage | NodeSpeaker | NodeTalk;
 
 /** A paginated set of results for Nodes */
 export type NodesConnection = NodesUnionConnection & {
@@ -809,6 +846,19 @@ export type ParagraphLargeCalloutText = ParagraphInterface & {
 };
 
 /** Entity type paragraph. */
+export type ParagraphMediaHeader = ParagraphInterface & {
+  __typename?: 'ParagraphMediaHeader';
+  /** The time that the Paragraph was created. */
+  created: DateTime;
+  /** The Universally Unique IDentifier (UUID). */
+  id: Scalars['ID'];
+  /** Image */
+  singleImage: MediaImage;
+  /** Video */
+  video?: Maybe<MediaRemoteVideo>;
+};
+
+/** Entity type paragraph. */
 export type ParagraphSocialMedia = ParagraphInterface & {
   __typename?: 'ParagraphSocialMedia';
   /** The time that the Paragraph was created. */
@@ -843,6 +893,21 @@ export type ParagraphSpacer = ParagraphInterface & {
   spacerLine?: Maybe<Scalars['Boolean']>;
   /** Spacer Size */
   spacerSize: Scalars['String'];
+};
+
+/** Entity type paragraph. */
+export type ParagraphTalkHeader = ParagraphInterface & {
+  __typename?: 'ParagraphTalkHeader';
+  /** The time that the Paragraph was created. */
+  created: DateTime;
+  /** Header After */
+  headerAfter: ParagraphMediaHeader;
+  /** Header Before */
+  headerBefore: ParagraphMediaHeader;
+  /** Header During */
+  headerDuring: ParagraphMediaHeader;
+  /** The Universally Unique IDentifier (UUID). */
+  id: Scalars['ID'];
 };
 
 /** Entity type paragraph. */
@@ -905,9 +970,11 @@ export type ParagraphUnion =
   | ParagraphImageCarousel
   | ParagraphImageGallery
   | ParagraphLargeCalloutText
+  | ParagraphMediaHeader
   | ParagraphSocialMedia
   | ParagraphSocialMediaLink
   | ParagraphSpacer
+  | ParagraphTalkHeader
   | ParagraphTeaser
   | ParagraphText
   | ParagraphTwoColumnContent
@@ -1078,7 +1145,7 @@ export type Route = {
 };
 
 /** A list of possible entities that can be returned by URL. */
-export type RouteEntityUnion = NodeArticle | NodePage | NodeSpeaker;
+export type RouteEntityUnion = NodeArticle | NodePage | NodeSpeaker | NodeTalk;
 
 /** Route outside of this website. */
 export type RouteExternal = Route & {
