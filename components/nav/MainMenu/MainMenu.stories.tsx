@@ -17,22 +17,12 @@ export const Default: Story = {
         {
           __typename: 'MenuItem' as const,
           title: 'Home',
-          route: {
-            __typename: 'RouteInternal' as const,
-            url: '/',
-            internal: true,
-          },
-          children: [],
+          url: '/',
         },
         {
           __typename: 'MenuItem' as const,
           title: 'Page',
-          route: {
-            __typename: 'RouteInternal' as const,
-            url: '/',
-            internal: true,
-          },
-          children: [],
+          url: '/',
         },
       ],
     },

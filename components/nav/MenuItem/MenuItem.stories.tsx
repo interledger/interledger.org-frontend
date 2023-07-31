@@ -12,11 +12,7 @@ export const Default = {
     menuItem: {
       __typename: 'MenuItem' as const,
       title: 'Home',
-      route: {
-        __typename: 'RouteInternal' as const,
-        url: '/',
-        internal: true,
-      },
+      url: '/',
       children: [],
     },
   },
