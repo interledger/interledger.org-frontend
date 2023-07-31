@@ -36,7 +36,7 @@ export const Logo = ({ className }: LogoProps) => {
         data-name="Rectangle 84"
       />
       <g data-name="Group 47">
-        <g clip-path="url(#a)" data-name="Group 46">
+        <g clipPath="url(#a)" data-name="Group 46">
           <path
             fill="#121212"
             d="M53.78 18.032h-1.756V6.396h1.723v.815a7.425 7.425 0 0 1 3.607-1.049q2.326 0 3.129 1.257a8.876 8.876 0 0 1 .8 4.469v6.139h-1.721v-6.092a7.854 7.854 0 0 0-.478-3.317 2.1 2.1 0 0 0-2.036-.9 6.1 6.1 0 0 0-1.571.217 7.964 7.964 0 0 0-1.269.431l-.434.216Z"

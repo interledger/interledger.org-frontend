@@ -39,14 +39,10 @@
 
 .playerWrapper {
   position: relative;
-  padding-top: 56.25%;
+  aspect-ratio: 16/9;
 }
 
 .player {
-  position: absolute;
-  top: 0;
-  left: 0;
-
   :global video {
     object-fit: cover;
   }

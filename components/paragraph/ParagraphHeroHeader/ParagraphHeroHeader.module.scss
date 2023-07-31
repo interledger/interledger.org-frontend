@@ -10,8 +10,17 @@
   @include breakContainer;
 }
 
+.overlay {
+  background-color: rgba($color: #000000, $alpha: 0.4);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
 .headerMedia {
-  opacity: 0.8;
   min-height: rem(830px);
 
   @include mq($from: tablet) {
@@ -53,7 +62,7 @@
   }
 
   h1 {
-    color: var(--color-primary);
+    color: var(--color-white);
     font-size: rem(50px);
     line-height: rem(60px);
 
@@ -79,7 +88,7 @@
   }
 
   .infoTitle {
-    color: var(--color-primary);
+    color: var(--color-white);
     font-family: var(--font-display);
     font-size: rem(24px);
     line-height: rem(26px);
