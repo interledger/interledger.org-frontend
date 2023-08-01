@@ -619,6 +619,9 @@ export const GetInitDataQueryDocument = /*#__PURE__*/ `
   mainMenu: menu(name: MAIN) {
     ...MainMenuFragment
   }
+  summitMenu: menu(name: SUMMIT) {
+    ...MainMenuFragment
+  }
   footerMenu: menu(name: FOOTER) {
     ...FooterMenuFragment
   }

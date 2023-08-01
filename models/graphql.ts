@@ -381,6 +381,8 @@ export enum MenuAvailable {
   Footer = 'FOOTER',
   /** Main navigation */
   Main = 'MAIN',
+  /** Summit */
+  Summit = 'SUMMIT',
 }
 
 /** Entity type menu. */

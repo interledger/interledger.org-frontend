@@ -20,8 +20,6 @@ export const ParagraphTalksGrid = ({
 }: ParagraphTalksGridProps) => {
   const rootClassName = cn(styles.root, className);
 
-  console.log(paragraph.talksView?.__typename);
-
   return (
     <Grid className={rootClassName} cols={1} colsTablet={2} colsDesktop={2}>
       {paragraph.talksView?.__typename === 'TalksResult' &&

@@ -2383,6 +2383,14 @@ export type GetInitDataQuery = {
       url?: string | null;
     }>;
   } | null;
+  summitMenu?: {
+    __typename: 'Menu';
+    items: Array<{
+      __typename: 'MenuItem';
+      title: string;
+      url?: string | null;
+    }>;
+  } | null;
   footerMenu?: {
     __typename: 'Menu';
     items: Array<{
