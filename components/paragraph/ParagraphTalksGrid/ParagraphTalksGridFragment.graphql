@@ -3,7 +3,7 @@ fragment ParagraphTalksGridFragment on ParagraphTalksGrid {
   id
   talksView {
     __typename
-    ... on TalksResult {
+    ... on TalksAllResult {
       id
       results {
         ... on NodeTalk {

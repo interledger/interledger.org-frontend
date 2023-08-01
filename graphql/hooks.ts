@@ -337,7 +337,7 @@ export const ParagraphTalksGridFragment = /*#__PURE__*/ `
   id
   talksView {
     __typename
-    ... on TalksResult {
+    ... on TalksAllResult {
       id
       results {
         ... on NodeTalk {
