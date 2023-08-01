@@ -21,11 +21,12 @@ export const ParagraphSpeakersGrid = ({
   const rootClassName = cn(styles.root, className);
   return (
     <Grid className={rootClassName} cols={1} colsTablet={2} colsDesktop={3}>
-      {paragraph.speakersView?.results.map((s) =>
-        s.__typename === 'NodeSpeaker' ? (
-          <CardSpeaker key={s.id} speaker={s} />
-        ) : null
-      )}
+      {paragraph.speakersView?.__typename === 'SpeakersResult' &&
+        paragraph.speakersView?.results.map((s) =>
+          s.__typename === 'NodeSpeaker' ? (
+            <CardSpeaker key={s.id} speaker={s} />
+          ) : null
+        )}
     </Grid>
   );
 };

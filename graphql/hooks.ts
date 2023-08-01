@@ -305,11 +305,43 @@ export const ParagraphSpeakersGridFragment = /*#__PURE__*/ `
   __typename
   id
   speakersView {
+    __typename
     ... on SpeakersResult {
       id
       results {
         ... on NodeSpeaker {
           ...NodeSpeakerCardFragment
+        }
+      }
+    }
+  }
+}
+    `;
+export const NodeTalkCardFragment = /*#__PURE__*/ `
+    fragment NodeTalkCardFragment on NodeTalk {
+  __typename
+  id
+  title
+  path
+  teaser {
+    ...ParagraphTeaserFragment
+  }
+  speakers {
+    title
+  }
+}
+    `;
+export const ParagraphTalksGridFragment = /*#__PURE__*/ `
+    fragment ParagraphTalksGridFragment on ParagraphTalksGrid {
+  __typename
+  id
+  talksView {
+    __typename
+    ... on TalksResult {
+      id
+      results {
+        ... on NodeTalk {
+          ...NodeTalkCardFragment
         }
       }
     }
@@ -356,6 +388,9 @@ export const ParagraphsFragment = /*#__PURE__*/ `
   }
   ... on ParagraphSpeakersGrid {
     ...ParagraphSpeakersGridFragment
+  }
+  ... on ParagraphTalksGrid {
+    ...ParagraphTalksGridFragment
   }
 }
     `;
@@ -433,20 +468,6 @@ export const NodePageFragment = /*#__PURE__*/ `
   }
   header {
     ...ParagraphHeroHeaderFragment
-  }
-}
-    `;
-export const NodeTalkCardFragment = /*#__PURE__*/ `
-    fragment NodeTalkCardFragment on NodeTalk {
-  __typename
-  id
-  title
-  path
-  teaser {
-    ...ParagraphTeaserFragment
-  }
-  speakers {
-    title
   }
 }
     `;
@@ -683,11 +704,12 @@ ${ParagraphTeaserFragment}
 ${ParagraphImageGalleryFragment}
 ${ParagraphSpeakersGridFragment}
 ${NodeSpeakerCardFragment}
+${ParagraphTalksGridFragment}
+${NodeTalkCardFragment}
 ${MetaTagFragment}
 ${NodePageFragment}
 ${ParagraphHeroHeaderFragment}
 ${NodeSpeakerFragment}
-${NodeTalkCardFragment}
 ${NodeTalkFragment}
 ${ParagraphTalkHeaderFragment}
 ${ParagraphMediaHeaderFragment}

@@ -600,6 +600,7 @@ export type NodePageSectionsUnion =
   | ParagraphLargeCalloutText
   | ParagraphSpacer
   | ParagraphSpeakersGrid
+  | ParagraphTalksGrid
   | ParagraphText
   | ParagraphTwoColumnContent
   | ParagraphVideo;
@@ -951,6 +952,30 @@ export type ParagraphTalkHeader = ParagraphInterface & {
 };
 
 /** Entity type paragraph. */
+export type ParagraphTalksGrid = ParagraphInterface & {
+  __typename?: 'ParagraphTalksGrid';
+  /** The time that the Paragraph was created. */
+  created: DateTime;
+  /** The Universally Unique IDentifier (UUID). */
+  id: Scalars['ID'];
+  /**
+   * This is a viewfield query proxy. Page size and contextual filters are applied
+   * within the CMS. See the actual view base query for more documentation on
+   * filters and options available. Talks View
+   */
+  talksView: ViewResultUnion;
+};
+
+/** Entity type paragraph. */
+export type ParagraphTalksGridTalksViewArgs = {
+  filter?: InputMaybe<Array<InputMaybe<KeyValueInput>>>;
+  offset?: InputMaybe<Scalars['Int']>;
+  page?: InputMaybe<Scalars['Int']>;
+  sortDir?: InputMaybe<SortDirection>;
+  sortKey?: InputMaybe<Scalars['String']>;
+};
+
+/** Entity type paragraph. */
 export type ParagraphTeaser = ParagraphInterface & {
   __typename?: 'ParagraphTeaser';
   /** The time that the Paragraph was created. */
@@ -1016,6 +1041,7 @@ export type ParagraphUnion =
   | ParagraphSpacer
   | ParagraphSpeakersGrid
   | ParagraphTalkHeader
+  | ParagraphTalksGrid
   | ParagraphTeaser
   | ParagraphText
   | ParagraphTwoColumnContent
@@ -1284,11 +1310,24 @@ export type TableRow = {
   weight?: Maybe<Scalars['Int']>;
 };
 
-export type TalksContextualFilterInput = {
+export type TalksAllContextualFilterInput = {
   nid?: InputMaybe<Scalars['String']>;
 };
 
 /** Result for view talks display graphql_1. */
+export type TalksAllResult = View & {
+  __typename?: 'TalksAllResult';
+  description?: Maybe<Scalars['String']>;
+  display: Scalars['String'];
+  id: Scalars['ID'];
+  label?: Maybe<Scalars['String']>;
+  langcode?: Maybe<Scalars['String']>;
+  pageInfo: ViewPageInfo;
+  results: Array<NodeUnion>;
+  view: Scalars['String'];
+};
+
+/** Result for view talks display graphql_2. */
 export type TalksResult = View & {
   __typename?: 'TalksResult';
   description?: Maybe<Scalars['String']>;
@@ -1371,4 +1410,4 @@ export type ViewReference = {
 };
 
 /** All available view result types. */
-export type ViewResultUnion = SpeakersResult | TalksResult;
+export type ViewResultUnion = SpeakersResult | TalksAllResult | TalksResult;
