@@ -15,7 +15,6 @@ import {
 } from '@models/operations';
 import { QueryClient, dehydrate } from '@tanstack/react-query';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
-import dynamic from 'next/dynamic';
 
 interface BasicProps {
   slug: string;
