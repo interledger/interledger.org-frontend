@@ -181,7 +181,7 @@ const Paragraph = ({ paragraph, className }: ParagraphProps) => {
     case 'ParagraphTalksGrid':
       return <ParagraphTalksGrid key={paragraph.id} paragraph={paragraph} />;
     default:
-      return;
+      return null;
   }
 };
 
