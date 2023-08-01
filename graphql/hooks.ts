@@ -484,6 +484,12 @@ export const NodeTalkFragment = /*#__PURE__*/ `
   }
 }
     `;
+export const ParagraphSpeakersGridFragment = /*#__PURE__*/ `
+    fragment ParagraphSpeakersGridFragment on ParagraphSpeakersGrid {
+  __typename
+  id
+}
+    `;
 export const NodeArticleCardFragment = /*#__PURE__*/ `
     fragment NodeArticleCardFragment on NodeArticle {
   __typename

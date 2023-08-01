@@ -333,6 +333,7 @@ export type NodePageFragment = {
         spacerSize: string;
         spacerLine?: boolean | null;
       }
+    | { __typename?: 'ParagraphSpeakersGrid' }
     | {
         __typename: 'ParagraphText';
         id: string;
@@ -1005,6 +1006,11 @@ export type ParagraphSpacerFragment = {
   spacerLine?: boolean | null;
 };
 
+export type ParagraphSpeakersGridFragment = {
+  __typename: 'ParagraphSpeakersGrid';
+  id: string;
+};
+
 export type ParagraphTalkHeaderFragment = {
   __typename: 'ParagraphTalkHeader';
   id: string;
@@ -1186,6 +1192,10 @@ type TwoColumnContentFragment_ParagraphSpacer_ = {
   spacerLine?: boolean | null;
 };
 
+type TwoColumnContentFragment_ParagraphSpeakersGrid_ = {
+  __typename?: 'ParagraphSpeakersGrid';
+};
+
 type TwoColumnContentFragment_ParagraphTalkHeader_ = {
   __typename?: 'ParagraphTalkHeader';
 };
@@ -1244,6 +1254,7 @@ export type TwoColumnContentFragment =
   | TwoColumnContentFragment_ParagraphSocialMedia_
   | TwoColumnContentFragment_ParagraphSocialMediaLink_
   | TwoColumnContentFragment_ParagraphSpacer_
+  | TwoColumnContentFragment_ParagraphSpeakersGrid_
   | TwoColumnContentFragment_ParagraphTalkHeader_
   | TwoColumnContentFragment_ParagraphTeaser_
   | TwoColumnContentFragment_ParagraphText_
@@ -1664,6 +1675,10 @@ type ParagraphsFragment_ParagraphSpacer_ = {
   spacerLine?: boolean | null;
 };
 
+type ParagraphsFragment_ParagraphSpeakersGrid_ = {
+  __typename?: 'ParagraphSpeakersGrid';
+};
+
 type ParagraphsFragment_ParagraphTalkHeader_ = {
   __typename?: 'ParagraphTalkHeader';
 };
@@ -1815,6 +1830,7 @@ export type ParagraphsFragment =
   | ParagraphsFragment_ParagraphSocialMedia_
   | ParagraphsFragment_ParagraphSocialMediaLink_
   | ParagraphsFragment_ParagraphSpacer_
+  | ParagraphsFragment_ParagraphSpeakersGrid_
   | ParagraphsFragment_ParagraphTalkHeader_
   | ParagraphsFragment_ParagraphTeaser_
   | ParagraphsFragment_ParagraphText_
@@ -2094,6 +2110,7 @@ export type GetNodeByPathQuery = {
                     spacerSize: string;
                     spacerLine?: boolean | null;
                   }
+                | { __typename?: 'ParagraphSpeakersGrid' }
                 | {
                     __typename: 'ParagraphText';
                     id: string;

@@ -10,36 +10,41 @@
 }
 
 .h1 {
-  font-size: rem(52px);
-  font-weight: 600;
+  font-size: rem(32px);
+  font-weight: 700;
+
+  @include mq($from: tablet) {
+    font-size: rem(52px);
+  }
 }
 
 .h2 {
   font-size: rem(24px);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .h3 {
   font-size: rem(16px);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .h4 {
   font-size: rem(13px);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .h5 {
   font-size: rem(13px);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .h6 {
   font-size: rem(13px);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .body1 {
+  font-weight: 400;
   margin-bottom: 1rem;
   line-height: 1.466;
   font-size: rem(18px);
@@ -50,12 +55,14 @@
 }
 
 .body2 {
+  font-weight: 400;
   font-size: rem(18px);
   margin-bottom: 1em;
   line-height: 1.538;
 }
 
 .quote {
+  font-weight: 400;
   font-size: rem(15px);
   margin-bottom: 1rem;
   line-height: 1.466;

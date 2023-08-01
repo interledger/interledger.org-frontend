@@ -1,0 +1,4 @@
+fragment ParagraphSpeakersGridFragment on ParagraphSpeakersGrid {
+  __typename
+  id
+}
