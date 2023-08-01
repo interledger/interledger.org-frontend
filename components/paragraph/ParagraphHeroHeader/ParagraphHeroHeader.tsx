@@ -77,13 +77,15 @@ export const ParagraphHeroHeader = ({
         <div className={styles.scrollChevron}>
           <button
             className={styles.scrollButton}
-            onClick={() =>
-              window.scrollTo({
-                top: headerHeight,
-                left: 0,
-                behavior: 'smooth',
-              })
-            }
+            onClick={() => {
+              if (typeof window !== 'undefined') {
+                window.scrollTo({
+                  top: headerHeight,
+                  left: 0,
+                  behavior: 'smooth',
+                });
+              }
+            }}
           >
             <Chevron />
           </button>
