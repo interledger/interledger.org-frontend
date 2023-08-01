@@ -13,7 +13,7 @@ export interface MenuItemProps {
 
 export const MenuItem = ({ className, menuItem }: MenuItemProps) => {
   const router = useRouter();
-  const currentRoute = router.pathname;
+  const currentRoute = router.asPath;
   const rootClassName = cn(styles.root, className);
 
   if (!menuItem) {
