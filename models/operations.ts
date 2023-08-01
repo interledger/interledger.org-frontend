@@ -354,7 +354,7 @@ export type NodePageFragment = {
         id: string;
         speakersView?:
           | {
-              __typename?: 'SpeakersResult';
+              __typename: 'SpeakersResult';
               id: string;
               results: Array<
                 | { __typename?: 'NodeArticle' }
@@ -404,8 +404,69 @@ export type NodePageFragment = {
                 | { __typename?: 'NodeTalk' }
               >;
             }
-          | { __typename?: 'TalksResult' }
+          | { __typename: 'TalksAllResult' }
+          | { __typename: 'TalksResult' }
           | null;
+      }
+    | {
+        __typename: 'ParagraphTalksGrid';
+        id: string;
+        talksView:
+          | { __typename: 'SpeakersResult' }
+          | { __typename: 'TalksAllResult' }
+          | {
+              __typename: 'TalksResult';
+              id: string;
+              results: Array<
+                | { __typename?: 'NodeArticle' }
+                | { __typename?: 'NodePage' }
+                | { __typename?: 'NodeSpeaker' }
+                | {
+                    __typename: 'NodeTalk';
+                    id: string;
+                    title: string;
+                    path: string;
+                    teaser: {
+                      __typename: 'ParagraphTeaser';
+                      id: string;
+                      squareImage: {
+                        __typename: 'MediaImage';
+                        id: string;
+                        mediaImage: {
+                          __typename?: 'Image';
+                          alt?: string | null;
+                          responsive?: {
+                            __typename: 'ResponsiveImageStyleDerivative';
+                            height?: number | null;
+                            path?: string | null;
+                            srcSetPath?: string | null;
+                            width?: number | null;
+                          } | null;
+                        };
+                      };
+                      landscapeImage: {
+                        __typename: 'MediaImage';
+                        id: string;
+                        mediaImage: {
+                          __typename?: 'Image';
+                          alt?: string | null;
+                          responsive?: {
+                            __typename: 'ResponsiveImageStyleDerivative';
+                            height?: number | null;
+                            path?: string | null;
+                            srcSetPath?: string | null;
+                            width?: number | null;
+                          } | null;
+                        };
+                      };
+                    };
+                    speakers?: Array<{
+                      __typename?: 'NodeSpeaker';
+                      title: string;
+                    }> | null;
+                  }
+              >;
+            };
       }
     | {
         __typename: 'ParagraphText';
@@ -711,6 +772,7 @@ export type NodeSpeakerFragment = {
   };
   talks:
     | { __typename: 'SpeakersResult' }
+    | { __typename: 'TalksAllResult' }
     | {
         __typename: 'TalksResult';
         results: Array<
@@ -1223,7 +1285,7 @@ export type ParagraphSpeakersGridFragment = {
   id: string;
   speakersView?:
     | {
-        __typename?: 'SpeakersResult';
+        __typename: 'SpeakersResult';
         id: string;
         results: Array<
           | { __typename?: 'NodeArticle' }
@@ -1273,7 +1335,8 @@ export type ParagraphSpeakersGridFragment = {
           | { __typename?: 'NodeTalk' }
         >;
       }
-    | { __typename?: 'TalksResult' }
+    | { __typename: 'TalksAllResult' }
+    | { __typename: 'TalksResult' }
     | null;
 };
 
@@ -1352,6 +1415,67 @@ export type ParagraphTalkHeaderFragment = {
       mediaOembedVideo: string;
     } | null;
   };
+};
+
+export type ParagraphTalksGridFragment = {
+  __typename: 'ParagraphTalksGrid';
+  id: string;
+  talksView:
+    | { __typename: 'SpeakersResult' }
+    | { __typename: 'TalksAllResult' }
+    | {
+        __typename: 'TalksResult';
+        id: string;
+        results: Array<
+          | { __typename?: 'NodeArticle' }
+          | { __typename?: 'NodePage' }
+          | { __typename?: 'NodeSpeaker' }
+          | {
+              __typename: 'NodeTalk';
+              id: string;
+              title: string;
+              path: string;
+              teaser: {
+                __typename: 'ParagraphTeaser';
+                id: string;
+                squareImage: {
+                  __typename: 'MediaImage';
+                  id: string;
+                  mediaImage: {
+                    __typename?: 'Image';
+                    alt?: string | null;
+                    responsive?: {
+                      __typename: 'ResponsiveImageStyleDerivative';
+                      height?: number | null;
+                      path?: string | null;
+                      srcSetPath?: string | null;
+                      width?: number | null;
+                    } | null;
+                  };
+                };
+                landscapeImage: {
+                  __typename: 'MediaImage';
+                  id: string;
+                  mediaImage: {
+                    __typename?: 'Image';
+                    alt?: string | null;
+                    responsive?: {
+                      __typename: 'ResponsiveImageStyleDerivative';
+                      height?: number | null;
+                      path?: string | null;
+                      srcSetPath?: string | null;
+                      width?: number | null;
+                    } | null;
+                  };
+                };
+              };
+              speakers?: Array<{
+                __typename?: 'NodeSpeaker';
+                title: string;
+              }> | null;
+            }
+        >;
+      };
 };
 
 export type ParagraphTeaserFragment = {
@@ -1466,6 +1590,10 @@ type TwoColumnContentFragment_ParagraphTalkHeader_ = {
   __typename?: 'ParagraphTalkHeader';
 };
 
+type TwoColumnContentFragment_ParagraphTalksGrid_ = {
+  __typename?: 'ParagraphTalksGrid';
+};
+
 type TwoColumnContentFragment_ParagraphTeaser_ = {
   __typename?: 'ParagraphTeaser';
 };
@@ -1522,6 +1650,7 @@ export type TwoColumnContentFragment =
   | TwoColumnContentFragment_ParagraphSpacer_
   | TwoColumnContentFragment_ParagraphSpeakersGrid_
   | TwoColumnContentFragment_ParagraphTalkHeader_
+  | TwoColumnContentFragment_ParagraphTalksGrid_
   | TwoColumnContentFragment_ParagraphTeaser_
   | TwoColumnContentFragment_ParagraphText_
   | TwoColumnContentFragment_ParagraphTwoColumnContent_
@@ -1946,7 +2075,7 @@ type ParagraphsFragment_ParagraphSpeakersGrid_ = {
   id: string;
   speakersView?:
     | {
-        __typename?: 'SpeakersResult';
+        __typename: 'SpeakersResult';
         id: string;
         results: Array<
           | { __typename?: 'NodeArticle' }
@@ -1996,12 +2125,74 @@ type ParagraphsFragment_ParagraphSpeakersGrid_ = {
           | { __typename?: 'NodeTalk' }
         >;
       }
-    | { __typename?: 'TalksResult' }
+    | { __typename: 'TalksAllResult' }
+    | { __typename: 'TalksResult' }
     | null;
 };
 
 type ParagraphsFragment_ParagraphTalkHeader_ = {
   __typename?: 'ParagraphTalkHeader';
+};
+
+type ParagraphsFragment_ParagraphTalksGrid_ = {
+  __typename: 'ParagraphTalksGrid';
+  id: string;
+  talksView:
+    | { __typename: 'SpeakersResult' }
+    | { __typename: 'TalksAllResult' }
+    | {
+        __typename: 'TalksResult';
+        id: string;
+        results: Array<
+          | { __typename?: 'NodeArticle' }
+          | { __typename?: 'NodePage' }
+          | { __typename?: 'NodeSpeaker' }
+          | {
+              __typename: 'NodeTalk';
+              id: string;
+              title: string;
+              path: string;
+              teaser: {
+                __typename: 'ParagraphTeaser';
+                id: string;
+                squareImage: {
+                  __typename: 'MediaImage';
+                  id: string;
+                  mediaImage: {
+                    __typename?: 'Image';
+                    alt?: string | null;
+                    responsive?: {
+                      __typename: 'ResponsiveImageStyleDerivative';
+                      height?: number | null;
+                      path?: string | null;
+                      srcSetPath?: string | null;
+                      width?: number | null;
+                    } | null;
+                  };
+                };
+                landscapeImage: {
+                  __typename: 'MediaImage';
+                  id: string;
+                  mediaImage: {
+                    __typename?: 'Image';
+                    alt?: string | null;
+                    responsive?: {
+                      __typename: 'ResponsiveImageStyleDerivative';
+                      height?: number | null;
+                      path?: string | null;
+                      srcSetPath?: string | null;
+                      width?: number | null;
+                    } | null;
+                  };
+                };
+              };
+              speakers?: Array<{
+                __typename?: 'NodeSpeaker';
+                title: string;
+              }> | null;
+            }
+        >;
+      };
 };
 
 type ParagraphsFragment_ParagraphTeaser_ = { __typename?: 'ParagraphTeaser' };
@@ -2153,6 +2344,7 @@ export type ParagraphsFragment =
   | ParagraphsFragment_ParagraphSpacer_
   | ParagraphsFragment_ParagraphSpeakersGrid_
   | ParagraphsFragment_ParagraphTalkHeader_
+  | ParagraphsFragment_ParagraphTalksGrid_
   | ParagraphsFragment_ParagraphTeaser_
   | ParagraphsFragment_ParagraphText_
   | ParagraphsFragment_ParagraphTwoColumnContent_
@@ -2436,7 +2628,7 @@ export type GetNodeByPathQuery = {
                     id: string;
                     speakersView?:
                       | {
-                          __typename?: 'SpeakersResult';
+                          __typename: 'SpeakersResult';
                           id: string;
                           results: Array<
                             | { __typename?: 'NodeArticle' }
@@ -2486,8 +2678,69 @@ export type GetNodeByPathQuery = {
                             | { __typename?: 'NodeTalk' }
                           >;
                         }
-                      | { __typename?: 'TalksResult' }
+                      | { __typename: 'TalksAllResult' }
+                      | { __typename: 'TalksResult' }
                       | null;
+                  }
+                | {
+                    __typename: 'ParagraphTalksGrid';
+                    id: string;
+                    talksView:
+                      | { __typename: 'SpeakersResult' }
+                      | { __typename: 'TalksAllResult' }
+                      | {
+                          __typename: 'TalksResult';
+                          id: string;
+                          results: Array<
+                            | { __typename?: 'NodeArticle' }
+                            | { __typename?: 'NodePage' }
+                            | { __typename?: 'NodeSpeaker' }
+                            | {
+                                __typename: 'NodeTalk';
+                                id: string;
+                                title: string;
+                                path: string;
+                                teaser: {
+                                  __typename: 'ParagraphTeaser';
+                                  id: string;
+                                  squareImage: {
+                                    __typename: 'MediaImage';
+                                    id: string;
+                                    mediaImage: {
+                                      __typename?: 'Image';
+                                      alt?: string | null;
+                                      responsive?: {
+                                        __typename: 'ResponsiveImageStyleDerivative';
+                                        height?: number | null;
+                                        path?: string | null;
+                                        srcSetPath?: string | null;
+                                        width?: number | null;
+                                      } | null;
+                                    };
+                                  };
+                                  landscapeImage: {
+                                    __typename: 'MediaImage';
+                                    id: string;
+                                    mediaImage: {
+                                      __typename?: 'Image';
+                                      alt?: string | null;
+                                      responsive?: {
+                                        __typename: 'ResponsiveImageStyleDerivative';
+                                        height?: number | null;
+                                        path?: string | null;
+                                        srcSetPath?: string | null;
+                                        width?: number | null;
+                                      } | null;
+                                    };
+                                  };
+                                };
+                                speakers?: Array<{
+                                  __typename?: 'NodeSpeaker';
+                                  title: string;
+                                }> | null;
+                              }
+                          >;
+                        };
                   }
                 | {
                     __typename: 'ParagraphText';
@@ -2760,6 +3013,7 @@ export type GetNodeByPathQuery = {
               };
               talks:
                 | { __typename: 'SpeakersResult' }
+                | { __typename: 'TalksAllResult' }
                 | {
                     __typename: 'TalksResult';
                     results: Array<

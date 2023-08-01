@@ -38,4 +38,7 @@ fragment ParagraphsFragment on ParagraphInterface {
   ... on ParagraphSpeakersGrid {
     ...ParagraphSpeakersGridFragment
   }
+  ... on ParagraphTalksGrid {
+    ...ParagraphTalksGridFragment
+  }
 }

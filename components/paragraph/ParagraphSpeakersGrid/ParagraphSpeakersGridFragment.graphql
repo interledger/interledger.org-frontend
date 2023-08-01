@@ -2,6 +2,7 @@ fragment ParagraphSpeakersGridFragment on ParagraphSpeakersGrid {
   __typename
   id
   speakersView {
+    __typename
     ... on SpeakersResult {
       id
       results {

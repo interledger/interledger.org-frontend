@@ -12,6 +12,7 @@ import {
   ParagraphImageGalleryFragment,
   ParagraphVideoFragment,
   ParagraphSpeakersGridFragment,
+  ParagraphTalksGridFragment,
 } from '@models/operations';
 import dynamic from 'next/dynamic';
 
@@ -87,6 +88,12 @@ const ParagraphTwoColumnContent = dynamic(() =>
   ).then((paragraph) => paragraph.ParagraphTwoColumnContent)
 );
 
+const ParagraphTalksGrid = dynamic(() =>
+  import('@components/paragraph/ParagraphTalksGrid/ParagraphTalksGrid').then(
+    (paragraph) => paragraph.ParagraphTalksGrid
+  )
+);
+
 const ParagraphSpeakersGrid = dynamic(() =>
   import(
     '@components/paragraph/ParagraphSpeakersGrid/ParagraphSpeakersGrid'
@@ -107,6 +114,7 @@ export type ParagraphTypes =
   | ParagraphImageGalleryFragment
   | ParagraphVideoFragment
   | ParagraphSpeakersGridFragment
+  | ParagraphTalksGridFragment
   | null;
 
 export interface ParagraphsProps {
@@ -170,8 +178,10 @@ const Paragraph = ({ paragraph, className }: ParagraphProps) => {
       );
     case 'ParagraphSpeakersGrid':
       return <ParagraphSpeakersGrid key={paragraph.id} paragraph={paragraph} />;
+    case 'ParagraphTalksGrid':
+      return <ParagraphTalksGrid key={paragraph.id} paragraph={paragraph} />;
     default:
-      return null;
+      return;
   }
 };
 
