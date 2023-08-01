@@ -9,11 +9,10 @@ export interface NodePageProps {
   /** Optional className for NodePage, pass in a sass module class to override component default */
   className?: string;
   node: NodePageFragment;
-  theme?: string;
 }
 
-export const NodePage = ({ className, node, theme }: NodePageProps) => {
-  const rootClassName = cn(styles.root, className, theme && styles[theme]);
+export const NodePage = ({ className, node }: NodePageProps) => {
+  const rootClassName = cn(styles.root, className);
 
   return (
     <Container as="article" className={rootClassName}>

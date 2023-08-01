@@ -8,10 +8,9 @@ import { GetStaticProps, NextPage } from 'next';
 
 interface HomeProps {
   slug: string;
-  theme: 'dark' | 'light';
 }
 
-const Home: NextPage<HomeProps> = ({ slug, theme }) => {
+const Home: NextPage<HomeProps> = ({ slug }) => {
   const { data: page } = useGetNodeByPathQuery(
     { slug },
     { select: (data) => getRouteEntity(data) }
@@ -24,7 +23,7 @@ const Home: NextPage<HomeProps> = ({ slug, theme }) => {
   return (
     <>
       {page?.metatag && <MetaTag metatags={page.metatag} />}
-      {page && <NodePage node={page} theme={theme} />}
+      {page && <NodePage node={page} />}
     </>
   );
 };
@@ -45,7 +44,6 @@ export const getStaticProps: GetStaticProps = withInitData(
         preview: preview ?? false,
         dehydratedState: dehydrate(queryClient),
         slug,
-        theme: 'light',
       },
     };
   }
