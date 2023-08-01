@@ -1,3 +1,14 @@
+fragment MediaImageWidthFragment on MediaImage {
+  __typename
+  id
+  mediaImage {
+    alt
+    responsive(name: WIDTH) {
+      ...ResponsiveImageStyleFragment
+    }
+  }
+}
+
 fragment MediaImageSquareFragment on MediaImage {
   __typename
   id

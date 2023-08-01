@@ -17,3 +17,16 @@ fragment NodeTalkFragment on NodeTalk {
     ...NodeSpeakerCardFragment
   }
 }
+
+fragment NodeTalkCardFragment on NodeTalk {
+  __typename
+  id
+  title
+  path
+  teaser {
+    ...ParagraphTeaserFragment
+  }
+  speakers {
+    title
+  }
+}
