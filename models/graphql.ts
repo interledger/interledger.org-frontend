@@ -640,11 +640,26 @@ export type NodeSpeaker = EdgeNode &
     sticky: Scalars['Boolean'];
     /** Summary */
     summary?: Maybe<Text>;
+    /**
+     * This is a viewfield query proxy. Page size and contextual filters are applied
+     * within the CMS. See the actual view base query for more documentation on
+     * filters and options available. Speaker Talks
+     */
+    talks: ViewResultUnion;
     /** Teaser */
     teaser: ParagraphTeaser;
     /** Title */
     title: Scalars['String'];
   };
+
+/** Entity type node. */
+export type NodeSpeakerTalksArgs = {
+  filter?: InputMaybe<Array<InputMaybe<KeyValueInput>>>;
+  offset?: InputMaybe<Scalars['Int']>;
+  page?: InputMaybe<Scalars['Int']>;
+  sortDir?: InputMaybe<SortDirection>;
+  sortKey?: InputMaybe<Scalars['String']>;
+};
 
 /** A paginated set of results for NodeSpeaker. */
 export type NodeSpeakerConnection = Connection & {
@@ -1141,6 +1156,8 @@ export enum ResponsiveImageStyleAvailable {
   AspectRatioPortrait_9_16 = 'ASPECT_RATIO_PORTRAIT_9_16',
   /** Aspect Ratio Square (1:1) */
   AspectRatioSquare_1_1 = 'ASPECT_RATIO_SQUARE_1_1',
+  /** Width */
+  Width = 'WIDTH',
 }
 
 /** ResponsiveImageStyle derivative for an Image. */
@@ -1267,6 +1284,23 @@ export type TableRow = {
   weight?: Maybe<Scalars['Int']>;
 };
 
+export type TalksContextualFilterInput = {
+  nid?: InputMaybe<Scalars['String']>;
+};
+
+/** Result for view talks display graphql_1. */
+export type TalksResult = View & {
+  __typename?: 'TalksResult';
+  description?: Maybe<Scalars['String']>;
+  display: Scalars['String'];
+  id: Scalars['ID'];
+  label?: Maybe<Scalars['String']>;
+  langcode?: Maybe<Scalars['String']>;
+  pageInfo: ViewPageInfo;
+  results: Array<NodeUnion>;
+  view: Scalars['String'];
+};
+
 /** A processed text format defined by the CMS. */
 export type Text = {
   __typename?: 'Text';
@@ -1337,4 +1371,4 @@ export type ViewReference = {
 };
 
 /** All available view result types. */
-export type ViewResultUnion = SpeakersResult;
+export type ViewResultUnion = SpeakersResult | TalksResult;

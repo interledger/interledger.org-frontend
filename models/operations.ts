@@ -15,6 +15,22 @@ export type ResponsiveImageStyleFragment = {
   width?: number | null;
 };
 
+export type MediaImageWidthFragment = {
+  __typename: 'MediaImage';
+  id: string;
+  mediaImage: {
+    __typename?: 'Image';
+    alt?: string | null;
+    responsive?: {
+      __typename: 'ResponsiveImageStyleDerivative';
+      height?: number | null;
+      path?: string | null;
+      srcSetPath?: string | null;
+      width?: number | null;
+    } | null;
+  };
+};
+
 export type MediaImageSquareFragment = {
   __typename: 'MediaImage';
   id: string;
@@ -336,57 +352,60 @@ export type NodePageFragment = {
     | {
         __typename: 'ParagraphSpeakersGrid';
         id: string;
-        speakersView?: {
-          __typename?: 'SpeakersResult';
-          id: string;
-          results: Array<
-            | { __typename?: 'NodeArticle' }
-            | { __typename?: 'NodePage' }
-            | {
-                __typename: 'NodeSpeaker';
-                id: string;
-                title: string;
-                path: string;
-                company?: string | null;
-                role?: string | null;
-                teaser: {
-                  __typename: 'ParagraphTeaser';
-                  id: string;
-                  squareImage: {
-                    __typename: 'MediaImage';
+        speakersView?:
+          | {
+              __typename?: 'SpeakersResult';
+              id: string;
+              results: Array<
+                | { __typename?: 'NodeArticle' }
+                | { __typename?: 'NodePage' }
+                | {
+                    __typename: 'NodeSpeaker';
                     id: string;
-                    mediaImage: {
-                      __typename?: 'Image';
-                      alt?: string | null;
-                      responsive?: {
-                        __typename: 'ResponsiveImageStyleDerivative';
-                        height?: number | null;
-                        path?: string | null;
-                        srcSetPath?: string | null;
-                        width?: number | null;
-                      } | null;
+                    title: string;
+                    path: string;
+                    company?: string | null;
+                    role?: string | null;
+                    teaser: {
+                      __typename: 'ParagraphTeaser';
+                      id: string;
+                      squareImage: {
+                        __typename: 'MediaImage';
+                        id: string;
+                        mediaImage: {
+                          __typename?: 'Image';
+                          alt?: string | null;
+                          responsive?: {
+                            __typename: 'ResponsiveImageStyleDerivative';
+                            height?: number | null;
+                            path?: string | null;
+                            srcSetPath?: string | null;
+                            width?: number | null;
+                          } | null;
+                        };
+                      };
+                      landscapeImage: {
+                        __typename: 'MediaImage';
+                        id: string;
+                        mediaImage: {
+                          __typename?: 'Image';
+                          alt?: string | null;
+                          responsive?: {
+                            __typename: 'ResponsiveImageStyleDerivative';
+                            height?: number | null;
+                            path?: string | null;
+                            srcSetPath?: string | null;
+                            width?: number | null;
+                          } | null;
+                        };
+                      };
                     };
-                  };
-                  landscapeImage: {
-                    __typename: 'MediaImage';
-                    id: string;
-                    mediaImage: {
-                      __typename?: 'Image';
-                      alt?: string | null;
-                      responsive?: {
-                        __typename: 'ResponsiveImageStyleDerivative';
-                        height?: number | null;
-                        path?: string | null;
-                        srcSetPath?: string | null;
-                        width?: number | null;
-                      } | null;
-                    };
-                  };
-                };
-              }
-            | { __typename?: 'NodeTalk' }
-          >;
-        } | null;
+                  }
+                | { __typename?: 'NodeTalk' }
+              >;
+            }
+          | { __typename?: 'TalksResult' }
+          | null;
       }
     | {
         __typename: 'ParagraphText';
@@ -690,6 +709,60 @@ export type NodeSpeakerFragment = {
       } | null;
     };
   };
+  talks:
+    | { __typename: 'SpeakersResult' }
+    | {
+        __typename: 'TalksResult';
+        results: Array<
+          | { __typename?: 'NodeArticle' }
+          | { __typename?: 'NodePage' }
+          | { __typename?: 'NodeSpeaker' }
+          | {
+              __typename: 'NodeTalk';
+              id: string;
+              title: string;
+              path: string;
+              teaser: {
+                __typename: 'ParagraphTeaser';
+                id: string;
+                squareImage: {
+                  __typename: 'MediaImage';
+                  id: string;
+                  mediaImage: {
+                    __typename?: 'Image';
+                    alt?: string | null;
+                    responsive?: {
+                      __typename: 'ResponsiveImageStyleDerivative';
+                      height?: number | null;
+                      path?: string | null;
+                      srcSetPath?: string | null;
+                      width?: number | null;
+                    } | null;
+                  };
+                };
+                landscapeImage: {
+                  __typename: 'MediaImage';
+                  id: string;
+                  mediaImage: {
+                    __typename?: 'Image';
+                    alt?: string | null;
+                    responsive?: {
+                      __typename: 'ResponsiveImageStyleDerivative';
+                      height?: number | null;
+                      path?: string | null;
+                      srcSetPath?: string | null;
+                      width?: number | null;
+                    } | null;
+                  };
+                };
+              };
+              speakers?: Array<{
+                __typename?: 'NodeSpeaker';
+                title: string;
+              }> | null;
+            }
+        >;
+      };
 };
 
 export type NodeSpeakerCardFragment = {
@@ -889,6 +962,48 @@ export type NodeTalkFragment = {
       };
     };
   }> | null;
+};
+
+export type NodeTalkCardFragment = {
+  __typename: 'NodeTalk';
+  id: string;
+  title: string;
+  path: string;
+  teaser: {
+    __typename: 'ParagraphTeaser';
+    id: string;
+    squareImage: {
+      __typename: 'MediaImage';
+      id: string;
+      mediaImage: {
+        __typename?: 'Image';
+        alt?: string | null;
+        responsive?: {
+          __typename: 'ResponsiveImageStyleDerivative';
+          height?: number | null;
+          path?: string | null;
+          srcSetPath?: string | null;
+          width?: number | null;
+        } | null;
+      };
+    };
+    landscapeImage: {
+      __typename: 'MediaImage';
+      id: string;
+      mediaImage: {
+        __typename?: 'Image';
+        alt?: string | null;
+        responsive?: {
+          __typename: 'ResponsiveImageStyleDerivative';
+          height?: number | null;
+          path?: string | null;
+          srcSetPath?: string | null;
+          width?: number | null;
+        } | null;
+      };
+    };
+  };
+  speakers?: Array<{ __typename?: 'NodeSpeaker'; title: string }> | null;
 };
 
 export type ParagraphButtonFragment = {
@@ -1106,57 +1221,60 @@ export type ParagraphSpacerFragment = {
 export type ParagraphSpeakersGridFragment = {
   __typename: 'ParagraphSpeakersGrid';
   id: string;
-  speakersView?: {
-    __typename?: 'SpeakersResult';
-    id: string;
-    results: Array<
-      | { __typename?: 'NodeArticle' }
-      | { __typename?: 'NodePage' }
-      | {
-          __typename: 'NodeSpeaker';
-          id: string;
-          title: string;
-          path: string;
-          company?: string | null;
-          role?: string | null;
-          teaser: {
-            __typename: 'ParagraphTeaser';
-            id: string;
-            squareImage: {
-              __typename: 'MediaImage';
+  speakersView?:
+    | {
+        __typename?: 'SpeakersResult';
+        id: string;
+        results: Array<
+          | { __typename?: 'NodeArticle' }
+          | { __typename?: 'NodePage' }
+          | {
+              __typename: 'NodeSpeaker';
               id: string;
-              mediaImage: {
-                __typename?: 'Image';
-                alt?: string | null;
-                responsive?: {
-                  __typename: 'ResponsiveImageStyleDerivative';
-                  height?: number | null;
-                  path?: string | null;
-                  srcSetPath?: string | null;
-                  width?: number | null;
-                } | null;
+              title: string;
+              path: string;
+              company?: string | null;
+              role?: string | null;
+              teaser: {
+                __typename: 'ParagraphTeaser';
+                id: string;
+                squareImage: {
+                  __typename: 'MediaImage';
+                  id: string;
+                  mediaImage: {
+                    __typename?: 'Image';
+                    alt?: string | null;
+                    responsive?: {
+                      __typename: 'ResponsiveImageStyleDerivative';
+                      height?: number | null;
+                      path?: string | null;
+                      srcSetPath?: string | null;
+                      width?: number | null;
+                    } | null;
+                  };
+                };
+                landscapeImage: {
+                  __typename: 'MediaImage';
+                  id: string;
+                  mediaImage: {
+                    __typename?: 'Image';
+                    alt?: string | null;
+                    responsive?: {
+                      __typename: 'ResponsiveImageStyleDerivative';
+                      height?: number | null;
+                      path?: string | null;
+                      srcSetPath?: string | null;
+                      width?: number | null;
+                    } | null;
+                  };
+                };
               };
-            };
-            landscapeImage: {
-              __typename: 'MediaImage';
-              id: string;
-              mediaImage: {
-                __typename?: 'Image';
-                alt?: string | null;
-                responsive?: {
-                  __typename: 'ResponsiveImageStyleDerivative';
-                  height?: number | null;
-                  path?: string | null;
-                  srcSetPath?: string | null;
-                  width?: number | null;
-                } | null;
-              };
-            };
-          };
-        }
-      | { __typename?: 'NodeTalk' }
-    >;
-  } | null;
+            }
+          | { __typename?: 'NodeTalk' }
+        >;
+      }
+    | { __typename?: 'TalksResult' }
+    | null;
 };
 
 export type ParagraphTalkHeaderFragment = {
@@ -1826,57 +1944,60 @@ type ParagraphsFragment_ParagraphSpacer_ = {
 type ParagraphsFragment_ParagraphSpeakersGrid_ = {
   __typename: 'ParagraphSpeakersGrid';
   id: string;
-  speakersView?: {
-    __typename?: 'SpeakersResult';
-    id: string;
-    results: Array<
-      | { __typename?: 'NodeArticle' }
-      | { __typename?: 'NodePage' }
-      | {
-          __typename: 'NodeSpeaker';
-          id: string;
-          title: string;
-          path: string;
-          company?: string | null;
-          role?: string | null;
-          teaser: {
-            __typename: 'ParagraphTeaser';
-            id: string;
-            squareImage: {
-              __typename: 'MediaImage';
+  speakersView?:
+    | {
+        __typename?: 'SpeakersResult';
+        id: string;
+        results: Array<
+          | { __typename?: 'NodeArticle' }
+          | { __typename?: 'NodePage' }
+          | {
+              __typename: 'NodeSpeaker';
               id: string;
-              mediaImage: {
-                __typename?: 'Image';
-                alt?: string | null;
-                responsive?: {
-                  __typename: 'ResponsiveImageStyleDerivative';
-                  height?: number | null;
-                  path?: string | null;
-                  srcSetPath?: string | null;
-                  width?: number | null;
-                } | null;
+              title: string;
+              path: string;
+              company?: string | null;
+              role?: string | null;
+              teaser: {
+                __typename: 'ParagraphTeaser';
+                id: string;
+                squareImage: {
+                  __typename: 'MediaImage';
+                  id: string;
+                  mediaImage: {
+                    __typename?: 'Image';
+                    alt?: string | null;
+                    responsive?: {
+                      __typename: 'ResponsiveImageStyleDerivative';
+                      height?: number | null;
+                      path?: string | null;
+                      srcSetPath?: string | null;
+                      width?: number | null;
+                    } | null;
+                  };
+                };
+                landscapeImage: {
+                  __typename: 'MediaImage';
+                  id: string;
+                  mediaImage: {
+                    __typename?: 'Image';
+                    alt?: string | null;
+                    responsive?: {
+                      __typename: 'ResponsiveImageStyleDerivative';
+                      height?: number | null;
+                      path?: string | null;
+                      srcSetPath?: string | null;
+                      width?: number | null;
+                    } | null;
+                  };
+                };
               };
-            };
-            landscapeImage: {
-              __typename: 'MediaImage';
-              id: string;
-              mediaImage: {
-                __typename?: 'Image';
-                alt?: string | null;
-                responsive?: {
-                  __typename: 'ResponsiveImageStyleDerivative';
-                  height?: number | null;
-                  path?: string | null;
-                  srcSetPath?: string | null;
-                  width?: number | null;
-                } | null;
-              };
-            };
-          };
-        }
-      | { __typename?: 'NodeTalk' }
-    >;
-  } | null;
+            }
+          | { __typename?: 'NodeTalk' }
+        >;
+      }
+    | { __typename?: 'TalksResult' }
+    | null;
 };
 
 type ParagraphsFragment_ParagraphTalkHeader_ = {
@@ -2313,57 +2434,60 @@ export type GetNodeByPathQuery = {
                 | {
                     __typename: 'ParagraphSpeakersGrid';
                     id: string;
-                    speakersView?: {
-                      __typename?: 'SpeakersResult';
-                      id: string;
-                      results: Array<
-                        | { __typename?: 'NodeArticle' }
-                        | { __typename?: 'NodePage' }
-                        | {
-                            __typename: 'NodeSpeaker';
-                            id: string;
-                            title: string;
-                            path: string;
-                            company?: string | null;
-                            role?: string | null;
-                            teaser: {
-                              __typename: 'ParagraphTeaser';
-                              id: string;
-                              squareImage: {
-                                __typename: 'MediaImage';
+                    speakersView?:
+                      | {
+                          __typename?: 'SpeakersResult';
+                          id: string;
+                          results: Array<
+                            | { __typename?: 'NodeArticle' }
+                            | { __typename?: 'NodePage' }
+                            | {
+                                __typename: 'NodeSpeaker';
                                 id: string;
-                                mediaImage: {
-                                  __typename?: 'Image';
-                                  alt?: string | null;
-                                  responsive?: {
-                                    __typename: 'ResponsiveImageStyleDerivative';
-                                    height?: number | null;
-                                    path?: string | null;
-                                    srcSetPath?: string | null;
-                                    width?: number | null;
-                                  } | null;
+                                title: string;
+                                path: string;
+                                company?: string | null;
+                                role?: string | null;
+                                teaser: {
+                                  __typename: 'ParagraphTeaser';
+                                  id: string;
+                                  squareImage: {
+                                    __typename: 'MediaImage';
+                                    id: string;
+                                    mediaImage: {
+                                      __typename?: 'Image';
+                                      alt?: string | null;
+                                      responsive?: {
+                                        __typename: 'ResponsiveImageStyleDerivative';
+                                        height?: number | null;
+                                        path?: string | null;
+                                        srcSetPath?: string | null;
+                                        width?: number | null;
+                                      } | null;
+                                    };
+                                  };
+                                  landscapeImage: {
+                                    __typename: 'MediaImage';
+                                    id: string;
+                                    mediaImage: {
+                                      __typename?: 'Image';
+                                      alt?: string | null;
+                                      responsive?: {
+                                        __typename: 'ResponsiveImageStyleDerivative';
+                                        height?: number | null;
+                                        path?: string | null;
+                                        srcSetPath?: string | null;
+                                        width?: number | null;
+                                      } | null;
+                                    };
+                                  };
                                 };
-                              };
-                              landscapeImage: {
-                                __typename: 'MediaImage';
-                                id: string;
-                                mediaImage: {
-                                  __typename?: 'Image';
-                                  alt?: string | null;
-                                  responsive?: {
-                                    __typename: 'ResponsiveImageStyleDerivative';
-                                    height?: number | null;
-                                    path?: string | null;
-                                    srcSetPath?: string | null;
-                                    width?: number | null;
-                                  } | null;
-                                };
-                              };
-                            };
-                          }
-                        | { __typename?: 'NodeTalk' }
-                      >;
-                    } | null;
+                              }
+                            | { __typename?: 'NodeTalk' }
+                          >;
+                        }
+                      | { __typename?: 'TalksResult' }
+                      | null;
                   }
                 | {
                     __typename: 'ParagraphText';
@@ -2634,6 +2758,60 @@ export type GetNodeByPathQuery = {
                   } | null;
                 };
               };
+              talks:
+                | { __typename: 'SpeakersResult' }
+                | {
+                    __typename: 'TalksResult';
+                    results: Array<
+                      | { __typename?: 'NodeArticle' }
+                      | { __typename?: 'NodePage' }
+                      | { __typename?: 'NodeSpeaker' }
+                      | {
+                          __typename: 'NodeTalk';
+                          id: string;
+                          title: string;
+                          path: string;
+                          teaser: {
+                            __typename: 'ParagraphTeaser';
+                            id: string;
+                            squareImage: {
+                              __typename: 'MediaImage';
+                              id: string;
+                              mediaImage: {
+                                __typename?: 'Image';
+                                alt?: string | null;
+                                responsive?: {
+                                  __typename: 'ResponsiveImageStyleDerivative';
+                                  height?: number | null;
+                                  path?: string | null;
+                                  srcSetPath?: string | null;
+                                  width?: number | null;
+                                } | null;
+                              };
+                            };
+                            landscapeImage: {
+                              __typename: 'MediaImage';
+                              id: string;
+                              mediaImage: {
+                                __typename?: 'Image';
+                                alt?: string | null;
+                                responsive?: {
+                                  __typename: 'ResponsiveImageStyleDerivative';
+                                  height?: number | null;
+                                  path?: string | null;
+                                  srcSetPath?: string | null;
+                                  width?: number | null;
+                                } | null;
+                              };
+                            };
+                          };
+                          speakers?: Array<{
+                            __typename?: 'NodeSpeaker';
+                            title: string;
+                          }> | null;
+                        }
+                    >;
+                  };
             }
           | {
               __typename: 'NodeTalk';

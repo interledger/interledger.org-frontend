@@ -21,20 +21,32 @@ function fetcher<TData, TVariables>(query: string, variables?: TVariables) {
     return json.data;
   };
 }
-export const ImageStyleFragment = /*#__PURE__*/ `
-    fragment ImageStyleFragment on ImageStylePathDerivative {
-  __typename
-  height
-  path
-  width
-}
-    `;
 export const ResponsiveImageStyleFragment = /*#__PURE__*/ `
     fragment ResponsiveImageStyleFragment on ResponsiveImageStyleDerivative {
   __typename
   height
   path
   srcSetPath
+  width
+}
+    `;
+export const MediaImageWidthFragment = /*#__PURE__*/ `
+    fragment MediaImageWidthFragment on MediaImage {
+  __typename
+  id
+  mediaImage {
+    alt
+    responsive(name: WIDTH) {
+      ...ResponsiveImageStyleFragment
+    }
+  }
+}
+    `;
+export const ImageStyleFragment = /*#__PURE__*/ `
+    fragment ImageStyleFragment on ImageStylePathDerivative {
+  __typename
+  height
+  path
   width
 }
     `;
@@ -424,6 +436,20 @@ export const NodePageFragment = /*#__PURE__*/ `
   }
 }
     `;
+export const NodeTalkCardFragment = /*#__PURE__*/ `
+    fragment NodeTalkCardFragment on NodeTalk {
+  __typename
+  id
+  title
+  path
+  teaser {
+    ...ParagraphTeaserFragment
+  }
+  speakers {
+    title
+  }
+}
+    `;
 export const NodeSpeakerFragment = /*#__PURE__*/ `
     fragment NodeSpeakerFragment on NodeSpeaker {
   __typename
@@ -448,7 +474,17 @@ export const NodeSpeakerFragment = /*#__PURE__*/ `
     }
   }
   image {
-    ...MediaImageSquareFragment
+    ...MediaImageLandscapeFragment
+  }
+  talks {
+    __typename
+    ... on TalksResult {
+      results {
+        ... on NodeTalk {
+          ...NodeTalkCardFragment
+        }
+      }
+    }
   }
 }
     `;
@@ -651,6 +687,7 @@ ${MetaTagFragment}
 ${NodePageFragment}
 ${ParagraphHeroHeaderFragment}
 ${NodeSpeakerFragment}
+${NodeTalkCardFragment}
 ${NodeTalkFragment}
 ${ParagraphTalkHeaderFragment}
 ${ParagraphMediaHeaderFragment}

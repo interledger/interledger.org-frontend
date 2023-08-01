@@ -21,7 +21,17 @@ fragment NodeSpeakerFragment on NodeSpeaker {
     }
   }
   image {
-    ...MediaImageSquareFragment
+    ...MediaImageLandscapeFragment
+  }
+  talks {
+    __typename
+    ... on TalksResult {
+      results {
+        ... on NodeTalk {
+          ...NodeTalkCardFragment
+        }
+      }
+    }
   }
 }
 

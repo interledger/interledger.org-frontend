@@ -5,20 +5,27 @@
 @use '@styles/base/helpers' as *;
 
 .root {
+  margin-bottom: rem(100px);
 }
 
 .header {
-  aspect-ratio: 15.3/9;
+  aspect-ratio: 16/9;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   position: relative;
-  overflow-y: hidden;
+  color: var(--color-white);
+  margin-bottom: rem(100px);
 }
 
 .headerImage {
   position: absolute;
   top: 0;
-  right: -50px;
-  width: 75%;
+  height: 100%;
+  z-index: 0;
+}
+
+.headerText {
+  position: relative;
+  margin-bottom: rem(100px);
 }
