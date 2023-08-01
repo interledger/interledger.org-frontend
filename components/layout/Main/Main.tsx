@@ -5,11 +5,12 @@ import { Footer } from '../Footer/Footer';
 import { Header } from '../Header/Header';
 import { BackgroundSwirl } from '@components/ui/BackgroundSwirl/BackgroundSwirl';
 import styles from './Main.module.scss';
+import { ReactNode } from 'react';
 
 export interface MainProps {
   /** Optional className for Main, pass in a sass module class to override component default */
   className?: string;
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 export const Main = ({ className, children }: MainProps) => {
