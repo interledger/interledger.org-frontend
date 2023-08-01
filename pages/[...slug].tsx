@@ -1,4 +1,8 @@
 import { withInitData } from '@components/hoc/withInitData/withInitData';
+import { NodeArticle } from '@components/node/NodeArticle/NodeArticle';
+import { NodePage } from '@components/node/NodePage/NodePage';
+import { NodeSpeaker } from '@components/node/NodeSpeaker/NodeSpeaker';
+import { NodeTalk } from '@components/node/NodeTalk/NodeTalk';
 import { MetaTag } from '@components/util/MetaTag/MetaTag';
 import { queryOptions } from '@graphql/graphql-client';
 import { getRouteEntity } from '@graphql/helpers';
@@ -11,31 +15,6 @@ import {
 } from '@models/operations';
 import { QueryClient, dehydrate } from '@tanstack/react-query';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
-import dynamic from 'next/dynamic';
-
-const NodeArticle = dynamic(() =>
-  import('@components/node/NodeArticle/NodeArticle').then(
-    (paragraph) => paragraph.NodeArticle
-  )
-);
-
-const NodePage = dynamic(() =>
-  import('@components/node/NodePage/NodePage').then(
-    (paragraph) => paragraph.NodePage
-  )
-);
-
-const NodeSpeaker = dynamic(() =>
-  import('@components/node/NodeSpeaker/NodeSpeaker').then(
-    (paragraph) => paragraph.NodeSpeaker
-  )
-);
-
-const NodeTalk = dynamic(() =>
-  import('@components/node/NodeTalk/NodeTalk').then(
-    (paragraph) => paragraph.NodeTalk
-  )
-);
 
 interface BasicProps {
   slug: string;

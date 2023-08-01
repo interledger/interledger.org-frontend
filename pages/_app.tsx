@@ -39,6 +39,7 @@ const PTSansRegular = PT_Sans({
   subsets: ['latin'],
   weight: '400',
 });
+
 const PTSansBold = PT_Sans({
   subsets: ['latin'],
   weight: '700',
