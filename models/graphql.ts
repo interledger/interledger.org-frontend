@@ -599,6 +599,7 @@ export type NodePageSectionsUnion =
   | ParagraphImageGallery
   | ParagraphLargeCalloutText
   | ParagraphSpacer
+  | ParagraphSpeakersGrid
   | ParagraphText
   | ParagraphTwoColumnContent
   | ParagraphVideo;
@@ -896,6 +897,30 @@ export type ParagraphSpacer = ParagraphInterface & {
 };
 
 /** Entity type paragraph. */
+export type ParagraphSpeakersGrid = ParagraphInterface & {
+  __typename?: 'ParagraphSpeakersGrid';
+  /** The time that the Paragraph was created. */
+  created: DateTime;
+  /** The Universally Unique IDentifier (UUID). */
+  id: Scalars['ID'];
+  /**
+   * This is a viewfield query proxy. Page size and contextual filters are applied
+   * within the CMS. See the actual view base query for more documentation on
+   * filters and options available. Speakers View
+   */
+  speakersView?: Maybe<ViewResultUnion>;
+};
+
+/** Entity type paragraph. */
+export type ParagraphSpeakersGridSpeakersViewArgs = {
+  filter?: InputMaybe<Array<InputMaybe<KeyValueInput>>>;
+  offset?: InputMaybe<Scalars['Int']>;
+  page?: InputMaybe<Scalars['Int']>;
+  sortDir?: InputMaybe<SortDirection>;
+  sortKey?: InputMaybe<Scalars['String']>;
+};
+
+/** Entity type paragraph. */
 export type ParagraphTalkHeader = ParagraphInterface & {
   __typename?: 'ParagraphTalkHeader';
   /** The time that the Paragraph was created. */
@@ -974,6 +999,7 @@ export type ParagraphUnion =
   | ParagraphSocialMedia
   | ParagraphSocialMediaLink
   | ParagraphSpacer
+  | ParagraphSpeakersGrid
   | ParagraphTalkHeader
   | ParagraphTeaser
   | ParagraphText
@@ -1214,6 +1240,19 @@ export enum SortDirection {
   Desc = 'DESC',
 }
 
+/** Result for view speakers display graphql_1. */
+export type SpeakersResult = View & {
+  __typename?: 'SpeakersResult';
+  description?: Maybe<Scalars['String']>;
+  display: Scalars['String'];
+  id: Scalars['ID'];
+  label?: Maybe<Scalars['String']>;
+  langcode?: Maybe<Scalars['String']>;
+  pageInfo: ViewPageInfo;
+  results: Array<NodeUnion>;
+  view: Scalars['String'];
+};
+
 export type Table = {
   __typename?: 'Table';
   caption?: Maybe<Scalars['String']>;
@@ -1254,3 +1293,48 @@ export type UnsupportedType = {
   /** Unsupported type, always TRUE. */
   unsupported?: Maybe<Scalars['Boolean']>;
 };
+
+/** Views represent collections of curated data from the site. */
+export type View = {
+  /** The description of the view. */
+  description?: Maybe<Scalars['String']>;
+  /** The machine name of the display. */
+  display: Scalars['String'];
+  /** The ID of the view. */
+  id: Scalars['ID'];
+  /** The human friendly label of the view. */
+  label?: Maybe<Scalars['String']>;
+  /** The language code of the view. */
+  langcode?: Maybe<Scalars['String']>;
+  /** Information about the page in the view. */
+  pageInfo: ViewPageInfo;
+  /** The machine name of the view. */
+  view: Scalars['String'];
+};
+
+/** Information about the page in a view. */
+export type ViewPageInfo = {
+  __typename?: 'ViewPageInfo';
+  /** Any result offset being used. */
+  offset: Scalars['Int'];
+  /** The current page being returned. */
+  page: Scalars['Int'];
+  /** How many results per page. */
+  pageSize: Scalars['Int'];
+  /** How many results total. */
+  total: Scalars['Int'];
+};
+
+/** A reference to an embedded view */
+export type ViewReference = {
+  __typename?: 'ViewReference';
+  contextualFilter?: Maybe<Array<Scalars['String']>>;
+  display: Scalars['String'];
+  pageSize?: Maybe<Scalars['Int']>;
+  /** The name of the query used to fetch the data, if the view is a GraphQL display. */
+  query?: Maybe<Scalars['String']>;
+  view: Scalars['String'];
+};
+
+/** All available view result types. */
+export type ViewResultUnion = SpeakersResult;

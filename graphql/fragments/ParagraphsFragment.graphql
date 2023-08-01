@@ -35,4 +35,7 @@ fragment ParagraphsFragment on ParagraphInterface {
   ... on ParagraphVideo {
     ...ParagraphVideoFragment
   }
+  ... on ParagraphSpeakersGrid {
+    ...ParagraphSpeakersGridFragment
+  }
 }

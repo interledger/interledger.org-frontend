@@ -5,13 +5,8 @@
 @use '@styles/base/helpers' as *;
 
 .root {
-  h2 {
-    font-size: rem(32px);
-    line-height: rem(38px);
+}
 
-    @include mq($from: tablet) {
-      font-size: rem(52px);
-      line-height: rem(70px);
-    }
-  }
+.text {
+  font-weight: 400;
 }

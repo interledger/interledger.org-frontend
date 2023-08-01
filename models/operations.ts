@@ -334,6 +334,61 @@ export type NodePageFragment = {
         spacerLine?: boolean | null;
       }
     | {
+        __typename: 'ParagraphSpeakersGrid';
+        id: string;
+        speakersView?: {
+          __typename?: 'SpeakersResult';
+          id: string;
+          results: Array<
+            | { __typename?: 'NodeArticle' }
+            | { __typename?: 'NodePage' }
+            | {
+                __typename: 'NodeSpeaker';
+                id: string;
+                title: string;
+                path: string;
+                company?: string | null;
+                role?: string | null;
+                teaser: {
+                  __typename: 'ParagraphTeaser';
+                  id: string;
+                  squareImage: {
+                    __typename: 'MediaImage';
+                    id: string;
+                    mediaImage: {
+                      __typename?: 'Image';
+                      alt?: string | null;
+                      responsive?: {
+                        __typename: 'ResponsiveImageStyleDerivative';
+                        height?: number | null;
+                        path?: string | null;
+                        srcSetPath?: string | null;
+                        width?: number | null;
+                      } | null;
+                    };
+                  };
+                  landscapeImage: {
+                    __typename: 'MediaImage';
+                    id: string;
+                    mediaImage: {
+                      __typename?: 'Image';
+                      alt?: string | null;
+                      responsive?: {
+                        __typename: 'ResponsiveImageStyleDerivative';
+                        height?: number | null;
+                        path?: string | null;
+                        srcSetPath?: string | null;
+                        width?: number | null;
+                      } | null;
+                    };
+                  };
+                };
+              }
+            | { __typename?: 'NodeTalk' }
+          >;
+        } | null;
+      }
+    | {
         __typename: 'ParagraphText';
         id: string;
         text: { __typename?: 'Text'; processed?: any | null };
@@ -637,6 +692,49 @@ export type NodeSpeakerFragment = {
   };
 };
 
+export type NodeSpeakerCardFragment = {
+  __typename: 'NodeSpeaker';
+  id: string;
+  title: string;
+  path: string;
+  company?: string | null;
+  role?: string | null;
+  teaser: {
+    __typename: 'ParagraphTeaser';
+    id: string;
+    squareImage: {
+      __typename: 'MediaImage';
+      id: string;
+      mediaImage: {
+        __typename?: 'Image';
+        alt?: string | null;
+        responsive?: {
+          __typename: 'ResponsiveImageStyleDerivative';
+          height?: number | null;
+          path?: string | null;
+          srcSetPath?: string | null;
+          width?: number | null;
+        } | null;
+      };
+    };
+    landscapeImage: {
+      __typename: 'MediaImage';
+      id: string;
+      mediaImage: {
+        __typename?: 'Image';
+        alt?: string | null;
+        responsive?: {
+          __typename: 'ResponsiveImageStyleDerivative';
+          height?: number | null;
+          path?: string | null;
+          srcSetPath?: string | null;
+          width?: number | null;
+        } | null;
+      };
+    };
+  };
+};
+
 export type NodeTalkFragment = {
   __typename: 'NodeTalk';
   id: string;
@@ -750,7 +848,7 @@ export type NodeTalkFragment = {
   } | null;
   description?: { __typename?: 'Text'; processed?: any | null } | null;
   speakers?: Array<{
-    __typename?: 'NodeSpeaker';
+    __typename: 'NodeSpeaker';
     id: string;
     title: string;
     path: string;
@@ -1005,6 +1103,62 @@ export type ParagraphSpacerFragment = {
   spacerLine?: boolean | null;
 };
 
+export type ParagraphSpeakersGridFragment = {
+  __typename: 'ParagraphSpeakersGrid';
+  id: string;
+  speakersView?: {
+    __typename?: 'SpeakersResult';
+    id: string;
+    results: Array<
+      | { __typename?: 'NodeArticle' }
+      | { __typename?: 'NodePage' }
+      | {
+          __typename: 'NodeSpeaker';
+          id: string;
+          title: string;
+          path: string;
+          company?: string | null;
+          role?: string | null;
+          teaser: {
+            __typename: 'ParagraphTeaser';
+            id: string;
+            squareImage: {
+              __typename: 'MediaImage';
+              id: string;
+              mediaImage: {
+                __typename?: 'Image';
+                alt?: string | null;
+                responsive?: {
+                  __typename: 'ResponsiveImageStyleDerivative';
+                  height?: number | null;
+                  path?: string | null;
+                  srcSetPath?: string | null;
+                  width?: number | null;
+                } | null;
+              };
+            };
+            landscapeImage: {
+              __typename: 'MediaImage';
+              id: string;
+              mediaImage: {
+                __typename?: 'Image';
+                alt?: string | null;
+                responsive?: {
+                  __typename: 'ResponsiveImageStyleDerivative';
+                  height?: number | null;
+                  path?: string | null;
+                  srcSetPath?: string | null;
+                  width?: number | null;
+                } | null;
+              };
+            };
+          };
+        }
+      | { __typename?: 'NodeTalk' }
+    >;
+  } | null;
+};
+
 export type ParagraphTalkHeaderFragment = {
   __typename: 'ParagraphTalkHeader';
   id: string;
@@ -1186,6 +1340,10 @@ type TwoColumnContentFragment_ParagraphSpacer_ = {
   spacerLine?: boolean | null;
 };
 
+type TwoColumnContentFragment_ParagraphSpeakersGrid_ = {
+  __typename?: 'ParagraphSpeakersGrid';
+};
+
 type TwoColumnContentFragment_ParagraphTalkHeader_ = {
   __typename?: 'ParagraphTalkHeader';
 };
@@ -1244,6 +1402,7 @@ export type TwoColumnContentFragment =
   | TwoColumnContentFragment_ParagraphSocialMedia_
   | TwoColumnContentFragment_ParagraphSocialMediaLink_
   | TwoColumnContentFragment_ParagraphSpacer_
+  | TwoColumnContentFragment_ParagraphSpeakersGrid_
   | TwoColumnContentFragment_ParagraphTalkHeader_
   | TwoColumnContentFragment_ParagraphTeaser_
   | TwoColumnContentFragment_ParagraphText_
@@ -1664,6 +1823,62 @@ type ParagraphsFragment_ParagraphSpacer_ = {
   spacerLine?: boolean | null;
 };
 
+type ParagraphsFragment_ParagraphSpeakersGrid_ = {
+  __typename: 'ParagraphSpeakersGrid';
+  id: string;
+  speakersView?: {
+    __typename?: 'SpeakersResult';
+    id: string;
+    results: Array<
+      | { __typename?: 'NodeArticle' }
+      | { __typename?: 'NodePage' }
+      | {
+          __typename: 'NodeSpeaker';
+          id: string;
+          title: string;
+          path: string;
+          company?: string | null;
+          role?: string | null;
+          teaser: {
+            __typename: 'ParagraphTeaser';
+            id: string;
+            squareImage: {
+              __typename: 'MediaImage';
+              id: string;
+              mediaImage: {
+                __typename?: 'Image';
+                alt?: string | null;
+                responsive?: {
+                  __typename: 'ResponsiveImageStyleDerivative';
+                  height?: number | null;
+                  path?: string | null;
+                  srcSetPath?: string | null;
+                  width?: number | null;
+                } | null;
+              };
+            };
+            landscapeImage: {
+              __typename: 'MediaImage';
+              id: string;
+              mediaImage: {
+                __typename?: 'Image';
+                alt?: string | null;
+                responsive?: {
+                  __typename: 'ResponsiveImageStyleDerivative';
+                  height?: number | null;
+                  path?: string | null;
+                  srcSetPath?: string | null;
+                  width?: number | null;
+                } | null;
+              };
+            };
+          };
+        }
+      | { __typename?: 'NodeTalk' }
+    >;
+  } | null;
+};
+
 type ParagraphsFragment_ParagraphTalkHeader_ = {
   __typename?: 'ParagraphTalkHeader';
 };
@@ -1815,6 +2030,7 @@ export type ParagraphsFragment =
   | ParagraphsFragment_ParagraphSocialMedia_
   | ParagraphsFragment_ParagraphSocialMediaLink_
   | ParagraphsFragment_ParagraphSpacer_
+  | ParagraphsFragment_ParagraphSpeakersGrid_
   | ParagraphsFragment_ParagraphTalkHeader_
   | ParagraphsFragment_ParagraphTeaser_
   | ParagraphsFragment_ParagraphText_
@@ -2093,6 +2309,61 @@ export type GetNodeByPathQuery = {
                     id: string;
                     spacerSize: string;
                     spacerLine?: boolean | null;
+                  }
+                | {
+                    __typename: 'ParagraphSpeakersGrid';
+                    id: string;
+                    speakersView?: {
+                      __typename?: 'SpeakersResult';
+                      id: string;
+                      results: Array<
+                        | { __typename?: 'NodeArticle' }
+                        | { __typename?: 'NodePage' }
+                        | {
+                            __typename: 'NodeSpeaker';
+                            id: string;
+                            title: string;
+                            path: string;
+                            company?: string | null;
+                            role?: string | null;
+                            teaser: {
+                              __typename: 'ParagraphTeaser';
+                              id: string;
+                              squareImage: {
+                                __typename: 'MediaImage';
+                                id: string;
+                                mediaImage: {
+                                  __typename?: 'Image';
+                                  alt?: string | null;
+                                  responsive?: {
+                                    __typename: 'ResponsiveImageStyleDerivative';
+                                    height?: number | null;
+                                    path?: string | null;
+                                    srcSetPath?: string | null;
+                                    width?: number | null;
+                                  } | null;
+                                };
+                              };
+                              landscapeImage: {
+                                __typename: 'MediaImage';
+                                id: string;
+                                mediaImage: {
+                                  __typename?: 'Image';
+                                  alt?: string | null;
+                                  responsive?: {
+                                    __typename: 'ResponsiveImageStyleDerivative';
+                                    height?: number | null;
+                                    path?: string | null;
+                                    srcSetPath?: string | null;
+                                    width?: number | null;
+                                  } | null;
+                                };
+                              };
+                            };
+                          }
+                        | { __typename?: 'NodeTalk' }
+                      >;
+                    } | null;
                   }
                 | {
                     __typename: 'ParagraphText';
@@ -2480,7 +2751,7 @@ export type GetNodeByPathQuery = {
                 processed?: any | null;
               } | null;
               speakers?: Array<{
-                __typename?: 'NodeSpeaker';
+                __typename: 'NodeSpeaker';
                 id: string;
                 title: string;
                 path: string;

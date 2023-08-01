@@ -275,6 +275,35 @@ export const ParagraphImageGalleryFragment = /*#__PURE__*/ `
   }
 }
     `;
+export const NodeSpeakerCardFragment = /*#__PURE__*/ `
+    fragment NodeSpeakerCardFragment on NodeSpeaker {
+  __typename
+  id
+  title
+  path
+  company
+  role
+  teaser {
+    ...ParagraphTeaserFragment
+  }
+}
+    `;
+export const ParagraphSpeakersGridFragment = /*#__PURE__*/ `
+    fragment ParagraphSpeakersGridFragment on ParagraphSpeakersGrid {
+  __typename
+  id
+  speakersView {
+    ... on SpeakersResult {
+      id
+      results {
+        ... on NodeSpeaker {
+          ...NodeSpeakerCardFragment
+        }
+      }
+    }
+  }
+}
+    `;
 export const ParagraphsFragment = /*#__PURE__*/ `
     fragment ParagraphsFragment on ParagraphInterface {
   ... on ParagraphButton {
@@ -312,6 +341,9 @@ export const ParagraphsFragment = /*#__PURE__*/ `
   }
   ... on ParagraphVideo {
     ...ParagraphVideoFragment
+  }
+  ... on ParagraphSpeakersGrid {
+    ...ParagraphSpeakersGridFragment
   }
 }
     `;
@@ -473,14 +505,7 @@ export const NodeTalkFragment = /*#__PURE__*/ `
   }
   duration
   speakers {
-    id
-    title
-    path
-    company
-    role
-    teaser {
-      ...ParagraphTeaserFragment
-    }
+    ...NodeSpeakerCardFragment
   }
 }
     `;
@@ -620,6 +645,8 @@ ${ParagraphImageCarouselFragment}
 ${ParagraphHighlightedSpeakersFragment}
 ${ParagraphTeaserFragment}
 ${ParagraphImageGalleryFragment}
+${ParagraphSpeakersGridFragment}
+${NodeSpeakerCardFragment}
 ${MetaTagFragment}
 ${NodePageFragment}
 ${ParagraphHeroHeaderFragment}

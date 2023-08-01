@@ -14,13 +14,6 @@ fragment NodeTalkFragment on NodeTalk {
   }
   duration
   speakers {
-    id
-    title
-    path
-    company
-    role
-    teaser {
-      ...ParagraphTeaserFragment
-    }
+    ...NodeSpeakerCardFragment
   }
 }
