@@ -1,4 +1,14 @@
 fragment ParagraphSpeakersGridFragment on ParagraphSpeakersGrid {
   __typename
   id
+  speakersView {
+    ... on SpeakersResult {
+      id
+      results {
+        ... on NodeSpeaker {
+          ...NodeSpeakerCardFragment
+        }
+      }
+    }
+  }
 }

@@ -333,7 +333,61 @@ export type NodePageFragment = {
         spacerSize: string;
         spacerLine?: boolean | null;
       }
-    | { __typename?: 'ParagraphSpeakersGrid' }
+    | {
+        __typename: 'ParagraphSpeakersGrid';
+        id: string;
+        speakersView?: {
+          __typename?: 'SpeakersResult';
+          id: string;
+          results: Array<
+            | { __typename?: 'NodeArticle' }
+            | { __typename?: 'NodePage' }
+            | {
+                __typename: 'NodeSpeaker';
+                id: string;
+                title: string;
+                path: string;
+                company?: string | null;
+                role?: string | null;
+                teaser: {
+                  __typename: 'ParagraphTeaser';
+                  id: string;
+                  squareImage: {
+                    __typename: 'MediaImage';
+                    id: string;
+                    mediaImage: {
+                      __typename?: 'Image';
+                      alt?: string | null;
+                      responsive?: {
+                        __typename: 'ResponsiveImageStyleDerivative';
+                        height?: number | null;
+                        path?: string | null;
+                        srcSetPath?: string | null;
+                        width?: number | null;
+                      } | null;
+                    };
+                  };
+                  landscapeImage: {
+                    __typename: 'MediaImage';
+                    id: string;
+                    mediaImage: {
+                      __typename?: 'Image';
+                      alt?: string | null;
+                      responsive?: {
+                        __typename: 'ResponsiveImageStyleDerivative';
+                        height?: number | null;
+                        path?: string | null;
+                        srcSetPath?: string | null;
+                        width?: number | null;
+                      } | null;
+                    };
+                  };
+                };
+              }
+            | { __typename?: 'NodeTalk' }
+          >;
+        } | null;
+      }
     | {
         __typename: 'ParagraphText';
         id: string;
@@ -638,6 +692,49 @@ export type NodeSpeakerFragment = {
   };
 };
 
+export type NodeSpeakerCardFragment = {
+  __typename: 'NodeSpeaker';
+  id: string;
+  title: string;
+  path: string;
+  company?: string | null;
+  role?: string | null;
+  teaser: {
+    __typename: 'ParagraphTeaser';
+    id: string;
+    squareImage: {
+      __typename: 'MediaImage';
+      id: string;
+      mediaImage: {
+        __typename?: 'Image';
+        alt?: string | null;
+        responsive?: {
+          __typename: 'ResponsiveImageStyleDerivative';
+          height?: number | null;
+          path?: string | null;
+          srcSetPath?: string | null;
+          width?: number | null;
+        } | null;
+      };
+    };
+    landscapeImage: {
+      __typename: 'MediaImage';
+      id: string;
+      mediaImage: {
+        __typename?: 'Image';
+        alt?: string | null;
+        responsive?: {
+          __typename: 'ResponsiveImageStyleDerivative';
+          height?: number | null;
+          path?: string | null;
+          srcSetPath?: string | null;
+          width?: number | null;
+        } | null;
+      };
+    };
+  };
+};
+
 export type NodeTalkFragment = {
   __typename: 'NodeTalk';
   id: string;
@@ -751,7 +848,7 @@ export type NodeTalkFragment = {
   } | null;
   description?: { __typename?: 'Text'; processed?: any | null } | null;
   speakers?: Array<{
-    __typename?: 'NodeSpeaker';
+    __typename: 'NodeSpeaker';
     id: string;
     title: string;
     path: string;
@@ -1009,6 +1106,57 @@ export type ParagraphSpacerFragment = {
 export type ParagraphSpeakersGridFragment = {
   __typename: 'ParagraphSpeakersGrid';
   id: string;
+  speakersView?: {
+    __typename?: 'SpeakersResult';
+    id: string;
+    results: Array<
+      | { __typename?: 'NodeArticle' }
+      | { __typename?: 'NodePage' }
+      | {
+          __typename: 'NodeSpeaker';
+          id: string;
+          title: string;
+          path: string;
+          company?: string | null;
+          role?: string | null;
+          teaser: {
+            __typename: 'ParagraphTeaser';
+            id: string;
+            squareImage: {
+              __typename: 'MediaImage';
+              id: string;
+              mediaImage: {
+                __typename?: 'Image';
+                alt?: string | null;
+                responsive?: {
+                  __typename: 'ResponsiveImageStyleDerivative';
+                  height?: number | null;
+                  path?: string | null;
+                  srcSetPath?: string | null;
+                  width?: number | null;
+                } | null;
+              };
+            };
+            landscapeImage: {
+              __typename: 'MediaImage';
+              id: string;
+              mediaImage: {
+                __typename?: 'Image';
+                alt?: string | null;
+                responsive?: {
+                  __typename: 'ResponsiveImageStyleDerivative';
+                  height?: number | null;
+                  path?: string | null;
+                  srcSetPath?: string | null;
+                  width?: number | null;
+                } | null;
+              };
+            };
+          };
+        }
+      | { __typename?: 'NodeTalk' }
+    >;
+  } | null;
 };
 
 export type ParagraphTalkHeaderFragment = {
@@ -1676,7 +1824,59 @@ type ParagraphsFragment_ParagraphSpacer_ = {
 };
 
 type ParagraphsFragment_ParagraphSpeakersGrid_ = {
-  __typename?: 'ParagraphSpeakersGrid';
+  __typename: 'ParagraphSpeakersGrid';
+  id: string;
+  speakersView?: {
+    __typename?: 'SpeakersResult';
+    id: string;
+    results: Array<
+      | { __typename?: 'NodeArticle' }
+      | { __typename?: 'NodePage' }
+      | {
+          __typename: 'NodeSpeaker';
+          id: string;
+          title: string;
+          path: string;
+          company?: string | null;
+          role?: string | null;
+          teaser: {
+            __typename: 'ParagraphTeaser';
+            id: string;
+            squareImage: {
+              __typename: 'MediaImage';
+              id: string;
+              mediaImage: {
+                __typename?: 'Image';
+                alt?: string | null;
+                responsive?: {
+                  __typename: 'ResponsiveImageStyleDerivative';
+                  height?: number | null;
+                  path?: string | null;
+                  srcSetPath?: string | null;
+                  width?: number | null;
+                } | null;
+              };
+            };
+            landscapeImage: {
+              __typename: 'MediaImage';
+              id: string;
+              mediaImage: {
+                __typename?: 'Image';
+                alt?: string | null;
+                responsive?: {
+                  __typename: 'ResponsiveImageStyleDerivative';
+                  height?: number | null;
+                  path?: string | null;
+                  srcSetPath?: string | null;
+                  width?: number | null;
+                } | null;
+              };
+            };
+          };
+        }
+      | { __typename?: 'NodeTalk' }
+    >;
+  } | null;
 };
 
 type ParagraphsFragment_ParagraphTalkHeader_ = {
@@ -2110,7 +2310,61 @@ export type GetNodeByPathQuery = {
                     spacerSize: string;
                     spacerLine?: boolean | null;
                   }
-                | { __typename?: 'ParagraphSpeakersGrid' }
+                | {
+                    __typename: 'ParagraphSpeakersGrid';
+                    id: string;
+                    speakersView?: {
+                      __typename?: 'SpeakersResult';
+                      id: string;
+                      results: Array<
+                        | { __typename?: 'NodeArticle' }
+                        | { __typename?: 'NodePage' }
+                        | {
+                            __typename: 'NodeSpeaker';
+                            id: string;
+                            title: string;
+                            path: string;
+                            company?: string | null;
+                            role?: string | null;
+                            teaser: {
+                              __typename: 'ParagraphTeaser';
+                              id: string;
+                              squareImage: {
+                                __typename: 'MediaImage';
+                                id: string;
+                                mediaImage: {
+                                  __typename?: 'Image';
+                                  alt?: string | null;
+                                  responsive?: {
+                                    __typename: 'ResponsiveImageStyleDerivative';
+                                    height?: number | null;
+                                    path?: string | null;
+                                    srcSetPath?: string | null;
+                                    width?: number | null;
+                                  } | null;
+                                };
+                              };
+                              landscapeImage: {
+                                __typename: 'MediaImage';
+                                id: string;
+                                mediaImage: {
+                                  __typename?: 'Image';
+                                  alt?: string | null;
+                                  responsive?: {
+                                    __typename: 'ResponsiveImageStyleDerivative';
+                                    height?: number | null;
+                                    path?: string | null;
+                                    srcSetPath?: string | null;
+                                    width?: number | null;
+                                  } | null;
+                                };
+                              };
+                            };
+                          }
+                        | { __typename?: 'NodeTalk' }
+                      >;
+                    } | null;
+                  }
                 | {
                     __typename: 'ParagraphText';
                     id: string;
@@ -2497,7 +2751,7 @@ export type GetNodeByPathQuery = {
                 processed?: any | null;
               } | null;
               speakers?: Array<{
-                __typename?: 'NodeSpeaker';
+                __typename: 'NodeSpeaker';
                 id: string;
                 title: string;
                 path: string;

@@ -13,6 +13,7 @@ import {
   CardLink,
 } from '@components/layout/Card/Card';
 import { Duration } from '@components/ui/Duration/Duration';
+import { CardSpeaker } from '@components/layout/CardSpeaker/CardSpeaker';
 
 export interface NodeTalkProps {
   /** Optional className for NodeTalk, pass in a sass module class to override component default */
@@ -46,25 +47,7 @@ export const NodeTalk = ({ className, node }: NodeTalkProps) => {
         </TwoColumn.Content>
         <TwoColumn.Side className={styles.sideBar}>
           {!!node.speakers?.length ? (
-            node.speakers.map((s) => (
-              <Card key={s.id}>
-                <CardImage media={s.teaser.squareImage} />
-                <CardContent>
-                  <Text variant="h2">{s.title}</Text>
-                  <Text variant="body2">
-                    {s.role}
-                    {s.company ? (
-                      <>
-                        {' '}
-                        {', '}
-                        {s.company}
-                      </>
-                    ) : null}
-                  </Text>
-                </CardContent>
-                <CardLink link={s.path} />
-              </Card>
-            ))
+            node.speakers.map((s) => <CardSpeaker key={s.id} speaker={s} />)
           ) : (
             <></>
           )}
