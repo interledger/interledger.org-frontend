@@ -10,18 +10,22 @@ export interface MainProps {
   /** Optional className for Main, pass in a sass module class to override component default */
   className?: string;
   children: React.ReactNode;
-  theme?: 'dark' | 'light';
 }
 
-export const Main = ({ className, children, theme }: MainProps) => {
-  const rootClassName = cn(styles.root, className);
+export const Main = ({ className, children }: MainProps) => {
+  const { query } = useRouter();
+  const isSummit = !!query.slug?.length && query.slug[0] === 'summit';
+  const rootClassName = cn(styles.root, { [styles.dark]: isSummit }, className);
 
   const { data: initData } = useGetInitDataQuery();
 
   return (
     <div className={rootClassName}>
-      <BackgroundSwirl theme={theme} />
-      <Header mainMenu={initData?.mainMenu} />
+      <BackgroundSwirl />
+      <Header
+        mainMenu={isSummit ? initData?.summitMenu : initData?.mainMenu}
+        isSummit={isSummit}
+      />
       <main>{children}</main>
       <Footer footerMenu={initData?.footerMenu} />
     </div>

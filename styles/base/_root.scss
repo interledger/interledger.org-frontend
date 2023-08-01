@@ -13,7 +13,7 @@
   --color-divider: lightgrey;
   --color-bullets: var(--color-primary);
   --color-link: var(--color-primary);
-  --color-swiper-pagination: var(--color-white);
+  --color-swiper-pagination: var(--color-black);
 
   --color-black: #000;
   --color-white: #fff;
@@ -21,6 +21,7 @@
   --color-secondary: #01ffff;
 
   --color-text: var(--color-black);
+  --color-text-reverse: var(--color-black);
 
   @include mq($from: tablet) {
     --page-gutter: #{rem(40px)};

@@ -32,17 +32,16 @@ export const loadFeatures = () =>
   import('../lib/framerFeatures').then((res) => res.default);
 
 type PageProps = {
-  theme?: 'dark' | 'light';
   dehydratedState?: DehydratedState;
 };
 
 const PTSansRegular = PT_Sans({
   subsets: ['latin'],
-  weight: '400'
+  weight: '400',
 });
 const PTSansBold = PT_Sans({
   subsets: ['latin'],
-  weight: '700'
+  weight: '700',
 });
 
 export default function App({ Component, pageProps }: AppProps<PageProps>) {
@@ -51,16 +50,16 @@ export default function App({ Component, pageProps }: AppProps<PageProps>) {
   return (
     <>
       <style jsx global>{`
-      :root {
-        --font-base: ${PTSansRegular.style.fontFamily};
-        --font-display: ${PTSansBold.style.fontFamily};
-      }
-    `}</style>
+        :root {
+          --font-base: ${PTSansRegular.style.fontFamily};
+          --font-display: ${PTSansBold.style.fontFamily};
+        }
+      `}</style>
       <QueryClientProvider client={queryClient}>
         <Hydrate state={pageProps.dehydratedState}>
           <GoogleAnalytics trackPageViews />
           <LazyMotion features={loadFeatures} strict>
-            <Main theme={pageProps.theme}>
+            <Main>
               <Component {...pageProps} />
             </Main>
           </LazyMotion>

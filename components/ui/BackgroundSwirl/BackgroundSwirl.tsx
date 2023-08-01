@@ -6,15 +6,14 @@ import styles from './BackgroundSwirl.module.scss';
 export interface BackgroundSwirlProps {
   /** Optional className for BackgroundSwirl, pass in a sass module class to override component default */
   className?: string;
-  theme?: string;
 }
 
 /**
  * BackgroundSwirl description
  */
 
-export const BackgroundSwirl = ({ className, theme }: BackgroundSwirlProps) => {
-  const rootClassName = cn(styles.root, className, theme && styles[theme]);
+export const BackgroundSwirl = ({ className }: BackgroundSwirlProps) => {
+  const rootClassName = cn(styles.root, className);
 
   return <div className={rootClassName} />;
 };
