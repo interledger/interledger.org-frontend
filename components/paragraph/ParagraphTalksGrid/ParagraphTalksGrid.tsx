@@ -22,7 +22,7 @@ export const ParagraphTalksGrid = ({
 
   return (
     <Grid className={rootClassName} cols={1} colsTablet={2} colsDesktop={2}>
-      {paragraph.talksView?.__typename === 'TalksResult' &&
+      {paragraph.talksView?.__typename === 'TalksAllResult' &&
         paragraph.talksView?.results.map((t) =>
           t.__typename === 'NodeTalk' ? <CardTalk key={t.id} talk={t} /> : null
         )}

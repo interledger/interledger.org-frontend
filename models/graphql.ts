@@ -1312,11 +1312,7 @@ export type TableRow = {
   weight?: Maybe<Scalars['Int']>;
 };
 
-export type TalksAllContextualFilterInput = {
-  nid?: InputMaybe<Scalars['String']>;
-};
-
-/** Result for view talks display graphql_1. */
+/** Result for view talks display graphql_2. */
 export type TalksAllResult = View & {
   __typename?: 'TalksAllResult';
   description?: Maybe<Scalars['String']>;
@@ -1329,7 +1325,11 @@ export type TalksAllResult = View & {
   view: Scalars['String'];
 };
 
-/** Result for view talks display graphql_2. */
+export type TalksContextualFilterInput = {
+  nid?: InputMaybe<Scalars['String']>;
+};
+
+/** Result for view talks display graphql_1. */
 export type TalksResult = View & {
   __typename?: 'TalksResult';
   description?: Maybe<Scalars['String']>;

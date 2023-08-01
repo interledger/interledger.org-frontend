@@ -413,9 +413,8 @@ export type NodePageFragment = {
         id: string;
         talksView:
           | { __typename: 'SpeakersResult' }
-          | { __typename: 'TalksAllResult' }
           | {
-              __typename: 'TalksResult';
+              __typename: 'TalksAllResult';
               id: string;
               results: Array<
                 | { __typename?: 'NodeArticle' }
@@ -466,7 +465,8 @@ export type NodePageFragment = {
                     }> | null;
                   }
               >;
-            };
+            }
+          | { __typename: 'TalksResult' };
       }
     | {
         __typename: 'ParagraphText';
@@ -1422,9 +1422,8 @@ export type ParagraphTalksGridFragment = {
   id: string;
   talksView:
     | { __typename: 'SpeakersResult' }
-    | { __typename: 'TalksAllResult' }
     | {
-        __typename: 'TalksResult';
+        __typename: 'TalksAllResult';
         id: string;
         results: Array<
           | { __typename?: 'NodeArticle' }
@@ -1475,7 +1474,8 @@ export type ParagraphTalksGridFragment = {
               }> | null;
             }
         >;
-      };
+      }
+    | { __typename: 'TalksResult' };
 };
 
 export type ParagraphTeaserFragment = {
@@ -2139,9 +2139,8 @@ type ParagraphsFragment_ParagraphTalksGrid_ = {
   id: string;
   talksView:
     | { __typename: 'SpeakersResult' }
-    | { __typename: 'TalksAllResult' }
     | {
-        __typename: 'TalksResult';
+        __typename: 'TalksAllResult';
         id: string;
         results: Array<
           | { __typename?: 'NodeArticle' }
@@ -2192,7 +2191,8 @@ type ParagraphsFragment_ParagraphTalksGrid_ = {
               }> | null;
             }
         >;
-      };
+      }
+    | { __typename: 'TalksResult' };
 };
 
 type ParagraphsFragment_ParagraphTeaser_ = { __typename?: 'ParagraphTeaser' };
@@ -2695,9 +2695,8 @@ export type GetNodeByPathQuery = {
                     id: string;
                     talksView:
                       | { __typename: 'SpeakersResult' }
-                      | { __typename: 'TalksAllResult' }
                       | {
-                          __typename: 'TalksResult';
+                          __typename: 'TalksAllResult';
                           id: string;
                           results: Array<
                             | { __typename?: 'NodeArticle' }
@@ -2748,7 +2747,8 @@ export type GetNodeByPathQuery = {
                                 }> | null;
                               }
                           >;
-                        };
+                        }
+                      | { __typename: 'TalksResult' };
                   }
                 | {
                     __typename: 'ParagraphText';
