@@ -12,6 +12,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    footerMenu: FooterMenuStories.Default.args?.footerMenu,
+    summitFooterMenu: FooterMenuStories.Default.args?.footerMenu,
+    foundationFooterMenu: FooterMenuStories.Default.args?.footerMenu,
   },
 };

@@ -13,6 +13,7 @@ export const Default: Story = {
   args: {
     footerMenu: {
       __typename: 'Menu' as const,
+      name: 'Footer Menu',
       items: [
         {
           __typename: 'MenuItem' as const,

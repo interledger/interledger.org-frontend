@@ -3994,6 +3994,7 @@ export type GetNodeByPathQuery = {
                 };
               }> | null;
             }
+          | { __typename?: 'SiteSettings' }
           | null;
       }
     | { __typename?: 'RouteRedirect' }
