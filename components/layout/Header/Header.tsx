@@ -5,6 +5,7 @@ import cn from 'classnames';
 import Link from 'next/link';
 import styles from './Header.module.scss';
 import { SummitLogo } from '@components/icon/SummitLogo/SummitLogo';
+import { HamburgerIcon } from '@components/icon/HamburgerIcon/HamburgerIcon';
 
 export interface HeaderProps {
   /** Optional className for Header, pass in a sass module class to override component default */
@@ -22,8 +23,8 @@ export const Header = ({ className, mainMenu, isSummit }: HeaderProps) => {
 
   return (
     <header className={rootClassName}>
-      <div className={cn(styles.headerItem, styles.logoWrapper)}>
-        <Link href="/" aria-label="Home">
+      <div className={styles.logoWrapper}>
+        <Link href={isSummit ? '/summit' : '/'} aria-label="Home">
           {isSummit ? (
             <SummitLogo className={styles.logo} />
           ) : (
@@ -31,17 +32,24 @@ export const Header = ({ className, mainMenu, isSummit }: HeaderProps) => {
           )}
         </Link>
       </div>
-      {mainMenu && (
-        <div className={cn(styles.headerItem, styles.menuWrapper)}>
-          <MainMenu mainMenu={mainMenu} />
-        </div>
-      )}
-      <div className={cn(styles.headerItem, styles.siteWrapper)}>
-        {isSummit ? (
-          <Link href="/">Interledger Foundation Website</Link>
-        ) : (
-          <Link href="/summit">Interledger Summit Website</Link>
+      <div className={styles.hamburgerWrapper}>
+        <button className={styles.menuButton}>
+          <HamburgerIcon />
+        </button>
+      </div>
+      <div className={styles.navWrapper}>
+        {mainMenu && (
+          <div className={styles.menuWrapper}>
+            <MainMenu mainMenu={mainMenu} />
+          </div>
         )}
+        <div className={styles.siteWrapper}>
+          {isSummit ? (
+            <Link href="/">Interledger Foundation Website</Link>
+          ) : (
+            <Link href="/summit">Interledger Summit Website</Link>
+          )}
+        </div>
       </div>
     </header>
   );
