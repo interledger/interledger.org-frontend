@@ -31,6 +31,7 @@ export const Main = ({ className, children }: MainProps) => {
       <Footer
         foundationFooterMenu={initData?.foundationFooterMenu}
         summitFooterMenu={initData?.summitFooterMenu}
+        social={initData?.siteSettings?.social}
       />
     </div>
   );

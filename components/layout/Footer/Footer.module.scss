@@ -11,12 +11,23 @@
   background-color: transparent;
   border-top: rem(1px) solid var(--color-primary);
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 0px 0px;
+  gap: rem(30px) 0px;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto auto;
   grid-template-areas:
-    'social foundation-menu summit-menu'
-    'legal foundation-menu summit-menu';
+    'social'
+    'foundation-menu'
+    'summit-menu'
+    'legal';
+
+  @include mq($from: tablet) {
+    gap: 0px rem(30px);
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      'social foundation-menu summit-menu'
+      'legal foundation-menu summit-menu';
+  }
 }
 
 .foundationMenu {
@@ -33,5 +44,8 @@
 
 .legal {
   grid-area: legal;
-  align-self: end;
+
+  @include mq($from: tablet) {
+    align-self: end;
+  }
 }

@@ -1,0 +1,10 @@
+fragment SocialFragment on ParagraphSocialMedia {
+  __typename
+  id
+  socialMediaLinks {
+    socialMediaType
+    link {
+      url
+    }
+  }
+}

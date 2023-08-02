@@ -89,6 +89,18 @@ export const MainMenuFragment = /*#__PURE__*/ `
   }
 }
     `;
+export const SocialFragment = /*#__PURE__*/ `
+    fragment SocialFragment on ParagraphSocialMedia {
+  __typename
+  id
+  socialMediaLinks {
+    socialMediaType
+    link {
+      url
+    }
+  }
+}
+    `;
 export const LinkFragment = /*#__PURE__*/ `
     fragment LinkFragment on Link {
   url
@@ -660,10 +672,16 @@ export const GetInitDataQueryDocument = /*#__PURE__*/ `
   summitFooterMenu: menu(name: INTERLEDGER_SUMMIT_FOOTER) {
     ...FooterMenuFragment
   }
+  siteSettings(id: "555ebe67-59de-41ca-a877-75a5c5fed44c") {
+    social {
+      ...SocialFragment
+    }
+  }
 }
     ${MainMenuFragment}
 ${MenuItemFragment}
-${FooterMenuFragment}`;
+${FooterMenuFragment}
+${SocialFragment}`;
 export const useGetInitDataQuery = <
   TData = OperationTypes.GetInitDataQuery,
   TError = unknown
