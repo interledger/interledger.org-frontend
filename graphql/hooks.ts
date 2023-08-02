@@ -75,6 +75,7 @@ export const MenuItemFragment = /*#__PURE__*/ `
 export const FooterMenuFragment = /*#__PURE__*/ `
     fragment FooterMenuFragment on Menu {
   __typename
+  name
   items {
     ...MenuItemFragment
   }
@@ -451,6 +452,37 @@ export const ParagraphHeroHeaderFragment = /*#__PURE__*/ `
   }
 }
     `;
+export const NodeFoundationPageFragment = /*#__PURE__*/ `
+    fragment NodeFoundationPageFragment on NodeFoundationPage {
+  __typename
+  id
+  title
+  path
+  sections {
+    ...ParagraphsFragment
+  }
+  metatag {
+    ...MetaTagFragment
+  }
+  teaser {
+    ...ParagraphTeaserFragment
+  }
+  header {
+    ...ParagraphHeroHeaderFragment
+  }
+}
+    `;
+export const NodeFoundationPageCardFragment = /*#__PURE__*/ `
+    fragment NodeFoundationPageCardFragment on NodeFoundationPage {
+  __typename
+  id
+  title
+  path
+  teaser {
+    ...ParagraphTeaserFragment
+  }
+}
+    `;
 export const NodePageFragment = /*#__PURE__*/ `
     fragment NodePageFragment on NodePage {
   __typename
@@ -622,7 +654,10 @@ export const GetInitDataQueryDocument = /*#__PURE__*/ `
   summitMenu: menu(name: SUMMIT) {
     ...MainMenuFragment
   }
-  footerMenu: menu(name: FOOTER) {
+  foundationFooterMenu: menu(name: INTERLEDGER_FOUNDATION_FOOTER) {
+    ...FooterMenuFragment
+  }
+  summitFooterMenu: menu(name: INTERLEDGER_SUMMIT_FOOTER) {
     ...FooterMenuFragment
   }
 }
@@ -674,6 +709,9 @@ export const GetNodeByPathQueryDocument = /*#__PURE__*/ `
         ... on NodePage {
           ...NodePageFragment
         }
+        ... on NodeFoundationPage {
+          ...NodeFoundationPageFragment
+        }
         ... on NodeSpeaker {
           ...NodeSpeakerFragment
         }
@@ -712,6 +750,7 @@ ${NodeTalkCardFragment}
 ${MetaTagFragment}
 ${NodePageFragment}
 ${ParagraphHeroHeaderFragment}
+${NodeFoundationPageFragment}
 ${NodeSpeakerFragment}
 ${NodeTalkFragment}
 ${ParagraphTalkHeaderFragment}
@@ -751,6 +790,9 @@ export const GetNodesPathsQueryDocument = /*#__PURE__*/ `
         path
       }
       ... on NodePage {
+        path
+      }
+      ... on NodeFoundationPage {
         path
       }
       ... on NodeSpeaker {
