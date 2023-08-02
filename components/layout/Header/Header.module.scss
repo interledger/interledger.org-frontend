@@ -61,9 +61,15 @@
 }
 
 .siteWrapper {
-  justify-self: end;
-  align-self: center;
+  justify-self: center;
   grid-area: site;
+  padding: var(--page-gutter);
+
+  @include mq($from: tablet) {
+    justify-self: end;
+    align-self: center;
+    padding: 0;
+  }
   a {
     text-decoration: none;
   }
@@ -79,5 +85,21 @@
     grid-template-rows: 1fr;
     grid-template-areas: 'menu site';
     grid-area: nav;
+  }
+
+  &.menuOpen {
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto;
+    grid-template-areas:
+      'menu'
+      'site';
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    height: 100%;
+    width: 100%;
   }
 }

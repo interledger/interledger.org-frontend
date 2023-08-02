@@ -13,6 +13,7 @@ import type { AppProps } from 'next/app';
 import { Router } from 'next/router';
 import { useState } from 'react';
 import { PT_Sans } from 'next/font/google';
+import { Provider } from 'jotai';
 import '../styles/globals.scss';
 
 function syncDrupalPreviewRoutes(path: string) {
@@ -60,9 +61,11 @@ export default function App({ Component, pageProps }: AppProps<PageProps>) {
         <Hydrate state={pageProps.dehydratedState}>
           <GoogleAnalytics trackPageViews />
           <LazyMotion features={loadFeatures} strict>
-            <Main>
-              <Component {...pageProps} />
-            </Main>
+            <Provider>
+              <Main>
+                <Component {...pageProps} />
+              </Main>
+            </Provider>
           </LazyMotion>
         </Hydrate>
         <ReactQueryDevtools initialIsOpen={false} />
