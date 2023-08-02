@@ -114,6 +114,16 @@ export type MenuItemFragment = {
   url?: string | null;
 };
 
+export type SocialFragment = {
+  __typename: 'ParagraphSocialMedia';
+  id: string;
+  socialMediaLinks?: Array<{
+    __typename?: 'ParagraphSocialMediaLink';
+    socialMediaType: string;
+    link: { __typename?: 'Link'; url?: string | null };
+  }> | null;
+};
+
 export type NodeArticleFragment = {
   __typename: 'NodeArticle';
   id: string;
@@ -2807,6 +2817,18 @@ export type GetInitDataQuery = {
       url?: string | null;
     }>;
   } | null;
+  siteSettings?: {
+    __typename?: 'SiteSettings';
+    social?: {
+      __typename: 'ParagraphSocialMedia';
+      id: string;
+      socialMediaLinks?: Array<{
+        __typename?: 'ParagraphSocialMediaLink';
+        socialMediaType: string;
+        link: { __typename?: 'Link'; url?: string | null };
+      }> | null;
+    } | null;
+  } | null;
 };
 
 export type GetNodeByPathQueryVariables = GraphqlTypes.Exact<{
@@ -3994,7 +4016,6 @@ export type GetNodeByPathQuery = {
                 };
               }> | null;
             }
-          | { __typename?: 'SiteSettings' }
           | null;
       }
     | { __typename?: 'RouteRedirect' }

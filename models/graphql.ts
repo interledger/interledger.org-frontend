@@ -60,6 +60,16 @@ export type ConfigPages = {
   label?: Maybe<Scalars['String']>;
 };
 
+/** Entity type config_pages. */
+export type ConfigPagesInterface = {
+  /** The Universally Unique IDentifier (UUID). */
+  id: Scalars['ID'];
+  /** A brief description of your config page. */
+  label: Scalars['String'];
+};
+
+export type ConfigPagesUnion = SiteSettings;
+
 /** A paginated set of results. */
 export type Connection = {
   /** The edges of this connection. */
@@ -1172,6 +1182,8 @@ export type Query = {
   nodes: NodesConnection;
   /** Load a Route by path. */
   route?: Maybe<RouteUnion>;
+  /** Fetch data for a specific SiteSettings */
+  siteSettings?: Maybe<SiteSettings>;
 };
 
 /**
@@ -1289,6 +1301,15 @@ export type QueryRouteArgs = {
   path: Scalars['String'];
 };
 
+/**
+ * The schema's entry-point for queries.
+ *
+ * This acts as the public, top-level API from which all queries must start.
+ */
+export type QuerySiteSettingsArgs = {
+  id: Scalars['ID'];
+};
+
 /** Entity type responsive_image_style. */
 export type ResponsiveImageStyle = ResponsiveImageStyleInterface & {
   __typename?: 'ResponsiveImageStyle';
@@ -1402,6 +1423,20 @@ export type SchemaInformation = {
   /** The schema version. */
   version?: Maybe<Scalars['String']>;
 };
+
+/** Entity type config_pages. */
+export type SiteSettings = ConfigPages &
+  ConfigPagesInterface & {
+    __typename?: 'SiteSettings';
+    /** Frontend URL */
+    frontendUrl: Link;
+    /** The Universally Unique IDentifier (UUID). */
+    id: Scalars['ID'];
+    /** A brief description of your config page. */
+    label: Scalars['String'];
+    /** Social */
+    social?: Maybe<ParagraphSocialMedia>;
+  };
 
 /** List of menus available to load. */
 export enum SortDirection {

@@ -4,6 +4,7 @@ import { MainMenuFragment } from '@models/operations';
 import cn from 'classnames';
 import Link from 'next/link';
 import styles from './Header.module.scss';
+import { SummitLogo } from '@components/icon/SummitLogo/SummitLogo';
 
 export interface HeaderProps {
   /** Optional className for Header, pass in a sass module class to override component default */
@@ -23,7 +24,11 @@ export const Header = ({ className, mainMenu, isSummit }: HeaderProps) => {
     <header className={rootClassName}>
       <div className={cn(styles.headerItem, styles.logoWrapper)}>
         <Link href="/" aria-label="Home">
-          <Logo className={styles.logo} />
+          {isSummit ? (
+            <SummitLogo className={styles.logo} />
+          ) : (
+            <Logo className={styles.logo} />
+          )}
         </Link>
       </div>
       {mainMenu && (
