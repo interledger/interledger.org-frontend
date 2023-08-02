@@ -28,7 +28,10 @@ export const Main = ({ className, children }: MainProps) => {
         isSummit={isSummit}
       />
       <main>{children}</main>
-      <Footer footerMenu={initData?.footerMenu} />
+      <Footer
+        foundationFooterMenu={initData?.foundationFooterMenu}
+        summitFooterMenu={initData?.summitFooterMenu}
+      />
     </div>
   );
 };

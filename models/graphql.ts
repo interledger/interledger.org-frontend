@@ -379,6 +379,10 @@ export type Menu = MenuInterface & {
 export enum MenuAvailable {
   /** Footer */
   Footer = 'FOOTER',
+  /** Interledger Foundation */
+  InterledgerFoundationFooter = 'INTERLEDGER_FOUNDATION_FOOTER',
+  /** Interledger Summit */
+  InterledgerSummitFooter = 'INTERLEDGER_SUMMIT_FOOTER',
   /** Main navigation */
   Main = 'MAIN',
   /** Summit */
@@ -521,6 +525,66 @@ export type NodeArticleSectionsUnion =
   | ParagraphText;
 
 /** Entity type node. */
+export type NodeFoundationPage = EdgeNode &
+  NodeInterface & {
+    __typename?: 'NodeFoundationPage';
+    /** The time that the node was last edited. */
+    changed: DateTime;
+    /** The time that the node was created. */
+    created: DateTime;
+    /** Header */
+    header?: Maybe<ParagraphHeroHeader>;
+    /** The Universally Unique IDentifier (UUID). */
+    id: Scalars['ID'];
+    /** Language */
+    langcode: Language;
+    /** The computed meta tags for the entity. */
+    metatag: Array<MetaTagUnion>;
+    /** URL alias */
+    path: Scalars['String'];
+    /** Promoted to front page */
+    promote: Scalars['Boolean'];
+    /** Sections */
+    sections?: Maybe<Array<NodeFoundationPageSectionsUnion>>;
+    /** Published */
+    status: Scalars['Boolean'];
+    /** Sticky at top of lists */
+    sticky: Scalars['Boolean'];
+    /** Preview image pulled in when post displayed in listings */
+    teaser: ParagraphTeaser;
+    /** Title */
+    title: Scalars['String'];
+  };
+
+/** A paginated set of results for NodeFoundationPage. */
+export type NodeFoundationPageConnection = Connection & {
+  __typename?: 'NodeFoundationPageConnection';
+  edges: Array<NodeFoundationPageEdge>;
+  nodes: Array<NodeFoundationPage>;
+  pageInfo: ConnectionPageInfo;
+};
+
+/** Edge for NodeFoundationPage. */
+export type NodeFoundationPageEdge = Edge & {
+  __typename?: 'NodeFoundationPageEdge';
+  cursor: Scalars['Cursor'];
+  node: NodeFoundationPage;
+};
+
+export type NodeFoundationPageSectionsUnion =
+  | ParagraphButton
+  | ParagraphContentTitle
+  | ParagraphHighlightedList
+  | ParagraphImage
+  | ParagraphImageCarousel
+  | ParagraphImageGallery
+  | ParagraphLargeCalloutText
+  | ParagraphSpacer
+  | ParagraphText
+  | ParagraphTwoColumnContent
+  | ParagraphVideo;
+
+/** Entity type node. */
 export type NodeInterface = {
   /** The time that the node was last edited. */
   changed: DateTime;
@@ -544,7 +608,7 @@ export type NodeInterface = {
   title: Scalars['String'];
 };
 
-/** Use <em>basic pages</em> for your static content, such as an 'About us' page. */
+/** Entity type node. */
 export type NodePage = EdgeNode &
   NodeInterface & {
     __typename?: 'NodePage';
@@ -680,43 +744,64 @@ export type NodeSpeakerEdge = Edge & {
 };
 
 /** Entity type node. */
-export type NodeTalk = NodeInterface & {
-  __typename?: 'NodeTalk';
-  /** The time that the node was last edited. */
-  changed: DateTime;
-  /** The time that the node was created. */
-  created: DateTime;
-  /** Date & Time */
-  dateTime: DateTime;
-  /** Description */
-  description?: Maybe<Text>;
-  /** Enter talk duration in minutes */
-  duration: Scalars['Int'];
-  /** Header */
-  header?: Maybe<ParagraphTalkHeader>;
-  /** The Universally Unique IDentifier (UUID). */
-  id: Scalars['ID'];
-  /** Language */
-  langcode: Language;
-  /** The computed meta tags for the entity. */
-  metatag: Array<MetaTagUnion>;
-  /** URL alias */
-  path: Scalars['String'];
-  /** Promoted to front page */
-  promote: Scalars['Boolean'];
-  /** Speakers */
-  speakers?: Maybe<Array<NodeSpeaker>>;
-  /** Published */
-  status: Scalars['Boolean'];
-  /** Sticky at top of lists */
-  sticky: Scalars['Boolean'];
-  /** Preview image pulled in when post displayed in listings */
-  teaser: ParagraphTeaser;
-  /** Title */
-  title: Scalars['String'];
+export type NodeTalk = EdgeNode &
+  NodeInterface & {
+    __typename?: 'NodeTalk';
+    /** The time that the node was last edited. */
+    changed: DateTime;
+    /** The time that the node was created. */
+    created: DateTime;
+    /** Date & Time */
+    dateTime: DateTime;
+    /** Description */
+    description?: Maybe<Text>;
+    /** Enter talk duration in minutes */
+    duration: Scalars['Int'];
+    /** Header */
+    header?: Maybe<ParagraphTalkHeader>;
+    /** The Universally Unique IDentifier (UUID). */
+    id: Scalars['ID'];
+    /** Language */
+    langcode: Language;
+    /** The computed meta tags for the entity. */
+    metatag: Array<MetaTagUnion>;
+    /** URL alias */
+    path: Scalars['String'];
+    /** Promoted to front page */
+    promote: Scalars['Boolean'];
+    /** Speakers */
+    speakers?: Maybe<Array<NodeSpeaker>>;
+    /** Published */
+    status: Scalars['Boolean'];
+    /** Sticky at top of lists */
+    sticky: Scalars['Boolean'];
+    /** Preview image pulled in when post displayed in listings */
+    teaser: ParagraphTeaser;
+    /** Title */
+    title: Scalars['String'];
+  };
+
+/** A paginated set of results for NodeTalk. */
+export type NodeTalkConnection = Connection & {
+  __typename?: 'NodeTalkConnection';
+  edges: Array<NodeTalkEdge>;
+  nodes: Array<NodeTalk>;
+  pageInfo: ConnectionPageInfo;
 };
 
-export type NodeUnion = NodeArticle | NodePage | NodeSpeaker | NodeTalk;
+/** Edge for NodeTalk. */
+export type NodeTalkEdge = Edge & {
+  __typename?: 'NodeTalkEdge';
+  cursor: Scalars['Cursor'];
+  node: NodeTalk;
+};
+
+export type NodeUnion =
+  | NodeArticle
+  | NodeFoundationPage
+  | NodePage
+  | NodeSpeaker
+  | NodeTalk;
 
 /** A paginated set of results for Nodes */
 export type NodesConnection = NodesUnionConnection & {
@@ -1075,10 +1160,14 @@ export type Query = {
   menu?: Maybe<Menu>;
   /** List of all NodeArticle on the platform. */
   nodeArticles: NodeArticleConnection;
+  /** List of all NodeFoundationPage on the platform. */
+  nodeFoundationPages: NodeFoundationPageConnection;
   /** List of all NodePage on the platform. */
   nodePages: NodePageConnection;
   /** List of all NodeSpeaker on the platform. */
   nodeSpeakers: NodeSpeakerConnection;
+  /** List of all NodeTalk on the platform. */
+  nodeTalks: NodeTalkConnection;
   /** List of all Nodes on the platform. Results are access controlled. */
   nodes: NodesConnection;
   /** Load a Route by path. */
@@ -1115,6 +1204,22 @@ export type QueryNodeArticlesArgs = {
  *
  * This acts as the public, top-level API from which all queries must start.
  */
+export type QueryNodeFoundationPagesArgs = {
+  after?: InputMaybe<Scalars['Cursor']>;
+  before?: InputMaybe<Scalars['Cursor']>;
+  filter?: InputMaybe<ConnectionFilter>;
+  first?: InputMaybe<Scalars['Int']>;
+  langcode?: InputMaybe<Scalars['String']>;
+  last?: InputMaybe<Scalars['Int']>;
+  reverse?: InputMaybe<Scalars['Boolean']>;
+  sortKey?: InputMaybe<ConnectionSortKeys>;
+};
+
+/**
+ * The schema's entry-point for queries.
+ *
+ * This acts as the public, top-level API from which all queries must start.
+ */
 export type QueryNodePagesArgs = {
   after?: InputMaybe<Scalars['Cursor']>;
   before?: InputMaybe<Scalars['Cursor']>;
@@ -1132,6 +1237,22 @@ export type QueryNodePagesArgs = {
  * This acts as the public, top-level API from which all queries must start.
  */
 export type QueryNodeSpeakersArgs = {
+  after?: InputMaybe<Scalars['Cursor']>;
+  before?: InputMaybe<Scalars['Cursor']>;
+  filter?: InputMaybe<ConnectionFilter>;
+  first?: InputMaybe<Scalars['Int']>;
+  langcode?: InputMaybe<Scalars['String']>;
+  last?: InputMaybe<Scalars['Int']>;
+  reverse?: InputMaybe<Scalars['Boolean']>;
+  sortKey?: InputMaybe<ConnectionSortKeys>;
+};
+
+/**
+ * The schema's entry-point for queries.
+ *
+ * This acts as the public, top-level API from which all queries must start.
+ */
+export type QueryNodeTalksArgs = {
   after?: InputMaybe<Scalars['Cursor']>;
   before?: InputMaybe<Scalars['Cursor']>;
   filter?: InputMaybe<ConnectionFilter>;
@@ -1216,7 +1337,12 @@ export type Route = {
 };
 
 /** A list of possible entities that can be returned by URL. */
-export type RouteEntityUnion = NodeArticle | NodePage | NodeSpeaker | NodeTalk;
+export type RouteEntityUnion =
+  | NodeArticle
+  | NodeFoundationPage
+  | NodePage
+  | NodeSpeaker
+  | NodeTalk;
 
 /** Route outside of this website. */
 export type RouteExternal = Route & {

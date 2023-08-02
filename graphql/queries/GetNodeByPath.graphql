@@ -11,6 +11,9 @@ query GetNodeByPathQuery($slug: String!) {
         ... on NodePage {
           ...NodePageFragment
         }
+        ... on NodeFoundationPage {
+          ...NodeFoundationPageFragment
+        }
         ... on NodeSpeaker {
           ...NodeSpeakerFragment
         }

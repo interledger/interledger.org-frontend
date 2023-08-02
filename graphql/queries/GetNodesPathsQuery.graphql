@@ -7,6 +7,9 @@ query GetNodesPathsQuery($first: Int) {
       ... on NodePage {
         path
       }
+      ... on NodeFoundationPage {
+        path
+      }
       ... on NodeSpeaker {
         path
       }

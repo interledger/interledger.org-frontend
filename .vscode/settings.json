@@ -21,5 +21,8 @@
         "css",
         "scss",
         "postcss"
-    ]
+    ],
+    "[xml]": {
+        "editor.defaultFormatter": "redhat.vscode-xml"
+    }
 }

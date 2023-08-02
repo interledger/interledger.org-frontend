@@ -1,13 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4641.305 4583.576">
+    <g>
         <animateTransform
             attributeName="transform"
             attributeType="XML"
             type="rotate"
-            from="0"
-            to="360"
+            from="0 2000 2000"
+            to="360 2000 2000"
             dur="60s"
             repeatCount="indefinite" />
-    <g>
         <path fill="#8c528c"
             d="m1537.731 3923.985-1.473-1.9a1817.692 1817.692 0 0 1-796.52-748.31 1745.873 1745.873 0 0 1-649.171-869.562c-295.913 916.335 207.023 1899.058 1123.357 2194.994a1743.545 1743.545 0 0 0 1118.642-15.934 1745.4 1745.4 0 0 1-794.835-559.288"
             data-name="Path 79" />

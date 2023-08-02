@@ -5,7 +5,33 @@
 @use '@styles/base/helpers' as *;
 
 .root {
-  padding: rem(60px) var(--page-gutter);
-  background-color: black;
-  color: white;
+  position: relative;
+  padding: rem(60px) 0 rem(100px);
+  margin: 0 var(--page-gutter);
+  background-color: transparent;
+  border-top: rem(1px) solid var(--color-primary);
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    'social foundation-menu summit-menu'
+    'legal foundation-menu summit-menu';
+}
+
+.foundationMenu {
+  grid-area: foundation-menu;
+}
+
+.summitMenu {
+  grid-area: summit-menu;
+}
+
+.social {
+  grid-area: social;
+}
+
+.legal {
+  grid-area: legal;
+  align-self: end;
 }

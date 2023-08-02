@@ -1,0 +1,28 @@
+fragment NodeFoundationPageFragment on NodeFoundationPage {
+  __typename
+  id
+  title
+  path
+  sections {
+    ...ParagraphsFragment
+  }
+  metatag {
+    ...MetaTagFragment
+  }
+  teaser {
+    ...ParagraphTeaserFragment
+  }
+  header {
+    ...ParagraphHeroHeaderFragment
+  }
+}
+
+fragment NodeFoundationPageCardFragment on NodeFoundationPage {
+  __typename
+  id
+  title
+  path
+  teaser {
+    ...ParagraphTeaserFragment
+  }
+}

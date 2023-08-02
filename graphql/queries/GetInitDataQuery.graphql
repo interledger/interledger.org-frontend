@@ -5,7 +5,10 @@ query GetInitDataQuery {
   summitMenu: menu(name: SUMMIT) {
     ...MainMenuFragment
   }
-  footerMenu: menu(name: FOOTER) {
+  foundationFooterMenu: menu(name: INTERLEDGER_FOUNDATION_FOOTER) {
+    ...FooterMenuFragment
+  }
+  summitFooterMenu: menu(name: INTERLEDGER_SUMMIT_FOOTER) {
     ...FooterMenuFragment
   }
 }
