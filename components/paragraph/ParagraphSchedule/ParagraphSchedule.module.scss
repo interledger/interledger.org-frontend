@@ -1,0 +1,99 @@
+@use '@styles/base/mq-settings';
+@use '~sass-mq/mq' as *;
+@use '~sass-rem' as *;
+@use '@styles/base/variables' as *;
+@use '@styles/base/helpers' as *;
+
+.root {
+}
+
+.schedule {
+  display: flex;
+  flex-direction: column;
+
+  @include mq($from: tablet) {
+    flex-direction: row;
+  }
+}
+
+.days {
+  display: flex;
+  margin-bottom: var(--component-spacing);
+
+  @include mq($from: tablet) {
+    margin-bottom: 0;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 33.33%;
+    padding-right: var(--horizontal-spacing);
+  }
+
+  @include mq($from: desktop) {
+    width: 25%;
+  }
+}
+
+.title {
+  margin-bottom: var(--component-spacing);
+}
+
+.talks {
+  flex: 1;
+}
+
+.talk {
+  display: grid;
+  h2,
+  h3 {
+    font-weight: 400;
+  }
+  h2 {
+    font-size: rem(24px);
+    margin-bottom: rem(15px);
+
+    @include mq($from: tablet) {
+      font-size: rem(30px);
+    }
+  }
+  h3 {
+    font-size: rem(18px);
+
+    @include mq($from: tablet) {
+      font-size: rem(24px);
+    }
+  }
+}
+
+.talkTime {
+  align-self: flex-end;
+  margin-top: rem(15px);
+  padding-top: rem(15px);
+  font-size: rem(18px);
+  font-weight: 700;
+  border-top: rem(1px) solid var(--color-primary);
+}
+
+.dayButton {
+  display: block;
+  font-size: rem(22px);
+  color: var(--color-primary);
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  &:not(:last-child) {
+    margin-right: rem(35px);
+  }
+
+  @include mq($from: tablet) {
+    font-size: rem(30px);
+
+    &:not(:last-child) {
+      margin-bottom: rem(50px);
+    }
+  }
+}
+
+.dayButtonActive {
+  font-weight: 700;
+}

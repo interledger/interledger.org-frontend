@@ -5,7 +5,7 @@
 @use '@styles/base/helpers' as *;
 
 .root {
-  margin-bottom: rem(100px);
+  margin-bottom: var(--component-spacing);
 }
 
 .header {
@@ -15,7 +15,7 @@
   justify-content: flex-end;
   position: relative;
   color: var(--color-white);
-  margin-bottom: rem(100px);
+  margin-bottom: var(--component-spacing);
 }
 
 .headerImage {
@@ -27,5 +27,5 @@
 
 .headerText {
   position: relative;
-  margin-bottom: rem(100px);
+  margin-bottom: var(--component-spacing);
 }

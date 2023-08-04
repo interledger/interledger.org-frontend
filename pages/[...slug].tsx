@@ -15,6 +15,7 @@ import {
 } from '@models/operations';
 import { QueryClient, dehydrate } from '@tanstack/react-query';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
+import { ParsedUrlQuery } from 'querystring';
 
 interface BasicProps {
   slug: string;
@@ -100,13 +101,14 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const queryClient = new QueryClient(queryOptions);
 
   const pages = await queryClient.fetchQuery(
-    useGetNodesPathsQuery.getKey({ first: 50 }),
-    useGetNodesPathsQuery.fetcher({ first: 50 })
+    useGetNodesPathsQuery.getKey(),
+    useGetNodesPathsQuery.fetcher()
   );
 
-  const paths = pages.nodes.nodes.map((page) => ({
-    params: { slug: [page.path] },
-  }));
+  const paths =
+    pages.nodePaths?.results.map((page) => ({
+      params: { slug: [page.path] },
+    })) ?? [];
 
   return { paths, fallback: 'blocking' };
 };

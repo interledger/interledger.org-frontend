@@ -41,4 +41,7 @@ fragment ParagraphsFragment on ParagraphInterface {
   ... on ParagraphTalksGrid {
     ...ParagraphTalksGridFragment
   }
+  ... on ParagraphSchedule {
+    ...ParagraphScheduleFragment
+  }
 }

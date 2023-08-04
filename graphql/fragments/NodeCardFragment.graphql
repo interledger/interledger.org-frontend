@@ -1,8 +1,0 @@
-fragment NodeCardFragment on EdgeNode {
-  ... on NodeArticle {
-    ...NodeArticleCardFragment
-  }
-  ... on NodePage {
-    ...NodePageCardFragment
-  }
-}

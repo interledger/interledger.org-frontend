@@ -4,10 +4,11 @@
 :root {
   --page-width: #{rem(1118px)};
   --page-gutter: #{rem(20px)};
+  --component-spacing: #{rem(44px)};
   --vertical-spacing: #{rem(30px)};
   --horizontal-spacing: #{rem(30px)};
-  --grid-vertical-spacing: #{rem(15px)};
-  --grid-horizontal-spacing: #{rem(15px)};
+  --grid-vertical-spacing: #{rem(40px)};
+  --grid-horizontal-spacing: #{rem(34px)};
 
   // Colors
   --color-divider: lightgrey;
@@ -24,10 +25,11 @@
   --color-text-reverse: var(--color-black);
 
   @include mq($from: tablet) {
+    --component-spacing: #{rem(100px)};
     --page-gutter: #{rem(40px)};
     --vertical-spacing: #{rem(60px)};
     --horizontal-spacing: #{rem(60px)};
-    --grid-vertical-spacing: #{rem(30px)};
-    --grid-horizontal-spacing: #{rem(30px)};
+    --grid-vertical-spacing: #{rem(50px)};
+    --grid-horizontal-spacing: #{rem(86px)};
   }
 }
