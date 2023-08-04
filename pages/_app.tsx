@@ -59,7 +59,6 @@ export default function App({ Component, pageProps }: AppProps<PageProps>) {
           <LazyMotion features={loadFeatures} strict>
             <Provider>
               <Main>
-                ==
                 <Component {...pageProps} />
               </Main>
             </Provider>

@@ -1,5 +1,6 @@
 import { withInitData } from '@components/hoc/withInitData/withInitData';
 import { NodeArticle } from '@components/node/NodeArticle/NodeArticle';
+import { NodeFoundationPage } from '@components/node/NodeFoundationPage/NodeFoundationPage';
 import { NodePage } from '@components/node/NodePage/NodePage';
 import { NodeSpeaker } from '@components/node/NodeSpeaker/NodeSpeaker';
 import { NodeTalk } from '@components/node/NodeTalk/NodeTalk';
@@ -9,6 +10,7 @@ import { getRouteEntity } from '@graphql/helpers';
 import { useGetNodeByPathQuery, useGetNodesPathsQuery } from '@graphql/hooks';
 import {
   NodeArticleFragment,
+  NodeFoundationPageFragment,
   NodePageFragment,
   NodeSpeakerFragment,
   NodeTalkFragment,
@@ -25,7 +27,8 @@ type NodeFragmentUnion =
   | NodePageFragment
   | NodeArticleFragment
   | NodeSpeakerFragment
-  | NodeTalkFragment;
+  | NodeTalkFragment
+  | NodeFoundationPageFragment;
 
 interface NodeSelectorProps {
   node: NodeFragmentUnion;
@@ -34,6 +37,10 @@ interface NodeSelectorProps {
 const NodeSelector = ({ node }: NodeSelectorProps) => {
   if (node.__typename === 'NodePage') {
     return <NodePage node={node} />;
+  }
+
+  if (node.__typename === 'NodeFoundationPage') {
+    return <NodeFoundationPage node={node} />;
   }
 
   if (node.__typename === 'NodeArticle') {
