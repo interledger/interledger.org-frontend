@@ -260,9 +260,9 @@ export const SummitLogo = ({ className }: SummitLogoProps) => {
           y2="154.024"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset=".002" stop-color="#8ED7C6" />
-          <stop offset=".518" stop-color="#56ADAB" />
-          <stop offset="1" stop-color="#80CDBF" />
+          <stop offset=".002" stopColor="#8ED7C6" />
+          <stop offset=".518" stopColor="#56ADAB" />
+          <stop offset="1" stopColor="#80CDBF" />
         </linearGradient>
         <linearGradient
           id="b"
@@ -272,8 +272,8 @@ export const SummitLogo = ({ className }: SummitLogoProps) => {
           y2="45.868"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset=".002" stop-color="#E0CC95" />
-          <stop offset=".997" stop-color="#FF7A4E" />
+          <stop offset=".002" stopColor="#E0CC95" />
+          <stop offset=".997" stopColor="#FF7A4E" />
         </linearGradient>
         <linearGradient
           id="c"
@@ -283,8 +283,8 @@ export const SummitLogo = ({ className }: SummitLogoProps) => {
           y2="87.621"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#9976E5" />
-          <stop offset="1" stop-color="#99B4D2" />
+          <stop stopColor="#9976E5" />
+          <stop offset="1" stopColor="#99B4D2" />
         </linearGradient>
         <linearGradient
           id="d"
@@ -294,8 +294,8 @@ export const SummitLogo = ({ className }: SummitLogoProps) => {
           y2="131.385"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFBED2" />
-          <stop offset=".998" stop-color="#FF8BA8" />
+          <stop stopColor="#FFBED2" />
+          <stop offset=".998" stopColor="#FF8BA8" />
         </linearGradient>
         <linearGradient
           id="e"
@@ -305,9 +305,9 @@ export const SummitLogo = ({ className }: SummitLogoProps) => {
           y2="176.62"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset=".002" stop-color="#008897" />
-          <stop offset=".59" stop-color="#009E87" />
-          <stop offset="1" stop-color="#00A880" />
+          <stop offset=".002" stopColor="#008897" />
+          <stop offset=".59" stopColor="#009E87" />
+          <stop offset="1" stopColor="#00A880" />
         </linearGradient>
         <linearGradient
           id="f"
@@ -317,8 +317,8 @@ export const SummitLogo = ({ className }: SummitLogoProps) => {
           y2="223.575"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset=".002" stop-color="#E0EE75" />
-          <stop offset=".997" stop-color="#FFD265" />
+          <stop offset=".002" stopColor="#E0EE75" />
+          <stop offset=".997" stopColor="#FFD265" />
         </linearGradient>
         <linearGradient
           id="g"
@@ -328,8 +328,8 @@ export const SummitLogo = ({ className }: SummitLogoProps) => {
           y2="256.905"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFBED2" />
-          <stop offset=".998" stop-color="#FF8BA8" />
+          <stop stopColor="#FFBED2" />
+          <stop offset=".998" stopColor="#FF8BA8" />
         </linearGradient>
         <linearGradient
           id="h"
@@ -339,8 +339,8 @@ export const SummitLogo = ({ className }: SummitLogoProps) => {
           y2="289.149"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#9976E5" />
-          <stop offset="1" stop-color="#99B4D2" />
+          <stop stopColor="#9976E5" />
+          <stop offset="1" stopColor="#99B4D2" />
         </linearGradient>
         <linearGradient
           id="i"
@@ -350,8 +350,8 @@ export const SummitLogo = ({ className }: SummitLogoProps) => {
           y2="293.793"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset=".002" stop-color="#E0CC95" />
-          <stop offset=".997" stop-color="#FF7A4E" />
+          <stop offset=".002" stopColor="#E0CC95" />
+          <stop offset=".997" stopColor="#FF7A4E" />
         </linearGradient>
         <linearGradient
           id="j"
@@ -361,8 +361,8 @@ export const SummitLogo = ({ className }: SummitLogoProps) => {
           y2="28.735"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFBED2" />
-          <stop offset=".998" stop-color="#FF8BA8" />
+          <stop stopColor="#FFBED2" />
+          <stop offset=".998" stopColor="#FF8BA8" />
         </linearGradient>
         <linearGradient
           id="k"
@@ -372,8 +372,8 @@ export const SummitLogo = ({ className }: SummitLogoProps) => {
           y2="45.868"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFBED2" />
-          <stop offset=".998" stop-color="#FF8BA8" />
+          <stop stopColor="#FFBED2" />
+          <stop offset=".998" stopColor="#FF8BA8" />
         </linearGradient>
         <linearGradient
           id="l"
@@ -383,8 +383,8 @@ export const SummitLogo = ({ className }: SummitLogoProps) => {
           y2="87.621"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#9976E5" />
-          <stop offset="1" stop-color="#99B4D2" />
+          <stop stopColor="#9976E5" />
+          <stop offset="1" stopColor="#99B4D2" />
         </linearGradient>
         <linearGradient
           id="m"
@@ -394,8 +394,8 @@ export const SummitLogo = ({ className }: SummitLogoProps) => {
           y2="131.385"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset=".002" stop-color="#E0CC95" />
-          <stop offset=".997" stop-color="#FF7A4E" />
+          <stop offset=".002" stopColor="#E0CC95" />
+          <stop offset=".997" stopColor="#FF7A4E" />
         </linearGradient>
         <linearGradient
           id="n"
@@ -405,8 +405,8 @@ export const SummitLogo = ({ className }: SummitLogoProps) => {
           y2="176.62"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFBED2" />
-          <stop offset=".998" stop-color="#FF8BA8" />
+          <stop stopColor="#FFBED2" />
+          <stop offset=".998" stopColor="#FF8BA8" />
         </linearGradient>
         <linearGradient
           id="o"
@@ -416,8 +416,8 @@ export const SummitLogo = ({ className }: SummitLogoProps) => {
           y2="223.575"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset=".002" stop-color="#E0EE75" />
-          <stop offset=".997" stop-color="#FFD265" />
+          <stop offset=".002" stopColor="#E0EE75" />
+          <stop offset=".997" stopColor="#FFD265" />
         </linearGradient>
         <linearGradient
           id="p"
@@ -427,9 +427,9 @@ export const SummitLogo = ({ className }: SummitLogoProps) => {
           y2="256.905"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset=".002" stop-color="#008897" />
-          <stop offset=".59" stop-color="#009E87" />
-          <stop offset="1" stop-color="#00A880" />
+          <stop offset=".002" stopColor="#008897" />
+          <stop offset=".59" stopColor="#009E87" />
+          <stop offset="1" stopColor="#00A880" />
         </linearGradient>
         <linearGradient
           id="q"
@@ -439,8 +439,8 @@ export const SummitLogo = ({ className }: SummitLogoProps) => {
           y2="289.149"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFBED2" />
-          <stop offset=".998" stop-color="#FF8BA8" />
+          <stop stopColor="#FFBED2" />
+          <stop offset=".998" stopColor="#FF8BA8" />
         </linearGradient>
         <linearGradient
           id="r"
@@ -450,9 +450,9 @@ export const SummitLogo = ({ className }: SummitLogoProps) => {
           y2="28.735"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset=".002" stop-color="#008897" />
-          <stop offset=".59" stop-color="#009E87" />
-          <stop offset="1" stop-color="#00A880" />
+          <stop offset=".002" stopColor="#008897" />
+          <stop offset=".59" stopColor="#009E87" />
+          <stop offset="1" stopColor="#00A880" />
         </linearGradient>
         <linearGradient
           id="s"
@@ -462,8 +462,8 @@ export const SummitLogo = ({ className }: SummitLogoProps) => {
           y2="12.299"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset=".002" stop-color="#E0EE75" />
-          <stop offset=".997" stop-color="#FFD265" />
+          <stop offset=".002" stopColor="#E0EE75" />
+          <stop offset=".997" stopColor="#FFD265" />
         </linearGradient>
         <linearGradient
           id="t"
@@ -473,11 +473,11 @@ export const SummitLogo = ({ className }: SummitLogoProps) => {
           y2="90.123"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#00A6CD" />
-          <stop offset=".194" stop-color="#1AAAC5" />
-          <stop offset=".554" stop-color="#45B0B7" />
-          <stop offset=".835" stop-color="#60B5AF" />
-          <stop offset="1" stop-color="#6AB6AC" />
+          <stop stopColor="#00A6CD" />
+          <stop offset=".194" stopColor="#1AAAC5" />
+          <stop offset=".554" stopColor="#45B0B7" />
+          <stop offset=".835" stopColor="#60B5AF" />
+          <stop offset="1" stopColor="#6AB6AC" />
         </linearGradient>
         <linearGradient
           id="u"
@@ -487,11 +487,11 @@ export const SummitLogo = ({ className }: SummitLogoProps) => {
           y2="102.57"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#00A6CD" />
-          <stop offset=".194" stop-color="#1AAAC5" />
-          <stop offset=".554" stop-color="#45B0B7" />
-          <stop offset=".835" stop-color="#60B5AF" />
-          <stop offset="1" stop-color="#6AB6AC" />
+          <stop stopColor="#00A6CD" />
+          <stop offset=".194" stopColor="#1AAAC5" />
+          <stop offset=".554" stopColor="#45B0B7" />
+          <stop offset=".835" stopColor="#60B5AF" />
+          <stop offset="1" stopColor="#6AB6AC" />
         </linearGradient>
         <linearGradient
           id="v"
@@ -501,11 +501,11 @@ export const SummitLogo = ({ className }: SummitLogoProps) => {
           y2="134.73"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#00A6CD" />
-          <stop offset=".194" stop-color="#1AAAC5" />
-          <stop offset=".554" stop-color="#45B0B7" />
-          <stop offset=".835" stop-color="#60B5AF" />
-          <stop offset="1" stop-color="#6AB6AC" />
+          <stop stopColor="#00A6CD" />
+          <stop offset=".194" stopColor="#1AAAC5" />
+          <stop offset=".554" stopColor="#45B0B7" />
+          <stop offset=".835" stopColor="#60B5AF" />
+          <stop offset="1" stopColor="#6AB6AC" />
         </linearGradient>
         <linearGradient
           id="w"
@@ -515,11 +515,11 @@ export const SummitLogo = ({ className }: SummitLogoProps) => {
           y2="217.926"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#00A6CD" />
-          <stop offset=".194" stop-color="#1AAAC5" />
-          <stop offset=".554" stop-color="#45B0B7" />
-          <stop offset=".835" stop-color="#60B5AF" />
-          <stop offset="1" stop-color="#6AB6AC" />
+          <stop stopColor="#00A6CD" />
+          <stop offset=".194" stopColor="#1AAAC5" />
+          <stop offset=".554" stopColor="#45B0B7" />
+          <stop offset=".835" stopColor="#60B5AF" />
+          <stop offset="1" stopColor="#6AB6AC" />
         </linearGradient>
         <linearGradient
           id="x"
@@ -529,11 +529,11 @@ export const SummitLogo = ({ className }: SummitLogoProps) => {
           y2="205.477"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#00A6CD" />
-          <stop offset=".194" stop-color="#1AAAC5" />
-          <stop offset=".554" stop-color="#45B0B7" />
-          <stop offset=".835" stop-color="#60B5AF" />
-          <stop offset="1" stop-color="#6AB6AC" />
+          <stop stopColor="#00A6CD" />
+          <stop offset=".194" stopColor="#1AAAC5" />
+          <stop offset=".554" stopColor="#45B0B7" />
+          <stop offset=".835" stopColor="#60B5AF" />
+          <stop offset="1" stopColor="#6AB6AC" />
         </linearGradient>
         <linearGradient
           id="y"
@@ -543,11 +543,11 @@ export const SummitLogo = ({ className }: SummitLogoProps) => {
           y2="173.319"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#00A6CD" />
-          <stop offset=".194" stop-color="#1AAAC5" />
-          <stop offset=".554" stop-color="#45B0B7" />
-          <stop offset=".835" stop-color="#60B5AF" />
-          <stop offset="1" stop-color="#6AB6AC" />
+          <stop stopColor="#00A6CD" />
+          <stop offset=".194" stopColor="#1AAAC5" />
+          <stop offset=".554" stopColor="#45B0B7" />
+          <stop offset=".835" stopColor="#60B5AF" />
+          <stop offset="1" stopColor="#6AB6AC" />
         </linearGradient>
         <linearGradient
           id="z"
@@ -557,11 +557,11 @@ export const SummitLogo = ({ className }: SummitLogoProps) => {
           y2="217.926"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#00A6CD" />
-          <stop offset=".194" stop-color="#1AAAC5" />
-          <stop offset=".554" stop-color="#45B0B7" />
-          <stop offset=".835" stop-color="#60B5AF" />
-          <stop offset="1" stop-color="#6AB6AC" />
+          <stop stopColor="#00A6CD" />
+          <stop offset=".194" stopColor="#1AAAC5" />
+          <stop offset=".554" stopColor="#45B0B7" />
+          <stop offset=".835" stopColor="#60B5AF" />
+          <stop offset="1" stopColor="#6AB6AC" />
         </linearGradient>
         <linearGradient
           id="A"
@@ -571,11 +571,11 @@ export const SummitLogo = ({ className }: SummitLogoProps) => {
           y2="205.477"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#00A6CD" />
-          <stop offset=".194" stop-color="#1AAAC5" />
-          <stop offset=".554" stop-color="#45B0B7" />
-          <stop offset=".835" stop-color="#60B5AF" />
-          <stop offset="1" stop-color="#6AB6AC" />
+          <stop stopColor="#00A6CD" />
+          <stop offset=".194" stopColor="#1AAAC5" />
+          <stop offset=".554" stopColor="#45B0B7" />
+          <stop offset=".835" stopColor="#60B5AF" />
+          <stop offset="1" stopColor="#6AB6AC" />
         </linearGradient>
         <linearGradient
           id="B"
@@ -585,11 +585,11 @@ export const SummitLogo = ({ className }: SummitLogoProps) => {
           y2="173.319"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#00A6CD" />
-          <stop offset=".194" stop-color="#1AAAC5" />
-          <stop offset=".554" stop-color="#45B0B7" />
-          <stop offset=".835" stop-color="#60B5AF" />
-          <stop offset="1" stop-color="#6AB6AC" />
+          <stop stopColor="#00A6CD" />
+          <stop offset=".194" stopColor="#1AAAC5" />
+          <stop offset=".554" stopColor="#45B0B7" />
+          <stop offset=".835" stopColor="#60B5AF" />
+          <stop offset="1" stopColor="#6AB6AC" />
         </linearGradient>
         <linearGradient
           id="C"
@@ -599,11 +599,11 @@ export const SummitLogo = ({ className }: SummitLogoProps) => {
           y2="90.123"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#00A6CD" />
-          <stop offset=".194" stop-color="#1AAAC5" />
-          <stop offset=".554" stop-color="#45B0B7" />
-          <stop offset=".835" stop-color="#60B5AF" />
-          <stop offset="1" stop-color="#6AB6AC" />
+          <stop stopColor="#00A6CD" />
+          <stop offset=".194" stopColor="#1AAAC5" />
+          <stop offset=".554" stopColor="#45B0B7" />
+          <stop offset=".835" stopColor="#60B5AF" />
+          <stop offset="1" stopColor="#6AB6AC" />
         </linearGradient>
         <linearGradient
           id="D"
@@ -613,11 +613,11 @@ export const SummitLogo = ({ className }: SummitLogoProps) => {
           y2="102.57"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#00A6CD" />
-          <stop offset=".194" stop-color="#1AAAC5" />
-          <stop offset=".554" stop-color="#45B0B7" />
-          <stop offset=".835" stop-color="#60B5AF" />
-          <stop offset="1" stop-color="#6AB6AC" />
+          <stop stopColor="#00A6CD" />
+          <stop offset=".194" stopColor="#1AAAC5" />
+          <stop offset=".554" stopColor="#45B0B7" />
+          <stop offset=".835" stopColor="#60B5AF" />
+          <stop offset="1" stopColor="#6AB6AC" />
         </linearGradient>
         <linearGradient
           id="E"
@@ -627,11 +627,11 @@ export const SummitLogo = ({ className }: SummitLogoProps) => {
           y2="134.73"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#00A6CD" />
-          <stop offset=".194" stop-color="#1AAAC5" />
-          <stop offset=".554" stop-color="#45B0B7" />
-          <stop offset=".835" stop-color="#60B5AF" />
-          <stop offset="1" stop-color="#6AB6AC" />
+          <stop stopColor="#00A6CD" />
+          <stop offset=".194" stopColor="#1AAAC5" />
+          <stop offset=".554" stopColor="#45B0B7" />
+          <stop offset=".835" stopColor="#60B5AF" />
+          <stop offset="1" stopColor="#6AB6AC" />
         </linearGradient>
         <linearGradient
           id="F"
@@ -641,8 +641,8 @@ export const SummitLogo = ({ className }: SummitLogoProps) => {
           y2="95.379"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset=".002" stop-color="#E0EE75" />
-          <stop offset=".997" stop-color="#FFD265" />
+          <stop offset=".002" stopColor="#E0EE75" />
+          <stop offset=".997" stopColor="#FFD265" />
         </linearGradient>
         <linearGradient
           id="G"
@@ -652,8 +652,8 @@ export const SummitLogo = ({ className }: SummitLogoProps) => {
           y2="81.257"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#EBA790" />
-          <stop offset="1" stop-color="#FF417D" />
+          <stop stopColor="#EBA790" />
+          <stop offset="1" stopColor="#FF417D" />
         </linearGradient>
         <linearGradient
           id="H"
@@ -663,8 +663,8 @@ export const SummitLogo = ({ className }: SummitLogoProps) => {
           y2="94.57"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#9976E5" />
-          <stop offset="1" stop-color="#99B4D2" />
+          <stop stopColor="#9976E5" />
+          <stop offset="1" stopColor="#99B4D2" />
         </linearGradient>
         <linearGradient
           id="I"
@@ -674,8 +674,8 @@ export const SummitLogo = ({ className }: SummitLogoProps) => {
           y2="185.936"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#67D265" />
-          <stop offset="1" stop-color="#E0EE75" />
+          <stop stopColor="#67D265" />
+          <stop offset="1" stopColor="#E0EE75" />
         </linearGradient>
         <linearGradient
           id="J"
@@ -685,8 +685,8 @@ export const SummitLogo = ({ className }: SummitLogoProps) => {
           y2="153.5"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FF8BA8" />
-          <stop offset="1" stop-color="#FFBED2" />
+          <stop stopColor="#FF8BA8" />
+          <stop offset="1" stopColor="#FFBED2" />
         </linearGradient>
         <linearGradient
           id="K"
@@ -696,8 +696,8 @@ export const SummitLogo = ({ className }: SummitLogoProps) => {
           y2="122.411"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FF7A4E" />
-          <stop offset="1" stop-color="#E0CC95" />
+          <stop stopColor="#FF7A4E" />
+          <stop offset="1" stopColor="#E0CC95" />
         </linearGradient>
         <linearGradient
           id="L"
@@ -707,8 +707,8 @@ export const SummitLogo = ({ className }: SummitLogoProps) => {
           y2="212.669"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset=".002" stop-color="#E0EE75" />
-          <stop offset=".997" stop-color="#FFD265" />
+          <stop offset=".002" stopColor="#E0EE75" />
+          <stop offset=".997" stopColor="#FFD265" />
         </linearGradient>
         <linearGradient
           id="M"
@@ -718,8 +718,8 @@ export const SummitLogo = ({ className }: SummitLogoProps) => {
           y2="226.79"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#EBA790" />
-          <stop offset="1" stop-color="#FF417D" />
+          <stop stopColor="#EBA790" />
+          <stop offset="1" stopColor="#FF417D" />
         </linearGradient>
         <linearGradient
           id="N"
@@ -729,8 +729,8 @@ export const SummitLogo = ({ className }: SummitLogoProps) => {
           y2="213.477"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset=".002" stop-color="#E0CC95" />
-          <stop offset=".997" stop-color="#FF7A4E" />
+          <stop offset=".002" stopColor="#E0CC95" />
+          <stop offset=".997" stopColor="#FF7A4E" />
         </linearGradient>
         <linearGradient
           id="O"
@@ -740,8 +740,8 @@ export const SummitLogo = ({ className }: SummitLogoProps) => {
           y2="122.112"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset=".002" stop-color="#E0EE75" />
-          <stop offset=".997" stop-color="#67D265" />
+          <stop offset=".002" stopColor="#E0EE75" />
+          <stop offset=".997" stopColor="#67D265" />
         </linearGradient>
         <linearGradient
           id="P"
@@ -751,8 +751,8 @@ export const SummitLogo = ({ className }: SummitLogoProps) => {
           y2="154.548"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFBED2" />
-          <stop offset=".998" stop-color="#FF8BA8" />
+          <stop stopColor="#FFBED2" />
+          <stop offset=".998" stopColor="#FF8BA8" />
         </linearGradient>
         <linearGradient
           id="Q"
@@ -762,8 +762,8 @@ export const SummitLogo = ({ className }: SummitLogoProps) => {
           y2="185.637"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#99B4D2" />
-          <stop offset="1" stop-color="#9976E5" />
+          <stop stopColor="#99B4D2" />
+          <stop offset="1" stopColor="#9976E5" />
         </linearGradient>
         <linearGradient
           id="R"
@@ -773,9 +773,9 @@ export const SummitLogo = ({ className }: SummitLogoProps) => {
           y2="154.024"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset=".002" stop-color="#8ED7C6" />
-          <stop offset=".518" stop-color="#56ADAB" />
-          <stop offset="1" stop-color="#80CDBF" />
+          <stop offset=".002" stopColor="#8ED7C6" />
+          <stop offset=".518" stopColor="#56ADAB" />
+          <stop offset="1" stopColor="#80CDBF" />
         </linearGradient>
         <linearGradient
           id="S"
@@ -785,9 +785,9 @@ export const SummitLogo = ({ className }: SummitLogoProps) => {
           y2="154.024"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset=".002" stop-color="#8ED7C6" />
-          <stop offset=".518" stop-color="#56ADAB" />
-          <stop offset="1" stop-color="#80CDBF" />
+          <stop offset=".002" stopColor="#8ED7C6" />
+          <stop offset=".518" stopColor="#56ADAB" />
+          <stop offset="1" stopColor="#80CDBF" />
         </linearGradient>
         <linearGradient
           id="T"
@@ -797,8 +797,8 @@ export const SummitLogo = ({ className }: SummitLogoProps) => {
           y2="141.434"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset=".002" stop-color="#E0EE75" />
-          <stop offset=".997" stop-color="#FFD265" />
+          <stop offset=".002" stopColor="#E0EE75" />
+          <stop offset=".997" stopColor="#FFD265" />
         </linearGradient>
         <linearGradient
           id="U"
@@ -808,8 +808,8 @@ export const SummitLogo = ({ className }: SummitLogoProps) => {
           y2="165.91"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFD265" />
-          <stop offset="1" stop-color="#E0EE75" />
+          <stop stopColor="#FFD265" />
+          <stop offset="1" stopColor="#E0EE75" />
         </linearGradient>
         <linearGradient
           id="V"
@@ -819,8 +819,8 @@ export const SummitLogo = ({ className }: SummitLogoProps) => {
           y2="166.233"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset=".002" stop-color="#E0EE75" />
-          <stop offset=".997" stop-color="#FFD265" />
+          <stop offset=".002" stopColor="#E0EE75" />
+          <stop offset=".997" stopColor="#FFD265" />
         </linearGradient>
         <linearGradient
           id="W"
@@ -830,8 +830,8 @@ export const SummitLogo = ({ className }: SummitLogoProps) => {
           y2="141.258"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFD265" />
-          <stop offset="1" stop-color="#E0EE75" />
+          <stop stopColor="#FFD265" />
+          <stop offset="1" stopColor="#E0EE75" />
         </linearGradient>
         <linearGradient
           id="X"
@@ -841,8 +841,8 @@ export const SummitLogo = ({ className }: SummitLogoProps) => {
           y2="136.54"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#EBA790" />
-          <stop offset="1" stop-color="#FF417D" />
+          <stop stopColor="#EBA790" />
+          <stop offset="1" stopColor="#FF417D" />
         </linearGradient>
         <linearGradient
           id="Y"
@@ -852,8 +852,8 @@ export const SummitLogo = ({ className }: SummitLogoProps) => {
           y2="171.507"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#EBA790" />
-          <stop offset="1" stop-color="#FF417D" />
+          <stop stopColor="#EBA790" />
+          <stop offset="1" stopColor="#FF417D" />
         </linearGradient>
         <linearGradient
           id="Z"
@@ -863,8 +863,8 @@ export const SummitLogo = ({ className }: SummitLogoProps) => {
           y2="154.201"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#EBA790" />
-          <stop offset="1" stop-color="#FF417D" />
+          <stop stopColor="#EBA790" />
+          <stop offset="1" stopColor="#FF417D" />
         </linearGradient>
         <linearGradient
           id="aa"
@@ -874,8 +874,8 @@ export const SummitLogo = ({ className }: SummitLogoProps) => {
           y2="153.847"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#EBA790" />
-          <stop offset="1" stop-color="#FF417D" />
+          <stop stopColor="#EBA790" />
+          <stop offset="1" stopColor="#FF417D" />
         </linearGradient>
       </defs>
     </svg>
