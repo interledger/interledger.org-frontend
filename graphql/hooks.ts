@@ -336,6 +336,10 @@ export const NodeTalkCardFragment = /*#__PURE__*/ `
   id
   title
   path
+  dateTime {
+    time
+  }
+  duration
   teaser {
     ...ParagraphTeaserFragment
   }
@@ -358,6 +362,35 @@ export const ParagraphTalksGridFragment = /*#__PURE__*/ `
         }
       }
     }
+  }
+}
+    `;
+export const ParagraphScheduleDayFragment = /*#__PURE__*/ `
+    fragment ParagraphScheduleDayFragment on ParagraphScheduleDay {
+  __typename
+  id
+  date {
+    time
+  }
+  talksView {
+    __typename
+    ... on TalksByDateResult {
+      results {
+        ... on NodeTalk {
+          ...NodeTalkCardFragment
+        }
+      }
+    }
+  }
+}
+    `;
+export const ParagraphScheduleFragment = /*#__PURE__*/ `
+    fragment ParagraphScheduleFragment on ParagraphSchedule {
+  __typename
+  id
+  title
+  days {
+    ...ParagraphScheduleDayFragment
   }
 }
     `;
@@ -405,6 +438,9 @@ export const ParagraphsFragment = /*#__PURE__*/ `
   ... on ParagraphTalksGrid {
     ...ParagraphTalksGridFragment
   }
+  ... on ParagraphSchedule {
+    ...ParagraphScheduleFragment
+  }
 }
     `;
 export const MetaTagFragment = /*#__PURE__*/ `
@@ -444,6 +480,19 @@ export const NodeArticleFragment = /*#__PURE__*/ `
   }
   metatag {
     ...MetaTagFragment
+  }
+}
+    `;
+export const NodeArticleCardFragment = /*#__PURE__*/ `
+    fragment NodeArticleCardFragment on NodeArticle {
+  __typename
+  id
+  title
+  path
+  image {
+    ... on MediaImage {
+      ...MediaImageLandscapeFragment
+    }
   }
 }
     `;
@@ -512,6 +561,17 @@ export const NodePageFragment = /*#__PURE__*/ `
   }
   header {
     ...ParagraphHeroHeaderFragment
+  }
+}
+    `;
+export const NodePageCardFragment = /*#__PURE__*/ `
+    fragment NodePageCardFragment on NodePage {
+  __typename
+  id
+  title
+  path
+  teaser {
+    ...ParagraphTeaserFragment
   }
 }
     `;
@@ -607,40 +667,6 @@ export const NodeTalkFragment = /*#__PURE__*/ `
   duration
   speakers {
     ...NodeSpeakerCardFragment
-  }
-}
-    `;
-export const NodeArticleCardFragment = /*#__PURE__*/ `
-    fragment NodeArticleCardFragment on NodeArticle {
-  __typename
-  id
-  title
-  path
-  image {
-    ... on MediaImage {
-      ...MediaImageLandscapeFragment
-    }
-  }
-}
-    `;
-export const NodePageCardFragment = /*#__PURE__*/ `
-    fragment NodePageCardFragment on NodePage {
-  __typename
-  id
-  title
-  path
-  teaser {
-    ...ParagraphTeaserFragment
-  }
-}
-    `;
-export const NodeCardFragment = /*#__PURE__*/ `
-    fragment NodeCardFragment on EdgeNode {
-  ... on NodeArticle {
-    ...NodeArticleCardFragment
-  }
-  ... on NodePage {
-    ...NodePageCardFragment
   }
 }
     `;
@@ -765,6 +791,8 @@ ${ParagraphSpeakersGridFragment}
 ${NodeSpeakerCardFragment}
 ${ParagraphTalksGridFragment}
 ${NodeTalkCardFragment}
+${ParagraphScheduleFragment}
+${ParagraphScheduleDayFragment}
 ${MetaTagFragment}
 ${NodePageFragment}
 ${ParagraphHeroHeaderFragment}
@@ -801,9 +829,9 @@ useGetNodeByPathQuery.fetcher = (
     OperationTypes.GetNodeByPathQueryVariables
   >(GetNodeByPathQueryDocument, variables);
 export const GetNodesPathsQueryDocument = /*#__PURE__*/ `
-    query GetNodesPathsQuery($first: Int) {
-  nodes(first: $first) {
-    nodes {
+    query GetNodesPathsQuery {
+  nodePaths {
+    results {
       ... on NodeArticle {
         path
       }
@@ -854,57 +882,3 @@ useGetNodesPathsQuery.fetcher = (
     OperationTypes.GetNodesPathsQuery,
     OperationTypes.GetNodesPathsQueryVariables
   >(GetNodesPathsQueryDocument, variables);
-export const GetNodesQueryDocument = /*#__PURE__*/ `
-    query GetNodesQuery($first: Int, $after: Cursor, $before: Cursor, $last: Int, $filter: ConnectionFilter, $sortKey: ConnectionSortKeys, $reverse: Boolean) {
-  nodes(
-    first: $first
-    after: $after
-    before: $before
-    last: $last
-    filter: $filter
-    sortKey: $sortKey
-    reverse: $reverse
-  ) {
-    nodes {
-      ...NodeCardFragment
-    }
-    pageInfo {
-      endCursor
-      hasNextPage
-      hasPreviousPage
-      startCursor
-    }
-  }
-}
-    ${NodeCardFragment}
-${NodeArticleCardFragment}
-${MediaImageLandscapeFragment}
-${ResponsiveImageStyleFragment}
-${NodePageCardFragment}
-${ParagraphTeaserFragment}
-${MediaImageSquareFragment}`;
-export const useGetNodesQuery = <
-  TData = OperationTypes.GetNodesQuery,
-  TError = unknown
->(
-  variables?: OperationTypes.GetNodesQueryVariables,
-  options?: UseQueryOptions<OperationTypes.GetNodesQuery, TError, TData>
-) =>
-  useQuery<OperationTypes.GetNodesQuery, TError, TData>(
-    variables === undefined ? ['GetNodesQuery'] : ['GetNodesQuery', variables],
-    fetcher<
-      OperationTypes.GetNodesQuery,
-      OperationTypes.GetNodesQueryVariables
-    >(GetNodesQueryDocument, variables),
-    options
-  );
-
-useGetNodesQuery.getKey = (variables?: OperationTypes.GetNodesQueryVariables) =>
-  variables === undefined ? ['GetNodesQuery'] : ['GetNodesQuery', variables];
-useGetNodesQuery.fetcher = (
-  variables?: OperationTypes.GetNodesQueryVariables
-) =>
-  fetcher<OperationTypes.GetNodesQuery, OperationTypes.GetNodesQueryVariables>(
-    GetNodesQueryDocument,
-    variables
-  );

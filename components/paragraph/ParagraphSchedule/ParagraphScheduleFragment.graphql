@@ -1,0 +1,8 @@
+fragment ParagraphScheduleFragment on ParagraphSchedule {
+  __typename
+  id
+  title
+  days {
+    ...ParagraphScheduleDayFragment
+  }
+}

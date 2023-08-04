@@ -17,7 +17,6 @@ export type Scalars = {
   Int: number;
   Float: number;
   Attributes: any;
-  Cursor: any;
   Email: any;
   Html: any;
   PhoneNumber: any;
@@ -25,31 +24,6 @@ export type Scalars = {
   TimeZone: any;
   Timestamp: any;
   UtcOffset: any;
-};
-
-/** Complex address data. */
-export type Address = {
-  __typename?: 'Address';
-  additionalName?: Maybe<Scalars['String']>;
-  addressLine1?: Maybe<Scalars['String']>;
-  addressLine2?: Maybe<Scalars['String']>;
-  administrativeArea?: Maybe<Scalars['String']>;
-  country?: Maybe<AddressCountry>;
-  dependentLocality?: Maybe<Scalars['String']>;
-  familyName?: Maybe<Scalars['String']>;
-  givenName?: Maybe<Scalars['String']>;
-  langcode?: Maybe<Scalars['String']>;
-  locality?: Maybe<Scalars['String']>;
-  organization?: Maybe<Scalars['String']>;
-  postalCode?: Maybe<Scalars['String']>;
-  sortingCode?: Maybe<Scalars['String']>;
-};
-
-/** Address country. */
-export type AddressCountry = {
-  __typename?: 'AddressCountry';
-  code?: Maybe<Scalars['String']>;
-  name?: Maybe<Scalars['String']>;
 };
 
 /** An Domain within the CMS. */
@@ -66,137 +40,24 @@ export type ConfigPagesInterface = {
   id: Scalars['ID'];
   /** A brief description of your config page. */
   label: Scalars['String'];
+  /** The computed meta tags for the entity. */
+  metatag: Array<MetaTagUnion>;
 };
 
+/** Entity type config_pages. */
 export type ConfigPagesUnion = SiteSettings;
-
-/** A paginated set of results. */
-export type Connection = {
-  /** The edges of this connection. */
-  edges: Array<Edge>;
-  /** The nodes of the edges of this connection. */
-  nodes: Array<EdgeNode>;
-  /** Information to aid in pagination. */
-  pageInfo: ConnectionPageInfo;
-};
-
-/** Filter */
-export type ConnectionFilter = {
-  conditions?: InputMaybe<Array<InputMaybe<ConnectionFilterCondition>>>;
-  conjunction?: InputMaybe<ConnectionFilterConjunction>;
-  groups?: InputMaybe<Array<InputMaybe<ConnectionFilter>>>;
-};
-
-/** Filter conditions */
-export type ConnectionFilterCondition = {
-  enabled?: InputMaybe<Scalars['Boolean']>;
-  field: Scalars['String'];
-  language?: InputMaybe<Scalars['String']>;
-  operator?: InputMaybe<ConnectionFilterOperator>;
-  value?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-/** Conjunctions for filter  */
-export enum ConnectionFilterConjunction {
-  /** AND conjuction */
-  And = 'AND',
-  /** OR conjuction */
-  Or = 'OR',
-}
-
-/** Operators for filter  */
-export enum ConnectionFilterOperator {
-  /** Between 2 values */
-  Between = 'BETWEEN',
-  /** Equal to */
-  Equal = 'EQUAL',
-  /** Greater than */
-  GreaterThan = 'GREATER_THAN',
-  /** Greater than or equal */
-  GreaterThanOrEqual = 'GREATER_THAN_OR_EQUAL',
-  /** In */
-  In = 'IN',
-  /** Is not null */
-  IsNotNull = 'IS_NOT_NULL',
-  /** Is null */
-  IsNull = 'IS_NULL',
-  /** Like / contains */
-  Like = 'LIKE',
-  /** Not between */
-  NotBetween = 'NOT_BETWEEN',
-  /** Not equal */
-  NotEqual = 'NOT_EQUAL',
-  /** Not in */
-  NotIn = 'NOT_IN',
-  /** Not like */
-  NotLike = 'NOT_LIKE',
-  /** Smaller than */
-  SmallerThan = 'SMALLER_THAN',
-  /** Smaller than or equal */
-  SmallerThanOrEqual = 'SMALLER_THAN_OR_EQUAL',
-}
-
-/** Information about the page in a connection. */
-export type ConnectionPageInfo = {
-  __typename?: 'ConnectionPageInfo';
-  /** The cursor for the last element in this page. */
-  endCursor?: Maybe<Scalars['Cursor']>;
-  /** Whether there are more pages in this connection. */
-  hasNextPage: Scalars['Boolean'];
-  /** Whether there are previous pages in this connection. */
-  hasPreviousPage: Scalars['Boolean'];
-  /** The cursor for the first element in this page. */
-  startCursor?: Maybe<Scalars['Cursor']>;
-};
-
-/** Choose how your sorts will occur and on which field. */
-export enum ConnectionSortKeys {
-  /** Sort by creation date */
-  CreatedAt = 'CREATED_AT',
-  /** Sort by popular status. */
-  Popular = 'POPULAR',
-  /** Sort by promoted status. */
-  Promoted = 'PROMOTED',
-  /** Sort by sticky status. */
-  Sticky = 'STICKY',
-  /** Sort by entity title. */
-  Title = 'TITLE',
-  /** Sort by updated date */
-  UpdatedAt = 'UPDATED_AT',
-  /** Sort by weight. */
-  Weight = 'WEIGHT',
-}
-
-/** A Date range has a start and an end. */
-export type DateRange = {
-  __typename?: 'DateRange';
-  end?: Maybe<DateTime>;
-  start?: Maybe<DateTime>;
-};
 
 /** A DateTime object. */
 export type DateTime = {
   __typename?: 'DateTime';
+  /** A string that will have a value of format ±hh:mm */
   offset: Scalars['UtcOffset'];
+  /** RFC 3339 compliant time string. */
   time: Scalars['Time'];
+  /** Type represents date and time as number of milliseconds from start of the UNIX epoch. */
   timestamp: Scalars['Timestamp'];
+  /** A field whose value exists in the standard IANA Time Zone Database. */
   timezone: Scalars['TimeZone'];
-};
-
-/**
- * An edge in a connection.
- * Provides the cursor to fetch data based on the position of the associated
- * node. Specific edge implementations may provide more information about the
- * relationship they represent.
- */
-export type Edge = {
-  cursor: Scalars['Cursor'];
-  node: EdgeNode;
-};
-
-/** This entity is accessible over an Edge connection. */
-export type EdgeNode = {
-  id: Scalars['ID'];
 };
 
 /** A file object to represent an managed file. */
@@ -212,15 +73,21 @@ export type File = {
 /** A image object to represent an managed file. */
 export type Image = {
   __typename?: 'Image';
+  /** The alt text of the image. */
   alt?: Maybe<Scalars['String']>;
+  /** The height of the image. */
   height: Scalars['Int'];
+  /** The mime type of the image. */
   mime?: Maybe<Scalars['String']>;
   /** Fetch an responsive image style. */
   responsive?: Maybe<ResponsiveImageStyleDerivative>;
   /** Fetch an image style. */
   style?: Maybe<ImageStylePathDerivative>;
+  /** The title text of the image. */
   title?: Maybe<Scalars['String']>;
+  /** The URL of the image. */
   url: Scalars['String'];
+  /** The width of the image. */
   width: Scalars['Int'];
 };
 
@@ -265,6 +132,7 @@ export type ImageStylePathDerivative = {
   width?: Maybe<Scalars['Int']>;
 };
 
+/** Entity type image_style. */
 export type ImageStyleUnion = ImageStyle;
 
 /** Generic untyped input for key-value pairs. */
@@ -276,34 +144,48 @@ export type KeyValueInput = {
 /** A language definition provided by the CMS. */
 export type Language = {
   __typename?: 'Language';
+  /** The language direction. */
   direction?: Maybe<Scalars['String']>;
+  /** The language code. */
   id?: Maybe<Scalars['ID']>;
+  /** The language name. */
   name?: Maybe<Scalars['String']>;
 };
 
+/** A link. */
 export type Link = {
   __typename?: 'Link';
+  /** Whether the link is internal to this website. */
   internal: Scalars['Boolean'];
+  /** The title of the link. */
   title?: Maybe<Scalars['String']>;
+  /** The URL of the link. */
   url?: Maybe<Scalars['String']>;
 };
 
 /** Use local images for reusable media. */
-export type MediaImage = MediaInterface & {
-  __typename?: 'MediaImage';
-  /** The time the media item was last edited. */
-  changed: DateTime;
-  /** The time the media item was created. */
-  created: DateTime;
-  /** The Universally Unique IDentifier (UUID). */
-  id: Scalars['ID'];
-  /** Image */
-  mediaImage: Image;
-  /** Name */
-  name: Scalars['String'];
-  /** Published */
-  status: Scalars['Boolean'];
-};
+export type MediaImage = MediaInterface &
+  MetaTagInterface & {
+    __typename?: 'MediaImage';
+    /** The time the media item was last edited. */
+    changed: DateTime;
+    /** The time the media item was created. */
+    created: DateTime;
+    /** The Universally Unique IDentifier (UUID). */
+    id: Scalars['ID'];
+    /** Language */
+    langcode: Language;
+    /** Image */
+    mediaImage: Image;
+    /** The computed meta tags for the entity. */
+    metatag: Array<MetaTagUnion>;
+    /** Name */
+    name: Scalars['String'];
+    /** URL alias */
+    path: Scalars['String'];
+    /** Published */
+    status: Scalars['Boolean'];
+  };
 
 /** Entity type media. */
 export type MediaInterface = {
@@ -313,29 +195,43 @@ export type MediaInterface = {
   created: DateTime;
   /** The Universally Unique IDentifier (UUID). */
   id: Scalars['ID'];
+  /** Language */
+  langcode: Language;
+  /** The computed meta tags for the entity. */
+  metatag: Array<MetaTagUnion>;
   /** Name */
   name: Scalars['String'];
+  /** URL alias */
+  path: Scalars['String'];
   /** Published */
   status: Scalars['Boolean'];
 };
 
 /** A remotely hosted video from YouTube or Vimeo. */
-export type MediaRemoteVideo = MediaInterface & {
-  __typename?: 'MediaRemoteVideo';
-  /** The time the media item was last edited. */
-  changed: DateTime;
-  /** The time the media item was created. */
-  created: DateTime;
-  /** The Universally Unique IDentifier (UUID). */
-  id: Scalars['ID'];
-  /** Video URL */
-  mediaOembedVideo: Scalars['String'];
-  /** Name */
-  name: Scalars['String'];
-  /** Published */
-  status: Scalars['Boolean'];
-};
+export type MediaRemoteVideo = MediaInterface &
+  MetaTagInterface & {
+    __typename?: 'MediaRemoteVideo';
+    /** The time the media item was last edited. */
+    changed: DateTime;
+    /** The time the media item was created. */
+    created: DateTime;
+    /** The Universally Unique IDentifier (UUID). */
+    id: Scalars['ID'];
+    /** Language */
+    langcode: Language;
+    /** Video URL */
+    mediaOembedVideo: Scalars['String'];
+    /** The computed meta tags for the entity. */
+    metatag: Array<MetaTagUnion>;
+    /** Name */
+    name: Scalars['String'];
+    /** URL alias */
+    path: Scalars['String'];
+    /** Published */
+    status: Scalars['Boolean'];
+  };
 
+/** Entity type media. */
 export type MediaUnion =
   | MediaImage
   | MediaRemoteVideo
@@ -343,45 +239,61 @@ export type MediaUnion =
   | MediaVideo;
 
 /** A locally hosted Scalable Vector Graphics file. */
-export type MediaVectorImage = MediaInterface & {
-  __typename?: 'MediaVectorImage';
-  /** The time the media item was last edited. */
-  changed: DateTime;
-  /** The time the media item was created. */
-  created: DateTime;
-  /** The Universally Unique IDentifier (UUID). */
-  id: Scalars['ID'];
-  /** SVG */
-  mediaSvg: Svg;
-  /** Name */
-  name: Scalars['String'];
-  /** Published */
-  status: Scalars['Boolean'];
-};
+export type MediaVectorImage = MediaInterface &
+  MetaTagInterface & {
+    __typename?: 'MediaVectorImage';
+    /** The time the media item was last edited. */
+    changed: DateTime;
+    /** The time the media item was created. */
+    created: DateTime;
+    /** The Universally Unique IDentifier (UUID). */
+    id: Scalars['ID'];
+    /** Language */
+    langcode: Language;
+    /** SVG */
+    mediaSvg: Svg;
+    /** The computed meta tags for the entity. */
+    metatag: Array<MetaTagUnion>;
+    /** Name */
+    name: Scalars['String'];
+    /** URL alias */
+    path: Scalars['String'];
+    /** Published */
+    status: Scalars['Boolean'];
+  };
 
 /** A locally hosted video file. */
-export type MediaVideo = MediaInterface & {
-  __typename?: 'MediaVideo';
-  /** The time the media item was last edited. */
-  changed: DateTime;
-  /** The time the media item was created. */
-  created: DateTime;
-  /** The Universally Unique IDentifier (UUID). */
-  id: Scalars['ID'];
-  /** Video file */
-  mediaVideoFile: File;
-  /** Name */
-  name: Scalars['String'];
-  /** Published */
-  status: Scalars['Boolean'];
-};
+export type MediaVideo = MediaInterface &
+  MetaTagInterface & {
+    __typename?: 'MediaVideo';
+    /** The time the media item was last edited. */
+    changed: DateTime;
+    /** The time the media item was created. */
+    created: DateTime;
+    /** The Universally Unique IDentifier (UUID). */
+    id: Scalars['ID'];
+    /** Language */
+    langcode: Language;
+    /** Video file */
+    mediaVideoFile: File;
+    /** The computed meta tags for the entity. */
+    metatag: Array<MetaTagUnion>;
+    /** Name */
+    name: Scalars['String'];
+    /** URL alias */
+    path: Scalars['String'];
+    /** Published */
+    status: Scalars['Boolean'];
+  };
 
 /** Entity type menu. */
 export type Menu = MenuInterface & {
   __typename?: 'Menu';
   /** The Universally Unique IDentifier (UUID). */
   id: Scalars['ID'];
+  /** The menu items. */
   items: Array<MenuItem>;
+  /** The menu name. */
   name: Scalars['String'];
 };
 
@@ -403,7 +315,9 @@ export enum MenuAvailable {
 export type MenuInterface = {
   /** The Universally Unique IDentifier (UUID). */
   id: Scalars['ID'];
+  /** The menu items. */
   items: Array<MenuItem>;
+  /** The menu name. */
   name: Scalars['String'];
 };
 
@@ -414,15 +328,19 @@ export type MenuItem = {
   attributes: MenuItemAttributes;
   /** Child menu items of this menu item. */
   children: Array<MenuItem>;
+  /** The description of the menu item. */
   description?: Maybe<Scalars['String']>;
   /** Whether this menu item is intended to be expanded. */
   expanded: Scalars['Boolean'];
+  /** The Universally Unique IDentifier (UUID). */
   id: Scalars['ID'];
   /** Whether this menu item links to an internal route. */
   internal: Scalars['Boolean'];
   /** The route this menu item uses. Route loading can be disabled per menu type. */
   route?: Maybe<RouteUnion>;
+  /** The title of the menu item. */
   title: Scalars['String'];
+  /** The URL of the menu item. */
   url?: Maybe<Scalars['String']>;
 };
 
@@ -432,48 +350,75 @@ export type MenuItemAttributes = {
   class?: Maybe<Scalars['String']>;
 };
 
+/** Entity type menu. */
 export type MenuUnion = Menu;
 
-/** Meta elements are tags used in HTML and XHTML documents to provide structured metadata about a Web page. */
+/** A meta tag element. */
 export type MetaTag = {
+  /** The HTML tag for this meta element. */
   tag: Scalars['String'];
 };
 
+/** This entity has meta tags enabled. */
+export type MetaTagInterface = {
+  /** The computed meta tags for the entity. */
+  metatag: Array<MetaTagUnion>;
+};
+
+/** A meta link element. */
 export type MetaTagLink = MetaTag & {
   __typename?: 'MetaTagLink';
+  /** The meta tag element attributes. */
   attributes: MetaTagLinkAttributes;
+  /** The HTML tag for this meta element. */
   tag: Scalars['String'];
 };
 
+/** A meta link element's attributes. */
 export type MetaTagLinkAttributes = {
   __typename?: 'MetaTagLinkAttributes';
+  /** The href attribute of the link. */
   href?: Maybe<Scalars['String']>;
+  /** The rel attribute of the link. */
   rel?: Maybe<Scalars['String']>;
 };
 
+/** A meta property element. */
 export type MetaTagProperty = MetaTag & {
   __typename?: 'MetaTagProperty';
+  /** The meta tag element attributes. */
   attributes: MetaTagPropertyAttributes;
+  /** The HTML tag for this meta element. */
   tag: Scalars['String'];
 };
 
+/** A meta property element's attributes. */
 export type MetaTagPropertyAttributes = {
   __typename?: 'MetaTagPropertyAttributes';
+  /** The content attribute of the meta tag. */
   content?: Maybe<Scalars['String']>;
+  /** The property attribute of the meta tag. */
   property?: Maybe<Scalars['String']>;
 };
 
+/** A meta tag element. */
 export type MetaTagUnion = MetaTagLink | MetaTagProperty | MetaTagValue;
 
+/** A meta content element. */
 export type MetaTagValue = MetaTag & {
   __typename?: 'MetaTagValue';
+  /** The meta tag element attributes. */
   attributes: MetaTagValueAttributes;
+  /** The HTML tag for this meta element. */
   tag: Scalars['String'];
 };
 
+/** A meta content element's attributes. */
 export type MetaTagValueAttributes = {
   __typename?: 'MetaTagValueAttributes';
+  /** The content attribute of the meta tag. */
   content?: Maybe<Scalars['String']>;
+  /** The name attribute of the meta tag. */
   name?: Maybe<Scalars['String']>;
 };
 
@@ -485,7 +430,7 @@ export type Mutation = {
 };
 
 /** Use <em>articles</em> for time-sensitive content like news, press releases or blog posts. */
-export type NodeArticle = EdgeNode &
+export type NodeArticle = MetaTagInterface &
   NodeInterface & {
     __typename?: 'NodeArticle';
     /** The time that the node was last edited. */
@@ -514,28 +459,14 @@ export type NodeArticle = EdgeNode &
     title: Scalars['String'];
   };
 
-/** A paginated set of results for NodeArticle. */
-export type NodeArticleConnection = Connection & {
-  __typename?: 'NodeArticleConnection';
-  edges: Array<NodeArticleEdge>;
-  nodes: Array<NodeArticle>;
-  pageInfo: ConnectionPageInfo;
-};
-
-/** Edge for NodeArticle. */
-export type NodeArticleEdge = Edge & {
-  __typename?: 'NodeArticleEdge';
-  cursor: Scalars['Cursor'];
-  node: NodeArticle;
-};
-
+/** Sections */
 export type NodeArticleSectionsUnion =
   | ParagraphButton
   | ParagraphSpacer
   | ParagraphText;
 
 /** Entity type node. */
-export type NodeFoundationPage = EdgeNode &
+export type NodeFoundationPage = MetaTagInterface &
   NodeInterface & {
     __typename?: 'NodeFoundationPage';
     /** The time that the node was last edited. */
@@ -566,21 +497,7 @@ export type NodeFoundationPage = EdgeNode &
     title: Scalars['String'];
   };
 
-/** A paginated set of results for NodeFoundationPage. */
-export type NodeFoundationPageConnection = Connection & {
-  __typename?: 'NodeFoundationPageConnection';
-  edges: Array<NodeFoundationPageEdge>;
-  nodes: Array<NodeFoundationPage>;
-  pageInfo: ConnectionPageInfo;
-};
-
-/** Edge for NodeFoundationPage. */
-export type NodeFoundationPageEdge = Edge & {
-  __typename?: 'NodeFoundationPageEdge';
-  cursor: Scalars['Cursor'];
-  node: NodeFoundationPage;
-};
-
+/** Sections */
 export type NodeFoundationPageSectionsUnion =
   | ParagraphButton
   | ParagraphContentTitle
@@ -619,7 +536,7 @@ export type NodeInterface = {
 };
 
 /** Entity type node. */
-export type NodePage = EdgeNode &
+export type NodePage = MetaTagInterface &
   NodeInterface & {
     __typename?: 'NodePage';
     /** The time that the node was last edited. */
@@ -650,21 +567,7 @@ export type NodePage = EdgeNode &
     title: Scalars['String'];
   };
 
-/** A paginated set of results for NodePage. */
-export type NodePageConnection = Connection & {
-  __typename?: 'NodePageConnection';
-  edges: Array<NodePageEdge>;
-  nodes: Array<NodePage>;
-  pageInfo: ConnectionPageInfo;
-};
-
-/** Edge for NodePage. */
-export type NodePageEdge = Edge & {
-  __typename?: 'NodePageEdge';
-  cursor: Scalars['Cursor'];
-  node: NodePage;
-};
-
+/** Sections */
 export type NodePageSectionsUnion =
   | ParagraphButton
   | ParagraphContentTitle
@@ -674,6 +577,7 @@ export type NodePageSectionsUnion =
   | ParagraphImageCarousel
   | ParagraphImageGallery
   | ParagraphLargeCalloutText
+  | ParagraphSchedule
   | ParagraphSpacer
   | ParagraphSpeakersGrid
   | ParagraphTalksGrid
@@ -681,8 +585,21 @@ export type NodePageSectionsUnion =
   | ParagraphTwoColumnContent
   | ParagraphVideo;
 
+/** Result for view node_paths_graphql display graphql_1. */
+export type NodePathsResult = View & {
+  __typename?: 'NodePathsResult';
+  description?: Maybe<Scalars['String']>;
+  display: Scalars['String'];
+  id: Scalars['ID'];
+  label?: Maybe<Scalars['String']>;
+  langcode?: Maybe<Scalars['String']>;
+  pageInfo: ViewPageInfo;
+  results: Array<NodeUnion>;
+  view: Scalars['String'];
+};
+
 /** Entity type node. */
-export type NodeSpeaker = EdgeNode &
+export type NodeSpeaker = MetaTagInterface &
   NodeInterface & {
     __typename?: 'NodeSpeaker';
     /** Biography */
@@ -738,23 +655,8 @@ export type NodeSpeakerTalksArgs = {
   sortKey?: InputMaybe<Scalars['String']>;
 };
 
-/** A paginated set of results for NodeSpeaker. */
-export type NodeSpeakerConnection = Connection & {
-  __typename?: 'NodeSpeakerConnection';
-  edges: Array<NodeSpeakerEdge>;
-  nodes: Array<NodeSpeaker>;
-  pageInfo: ConnectionPageInfo;
-};
-
-/** Edge for NodeSpeaker. */
-export type NodeSpeakerEdge = Edge & {
-  __typename?: 'NodeSpeakerEdge';
-  cursor: Scalars['Cursor'];
-  node: NodeSpeaker;
-};
-
 /** Entity type node. */
-export type NodeTalk = EdgeNode &
+export type NodeTalk = MetaTagInterface &
   NodeInterface & {
     __typename?: 'NodeTalk';
     /** The time that the node was last edited. */
@@ -791,45 +693,13 @@ export type NodeTalk = EdgeNode &
     title: Scalars['String'];
   };
 
-/** A paginated set of results for NodeTalk. */
-export type NodeTalkConnection = Connection & {
-  __typename?: 'NodeTalkConnection';
-  edges: Array<NodeTalkEdge>;
-  nodes: Array<NodeTalk>;
-  pageInfo: ConnectionPageInfo;
-};
-
-/** Edge for NodeTalk. */
-export type NodeTalkEdge = Edge & {
-  __typename?: 'NodeTalkEdge';
-  cursor: Scalars['Cursor'];
-  node: NodeTalk;
-};
-
+/** Entity type node. */
 export type NodeUnion =
   | NodeArticle
   | NodeFoundationPage
   | NodePage
   | NodeSpeaker
   | NodeTalk;
-
-/** A paginated set of results for Nodes */
-export type NodesConnection = NodesUnionConnection & {
-  __typename?: 'NodesConnection';
-  edges: Array<Edge>;
-  nodes: Array<NodeUnion>;
-  pageInfo: ConnectionPageInfo;
-};
-
-/** A paginated set of results. */
-export type NodesUnionConnection = {
-  /** The edges of this connection. */
-  edges: Array<Edge>;
-  /** The nodes of the edges of this connection. */
-  nodes: Array<NodeUnion>;
-  /** Information to aid in pagination. */
-  pageInfo: ConnectionPageInfo;
-};
 
 /** Entity type paragraph. */
 export type ParagraphButton = ParagraphInterface & {
@@ -838,6 +708,8 @@ export type ParagraphButton = ParagraphInterface & {
   created: DateTime;
   /** The Universally Unique IDentifier (UUID). */
   id: Scalars['ID'];
+  /** The paragraphs entity language code. */
+  langcode: Language;
   /** Link */
   link: Link;
 };
@@ -849,6 +721,8 @@ export type ParagraphCarouselItem = ParagraphInterface & {
   created: DateTime;
   /** The Universally Unique IDentifier (UUID). */
   id: Scalars['ID'];
+  /** The paragraphs entity language code. */
+  langcode: Language;
   /** Link */
   link?: Maybe<Link>;
   /** Image */
@@ -862,6 +736,8 @@ export type ParagraphContentTitle = ParagraphInterface & {
   created: DateTime;
   /** The Universally Unique IDentifier (UUID). */
   id: Scalars['ID'];
+  /** The paragraphs entity language code. */
+  langcode: Language;
   /** Content Title */
   title?: Maybe<Scalars['String']>;
 };
@@ -873,6 +749,8 @@ export type ParagraphHeroHeader = ParagraphInterface & {
   created: DateTime;
   /** The Universally Unique IDentifier (UUID). */
   id: Scalars['ID'];
+  /** The paragraphs entity language code. */
+  langcode: Language;
   /** Poster Image */
   singleImage: MediaImage;
   /** Header Title */
@@ -892,6 +770,8 @@ export type ParagraphHighlightedList = ParagraphInterface & {
   created: DateTime;
   /** The Universally Unique IDentifier (UUID). */
   id: Scalars['ID'];
+  /** The paragraphs entity language code. */
+  langcode: Language;
   /** List Item */
   listItem?: Maybe<Array<Scalars['String']>>;
 };
@@ -903,6 +783,8 @@ export type ParagraphHighlightedSpeakers = ParagraphInterface & {
   created: DateTime;
   /** The Universally Unique IDentifier (UUID). */
   id: Scalars['ID'];
+  /** The paragraphs entity language code. */
+  langcode: Language;
   /** Speakers */
   speakers?: Maybe<Array<NodeSpeaker>>;
 };
@@ -914,6 +796,8 @@ export type ParagraphImage = ParagraphInterface & {
   created: DateTime;
   /** The Universally Unique IDentifier (UUID). */
   id: Scalars['ID'];
+  /** The paragraphs entity language code. */
+  langcode: Language;
   /** Image */
   singleImage: MediaImage;
 };
@@ -927,6 +811,8 @@ export type ParagraphImageCarousel = ParagraphInterface & {
   created: DateTime;
   /** The Universally Unique IDentifier (UUID). */
   id: Scalars['ID'];
+  /** The paragraphs entity language code. */
+  langcode: Language;
 };
 
 /** Entity type paragraph. */
@@ -936,6 +822,8 @@ export type ParagraphImageGallery = ParagraphInterface & {
   created: DateTime;
   /** The Universally Unique IDentifier (UUID). */
   id: Scalars['ID'];
+  /** The paragraphs entity language code. */
+  langcode: Language;
   /** Gallery Images */
   multipleImages: Array<MediaImage>;
 };
@@ -946,6 +834,8 @@ export type ParagraphInterface = {
   created: DateTime;
   /** The Universally Unique IDentifier (UUID). */
   id: Scalars['ID'];
+  /** The paragraphs entity language code. */
+  langcode: Language;
 };
 
 /** Entity type paragraph. */
@@ -955,6 +845,8 @@ export type ParagraphLargeCalloutText = ParagraphInterface & {
   created: DateTime;
   /** The Universally Unique IDentifier (UUID). */
   id: Scalars['ID'];
+  /** The paragraphs entity language code. */
+  langcode: Language;
   /** Large Callout Text */
   largeCalloutText?: Maybe<Scalars['String']>;
 };
@@ -966,10 +858,55 @@ export type ParagraphMediaHeader = ParagraphInterface & {
   created: DateTime;
   /** The Universally Unique IDentifier (UUID). */
   id: Scalars['ID'];
+  /** The paragraphs entity language code. */
+  langcode: Language;
   /** Image */
   singleImage: MediaImage;
   /** Video */
   video?: Maybe<MediaRemoteVideo>;
+};
+
+/** Entity type paragraph. */
+export type ParagraphSchedule = ParagraphInterface & {
+  __typename?: 'ParagraphSchedule';
+  /** The time that the Paragraph was created. */
+  created: DateTime;
+  /** Days */
+  days: Array<ParagraphScheduleDay>;
+  /** The Universally Unique IDentifier (UUID). */
+  id: Scalars['ID'];
+  /** The paragraphs entity language code. */
+  langcode: Language;
+  /** Title */
+  title?: Maybe<Scalars['String']>;
+};
+
+/** Entity type paragraph. */
+export type ParagraphScheduleDay = ParagraphInterface & {
+  __typename?: 'ParagraphScheduleDay';
+  /** The time that the Paragraph was created. */
+  created: DateTime;
+  /** Date */
+  date: DateTime;
+  /** The Universally Unique IDentifier (UUID). */
+  id: Scalars['ID'];
+  /** The paragraphs entity language code. */
+  langcode: Language;
+  /**
+   * This is a viewfield query proxy. Page size and contextual filters are applied
+   * within the CMS. See the actual view base query for more documentation on
+   * filters and options available. Talks View
+   */
+  talksView: ViewResultUnion;
+};
+
+/** Entity type paragraph. */
+export type ParagraphScheduleDayTalksViewArgs = {
+  filter?: InputMaybe<Array<InputMaybe<KeyValueInput>>>;
+  offset?: InputMaybe<Scalars['Int']>;
+  page?: InputMaybe<Scalars['Int']>;
+  sortDir?: InputMaybe<SortDirection>;
+  sortKey?: InputMaybe<Scalars['String']>;
 };
 
 /** Entity type paragraph. */
@@ -979,6 +916,8 @@ export type ParagraphSocialMedia = ParagraphInterface & {
   created: DateTime;
   /** The Universally Unique IDentifier (UUID). */
   id: Scalars['ID'];
+  /** The paragraphs entity language code. */
+  langcode: Language;
   /** Links */
   socialMediaLinks?: Maybe<Array<ParagraphSocialMediaLink>>;
 };
@@ -990,6 +929,8 @@ export type ParagraphSocialMediaLink = ParagraphInterface & {
   created: DateTime;
   /** The Universally Unique IDentifier (UUID). */
   id: Scalars['ID'];
+  /** The paragraphs entity language code. */
+  langcode: Language;
   /** Link */
   link: Link;
   /** Social Media Type */
@@ -1003,6 +944,8 @@ export type ParagraphSpacer = ParagraphInterface & {
   created: DateTime;
   /** The Universally Unique IDentifier (UUID). */
   id: Scalars['ID'];
+  /** The paragraphs entity language code. */
+  langcode: Language;
   /** Spacer Line */
   spacerLine?: Maybe<Scalars['Boolean']>;
   /** Spacer Size */
@@ -1016,6 +959,8 @@ export type ParagraphSpeakersGrid = ParagraphInterface & {
   created: DateTime;
   /** The Universally Unique IDentifier (UUID). */
   id: Scalars['ID'];
+  /** The paragraphs entity language code. */
+  langcode: Language;
   /**
    * This is a viewfield query proxy. Page size and contextual filters are applied
    * within the CMS. See the actual view base query for more documentation on
@@ -1046,6 +991,8 @@ export type ParagraphTalkHeader = ParagraphInterface & {
   headerDuring: ParagraphMediaHeader;
   /** The Universally Unique IDentifier (UUID). */
   id: Scalars['ID'];
+  /** The paragraphs entity language code. */
+  langcode: Language;
 };
 
 /** Entity type paragraph. */
@@ -1055,6 +1002,8 @@ export type ParagraphTalksGrid = ParagraphInterface & {
   created: DateTime;
   /** The Universally Unique IDentifier (UUID). */
   id: Scalars['ID'];
+  /** The paragraphs entity language code. */
+  langcode: Language;
   /**
    * This is a viewfield query proxy. Page size and contextual filters are applied
    * within the CMS. See the actual view base query for more documentation on
@@ -1079,6 +1028,8 @@ export type ParagraphTeaser = ParagraphInterface & {
   created: DateTime;
   /** The Universally Unique IDentifier (UUID). */
   id: Scalars['ID'];
+  /** The paragraphs entity language code. */
+  langcode: Language;
   /** Teaser Image */
   singleImage: MediaImage;
 };
@@ -1090,6 +1041,8 @@ export type ParagraphText = ParagraphInterface & {
   created: DateTime;
   /** The Universally Unique IDentifier (UUID). */
   id: Scalars['ID'];
+  /** The paragraphs entity language code. */
+  langcode: Language;
   /** Text */
   text: Text;
 };
@@ -1103,10 +1056,13 @@ export type ParagraphTwoColumnContent = ParagraphInterface & {
   firstColumn?: Maybe<Array<ParagraphTwoColumnContentFirstColumnUnion>>;
   /** The Universally Unique IDentifier (UUID). */
   id: Scalars['ID'];
+  /** The paragraphs entity language code. */
+  langcode: Language;
   /** Second Column */
   secondColumn?: Maybe<Array<ParagraphTwoColumnContentSecondColumnUnion>>;
 };
 
+/** First Column */
 export type ParagraphTwoColumnContentFirstColumnUnion =
   | ParagraphButton
   | ParagraphContentTitle
@@ -1114,6 +1070,7 @@ export type ParagraphTwoColumnContentFirstColumnUnion =
   | ParagraphText
   | ParagraphVideo;
 
+/** Second Column */
 export type ParagraphTwoColumnContentSecondColumnUnion =
   | ParagraphButton
   | ParagraphContentTitle
@@ -1121,6 +1078,7 @@ export type ParagraphTwoColumnContentSecondColumnUnion =
   | ParagraphText
   | ParagraphVideo;
 
+/** Entity type paragraph. */
 export type ParagraphUnion =
   | ParagraphButton
   | ParagraphCarouselItem
@@ -1133,6 +1091,8 @@ export type ParagraphUnion =
   | ParagraphImageGallery
   | ParagraphLargeCalloutText
   | ParagraphMediaHeader
+  | ParagraphSchedule
+  | ParagraphScheduleDay
   | ParagraphSocialMedia
   | ParagraphSocialMediaLink
   | ParagraphSpacer
@@ -1151,6 +1111,8 @@ export type ParagraphVideo = ParagraphInterface & {
   created: DateTime;
   /** The Universally Unique IDentifier (UUID). */
   id: Scalars['ID'];
+  /** The paragraphs entity language code. */
+  langcode: Language;
   /** Poster Image */
   singleImage: MediaImage;
   /** Video */
@@ -1168,18 +1130,8 @@ export type Query = {
   info: SchemaInformation;
   /** Load a Route by path. */
   menu?: Maybe<Menu>;
-  /** List of all NodeArticle on the platform. */
-  nodeArticles: NodeArticleConnection;
-  /** List of all NodeFoundationPage on the platform. */
-  nodeFoundationPages: NodeFoundationPageConnection;
-  /** List of all NodePage on the platform. */
-  nodePages: NodePageConnection;
-  /** List of all NodeSpeaker on the platform. */
-  nodeSpeakers: NodeSpeakerConnection;
-  /** List of all NodeTalk on the platform. */
-  nodeTalks: NodeTalkConnection;
-  /** List of all Nodes on the platform. Results are access controlled. */
-  nodes: NodesConnection;
+  /** Query for view node_paths_graphql display graphql_1. */
+  nodePaths?: Maybe<NodePathsResult>;
   /** Load a Route by path. */
   route?: Maybe<RouteUnion>;
   /** Fetch data for a specific SiteSettings */
@@ -1193,102 +1145,6 @@ export type Query = {
  */
 export type QueryMenuArgs = {
   name: MenuAvailable;
-};
-
-/**
- * The schema's entry-point for queries.
- *
- * This acts as the public, top-level API from which all queries must start.
- */
-export type QueryNodeArticlesArgs = {
-  after?: InputMaybe<Scalars['Cursor']>;
-  before?: InputMaybe<Scalars['Cursor']>;
-  filter?: InputMaybe<ConnectionFilter>;
-  first?: InputMaybe<Scalars['Int']>;
-  langcode?: InputMaybe<Scalars['String']>;
-  last?: InputMaybe<Scalars['Int']>;
-  reverse?: InputMaybe<Scalars['Boolean']>;
-  sortKey?: InputMaybe<ConnectionSortKeys>;
-};
-
-/**
- * The schema's entry-point for queries.
- *
- * This acts as the public, top-level API from which all queries must start.
- */
-export type QueryNodeFoundationPagesArgs = {
-  after?: InputMaybe<Scalars['Cursor']>;
-  before?: InputMaybe<Scalars['Cursor']>;
-  filter?: InputMaybe<ConnectionFilter>;
-  first?: InputMaybe<Scalars['Int']>;
-  langcode?: InputMaybe<Scalars['String']>;
-  last?: InputMaybe<Scalars['Int']>;
-  reverse?: InputMaybe<Scalars['Boolean']>;
-  sortKey?: InputMaybe<ConnectionSortKeys>;
-};
-
-/**
- * The schema's entry-point for queries.
- *
- * This acts as the public, top-level API from which all queries must start.
- */
-export type QueryNodePagesArgs = {
-  after?: InputMaybe<Scalars['Cursor']>;
-  before?: InputMaybe<Scalars['Cursor']>;
-  filter?: InputMaybe<ConnectionFilter>;
-  first?: InputMaybe<Scalars['Int']>;
-  langcode?: InputMaybe<Scalars['String']>;
-  last?: InputMaybe<Scalars['Int']>;
-  reverse?: InputMaybe<Scalars['Boolean']>;
-  sortKey?: InputMaybe<ConnectionSortKeys>;
-};
-
-/**
- * The schema's entry-point for queries.
- *
- * This acts as the public, top-level API from which all queries must start.
- */
-export type QueryNodeSpeakersArgs = {
-  after?: InputMaybe<Scalars['Cursor']>;
-  before?: InputMaybe<Scalars['Cursor']>;
-  filter?: InputMaybe<ConnectionFilter>;
-  first?: InputMaybe<Scalars['Int']>;
-  langcode?: InputMaybe<Scalars['String']>;
-  last?: InputMaybe<Scalars['Int']>;
-  reverse?: InputMaybe<Scalars['Boolean']>;
-  sortKey?: InputMaybe<ConnectionSortKeys>;
-};
-
-/**
- * The schema's entry-point for queries.
- *
- * This acts as the public, top-level API from which all queries must start.
- */
-export type QueryNodeTalksArgs = {
-  after?: InputMaybe<Scalars['Cursor']>;
-  before?: InputMaybe<Scalars['Cursor']>;
-  filter?: InputMaybe<ConnectionFilter>;
-  first?: InputMaybe<Scalars['Int']>;
-  langcode?: InputMaybe<Scalars['String']>;
-  last?: InputMaybe<Scalars['Int']>;
-  reverse?: InputMaybe<Scalars['Boolean']>;
-  sortKey?: InputMaybe<ConnectionSortKeys>;
-};
-
-/**
- * The schema's entry-point for queries.
- *
- * This acts as the public, top-level API from which all queries must start.
- */
-export type QueryNodesArgs = {
-  after?: InputMaybe<Scalars['Cursor']>;
-  before?: InputMaybe<Scalars['Cursor']>;
-  filter?: InputMaybe<ConnectionFilter>;
-  first?: InputMaybe<Scalars['Int']>;
-  langcode?: InputMaybe<Scalars['String']>;
-  last?: InputMaybe<Scalars['Int']>;
-  reverse?: InputMaybe<Scalars['Boolean']>;
-  sortKey?: InputMaybe<ConnectionSortKeys>;
 };
 
 /**
@@ -1347,6 +1203,7 @@ export type ResponsiveImageStyleInterface = {
   name: Scalars['String'];
 };
 
+/** Entity type responsive_image_style. */
 export type ResponsiveImageStyleUnion = ResponsiveImageStyle;
 
 /** Routes represent incoming requests that resolve to content. */
@@ -1401,7 +1258,7 @@ export type RouteRedirect = Route & {
 };
 
 /** Route types that can exist in the system. */
-export type RouteUnion = RouteExternal | RouteInternal | RouteRedirect;
+export type RouteUnion = RouteExternal | RouteInternal;
 
 /** A file object to represent an managed file. */
 export type Svg = {
@@ -1426,7 +1283,8 @@ export type SchemaInformation = {
 
 /** Entity type config_pages. */
 export type SiteSettings = ConfigPages &
-  ConfigPagesInterface & {
+  ConfigPagesInterface &
+  MetaTagInterface & {
     __typename?: 'SiteSettings';
     /** Frontend URL */
     frontendUrl: Link;
@@ -1434,11 +1292,13 @@ export type SiteSettings = ConfigPages &
     id: Scalars['ID'];
     /** A brief description of your config page. */
     label: Scalars['String'];
+    /** The computed meta tags for the entity. */
+    metatag: Array<MetaTagUnion>;
     /** Social */
     social?: Maybe<ParagraphSocialMedia>;
   };
 
-/** List of menus available to load. */
+/** Sort direction. */
 export enum SortDirection {
   /** Ascending */
   Asc = 'ASC',
@@ -1459,23 +1319,26 @@ export type SpeakersResult = View & {
   view: Scalars['String'];
 };
 
-export type Table = {
-  __typename?: 'Table';
-  caption?: Maybe<Scalars['String']>;
-  /** A text format associated with the row data. */
-  format?: Maybe<Scalars['String']>;
-  rows?: Maybe<Array<Maybe<TableRow>>>;
-};
-
-export type TableRow = {
-  __typename?: 'TableRow';
-  data?: Maybe<Array<Maybe<Scalars['String']>>>;
-  weight?: Maybe<Scalars['Int']>;
-};
-
 /** Result for view talks display graphql_2. */
 export type TalksAllResult = View & {
   __typename?: 'TalksAllResult';
+  description?: Maybe<Scalars['String']>;
+  display: Scalars['String'];
+  id: Scalars['ID'];
+  label?: Maybe<Scalars['String']>;
+  langcode?: Maybe<Scalars['String']>;
+  pageInfo: ViewPageInfo;
+  results: Array<NodeUnion>;
+  view: Scalars['String'];
+};
+
+export type TalksByDateContextualFilterInput = {
+  field_date_time_value?: InputMaybe<Scalars['String']>;
+};
+
+/** Result for view talks display graphql_3. */
+export type TalksByDateResult = View & {
+  __typename?: 'TalksByDateResult';
   description?: Maybe<Scalars['String']>;
   display: Scalars['String'];
   id: Scalars['ID'];
@@ -1506,17 +1369,24 @@ export type TalksResult = View & {
 /** A processed text format defined by the CMS. */
 export type Text = {
   __typename?: 'Text';
+  /** The text format used to process the text value. */
   format?: Maybe<Scalars['String']>;
+  /** The processed text value. */
   processed?: Maybe<Scalars['Html']>;
+  /** The raw text value. */
   value?: Maybe<Scalars['String']>;
 };
 
 /** A processed text format with summary defined by the CMS. */
 export type TextSummary = {
   __typename?: 'TextSummary';
+  /** The text format used to process the text value. */
   format?: Maybe<Scalars['String']>;
+  /** The processed text value. */
   processed?: Maybe<Scalars['Html']>;
+  /** The processed text summary. */
   summary?: Maybe<Scalars['Html']>;
+  /** The raw text value. */
   value?: Maybe<Scalars['String']>;
 };
 
@@ -1573,4 +1443,9 @@ export type ViewReference = {
 };
 
 /** All available view result types. */
-export type ViewResultUnion = SpeakersResult | TalksAllResult | TalksResult;
+export type ViewResultUnion =
+  | NodePathsResult
+  | SpeakersResult
+  | TalksAllResult
+  | TalksByDateResult
+  | TalksResult;

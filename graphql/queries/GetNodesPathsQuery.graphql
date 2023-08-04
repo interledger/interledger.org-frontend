@@ -1,6 +1,6 @@
-query GetNodesPathsQuery($first: Int) {
-  nodes(first: $first) {
-    nodes {
+query GetNodesPathsQuery {
+  nodePaths {
+    results {
       ... on NodeArticle {
         path
       }

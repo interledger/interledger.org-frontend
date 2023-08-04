@@ -5,15 +5,15 @@
 @use '@styles/base/helpers' as *;
 
 .root {
-  margin-bottom: rem(100px);
+  margin-bottom: var(--component-spacing);
 }
 
 .header {
-  margin-bottom: rem(100px);
+  margin-bottom: var(--component-spacing);
 }
 
 .content {
-  margin-top: rem(100px);
+  margin-top: var(--component-spacing);
 }
 
 .sideBar {

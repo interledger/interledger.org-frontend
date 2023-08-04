@@ -13,6 +13,7 @@ import {
   ParagraphVideoFragment,
   ParagraphSpeakersGridFragment,
   ParagraphTalksGridFragment,
+  ParagraphScheduleFragment,
 } from '@models/operations';
 import dynamic from 'next/dynamic';
 
@@ -100,6 +101,12 @@ const ParagraphSpeakersGrid = dynamic(() =>
   ).then((paragraph) => paragraph.ParagraphSpeakersGrid)
 );
 
+const ParagraphSchedule = dynamic(() =>
+  import('@components/paragraph/ParagraphSchedule/ParagraphSchedule').then(
+    (paragraph) => paragraph.ParagraphSchedule
+  )
+);
+
 export type ParagraphTypes =
   | ParagraphLargeCalloutTextFragment
   | ParagraphButtonFragment
@@ -115,6 +122,7 @@ export type ParagraphTypes =
   | ParagraphVideoFragment
   | ParagraphSpeakersGridFragment
   | ParagraphTalksGridFragment
+  | ParagraphScheduleFragment
   | null;
 
 export interface ParagraphsProps {
@@ -180,6 +188,8 @@ const Paragraph = ({ paragraph, className }: ParagraphProps) => {
       return <ParagraphSpeakersGrid key={paragraph.id} paragraph={paragraph} />;
     case 'ParagraphTalksGrid':
       return <ParagraphTalksGrid key={paragraph.id} paragraph={paragraph} />;
+    case 'ParagraphSchedule':
+      return <ParagraphSchedule key={paragraph.id} paragraph={paragraph} />;
     default:
       return null;
   }

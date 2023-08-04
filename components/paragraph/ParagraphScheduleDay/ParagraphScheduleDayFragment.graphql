@@ -1,0 +1,17 @@
+fragment ParagraphScheduleDayFragment on ParagraphScheduleDay {
+  __typename
+  id
+  date {
+    time
+  }
+  talksView {
+    __typename
+    ... on TalksByDateResult {
+      results {
+        ... on NodeTalk {
+          ...NodeTalkCardFragment
+        }
+      }
+    }
+  }
+}
