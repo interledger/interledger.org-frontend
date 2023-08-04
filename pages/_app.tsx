@@ -15,6 +15,7 @@ import { useState } from 'react';
 import { PT_Sans } from 'next/font/google';
 import { Provider } from 'jotai';
 import '../styles/globals.scss';
+import Head from 'next/head';
 
 function syncDrupalPreviewRoutes(path: string) {
   if (window && window.top !== window.self) {
@@ -63,6 +64,9 @@ export default function App({ Component, pageProps }: AppProps<PageProps>) {
           <LazyMotion features={loadFeatures} strict>
             <Provider>
               <Main>
+                {/* <Head>
+                  <meta name="viewport" content="viewport-fit=cover" />
+                </Head> */}
                 <Component {...pageProps} />
               </Main>
             </Provider>

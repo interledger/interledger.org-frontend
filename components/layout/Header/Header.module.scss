@@ -6,7 +6,8 @@
 
 .root {
   position: relative;
-  padding: rem(30px) var(--page-gutter);
+  padding: rem(30px) calc(var(--page-gutter) + env(safe-area-inset-right))
+    rem(30px) calc(var(--page-gutter) + env(safe-area-inset-left));
   background-color: transparent;
   display: grid;
   grid-template-columns: 1fr 1fr;
