@@ -25,7 +25,7 @@ h5,
 h6 {
   margin-top: 0;
   margin-bottom: 0;
-  font-family: var(--font-display);
+  font-weight: 700;
 }
 
 a {
@@ -96,6 +96,5 @@ article {
 }
 
 strong {
-  font-family: var(--font-display);
-  font-weight: normal;
+  font-weight: 700;
 }

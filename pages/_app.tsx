@@ -37,14 +37,10 @@ type PageProps = {
   dehydratedState?: DehydratedState;
 };
 
-const PTSansRegular = PT_Sans({
+const PTSans = PT_Sans({
   subsets: ['latin'],
-  weight: '400',
-});
-
-const PTSansBold = PT_Sans({
-  subsets: ['latin'],
-  weight: '700',
+  weight: ['400', '700'],
+  style: ['normal', 'italic'],
 });
 
 export default function App({ Component, pageProps }: AppProps<PageProps>) {
@@ -54,8 +50,7 @@ export default function App({ Component, pageProps }: AppProps<PageProps>) {
     <>
       <style jsx global>{`
         :root {
-          --font-base: ${PTSansRegular.style.fontFamily};
-          --font-display: ${PTSansBold.style.fontFamily};
+          --font-base: ${PTSans.style.fontFamily};
         }
       `}</style>
       <QueryClientProvider client={queryClient}>
@@ -64,9 +59,7 @@ export default function App({ Component, pageProps }: AppProps<PageProps>) {
           <LazyMotion features={loadFeatures} strict>
             <Provider>
               <Main>
-                {/* <Head>
-                  <meta name="viewport" content="viewport-fit=cover" />
-                </Head> */}
+                ==
                 <Component {...pageProps} />
               </Main>
             </Provider>
