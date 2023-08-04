@@ -11,15 +11,14 @@
   --grid-horizontal-spacing: #{rem(34px)};
 
   // Colors
+  --color-black: #000;
+  --color-white: #fff;
+  --color-primary: #6d00cc;
+  --color-secondary: #01ffff;
   --color-divider: lightgrey;
   --color-bullets: var(--color-primary);
   --color-link: var(--color-primary);
   --color-swiper-pagination: var(--color-black);
-
-  --color-black: #000;
-  --color-white: #fff;
-  --color-primary: #6200b1;
-  --color-secondary: #01ffff;
 
   --color-text: var(--color-black);
   --color-text-reverse: var(--color-black);

@@ -22,6 +22,10 @@ export const ParagraphSchedule = ({
   paragraph,
 }: ParagraphScheduleProps) => {
   const [active, setActive] = useState(paragraph.days[0].id);
+  console.log({ day: paragraph.days[0] });
+
+  console.log({ active });
+
   const rootClassName = cn(styles.root, className);
   return (
     <section className={rootClassName}>
