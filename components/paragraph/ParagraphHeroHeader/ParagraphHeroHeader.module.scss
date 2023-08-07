@@ -7,9 +7,7 @@
 .root {
   position: relative;
   display: grid;
-  grid-template-columns: calc(var(--page-gutter) + env(safe-area-inset-left)) 1fr calc(
-      var(--page-gutter) + env(safe-area-inset-right)
-    );
+  grid-template-columns: var(--page-gutter-left) 1fr var(--page-gutter-right);
   grid-template-rows: 1fr;
   gap: 0px 0px;
   @include breakContainer;
@@ -57,12 +55,12 @@
   h1 {
     color: var(--color-white);
     font-size: rem(50px);
-    line-height: rem(60px);
-
-    @include mq($from: tablet) {
-      font-size: rem(100px);
-      line-height: rem(115px);
-    }
+    font-size: clamp(
+      #{rem(50px)},
+      1.450892857142857rem + 6.868131868131869vw,
+      #{rem(100px)}
+    );
+    line-height: 1.2;
   }
 }
 

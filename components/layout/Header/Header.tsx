@@ -11,6 +11,7 @@ import styles from './Header.module.scss';
 import { useAtom } from 'jotai';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
+import { useScrollLock } from '@hooks/useScrollLock';
 
 export interface HeaderProps {
   /** Optional className for Header, pass in a sass module class to override component default */
@@ -27,11 +28,16 @@ export const Header = ({ className, mainMenu, isSummit }: HeaderProps) => {
   const rootClassName = cn(styles.root, className);
   const [menuOpen] = useAtom(menuAtom);
   const [, setMenuOpen] = useAtom(menuOpenAtom);
+  const [menuRef, setLock] = useScrollLock();
   const router = useRouter();
 
   useEffect(() => {
+    setLock(menuOpen);
+  }, [menuOpen, setLock]);
+
+  useEffect(() => {
     // Close menu when navigation triggered
-    const handleRouteChange = (url: string) => {
+    const handleRouteChange = () => {
       setMenuOpen(false);
     };
 
@@ -54,11 +60,28 @@ export const Header = ({ className, mainMenu, isSummit }: HeaderProps) => {
         </Link>
       </div>
       <div className={styles.hamburgerWrapper}>
-        <button className={styles.menuButton} onClick={() => setMenuOpen(true)}>
+        <button
+          className={styles.menuButton}
+          onClick={() => setMenuOpen(true)}
+          aria-label="Open Menu"
+        >
           <HamburgerIcon />
         </button>
       </div>
-      <div className={cn(styles.navWrapper, { [styles.menuOpen]: menuOpen })}>
+      <div
+        className={cn(styles.navWrapper, {
+          [styles.menuOpen]: menuOpen,
+          [styles.dark]: isSummit,
+        })}
+        ref={menuRef}
+      >
+        <button
+          className={styles.menuClose}
+          onClick={() => setMenuOpen(false)}
+          aria-label="Close Menu"
+        >
+          Close
+        </button>
         {mainMenu && (
           <div className={styles.menuWrapper}>
             <MainMenu mainMenu={mainMenu} />

@@ -5,9 +5,16 @@
 @use '@styles/base/helpers' as *;
 
 .root {
-  @include breakContainer;
+  @include mq($from: tablet) {
+    margin: 0 calc(-1 * var(--page-gutter));
+  }
+}
 
-  padding: 0 var(--page-gutter);
+.content {
+  @include mq($from: tablet) {
+    padding: 0 var(--page-gutter);
+    position: relative;
+  }
 }
 
 .prev,
@@ -16,22 +23,21 @@
   top: 50%;
   transform: translateY(-100%);
   display: none;
-  z-index: 2;
+  z-index: 20;
 
   @include mq($from: tablet) {
     display: block;
   }
 
   svg {
-    width: rem(40px);
-    stroke: white;
+    width: rem(16px);
   }
 }
 
 .prev {
-  left: calc(var(--page-gutter) + #{rem(20px)});
+  left: 10px;
 }
 
 .next {
-  right: calc(var(--page-gutter) + #{rem(20px)});
+  right: 10px;
 }

@@ -5,9 +5,4 @@
 @use '@styles/base/helpers' as *;
 
 .root {
-  @include breakContainer;
-
-  @include mq($from: tablet) {
-    padding: 0 var(--page-gutter);
-  }
 }

@@ -500,10 +500,11 @@ export type NodeFoundationPage = MetaTagInterface &
 /** Sections */
 export type NodeFoundationPageSectionsUnion =
   | ParagraphButton
+  | ParagraphContentCarousel
   | ParagraphContentTitle
   | ParagraphHighlightedList
-  | ParagraphImage
   | ParagraphImageCarousel
+  | ParagraphImageFullWidth
   | ParagraphImageGallery
   | ParagraphLargeCalloutText
   | ParagraphSpacer
@@ -573,8 +574,8 @@ export type NodePageSectionsUnion =
   | ParagraphContentTitle
   | ParagraphHighlightedList
   | ParagraphHighlightedSpeakers
-  | ParagraphImage
   | ParagraphImageCarousel
+  | ParagraphImageFullWidth
   | ParagraphImageGallery
   | ParagraphLargeCalloutText
   | ParagraphSchedule
@@ -730,6 +731,19 @@ export type ParagraphCarouselItem = ParagraphInterface & {
 };
 
 /** Entity type paragraph. */
+export type ParagraphContentCarousel = ParagraphInterface & {
+  __typename?: 'ParagraphContentCarousel';
+  /** Carousel Item */
+  carouselItem?: Maybe<Array<ParagraphTwoColumnContent>>;
+  /** The time that the Paragraph was created. */
+  created: DateTime;
+  /** The Universally Unique IDentifier (UUID). */
+  id: Scalars['ID'];
+  /** The paragraphs entity language code. */
+  langcode: Language;
+};
+
+/** Entity type paragraph. */
 export type ParagraphContentTitle = ParagraphInterface & {
   __typename?: 'ParagraphContentTitle';
   /** The time that the Paragraph was created. */
@@ -813,6 +827,19 @@ export type ParagraphImageCarousel = ParagraphInterface & {
   id: Scalars['ID'];
   /** The paragraphs entity language code. */
   langcode: Language;
+};
+
+/** Entity type paragraph. */
+export type ParagraphImageFullWidth = ParagraphInterface & {
+  __typename?: 'ParagraphImageFullWidth';
+  /** The time that the Paragraph was created. */
+  created: DateTime;
+  /** The Universally Unique IDentifier (UUID). */
+  id: Scalars['ID'];
+  /** The paragraphs entity language code. */
+  langcode: Language;
+  /** Image */
+  singleImage: MediaImage;
 };
 
 /** Entity type paragraph. */
@@ -1066,6 +1093,7 @@ export type ParagraphTwoColumnContent = ParagraphInterface & {
 export type ParagraphTwoColumnContentFirstColumnUnion =
   | ParagraphButton
   | ParagraphContentTitle
+  | ParagraphImage
   | ParagraphSpacer
   | ParagraphText
   | ParagraphVideo;
@@ -1074,6 +1102,7 @@ export type ParagraphTwoColumnContentFirstColumnUnion =
 export type ParagraphTwoColumnContentSecondColumnUnion =
   | ParagraphButton
   | ParagraphContentTitle
+  | ParagraphImage
   | ParagraphSpacer
   | ParagraphText
   | ParagraphVideo;
@@ -1082,12 +1111,14 @@ export type ParagraphTwoColumnContentSecondColumnUnion =
 export type ParagraphUnion =
   | ParagraphButton
   | ParagraphCarouselItem
+  | ParagraphContentCarousel
   | ParagraphContentTitle
   | ParagraphHeroHeader
   | ParagraphHighlightedList
   | ParagraphHighlightedSpeakers
   | ParagraphImage
   | ParagraphImageCarousel
+  | ParagraphImageFullWidth
   | ParagraphImageGallery
   | ParagraphLargeCalloutText
   | ParagraphMediaHeader
@@ -1132,6 +1163,8 @@ export type Query = {
   menu?: Maybe<Menu>;
   /** Query for view node_paths_graphql display graphql_1. */
   nodePaths?: Maybe<NodePathsResult>;
+  /** Fetch data for a specific ParagraphImageFullWidth */
+  paragraphImageFullWidth?: Maybe<ParagraphImageFullWidth>;
   /** Load a Route by path. */
   route?: Maybe<RouteUnion>;
   /** Fetch data for a specific SiteSettings */
@@ -1145,6 +1178,15 @@ export type Query = {
  */
 export type QueryMenuArgs = {
   name: MenuAvailable;
+};
+
+/**
+ * The schema's entry-point for queries.
+ *
+ * This acts as the public, top-level API from which all queries must start.
+ */
+export type QueryParagraphImageFullWidthArgs = {
+  id: Scalars['ID'];
 };
 
 /**
