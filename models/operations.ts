@@ -340,6 +340,7 @@ export type NodeFoundationPageFragment = {
               id: string;
               title?: string | null;
             }
+          | { __typename?: 'ParagraphImage' }
           | {
               __typename: 'ParagraphSpacer';
               id: string;
@@ -391,6 +392,7 @@ export type NodeFoundationPageFragment = {
               id: string;
               title?: string | null;
             }
+          | { __typename?: 'ParagraphImage' }
           | {
               __typename: 'ParagraphSpacer';
               id: string;
@@ -962,6 +964,7 @@ export type NodePageFragment = {
               id: string;
               title?: string | null;
             }
+          | { __typename?: 'ParagraphImage' }
           | {
               __typename: 'ParagraphSpacer';
               id: string;
@@ -1013,6 +1016,7 @@ export type NodePageFragment = {
               id: string;
               title?: string | null;
             }
+          | { __typename?: 'ParagraphImage' }
           | {
               __typename: 'ParagraphSpacer';
               id: string;
@@ -2152,6 +2156,10 @@ type TwoColumnContentFragment_ParagraphCarouselItem_ = {
   __typename?: 'ParagraphCarouselItem';
 };
 
+type TwoColumnContentFragment_ParagraphContentCarousel_ = {
+  __typename?: 'ParagraphContentCarousel';
+};
+
 type TwoColumnContentFragment_ParagraphContentTitle_ = {
   __typename: 'ParagraphContentTitle';
   id: string;
@@ -2267,6 +2275,7 @@ type TwoColumnContentFragment_ParagraphVideo_ = {
 export type TwoColumnContentFragment =
   | TwoColumnContentFragment_ParagraphButton_
   | TwoColumnContentFragment_ParagraphCarouselItem_
+  | TwoColumnContentFragment_ParagraphContentCarousel_
   | TwoColumnContentFragment_ParagraphContentTitle_
   | TwoColumnContentFragment_ParagraphHeroHeader_
   | TwoColumnContentFragment_ParagraphHighlightedList_
@@ -2303,6 +2312,7 @@ export type ParagraphTwoColumnContentFragment = {
         };
       }
     | { __typename: 'ParagraphContentTitle'; id: string; title?: string | null }
+    | { __typename?: 'ParagraphImage' }
     | {
         __typename: 'ParagraphSpacer';
         id: string;
@@ -2350,6 +2360,7 @@ export type ParagraphTwoColumnContentFragment = {
         };
       }
     | { __typename: 'ParagraphContentTitle'; id: string; title?: string | null }
+    | { __typename?: 'ParagraphImage' }
     | {
         __typename: 'ParagraphSpacer';
         id: string;
@@ -2462,6 +2473,10 @@ type ParagraphsFragment_ParagraphButton_ = {
 
 type ParagraphsFragment_ParagraphCarouselItem_ = {
   __typename?: 'ParagraphCarouselItem';
+};
+
+type ParagraphsFragment_ParagraphContentCarousel_ = {
+  __typename?: 'ParagraphContentCarousel';
 };
 
 type ParagraphsFragment_ParagraphContentTitle_ = {
@@ -2863,6 +2878,7 @@ type ParagraphsFragment_ParagraphTwoColumnContent_ = {
         };
       }
     | { __typename: 'ParagraphContentTitle'; id: string; title?: string | null }
+    | { __typename?: 'ParagraphImage' }
     | {
         __typename: 'ParagraphSpacer';
         id: string;
@@ -2910,6 +2926,7 @@ type ParagraphsFragment_ParagraphTwoColumnContent_ = {
         };
       }
     | { __typename: 'ParagraphContentTitle'; id: string; title?: string | null }
+    | { __typename?: 'ParagraphImage' }
     | {
         __typename: 'ParagraphSpacer';
         id: string;
@@ -2976,6 +2993,7 @@ type ParagraphsFragment_ParagraphVideo_ = {
 export type ParagraphsFragment =
   | ParagraphsFragment_ParagraphButton_
   | ParagraphsFragment_ParagraphCarouselItem_
+  | ParagraphsFragment_ParagraphContentCarousel_
   | ParagraphsFragment_ParagraphContentTitle_
   | ParagraphsFragment_ParagraphHeroHeader_
   | ParagraphsFragment_ParagraphHighlightedList_
@@ -3278,6 +3296,7 @@ export type GetNodeByPathQuery = {
                           id: string;
                           title?: string | null;
                         }
+                      | { __typename?: 'ParagraphImage' }
                       | {
                           __typename: 'ParagraphSpacer';
                           id: string;
@@ -3332,6 +3351,7 @@ export type GetNodeByPathQuery = {
                           id: string;
                           title?: string | null;
                         }
+                      | { __typename?: 'ParagraphImage' }
                       | {
                           __typename: 'ParagraphSpacer';
                           id: string;
@@ -3874,6 +3894,7 @@ export type GetNodeByPathQuery = {
                           id: string;
                           title?: string | null;
                         }
+                      | { __typename?: 'ParagraphImage' }
                       | {
                           __typename: 'ParagraphSpacer';
                           id: string;
@@ -3928,6 +3949,7 @@ export type GetNodeByPathQuery = {
                           id: string;
                           title?: string | null;
                         }
+                      | { __typename?: 'ParagraphImage' }
                       | {
                           __typename: 'ParagraphSpacer';
                           id: string;

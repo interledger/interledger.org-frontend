@@ -730,6 +730,19 @@ export type ParagraphCarouselItem = ParagraphInterface & {
 };
 
 /** Entity type paragraph. */
+export type ParagraphContentCarousel = ParagraphInterface & {
+  __typename?: 'ParagraphContentCarousel';
+  /** Carousel Item */
+  carouselItem?: Maybe<Array<ParagraphTwoColumnContent>>;
+  /** The time that the Paragraph was created. */
+  created: DateTime;
+  /** The Universally Unique IDentifier (UUID). */
+  id: Scalars['ID'];
+  /** The paragraphs entity language code. */
+  langcode: Language;
+};
+
+/** Entity type paragraph. */
 export type ParagraphContentTitle = ParagraphInterface & {
   __typename?: 'ParagraphContentTitle';
   /** The time that the Paragraph was created. */
@@ -1066,6 +1079,7 @@ export type ParagraphTwoColumnContent = ParagraphInterface & {
 export type ParagraphTwoColumnContentFirstColumnUnion =
   | ParagraphButton
   | ParagraphContentTitle
+  | ParagraphImage
   | ParagraphSpacer
   | ParagraphText
   | ParagraphVideo;
@@ -1074,6 +1088,7 @@ export type ParagraphTwoColumnContentFirstColumnUnion =
 export type ParagraphTwoColumnContentSecondColumnUnion =
   | ParagraphButton
   | ParagraphContentTitle
+  | ParagraphImage
   | ParagraphSpacer
   | ParagraphText
   | ParagraphVideo;
@@ -1082,6 +1097,7 @@ export type ParagraphTwoColumnContentSecondColumnUnion =
 export type ParagraphUnion =
   | ParagraphButton
   | ParagraphCarouselItem
+  | ParagraphContentCarousel
   | ParagraphContentTitle
   | ParagraphHeroHeader
   | ParagraphHighlightedList

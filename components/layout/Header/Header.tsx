@@ -60,7 +60,11 @@ export const Header = ({ className, mainMenu, isSummit }: HeaderProps) => {
         </Link>
       </div>
       <div className={styles.hamburgerWrapper}>
-        <button className={styles.menuButton} onClick={() => setMenuOpen(true)}>
+        <button
+          className={styles.menuButton}
+          onClick={() => setMenuOpen(true)}
+          aria-label="Open Menu"
+        >
           <HamburgerIcon />
         </button>
       </div>
@@ -71,6 +75,13 @@ export const Header = ({ className, mainMenu, isSummit }: HeaderProps) => {
         })}
         ref={menuRef}
       >
+        <button
+          className={styles.menuClose}
+          onClick={() => setMenuOpen(false)}
+          aria-label="Close Menu"
+        >
+          Close
+        </button>
         {mainMenu && (
           <div className={styles.menuWrapper}>
             <MainMenu mainMenu={mainMenu} />
