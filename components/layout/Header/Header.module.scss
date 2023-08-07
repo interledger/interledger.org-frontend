@@ -89,7 +89,7 @@
   }
 
   &.menuOpen {
-    background-color: white;
+    background-color: var(--color-white);
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr auto;
@@ -99,8 +99,12 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 10;
+    z-index: 11;
     height: 100%;
     width: 100%;
+  }
+
+  &.dark {
+    background-color: var(--color-black);
   }
 }
