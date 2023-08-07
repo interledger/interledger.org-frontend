@@ -1,0 +1,23 @@
+@use '@styles/base/mq-settings';
+@use '~sass-mq/mq' as *;
+@use '~sass-rem' as *;
+@use '@styles/base/variables' as *;
+@use '@styles/base/helpers' as *;
+
+.root {
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  z-index: 2;
+
+  svg {
+    stroke: var(--color-primary);
+    fill: none;
+  }
+
+  &:global(.swiper-button-disabled) {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}

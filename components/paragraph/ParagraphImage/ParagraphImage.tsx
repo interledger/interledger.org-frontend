@@ -6,18 +6,21 @@ import styles from './ParagraphImage.module.scss';
 export interface ParagraphImageProps {
   /** Optional className for ParagraphImage, pass in a sass module class to override component default */
   className?: string;
-  paragraph: ParagraphImageFragment
+  paragraph: ParagraphImageFragment;
 }
 
 /**
  * ParagraphImage description
  */
 
-export const ParagraphImage = ({ className, paragraph }: ParagraphImageProps) => {
+export const ParagraphImage = ({
+  className,
+  paragraph,
+}: ParagraphImageProps) => {
   const rootClassName = cn(styles.root, className);
   return (
     <div className={rootClassName}>
-      <MediaImage media={paragraph.landscapeImage} fit />
+      <MediaImage media={paragraph.landscapeImage} />
     </div>
-  )
+  );
 };

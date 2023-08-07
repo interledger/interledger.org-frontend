@@ -20,6 +20,9 @@ fragment ParagraphsFragment on ParagraphInterface {
   ... on ParagraphImage {
     ...ParagraphImageFragment
   }
+  ... on ParagraphImageFullWidth {
+    ...ParagraphImageFullWidthFragment
+  }
   ... on ParagraphImageCarousel {
     ...ParagraphImageCarouselFragment
   }
@@ -43,5 +46,8 @@ fragment ParagraphsFragment on ParagraphInterface {
   }
   ... on ParagraphSchedule {
     ...ParagraphScheduleFragment
+  }
+  ... on ParagraphContentCarousel {
+    ...ParagraphContentCarouselFragment
   }
 }

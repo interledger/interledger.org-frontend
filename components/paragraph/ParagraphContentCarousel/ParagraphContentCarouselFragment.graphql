@@ -1,0 +1,13 @@
+fragment ContentCarouselItemFragment on ParagraphInterface {
+  ... on ParagraphTwoColumnContent {
+    ...ParagraphTwoColumnContentFragment
+  }
+}
+
+fragment ParagraphContentCarouselFragment on ParagraphContentCarousel {
+  __typename
+  id
+  carouselItem {
+    ...ContentCarouselItemFragment
+  }
+}

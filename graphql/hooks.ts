@@ -175,6 +175,30 @@ export const ParagraphVideoFragment = /*#__PURE__*/ `
   }
 }
     `;
+export const MediaImageSquareFragment = /*#__PURE__*/ `
+    fragment MediaImageSquareFragment on MediaImage {
+  __typename
+  id
+  mediaImage {
+    alt
+    responsive(name: ASPECT_RATIO_SQUARE_1_1) {
+      ...ResponsiveImageStyleFragment
+    }
+  }
+}
+    `;
+export const ParagraphImageFragment = /*#__PURE__*/ `
+    fragment ParagraphImageFragment on ParagraphImage {
+  __typename
+  id
+  landscapeImage: singleImage {
+    ...MediaImageLandscapeFragment
+  }
+  squareIamge: singleImage {
+    ...MediaImageSquareFragment
+  }
+}
+    `;
 export const TwoColumnContentFragment = /*#__PURE__*/ `
     fragment TwoColumnContentFragment on ParagraphInterface {
   ... on ParagraphButton {
@@ -194,6 +218,9 @@ export const TwoColumnContentFragment = /*#__PURE__*/ `
   }
   ... on ParagraphVideo {
     ...ParagraphVideoFragment
+  }
+  ... on ParagraphImage {
+    ...ParagraphImageFragment
   }
 }
     `;
@@ -223,20 +250,8 @@ export const ParagraphHighlightedListFragment = /*#__PURE__*/ `
   listItem
 }
     `;
-export const MediaImageSquareFragment = /*#__PURE__*/ `
-    fragment MediaImageSquareFragment on MediaImage {
-  __typename
-  id
-  mediaImage {
-    alt
-    responsive(name: ASPECT_RATIO_SQUARE_1_1) {
-      ...ResponsiveImageStyleFragment
-    }
-  }
-}
-    `;
-export const ParagraphImageFragment = /*#__PURE__*/ `
-    fragment ParagraphImageFragment on ParagraphImage {
+export const ParagraphImageFullWidthFragment = /*#__PURE__*/ `
+    fragment ParagraphImageFullWidthFragment on ParagraphImageFullWidth {
   __typename
   id
   landscapeImage: singleImage {
@@ -253,9 +268,6 @@ export const ParagraphImageCarouselFragment = /*#__PURE__*/ `
   id
   carouselItem {
     id
-    link {
-      ...LinkFragment
-    }
     image: singleImage {
       ... on MediaImage {
         ...MediaImageLandscapeFragment
@@ -394,6 +406,22 @@ export const ParagraphScheduleFragment = /*#__PURE__*/ `
   }
 }
     `;
+export const ContentCarouselItemFragment = /*#__PURE__*/ `
+    fragment ContentCarouselItemFragment on ParagraphInterface {
+  ... on ParagraphTwoColumnContent {
+    ...ParagraphTwoColumnContentFragment
+  }
+}
+    `;
+export const ParagraphContentCarouselFragment = /*#__PURE__*/ `
+    fragment ParagraphContentCarouselFragment on ParagraphContentCarousel {
+  __typename
+  id
+  carouselItem {
+    ...ContentCarouselItemFragment
+  }
+}
+    `;
 export const ParagraphsFragment = /*#__PURE__*/ `
     fragment ParagraphsFragment on ParagraphInterface {
   ... on ParagraphButton {
@@ -416,6 +444,9 @@ export const ParagraphsFragment = /*#__PURE__*/ `
   }
   ... on ParagraphImage {
     ...ParagraphImageFragment
+  }
+  ... on ParagraphImageFullWidth {
+    ...ParagraphImageFullWidthFragment
   }
   ... on ParagraphImageCarousel {
     ...ParagraphImageCarouselFragment
@@ -440,6 +471,9 @@ export const ParagraphsFragment = /*#__PURE__*/ `
   }
   ... on ParagraphSchedule {
     ...ParagraphScheduleFragment
+  }
+  ... on ParagraphContentCarousel {
+    ...ParagraphContentCarouselFragment
   }
 }
     `;
@@ -779,10 +813,11 @@ ${ParagraphVideoFragment}
 ${MediaVideoFragment}
 ${MediaImageLandscapeFragment}
 ${ResponsiveImageStyleFragment}
-${ParagraphLargeCalloutTextFragment}
-${ParagraphHighlightedListFragment}
 ${ParagraphImageFragment}
 ${MediaImageSquareFragment}
+${ParagraphLargeCalloutTextFragment}
+${ParagraphHighlightedListFragment}
+${ParagraphImageFullWidthFragment}
 ${ParagraphImageCarouselFragment}
 ${ParagraphHighlightedSpeakersFragment}
 ${ParagraphTeaserFragment}
@@ -793,6 +828,8 @@ ${ParagraphTalksGridFragment}
 ${NodeTalkCardFragment}
 ${ParagraphScheduleFragment}
 ${ParagraphScheduleDayFragment}
+${ParagraphContentCarouselFragment}
+${ContentCarouselItemFragment}
 ${MetaTagFragment}
 ${NodePageFragment}
 ${ParagraphHeroHeaderFragment}

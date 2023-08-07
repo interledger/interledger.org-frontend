@@ -20,11 +20,11 @@
   outline-offset: 4px;
   border: 0;
   padding: 0;
-  border: 1px solid var(--color-swiper-pagination);
+  border: 1px solid var(--color-primary);
   transition: 0.4s ease background-color;
   background-color: transparent;
 }
 
 .bulletActive {
-  background-color: var(--color-swiper-pagination);
+  background-color: var(--color-primary);
 }

@@ -14,6 +14,8 @@ import {
   ParagraphSpeakersGridFragment,
   ParagraphTalksGridFragment,
   ParagraphScheduleFragment,
+  ParagraphContentCarouselFragment,
+  ParagraphImageFullWidthFragment,
 } from '@models/operations';
 import dynamic from 'next/dynamic';
 
@@ -107,6 +109,18 @@ const ParagraphSchedule = dynamic(() =>
   )
 );
 
+const ParagraphContentCarousel = dynamic(() =>
+  import(
+    '@components/paragraph/ParagraphContentCarousel/ParagraphContentCarousel'
+  ).then((paragraph) => paragraph.ParagraphContentCarousel)
+);
+
+const ParagraphImageFullWidth = dynamic(() =>
+  import(
+    '@components/paragraph/ParagraphImageFullWidth/ParagraphImageFullWidth'
+  ).then((paragraph) => paragraph.ParagraphImageFullWidth)
+);
+
 export type ParagraphTypes =
   | ParagraphLargeCalloutTextFragment
   | ParagraphButtonFragment
@@ -116,6 +130,7 @@ export type ParagraphTypes =
   | ParagraphContentTitleFragment
   | ParagraphHighlightedListFragment
   | ParagraphImageFragment
+  | ParagraphImageFullWidthFragment
   | ParagraphImageCarouselFragment
   | ParagraphHighlightedSpeakersFragment
   | ParagraphImageGalleryFragment
@@ -123,6 +138,7 @@ export type ParagraphTypes =
   | ParagraphSpeakersGridFragment
   | ParagraphTalksGridFragment
   | ParagraphScheduleFragment
+  | ParagraphContentCarouselFragment
   | null;
 
 export interface ParagraphsProps {
@@ -162,6 +178,10 @@ const Paragraph = ({ paragraph, className }: ParagraphProps) => {
       return (
         <ParagraphImageCarousel key={paragraph.id} paragraph={paragraph} />
       );
+    case 'ParagraphImageFullWidth':
+      return (
+        <ParagraphImageFullWidth key={paragraph.id} paragraph={paragraph} />
+      );
     case 'ParagraphImage':
       return <ParagraphImage key={paragraph.id} paragraph={paragraph} />;
     case 'ParagraphContentTitle':
@@ -190,6 +210,10 @@ const Paragraph = ({ paragraph, className }: ParagraphProps) => {
       return <ParagraphTalksGrid key={paragraph.id} paragraph={paragraph} />;
     case 'ParagraphSchedule':
       return <ParagraphSchedule key={paragraph.id} paragraph={paragraph} />;
+    case 'ParagraphContentCarousel':
+      return (
+        <ParagraphContentCarousel key={paragraph.id} paragraph={paragraph} />
+      );
     default:
       return null;
   }
