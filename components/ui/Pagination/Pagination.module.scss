@@ -1,0 +1,53 @@
+@use '@styles/base/mq-settings';
+@use '~sass-mq/mq' as *;
+@use '~sass-rem' as *;
+@use '@styles/base/variables' as *;
+@use '@styles/base/helpers' as *;
+
+.root {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.paginationItem {
+  padding: 0;
+  margin: 0 rem(10px);
+  cursor: pointer;
+
+  &:hover {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+}
+
+.paginationSelected {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+.paginationNav {
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &:first-of-type {
+    margin-right: rem(80px);
+  }
+
+  &:last-of-type {
+    margin-left: rem(80px);
+  }
+
+  svg {
+    width: rem(23px);
+  }
+}

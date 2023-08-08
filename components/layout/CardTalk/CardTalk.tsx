@@ -32,7 +32,9 @@ export const CardTalk = ({
         }
       />
       <CardContent>
-        <Text variant="h2">{talk.title}</Text>
+        <Text variant="h2" noMargin>
+          {talk.title}
+        </Text>
         <Text variant="body2">
           {!!talk.speakers?.length ? talk.speakers[0].title : null}
         </Text>

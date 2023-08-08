@@ -24,7 +24,7 @@ h4,
 h5,
 h6 {
   margin-top: 0;
-  margin-bottom: 0;
+  margin-bottom: 1rem;
   font-weight: 700;
 }
 
@@ -42,7 +42,7 @@ li {
   padding: 0;
 
   &::marker {
-    color: var(--color-bullets);
+    color: var(--color-text-reverse);
   }
 }
 

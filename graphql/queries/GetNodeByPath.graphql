@@ -1,4 +1,4 @@
-query GetNodeByPathQuery($slug: String!) {
+query GetNodeByPathQuery($slug: String!, $newsListingPage: Int = 0) {
   route(path: $slug) {
     ... on RouteInternal {
       __typename

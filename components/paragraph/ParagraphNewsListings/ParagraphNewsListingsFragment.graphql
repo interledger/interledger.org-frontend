@@ -1,0 +1,26 @@
+fragment ParagraphNewsListingsFragment on ParagraphNewsListings {
+  __typename
+  id
+  newsView(page: $newsListingPage) {
+    ... on NewsResult {
+      __typename
+      pageInfo {
+        offset
+        page
+        pageSize
+        total
+      }
+      results {
+        ... on NodeArticle {
+          ...NodeArticleCardFragment
+        }
+      }
+    }
+  }
+}
+
+query GetParagraphNewsListing($id: ID!, $newsListingPage: Int) {
+  paragraphNewsListings(id: $id) {
+    ...ParagraphNewsListingsFragment
+  }
+}

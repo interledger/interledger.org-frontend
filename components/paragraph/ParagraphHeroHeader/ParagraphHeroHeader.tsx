@@ -53,7 +53,9 @@ export const ParagraphHeroHeader = ({
       <div className={styles.overlayContent}>
         <div className={styles.textContainer}>
           <div className={styles.titleContainer}>
-            <Text variant="h1">{paragraph.title}</Text>
+            <Text variant="h1" noMargin>
+              {paragraph.title}
+            </Text>
           </div>
           <div className={styles.infoContainer}>
             <div className={styles.when}>

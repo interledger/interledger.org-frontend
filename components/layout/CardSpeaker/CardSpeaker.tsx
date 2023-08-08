@@ -30,7 +30,9 @@ export const CardSpeaker = ({
         }
       />
       <CardContent>
-        <Text variant="h2">{speaker.title}</Text>
+        <Text variant="h2" noMargin>
+          {speaker.title}
+        </Text>
         <Text variant="body2">
           {speaker.role}
           {speaker.company ? (

@@ -101,6 +101,30 @@ export const SocialFragment = /*#__PURE__*/ `
   }
 }
     `;
+export const MediaImageSquareFragment = /*#__PURE__*/ `
+    fragment MediaImageSquareFragment on MediaImage {
+  __typename
+  id
+  mediaImage {
+    alt
+    responsive(name: ASPECT_RATIO_SQUARE_1_1) {
+      ...ResponsiveImageStyleFragment
+    }
+  }
+}
+    `;
+export const MediaImageLandscapeFragment = /*#__PURE__*/ `
+    fragment MediaImageLandscapeFragment on MediaImage {
+  __typename
+  id
+  mediaImage {
+    alt
+    responsive(name: ASPECT_RATIO_LANDSCAPE_16_9) {
+      ...ResponsiveImageStyleFragment
+    }
+  }
+}
+    `;
 export const LinkFragment = /*#__PURE__*/ `
     fragment LinkFragment on Link {
   url
@@ -149,18 +173,6 @@ export const MediaVideoFragment = /*#__PURE__*/ `
   }
 }
     `;
-export const MediaImageLandscapeFragment = /*#__PURE__*/ `
-    fragment MediaImageLandscapeFragment on MediaImage {
-  __typename
-  id
-  mediaImage {
-    alt
-    responsive(name: ASPECT_RATIO_LANDSCAPE_16_9) {
-      ...ResponsiveImageStyleFragment
-    }
-  }
-}
-    `;
 export const ParagraphVideoFragment = /*#__PURE__*/ `
     fragment ParagraphVideoFragment on ParagraphVideo {
   __typename
@@ -171,18 +183,6 @@ export const ParagraphVideoFragment = /*#__PURE__*/ `
   image: singleImage {
     ... on MediaImage {
       ...MediaImageLandscapeFragment
-    }
-  }
-}
-    `;
-export const MediaImageSquareFragment = /*#__PURE__*/ `
-    fragment MediaImageSquareFragment on MediaImage {
-  __typename
-  id
-  mediaImage {
-    alt
-    responsive(name: ASPECT_RATIO_SQUARE_1_1) {
-      ...ResponsiveImageStyleFragment
     }
   }
 }
@@ -422,6 +422,45 @@ export const ParagraphContentCarouselFragment = /*#__PURE__*/ `
   }
 }
     `;
+export const NodeArticleCardFragment = /*#__PURE__*/ `
+    fragment NodeArticleCardFragment on NodeArticle {
+  __typename
+  id
+  title
+  path
+  summary {
+    processed
+  }
+  created {
+    time
+  }
+  teaser {
+    ...ParagraphTeaserFragment
+  }
+}
+    `;
+export const ParagraphNewsListingsFragment = /*#__PURE__*/ `
+    fragment ParagraphNewsListingsFragment on ParagraphNewsListings {
+  __typename
+  id
+  newsView(page: $newsListingPage) {
+    ... on NewsResult {
+      __typename
+      pageInfo {
+        offset
+        page
+        pageSize
+        total
+      }
+      results {
+        ... on NodeArticle {
+          ...NodeArticleCardFragment
+        }
+      }
+    }
+  }
+}
+    `;
 export const ParagraphsFragment = /*#__PURE__*/ `
     fragment ParagraphsFragment on ParagraphInterface {
   ... on ParagraphButton {
@@ -475,6 +514,9 @@ export const ParagraphsFragment = /*#__PURE__*/ `
   ... on ParagraphContentCarousel {
     ...ParagraphContentCarouselFragment
   }
+  ... on ParagraphNewsListings {
+    ...ParagraphNewsListingsFragment
+  }
 }
     `;
 export const MetaTagFragment = /*#__PURE__*/ `
@@ -509,24 +551,20 @@ export const NodeArticleFragment = /*#__PURE__*/ `
   id
   title
   path
+  squareImage: image {
+    ...MediaImageSquareFragment
+  }
+  landscapeImage: image {
+    ...MediaImageLandscapeFragment
+  }
   sections {
     ...ParagraphsFragment
   }
+  created {
+    time
+  }
   metatag {
     ...MetaTagFragment
-  }
-}
-    `;
-export const NodeArticleCardFragment = /*#__PURE__*/ `
-    fragment NodeArticleCardFragment on NodeArticle {
-  __typename
-  id
-  title
-  path
-  image {
-    ... on MediaImage {
-      ...MediaImageLandscapeFragment
-    }
   }
 }
     `;
@@ -718,6 +756,48 @@ export const RouteUnionFragment = /*#__PURE__*/ `
   }
 }
     `;
+export const GetParagraphNewsListingDocument = /*#__PURE__*/ `
+    query GetParagraphNewsListing($id: ID!, $newsListingPage: Int) {
+  paragraphNewsListings(id: $id) {
+    ...ParagraphNewsListingsFragment
+  }
+}
+    ${ParagraphNewsListingsFragment}
+${NodeArticleCardFragment}
+${ParagraphTeaserFragment}
+${MediaImageSquareFragment}
+${ResponsiveImageStyleFragment}
+${MediaImageLandscapeFragment}`;
+export const useGetParagraphNewsListing = <
+  TData = OperationTypes.GetParagraphNewsListing,
+  TError = unknown
+>(
+  variables: OperationTypes.GetParagraphNewsListingVariables,
+  options?: UseQueryOptions<
+    OperationTypes.GetParagraphNewsListing,
+    TError,
+    TData
+  >
+) =>
+  useQuery<OperationTypes.GetParagraphNewsListing, TError, TData>(
+    ['GetParagraphNewsListing', variables],
+    fetcher<
+      OperationTypes.GetParagraphNewsListing,
+      OperationTypes.GetParagraphNewsListingVariables
+    >(GetParagraphNewsListingDocument, variables),
+    options
+  );
+
+useGetParagraphNewsListing.getKey = (
+  variables: OperationTypes.GetParagraphNewsListingVariables
+) => ['GetParagraphNewsListing', variables];
+useGetParagraphNewsListing.fetcher = (
+  variables: OperationTypes.GetParagraphNewsListingVariables
+) =>
+  fetcher<
+    OperationTypes.GetParagraphNewsListing,
+    OperationTypes.GetParagraphNewsListingVariables
+  >(GetParagraphNewsListingDocument, variables);
 export const GetInitDataQueryDocument = /*#__PURE__*/ `
     query GetInitDataQuery {
   mainMenu: menu(name: MAIN) {
@@ -774,7 +854,7 @@ useGetInitDataQuery.fetcher = (
     OperationTypes.GetInitDataQueryVariables
   >(GetInitDataQueryDocument, variables);
 export const GetNodeByPathQueryDocument = /*#__PURE__*/ `
-    query GetNodeByPathQuery($slug: String!) {
+    query GetNodeByPathQuery($slug: String!, $newsListingPage: Int = 0) {
   route(path: $slug) {
     ... on RouteInternal {
       __typename
@@ -801,6 +881,9 @@ export const GetNodeByPathQueryDocument = /*#__PURE__*/ `
   }
 }
     ${NodeArticleFragment}
+${MediaImageSquareFragment}
+${ResponsiveImageStyleFragment}
+${MediaImageLandscapeFragment}
 ${ParagraphsFragment}
 ${ParagraphButtonFragment}
 ${LinkFragment}
@@ -811,10 +894,7 @@ ${TwoColumnContentFragment}
 ${ParagraphContentTitleFragment}
 ${ParagraphVideoFragment}
 ${MediaVideoFragment}
-${MediaImageLandscapeFragment}
-${ResponsiveImageStyleFragment}
 ${ParagraphImageFragment}
-${MediaImageSquareFragment}
 ${ParagraphLargeCalloutTextFragment}
 ${ParagraphHighlightedListFragment}
 ${ParagraphImageFullWidthFragment}
@@ -830,6 +910,8 @@ ${ParagraphScheduleFragment}
 ${ParagraphScheduleDayFragment}
 ${ParagraphContentCarouselFragment}
 ${ContentCarouselItemFragment}
+${ParagraphNewsListingsFragment}
+${NodeArticleCardFragment}
 ${MetaTagFragment}
 ${NodePageFragment}
 ${ParagraphHeroHeaderFragment}

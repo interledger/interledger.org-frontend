@@ -17,7 +17,6 @@ import {
 } from '@models/operations';
 import { QueryClient, dehydrate } from '@tanstack/react-query';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
-import { ParsedUrlQuery } from 'querystring';
 
 interface BasicProps {
   slug: string;
@@ -74,7 +73,7 @@ const BasicPage: NextPage<BasicProps> = ({ slug }) => {
 
 export const getStaticProps: GetStaticProps = withInitData(
   async (context, queryClient) => {
-    const { preview, params } = context;
+    const { preview, params, query } = context;
 
     const slugParts = params?.slug as string[];
     const slug = slugParts?.join('/') as string;

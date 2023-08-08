@@ -9,13 +9,14 @@ import {
 } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { LazyMotion } from 'framer-motion';
+import { Provider } from 'jotai';
 import type { AppProps } from 'next/app';
+import { PT_Sans } from 'next/font/google';
 import { Router } from 'next/router';
 import { useState } from 'react';
-import { PT_Sans } from 'next/font/google';
-import { Provider } from 'jotai';
+import NextAdapterPages from 'next-query-params/pages';
+import { QueryParamProvider } from 'use-query-params';
 import '../styles/globals.scss';
-import Head from 'next/head';
 
 function syncDrupalPreviewRoutes(path: string) {
   if (window && window.top !== window.self) {
@@ -58,9 +59,11 @@ export default function App({ Component, pageProps }: AppProps<PageProps>) {
           <GoogleAnalytics trackPageViews />
           <LazyMotion features={loadFeatures} strict>
             <Provider>
-              <Main>
-                <Component {...pageProps} />
-              </Main>
+              <QueryParamProvider adapter={NextAdapterPages}>
+                <Main>
+                  <Component {...pageProps} />
+                </Main>
+              </QueryParamProvider>
             </Provider>
           </LazyMotion>
         </Hydrate>
