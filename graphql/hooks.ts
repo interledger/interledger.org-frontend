@@ -101,6 +101,30 @@ export const SocialFragment = /*#__PURE__*/ `
   }
 }
     `;
+export const MediaImageSquareFragment = /*#__PURE__*/ `
+    fragment MediaImageSquareFragment on MediaImage {
+  __typename
+  id
+  mediaImage {
+    alt
+    responsive(name: ASPECT_RATIO_SQUARE_1_1) {
+      ...ResponsiveImageStyleFragment
+    }
+  }
+}
+    `;
+export const MediaImageLandscapeFragment = /*#__PURE__*/ `
+    fragment MediaImageLandscapeFragment on MediaImage {
+  __typename
+  id
+  mediaImage {
+    alt
+    responsive(name: ASPECT_RATIO_LANDSCAPE_16_9) {
+      ...ResponsiveImageStyleFragment
+    }
+  }
+}
+    `;
 export const LinkFragment = /*#__PURE__*/ `
     fragment LinkFragment on Link {
   url
@@ -149,18 +173,6 @@ export const MediaVideoFragment = /*#__PURE__*/ `
   }
 }
     `;
-export const MediaImageLandscapeFragment = /*#__PURE__*/ `
-    fragment MediaImageLandscapeFragment on MediaImage {
-  __typename
-  id
-  mediaImage {
-    alt
-    responsive(name: ASPECT_RATIO_LANDSCAPE_16_9) {
-      ...ResponsiveImageStyleFragment
-    }
-  }
-}
-    `;
 export const ParagraphVideoFragment = /*#__PURE__*/ `
     fragment ParagraphVideoFragment on ParagraphVideo {
   __typename
@@ -171,18 +183,6 @@ export const ParagraphVideoFragment = /*#__PURE__*/ `
   image: singleImage {
     ... on MediaImage {
       ...MediaImageLandscapeFragment
-    }
-  }
-}
-    `;
-export const MediaImageSquareFragment = /*#__PURE__*/ `
-    fragment MediaImageSquareFragment on MediaImage {
-  __typename
-  id
-  mediaImage {
-    alt
-    responsive(name: ASPECT_RATIO_SQUARE_1_1) {
-      ...ResponsiveImageStyleFragment
     }
   }
 }
@@ -551,6 +551,12 @@ export const NodeArticleFragment = /*#__PURE__*/ `
   id
   title
   path
+  squareImage: image {
+    ...MediaImageSquareFragment
+  }
+  landscapeImage: image {
+    ...MediaImageLandscapeFragment
+  }
   sections {
     ...ParagraphsFragment
   }
@@ -833,6 +839,9 @@ export const GetNodeByPathQueryDocument = /*#__PURE__*/ `
   }
 }
     ${NodeArticleFragment}
+${MediaImageSquareFragment}
+${ResponsiveImageStyleFragment}
+${MediaImageLandscapeFragment}
 ${ParagraphsFragment}
 ${ParagraphButtonFragment}
 ${LinkFragment}
@@ -843,10 +852,7 @@ ${TwoColumnContentFragment}
 ${ParagraphContentTitleFragment}
 ${ParagraphVideoFragment}
 ${MediaVideoFragment}
-${MediaImageLandscapeFragment}
-${ResponsiveImageStyleFragment}
 ${ParagraphImageFragment}
-${MediaImageSquareFragment}
 ${ParagraphLargeCalloutTextFragment}
 ${ParagraphHighlightedListFragment}
 ${ParagraphImageFullWidthFragment}

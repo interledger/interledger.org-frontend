@@ -129,6 +129,36 @@ export type NodeArticleFragment = {
   id: string;
   title: string;
   path: string;
+  squareImage: {
+    __typename: 'MediaImage';
+    id: string;
+    mediaImage: {
+      __typename?: 'Image';
+      alt?: string | null;
+      responsive?: {
+        __typename: 'ResponsiveImageStyleDerivative';
+        height?: number | null;
+        path?: string | null;
+        srcSetPath?: string | null;
+        width?: number | null;
+      } | null;
+    };
+  };
+  landscapeImage: {
+    __typename: 'MediaImage';
+    id: string;
+    mediaImage: {
+      __typename?: 'Image';
+      alt?: string | null;
+      responsive?: {
+        __typename: 'ResponsiveImageStyleDerivative';
+        height?: number | null;
+        path?: string | null;
+        srcSetPath?: string | null;
+        width?: number | null;
+      } | null;
+    };
+  };
   sections?: Array<
     | {
         __typename: 'ParagraphButton';
@@ -4739,6 +4769,36 @@ export type GetNodeByPathQuery = {
               id: string;
               title: string;
               path: string;
+              squareImage: {
+                __typename: 'MediaImage';
+                id: string;
+                mediaImage: {
+                  __typename?: 'Image';
+                  alt?: string | null;
+                  responsive?: {
+                    __typename: 'ResponsiveImageStyleDerivative';
+                    height?: number | null;
+                    path?: string | null;
+                    srcSetPath?: string | null;
+                    width?: number | null;
+                  } | null;
+                };
+              };
+              landscapeImage: {
+                __typename: 'MediaImage';
+                id: string;
+                mediaImage: {
+                  __typename?: 'Image';
+                  alt?: string | null;
+                  responsive?: {
+                    __typename: 'ResponsiveImageStyleDerivative';
+                    height?: number | null;
+                    path?: string | null;
+                    srcSetPath?: string | null;
+                    width?: number | null;
+                  } | null;
+                };
+              };
               sections?: Array<
                 | {
                     __typename: 'ParagraphButton';

@@ -48,7 +48,6 @@
   font-weight: 400;
   margin-bottom: 1rem;
   line-height: 1.466;
-  // font-size: rem(18px);
   font-size: clamp(
     #{rem(18px)},
     0.890625rem + 0.9615384615384616vw,
@@ -59,7 +58,7 @@
 .body2 {
   font-weight: 400;
   font-size: rem(18px);
-  margin-bottom: 1em;
+  margin-bottom: 1rem;
   line-height: 1.538;
 }
 

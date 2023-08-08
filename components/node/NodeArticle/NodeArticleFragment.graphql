@@ -3,6 +3,12 @@ fragment NodeArticleFragment on NodeArticle {
   id
   title
   path
+  squareImage: image {
+    ...MediaImageSquareFragment
+  }
+  landscapeImage: image {
+    ...MediaImageLandscapeFragment
+  }
   sections {
     ...ParagraphsFragment
   }

@@ -26,7 +26,9 @@ export const CardNews = ({ className, article }: CardNewsProps) => {
         <MediaImage media={article.teaser.squareImage} />
       </div>
       <div className={styles.content}>
-        <Text variant="h2">{article.title}</Text>
+        <Text variant="h2" noMargin>
+          {article.title}
+        </Text>
         <Text variant="body1" noMargin>
           <DateFormat
             date={new Date(article.created.time)}
