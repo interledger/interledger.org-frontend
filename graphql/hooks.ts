@@ -422,6 +422,45 @@ export const ParagraphContentCarouselFragment = /*#__PURE__*/ `
   }
 }
     `;
+export const NodeArticleCardFragment = /*#__PURE__*/ `
+    fragment NodeArticleCardFragment on NodeArticle {
+  __typename
+  id
+  title
+  path
+  summary {
+    processed
+  }
+  created {
+    time
+  }
+  teaser {
+    ...ParagraphTeaserFragment
+  }
+}
+    `;
+export const ParagraphNewsListingsFragment = /*#__PURE__*/ `
+    fragment ParagraphNewsListingsFragment on ParagraphNewsListings {
+  __typename
+  id
+  newsView {
+    ... on NewsResult {
+      __typename
+      pageInfo {
+        offset
+        page
+        pageSize
+        total
+      }
+      results {
+        ... on NodeArticle {
+          ...NodeArticleCardFragment
+        }
+      }
+    }
+  }
+}
+    `;
 export const ParagraphsFragment = /*#__PURE__*/ `
     fragment ParagraphsFragment on ParagraphInterface {
   ... on ParagraphButton {
@@ -475,6 +514,9 @@ export const ParagraphsFragment = /*#__PURE__*/ `
   ... on ParagraphContentCarousel {
     ...ParagraphContentCarouselFragment
   }
+  ... on ParagraphNewsListings {
+    ...ParagraphNewsListingsFragment
+  }
 }
     `;
 export const MetaTagFragment = /*#__PURE__*/ `
@@ -512,21 +554,11 @@ export const NodeArticleFragment = /*#__PURE__*/ `
   sections {
     ...ParagraphsFragment
   }
+  created {
+    time
+  }
   metatag {
     ...MetaTagFragment
-  }
-}
-    `;
-export const NodeArticleCardFragment = /*#__PURE__*/ `
-    fragment NodeArticleCardFragment on NodeArticle {
-  __typename
-  id
-  title
-  path
-  image {
-    ... on MediaImage {
-      ...MediaImageLandscapeFragment
-    }
   }
 }
     `;
@@ -830,6 +862,8 @@ ${ParagraphScheduleFragment}
 ${ParagraphScheduleDayFragment}
 ${ParagraphContentCarouselFragment}
 ${ContentCarouselItemFragment}
+${ParagraphNewsListingsFragment}
+${NodeArticleCardFragment}
 ${MetaTagFragment}
 ${NodePageFragment}
 ${ParagraphHeroHeaderFragment}

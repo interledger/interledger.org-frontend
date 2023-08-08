@@ -1,0 +1,65 @@
+@use '@styles/base/mq-settings';
+@use '~sass-mq/mq' as *;
+@use '~sass-rem' as *;
+@use '@styles/base/variables' as *;
+@use '@styles/base/helpers' as *;
+
+.root {
+  display: flex;
+  flex-direction: column;
+
+  @include mq($from: tablet) {
+    flex-direction: row;
+  }
+}
+
+.image {
+  width: 100%;
+
+  @include mq($from: tablet) {
+    width: 28%;
+  }
+}
+
+.content {
+  margin-top: rem(20px);
+  width: 100%;
+
+  h2 {
+    font-size: rem(30px);
+  }
+
+  p:last-of-type {
+    margin-bottom: 0;
+  }
+
+  @include mq($from: tablet) {
+    margin-top: 0;
+    margin-left: rem(30px);
+    width: calc(72% - #{rem(30px)});
+  }
+}
+
+.summary {
+  margin-top: rem(12px);
+  @include mq($from: tablet) {
+    margin-top: rem(15px);
+  }
+}
+
+.link {
+  padding-top: rem(12px);
+  margin-top: rem(12px);
+  border-top: 1px solid var(--color-primary);
+
+  a {
+    color: var(--color-black);
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  @include mq($from: tablet) {
+    padding-top: rem(15px);
+    margin-top: rem(15px);
+  }
+}

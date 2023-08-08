@@ -6,6 +6,9 @@ fragment NodeArticleFragment on NodeArticle {
   sections {
     ...ParagraphsFragment
   }
+  created {
+    time
+  }
   metatag {
     ...MetaTagFragment
   }
@@ -16,9 +19,13 @@ fragment NodeArticleCardFragment on NodeArticle {
   id
   title
   path
-  image {
-    ... on MediaImage {
-      ...MediaImageLandscapeFragment
-    }
+  summary {
+    processed
+  }
+  created {
+    time
+  }
+  teaser {
+    ...ParagraphTeaserFragment
   }
 }

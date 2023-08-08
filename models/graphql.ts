@@ -429,6 +429,19 @@ export type Mutation = {
   _: Scalars['Boolean'];
 };
 
+/** Result for view news display graphql_1. */
+export type NewsResult = View & {
+  __typename?: 'NewsResult';
+  description?: Maybe<Scalars['String']>;
+  display: Scalars['String'];
+  id: Scalars['ID'];
+  label?: Maybe<Scalars['String']>;
+  langcode?: Maybe<Scalars['String']>;
+  pageInfo: ViewPageInfo;
+  results: Array<NodeUnion>;
+  view: Scalars['String'];
+};
+
 /** Use <em>articles</em> for time-sensitive content like news, press releases or blog posts. */
 export type NodeArticle = MetaTagInterface &
   NodeInterface & {
@@ -440,7 +453,7 @@ export type NodeArticle = MetaTagInterface &
     /** The Universally Unique IDentifier (UUID). */
     id: Scalars['ID'];
     /** Image */
-    image?: Maybe<MediaImage>;
+    image: MediaImage;
     /** Language */
     langcode: Language;
     /** The computed meta tags for the entity. */
@@ -455,6 +468,10 @@ export type NodeArticle = MetaTagInterface &
     status: Scalars['Boolean'];
     /** Sticky at top of lists */
     sticky: Scalars['Boolean'];
+    /** Summary */
+    summary?: Maybe<Text>;
+    /** Preview image pulled in when post displayed in listings */
+    teaser: ParagraphTeaser;
     /** Title */
     title: Scalars['String'];
   };
@@ -462,8 +479,11 @@ export type NodeArticle = MetaTagInterface &
 /** Sections */
 export type NodeArticleSectionsUnion =
   | ParagraphButton
+  | ParagraphContentTitle
+  | ParagraphImageFullWidth
   | ParagraphSpacer
-  | ParagraphText;
+  | ParagraphText
+  | ParagraphTwoColumnContent;
 
 /** Entity type node. */
 export type NodeFoundationPage = MetaTagInterface &
@@ -507,6 +527,7 @@ export type NodeFoundationPageSectionsUnion =
   | ParagraphImageFullWidth
   | ParagraphImageGallery
   | ParagraphLargeCalloutText
+  | ParagraphNewsListings
   | ParagraphSpacer
   | ParagraphText
   | ParagraphTwoColumnContent
@@ -724,8 +745,6 @@ export type ParagraphCarouselItem = ParagraphInterface & {
   id: Scalars['ID'];
   /** The paragraphs entity language code. */
   langcode: Language;
-  /** Link */
-  link?: Maybe<Link>;
   /** Image */
   singleImage: MediaImage;
 };
@@ -891,6 +910,32 @@ export type ParagraphMediaHeader = ParagraphInterface & {
   singleImage: MediaImage;
   /** Video */
   video?: Maybe<MediaRemoteVideo>;
+};
+
+/** Entity type paragraph. */
+export type ParagraphNewsListings = ParagraphInterface & {
+  __typename?: 'ParagraphNewsListings';
+  /** The time that the Paragraph was created. */
+  created: DateTime;
+  /** The Universally Unique IDentifier (UUID). */
+  id: Scalars['ID'];
+  /** The paragraphs entity language code. */
+  langcode: Language;
+  /**
+   * This is a viewfield query proxy. Page size and contextual filters are applied
+   * within the CMS. See the actual view base query for more documentation on
+   * filters and options available. News View
+   */
+  newsView: ViewResultUnion;
+};
+
+/** Entity type paragraph. */
+export type ParagraphNewsListingsNewsViewArgs = {
+  filter?: InputMaybe<Array<InputMaybe<KeyValueInput>>>;
+  offset?: InputMaybe<Scalars['Int']>;
+  page?: InputMaybe<Scalars['Int']>;
+  sortDir?: InputMaybe<SortDirection>;
+  sortKey?: InputMaybe<Scalars['String']>;
 };
 
 /** Entity type paragraph. */
@@ -1122,6 +1167,7 @@ export type ParagraphUnion =
   | ParagraphImageGallery
   | ParagraphLargeCalloutText
   | ParagraphMediaHeader
+  | ParagraphNewsListings
   | ParagraphSchedule
   | ParagraphScheduleDay
   | ParagraphSocialMedia
@@ -1161,6 +1207,8 @@ export type Query = {
   info: SchemaInformation;
   /** Load a Route by path. */
   menu?: Maybe<Menu>;
+  /** Query for view news display graphql_1. */
+  news?: Maybe<NewsResult>;
   /** Query for view node_paths_graphql display graphql_1. */
   nodePaths?: Maybe<NodePathsResult>;
   /** Fetch data for a specific ParagraphImageFullWidth */
@@ -1328,8 +1376,6 @@ export type SiteSettings = ConfigPages &
   ConfigPagesInterface &
   MetaTagInterface & {
     __typename?: 'SiteSettings';
-    /** Frontend URL */
-    frontendUrl: Link;
     /** The Universally Unique IDentifier (UUID). */
     id: Scalars['ID'];
     /** A brief description of your config page. */
@@ -1486,6 +1532,7 @@ export type ViewReference = {
 
 /** All available view result types. */
 export type ViewResultUnion =
+  | NewsResult
   | NodePathsResult
   | SpeakersResult
   | TalksAllResult

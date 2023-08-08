@@ -1,0 +1,20 @@
+fragment ParagraphNewsListingsFragment on ParagraphNewsListings {
+  __typename
+  id
+  newsView {
+    ... on NewsResult {
+      __typename
+      pageInfo {
+        offset
+        page
+        pageSize
+        total
+      }
+      results {
+        ... on NodeArticle {
+          ...NodeArticleCardFragment
+        }
+      }
+    }
+  }
+}
