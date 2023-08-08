@@ -27,4 +27,8 @@
   @include mq($from: tablet) {
     width: 30%;
   }
+
+  > * {
+    margin-bottom: var(--vertical-spacing);
+  }
 }
