@@ -2964,6 +2964,86 @@ export type ParagraphNewsListingsFragment = {
     | { __typename?: 'TalksResult' };
 };
 
+export type GetParagraphNewsListingVariables = GraphqlTypes.Exact<{
+  id: GraphqlTypes.Scalars['ID'];
+  newsListingPage?: GraphqlTypes.InputMaybe<GraphqlTypes.Scalars['Int']>;
+}>;
+
+export type GetParagraphNewsListing = {
+  __typename?: 'Query';
+  paragraphNewsListings?: {
+    __typename: 'ParagraphNewsListings';
+    id: string;
+    newsView:
+      | {
+          __typename: 'NewsResult';
+          pageInfo: {
+            __typename?: 'ViewPageInfo';
+            offset: number;
+            page: number;
+            pageSize: number;
+            total: number;
+          };
+          results: Array<
+            | {
+                __typename: 'NodeArticle';
+                id: string;
+                title: string;
+                path: string;
+                summary?: {
+                  __typename?: 'Text';
+                  processed?: any | null;
+                } | null;
+                created: { __typename?: 'DateTime'; time: any };
+                teaser: {
+                  __typename: 'ParagraphTeaser';
+                  id: string;
+                  squareImage: {
+                    __typename: 'MediaImage';
+                    id: string;
+                    mediaImage: {
+                      __typename?: 'Image';
+                      alt?: string | null;
+                      responsive?: {
+                        __typename: 'ResponsiveImageStyleDerivative';
+                        height?: number | null;
+                        path?: string | null;
+                        srcSetPath?: string | null;
+                        width?: number | null;
+                      } | null;
+                    };
+                  };
+                  landscapeImage: {
+                    __typename: 'MediaImage';
+                    id: string;
+                    mediaImage: {
+                      __typename?: 'Image';
+                      alt?: string | null;
+                      responsive?: {
+                        __typename: 'ResponsiveImageStyleDerivative';
+                        height?: number | null;
+                        path?: string | null;
+                        srcSetPath?: string | null;
+                        width?: number | null;
+                      } | null;
+                    };
+                  };
+                };
+              }
+            | { __typename?: 'NodeFoundationPage' }
+            | { __typename?: 'NodePage' }
+            | { __typename?: 'NodeSpeaker' }
+            | { __typename?: 'NodeTalk' }
+          >;
+        }
+      | { __typename?: 'NodePathsResult' }
+      | { __typename?: 'SpeakersResult' }
+      | { __typename?: 'TalksAllResult' }
+      | { __typename?: 'TalksByDateResult' }
+      | { __typename?: 'TalksResult' };
+  } | null;
+};
+
 export type ParagraphScheduleFragment = {
   __typename: 'ParagraphSchedule';
   id: string;
@@ -4753,6 +4833,7 @@ export type GetInitDataQuery = {
 
 export type GetNodeByPathQueryVariables = GraphqlTypes.Exact<{
   slug: GraphqlTypes.Scalars['String'];
+  newsListingPage?: GraphqlTypes.InputMaybe<GraphqlTypes.Scalars['Int']>;
 }>;
 
 export type GetNodeByPathQuery = {

@@ -1,7 +1,7 @@
 fragment ParagraphNewsListingsFragment on ParagraphNewsListings {
   __typename
   id
-  newsView {
+  newsView(page: $newsListingPage) {
     ... on NewsResult {
       __typename
       pageInfo {
@@ -16,5 +16,11 @@ fragment ParagraphNewsListingsFragment on ParagraphNewsListings {
         }
       }
     }
+  }
+}
+
+query GetParagraphNewsListing($id: ID!, $newsListingPage: Int) {
+  paragraphNewsListings(id: $id) {
+    ...ParagraphNewsListingsFragment
   }
 }

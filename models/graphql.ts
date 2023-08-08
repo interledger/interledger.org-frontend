@@ -1213,6 +1213,8 @@ export type Query = {
   nodePaths?: Maybe<NodePathsResult>;
   /** Fetch data for a specific ParagraphImageFullWidth */
   paragraphImageFullWidth?: Maybe<ParagraphImageFullWidth>;
+  /** Fetch data for a specific ParagraphNewsListings */
+  paragraphNewsListings?: Maybe<ParagraphNewsListings>;
   /** Load a Route by path. */
   route?: Maybe<RouteUnion>;
   /** Fetch data for a specific SiteSettings */
@@ -1233,7 +1235,25 @@ export type QueryMenuArgs = {
  *
  * This acts as the public, top-level API from which all queries must start.
  */
+export type QueryNewsArgs = {
+  page?: InputMaybe<Scalars['Int']>;
+};
+
+/**
+ * The schema's entry-point for queries.
+ *
+ * This acts as the public, top-level API from which all queries must start.
+ */
 export type QueryParagraphImageFullWidthArgs = {
+  id: Scalars['ID'];
+};
+
+/**
+ * The schema's entry-point for queries.
+ *
+ * This acts as the public, top-level API from which all queries must start.
+ */
+export type QueryParagraphNewsListingsArgs = {
   id: Scalars['ID'];
 };
 

@@ -443,7 +443,7 @@ export const ParagraphNewsListingsFragment = /*#__PURE__*/ `
     fragment ParagraphNewsListingsFragment on ParagraphNewsListings {
   __typename
   id
-  newsView {
+  newsView(page: $newsListingPage) {
     ... on NewsResult {
       __typename
       pageInfo {
@@ -756,6 +756,48 @@ export const RouteUnionFragment = /*#__PURE__*/ `
   }
 }
     `;
+export const GetParagraphNewsListingDocument = /*#__PURE__*/ `
+    query GetParagraphNewsListing($id: ID!, $newsListingPage: Int) {
+  paragraphNewsListings(id: $id) {
+    ...ParagraphNewsListingsFragment
+  }
+}
+    ${ParagraphNewsListingsFragment}
+${NodeArticleCardFragment}
+${ParagraphTeaserFragment}
+${MediaImageSquareFragment}
+${ResponsiveImageStyleFragment}
+${MediaImageLandscapeFragment}`;
+export const useGetParagraphNewsListing = <
+  TData = OperationTypes.GetParagraphNewsListing,
+  TError = unknown
+>(
+  variables: OperationTypes.GetParagraphNewsListingVariables,
+  options?: UseQueryOptions<
+    OperationTypes.GetParagraphNewsListing,
+    TError,
+    TData
+  >
+) =>
+  useQuery<OperationTypes.GetParagraphNewsListing, TError, TData>(
+    ['GetParagraphNewsListing', variables],
+    fetcher<
+      OperationTypes.GetParagraphNewsListing,
+      OperationTypes.GetParagraphNewsListingVariables
+    >(GetParagraphNewsListingDocument, variables),
+    options
+  );
+
+useGetParagraphNewsListing.getKey = (
+  variables: OperationTypes.GetParagraphNewsListingVariables
+) => ['GetParagraphNewsListing', variables];
+useGetParagraphNewsListing.fetcher = (
+  variables: OperationTypes.GetParagraphNewsListingVariables
+) =>
+  fetcher<
+    OperationTypes.GetParagraphNewsListing,
+    OperationTypes.GetParagraphNewsListingVariables
+  >(GetParagraphNewsListingDocument, variables);
 export const GetInitDataQueryDocument = /*#__PURE__*/ `
     query GetInitDataQuery {
   mainMenu: menu(name: MAIN) {
@@ -812,7 +854,7 @@ useGetInitDataQuery.fetcher = (
     OperationTypes.GetInitDataQueryVariables
   >(GetInitDataQueryDocument, variables);
 export const GetNodeByPathQueryDocument = /*#__PURE__*/ `
-    query GetNodeByPathQuery($slug: String!) {
+    query GetNodeByPathQuery($slug: String!, $newsListingPage: Int = 0) {
   route(path: $slug) {
     ... on RouteInternal {
       __typename
