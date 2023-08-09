@@ -5,31 +5,36 @@
 @use '@styles/base/helpers' as *;
 
 .root {
+  max-width: rem(800px);
 }
 
 .faq {
-  border-top: 1px dashed var(--color-grey-mid);
-  border-bottom: 1px dashed var(--color-grey-mid);
-  padding: rem(20px) 0;
+  &:not(:last-child) {
+    margin-bottom: rem(30px);
+  }
 }
 
 .question {
-  @include buttonReset;
   display: flex;
+  padding: rem(19px);
+  border: 1px solid var(--color-primary);
 
   svg {
-    width: rem(25px);
+    width: rem(11px);
     margin-left: auto;
   }
 }
 
 .questionTitle {
   padding-right: rem(20px);
+  font-size: rem(30px);
+  font-weight: 400;
 }
 
 .answer {
   height: 0;
   overflow: hidden;
+  padding: 0 rem(19px);
 
   > *:first-child {
     margin-top: rem(20px);

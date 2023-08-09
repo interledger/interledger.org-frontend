@@ -471,6 +471,19 @@ export const ParagraphNewsListingsFragment = /*#__PURE__*/ `
   }
 }
     `;
+export const ParagraphFaqsFragment = /*#__PURE__*/ `
+    fragment ParagraphFaqsFragment on ParagraphFaqs {
+  __typename
+  id
+  faqs {
+    id
+    question
+    answer {
+      processed
+    }
+  }
+}
+    `;
 export const ParagraphsFragment = /*#__PURE__*/ `
     fragment ParagraphsFragment on ParagraphInterface {
   ... on ParagraphButton {
@@ -526,6 +539,9 @@ export const ParagraphsFragment = /*#__PURE__*/ `
   }
   ... on ParagraphNewsListings {
     ...ParagraphNewsListingsFragment
+  }
+  ... on ParagraphFaqs {
+    ...ParagraphFaqsFragment
   }
 }
     `;
@@ -922,6 +938,7 @@ ${ParagraphContentCarouselFragment}
 ${ContentCarouselItemFragment}
 ${ParagraphNewsListingsFragment}
 ${NodeArticleCardFragment}
+${ParagraphFaqsFragment}
 ${MetaTagFragment}
 ${NodePageFragment}
 ${ParagraphHeroHeaderFragment}

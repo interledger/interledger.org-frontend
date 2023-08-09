@@ -33,22 +33,23 @@ export const Faq = ({
         className={styles.question}
         onClick={() => setSelected(selected ? '' : faq.id)}
       >
-        <Text
-          className={styles.questionTitle}
-          variant="h2"
-          as="h4"
-          font="display"
-          noMargin
-        >
+        <Text className={styles.questionTitle} variant="h2" as="h4" noMargin>
           {faq.question}
         </Text>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.071 9.31">
-          <m.path
-            d="M14.942 1.978c-.881-.631-1.744-1.291-2.653-1.877a.644.644 0 0 0-.914.26c-1.033 1.449-2.1 2.873-3.169 4.3-.443.592-1 .581-1.487-.048C5.672 3.256 4.643 1.886 3.611.519c-.439-.582-.789-.653-1.393-.241C1.578.715.947 1.165.313 1.61a.557.557 0 0 0-.113.928c.409.448.837.88 1.264 1.311Q3.779 6.191 6.1 8.527c1.042 1.045 1.793 1.043 2.828 0q2.945-2.965 5.885-5.933l.175-.176a.285.285 0 0 0-.046-.439"
-            fill="#1B76D9"
-            animate={{ rotate: selected ? -180 : -90 }}
+        <m.svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 14.045 25.829"
+          animate={{ rotate: selected ? 90 : 0 }}
+        >
+          <path
+            fill="none"
+            stroke="var(--color-primary)"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="m1.414 24.414 11.631-11.5-11.631-11.5"
           />
-        </svg>
+        </m.svg>
       </div>
       <m.div
         className={styles.answer}

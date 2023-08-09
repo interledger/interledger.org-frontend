@@ -17,6 +17,7 @@ import {
   ParagraphContentCarouselFragment,
   ParagraphImageFullWidthFragment,
   ParagraphNewsListingsFragment,
+  ParagraphFaqsFragment,
 } from '@models/operations';
 import dynamic from 'next/dynamic';
 
@@ -128,6 +129,12 @@ const ParagraphNewsListings = dynamic(() =>
   ).then((paragraph) => paragraph.ParagraphNewsListings)
 );
 
+const ParagraphFaqs = dynamic(() =>
+  import('@components/paragraph/ParagraphFaqs/ParagraphFaqs').then(
+    (paragraph) => paragraph.ParagraphFaqs
+  )
+);
+
 export type ParagraphTypes =
   | ParagraphLargeCalloutTextFragment
   | ParagraphButtonFragment
@@ -147,6 +154,7 @@ export type ParagraphTypes =
   | ParagraphScheduleFragment
   | ParagraphContentCarouselFragment
   | ParagraphNewsListingsFragment
+  | ParagraphFaqsFragment
   | null;
 
 export interface ParagraphsProps {
@@ -224,6 +232,8 @@ const Paragraph = ({ paragraph, className }: ParagraphProps) => {
       );
     case 'ParagraphNewsListings':
       return <ParagraphNewsListings key={paragraph.id} paragraph={paragraph} />;
+    case 'ParagraphFaqs':
+      return <ParagraphFaqs key={paragraph.id} paragraph={paragraph} />;
     default:
       return null;
   }

@@ -53,4 +53,7 @@ fragment ParagraphsFragment on ParagraphInterface {
   ... on ParagraphNewsListings {
     ...ParagraphNewsListingsFragment
   }
+  ... on ParagraphFaqs {
+    ...ParagraphFaqsFragment
+  }
 }

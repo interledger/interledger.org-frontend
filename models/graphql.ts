@@ -535,6 +535,7 @@ export type NodeFoundationPageSectionsUnion =
   | ParagraphButton
   | ParagraphContentCarousel
   | ParagraphContentTitle
+  | ParagraphFaqs
   | ParagraphHighlightedList
   | ParagraphImageCarousel
   | ParagraphImageFullWidth
@@ -786,6 +787,34 @@ export type ParagraphContentTitle = ParagraphInterface & {
   langcode: Language;
   /** Content Title */
   title?: Maybe<Scalars['String']>;
+};
+
+/** Entity type paragraph. */
+export type ParagraphFaq = ParagraphInterface & {
+  __typename?: 'ParagraphFaq';
+  /** Answer */
+  answer: Text;
+  /** The time that the Paragraph was created. */
+  created: DateTime;
+  /** The Universally Unique IDentifier (UUID). */
+  id: Scalars['ID'];
+  /** The paragraphs entity language code. */
+  langcode: Language;
+  /** Question */
+  question: Scalars['String'];
+};
+
+/** Entity type paragraph. */
+export type ParagraphFaqs = ParagraphInterface & {
+  __typename?: 'ParagraphFaqs';
+  /** The time that the Paragraph was created. */
+  created: DateTime;
+  /** FAQs */
+  faqs?: Maybe<Array<ParagraphFaq>>;
+  /** The Universally Unique IDentifier (UUID). */
+  id: Scalars['ID'];
+  /** The paragraphs entity language code. */
+  langcode: Language;
 };
 
 /** Entity type paragraph. */
@@ -1186,6 +1215,8 @@ export type ParagraphUnion =
   | ParagraphCarouselItem
   | ParagraphContentCarousel
   | ParagraphContentTitle
+  | ParagraphFaq
+  | ParagraphFaqs
   | ParagraphHeroHeader
   | ParagraphHighlightedList
   | ParagraphHighlightedSpeakers
