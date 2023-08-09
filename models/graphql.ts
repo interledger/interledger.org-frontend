@@ -542,6 +542,7 @@ export type NodeFoundationPageSectionsUnion =
   | ParagraphImageGallery
   | ParagraphLargeCalloutText
   | ParagraphNewsListings
+  | ParagraphPriceList
   | ParagraphSpacer
   | ParagraphText
   | ParagraphTwoColumnContent
@@ -790,6 +791,17 @@ export type ParagraphContentTitle = ParagraphInterface & {
 };
 
 /** Entity type paragraph. */
+export type ParagraphDivider = ParagraphInterface & {
+  __typename?: 'ParagraphDivider';
+  /** The time that the Paragraph was created. */
+  created: DateTime;
+  /** The Universally Unique IDentifier (UUID). */
+  id: Scalars['ID'];
+  /** The paragraphs entity language code. */
+  langcode: Language;
+};
+
+/** Entity type paragraph. */
 export type ParagraphFaq = ParagraphInterface & {
   __typename?: 'ParagraphFaq';
   /** Answer */
@@ -994,6 +1006,60 @@ export type ParagraphNewsListingsNewsViewArgs = {
   sortDir?: InputMaybe<SortDirection>;
   sortKey?: InputMaybe<Scalars['String']>;
 };
+
+/** Entity type paragraph. */
+export type ParagraphPrice = ParagraphInterface & {
+  __typename?: 'ParagraphPrice';
+  /** The time that the Paragraph was created. */
+  created: DateTime;
+  /** The Universally Unique IDentifier (UUID). */
+  id: Scalars['ID'];
+  /** The paragraphs entity language code. */
+  langcode: Language;
+  /** Menu Title */
+  menuTitle?: Maybe<Scalars['String']>;
+  /** Options */
+  options?: Maybe<Array<ParagraphPriceOptionsUnion>>;
+  /** Pricing */
+  pricing: Scalars['String'];
+  /** Title */
+  title: Scalars['String'];
+};
+
+/** Entity type paragraph. */
+export type ParagraphPriceList = ParagraphInterface & {
+  __typename?: 'ParagraphPriceList';
+  /** The time that the Paragraph was created. */
+  created: DateTime;
+  /** The Universally Unique IDentifier (UUID). */
+  id: Scalars['ID'];
+  /** The paragraphs entity language code. */
+  langcode: Language;
+  /** Prices Footer */
+  pricesFooter?: Maybe<ParagraphPrice>;
+  /** Prices Main */
+  pricesMain?: Maybe<Array<ParagraphPrice>>;
+};
+
+/** Entity type paragraph. */
+export type ParagraphPriceOption = ParagraphInterface & {
+  __typename?: 'ParagraphPriceOption';
+  /** The time that the Paragraph was created. */
+  created: DateTime;
+  /** The Universally Unique IDentifier (UUID). */
+  id: Scalars['ID'];
+  /** The paragraphs entity language code. */
+  langcode: Language;
+  /** Subtitle */
+  subtitle?: Maybe<Scalars['String']>;
+  /** Title */
+  title: Scalars['String'];
+};
+
+/** Options */
+export type ParagraphPriceOptionsUnion =
+  | ParagraphDivider
+  | ParagraphPriceOption;
 
 /** Entity type paragraph. */
 export type ParagraphSchedule = ParagraphInterface & {
@@ -1215,6 +1281,7 @@ export type ParagraphUnion =
   | ParagraphCarouselItem
   | ParagraphContentCarousel
   | ParagraphContentTitle
+  | ParagraphDivider
   | ParagraphFaq
   | ParagraphFaqs
   | ParagraphHeroHeader
@@ -1227,6 +1294,9 @@ export type ParagraphUnion =
   | ParagraphLargeCalloutText
   | ParagraphMediaHeader
   | ParagraphNewsListings
+  | ParagraphPrice
+  | ParagraphPriceList
+  | ParagraphPriceOption
   | ParagraphSchedule
   | ParagraphScheduleDay
   | ParagraphSocialMedia

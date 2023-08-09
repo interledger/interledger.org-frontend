@@ -56,4 +56,7 @@ fragment ParagraphsFragment on ParagraphInterface {
   ... on ParagraphFaqs {
     ...ParagraphFaqsFragment
   }
+  ... on ParagraphPriceList {
+    ...ParagraphPriceListFragment
+  }
 }

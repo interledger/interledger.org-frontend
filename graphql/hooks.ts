@@ -484,6 +484,49 @@ export const ParagraphFaqsFragment = /*#__PURE__*/ `
   }
 }
     `;
+export const ParagraphPriceOptionFragment = /*#__PURE__*/ `
+    fragment ParagraphPriceOptionFragment on ParagraphPriceOption {
+  __typename
+  id
+  title
+  subtitle
+}
+    `;
+export const ParagraphDividerFragment = /*#__PURE__*/ `
+    fragment ParagraphDividerFragment on ParagraphDivider {
+  __typename
+  id
+}
+    `;
+export const ParagraphPriceFragment = /*#__PURE__*/ `
+    fragment ParagraphPriceFragment on ParagraphPrice {
+  __typename
+  id
+  title
+  menuTitle
+  pricing
+  options {
+    ... on ParagraphPriceOption {
+      ...ParagraphPriceOptionFragment
+    }
+    ... on ParagraphDivider {
+      ...ParagraphDividerFragment
+    }
+  }
+}
+    `;
+export const ParagraphPriceListFragment = /*#__PURE__*/ `
+    fragment ParagraphPriceListFragment on ParagraphPriceList {
+  __typename
+  id
+  pricesMain {
+    ...ParagraphPriceFragment
+  }
+  pricesFooter {
+    ...ParagraphPriceFragment
+  }
+}
+    `;
 export const ParagraphsFragment = /*#__PURE__*/ `
     fragment ParagraphsFragment on ParagraphInterface {
   ... on ParagraphButton {
@@ -542,6 +585,9 @@ export const ParagraphsFragment = /*#__PURE__*/ `
   }
   ... on ParagraphFaqs {
     ...ParagraphFaqsFragment
+  }
+  ... on ParagraphPriceList {
+    ...ParagraphPriceListFragment
   }
 }
     `;
@@ -939,6 +985,10 @@ ${ContentCarouselItemFragment}
 ${ParagraphNewsListingsFragment}
 ${NodeArticleCardFragment}
 ${ParagraphFaqsFragment}
+${ParagraphPriceListFragment}
+${ParagraphPriceFragment}
+${ParagraphPriceOptionFragment}
+${ParagraphDividerFragment}
 ${MetaTagFragment}
 ${NodePageFragment}
 ${ParagraphHeroHeaderFragment}

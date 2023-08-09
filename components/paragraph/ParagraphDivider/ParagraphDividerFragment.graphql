@@ -1,0 +1,4 @@
+fragment ParagraphDividerFragment on ParagraphDivider {
+  __typename
+  id
+}

@@ -889,6 +889,42 @@ export type NodeFoundationPageFragment = {
           | { __typename?: 'TalksResult' };
       }
     | {
+        __typename: 'ParagraphPriceList';
+        id: string;
+        pricesMain?: Array<{
+          __typename: 'ParagraphPrice';
+          id: string;
+          title: string;
+          menuTitle?: string | null;
+          pricing: string;
+          options?: Array<
+            | { __typename: 'ParagraphDivider'; id: string }
+            | {
+                __typename: 'ParagraphPriceOption';
+                id: string;
+                title: string;
+                subtitle?: string | null;
+              }
+          > | null;
+        }> | null;
+        pricesFooter?: {
+          __typename: 'ParagraphPrice';
+          id: string;
+          title: string;
+          menuTitle?: string | null;
+          pricing: string;
+          options?: Array<
+            | { __typename: 'ParagraphDivider'; id: string }
+            | {
+                __typename: 'ParagraphPriceOption';
+                id: string;
+                title: string;
+                subtitle?: string | null;
+              }
+          > | null;
+        } | null;
+      }
+    | {
         __typename: 'ParagraphSpacer';
         id: string;
         spacerSize: string;
@@ -2284,6 +2320,10 @@ type ContentCarouselItemFragment_ParagraphContentTitle_ = {
   __typename?: 'ParagraphContentTitle';
 };
 
+type ContentCarouselItemFragment_ParagraphDivider_ = {
+  __typename?: 'ParagraphDivider';
+};
+
 type ContentCarouselItemFragment_ParagraphFaq_ = {
   __typename?: 'ParagraphFaq';
 };
@@ -2330,6 +2370,18 @@ type ContentCarouselItemFragment_ParagraphMediaHeader_ = {
 
 type ContentCarouselItemFragment_ParagraphNewsListings_ = {
   __typename?: 'ParagraphNewsListings';
+};
+
+type ContentCarouselItemFragment_ParagraphPrice_ = {
+  __typename?: 'ParagraphPrice';
+};
+
+type ContentCarouselItemFragment_ParagraphPriceList_ = {
+  __typename?: 'ParagraphPriceList';
+};
+
+type ContentCarouselItemFragment_ParagraphPriceOption_ = {
+  __typename?: 'ParagraphPriceOption';
 };
 
 type ContentCarouselItemFragment_ParagraphSchedule_ = {
@@ -2548,6 +2600,7 @@ export type ContentCarouselItemFragment =
   | ContentCarouselItemFragment_ParagraphCarouselItem_
   | ContentCarouselItemFragment_ParagraphContentCarousel_
   | ContentCarouselItemFragment_ParagraphContentTitle_
+  | ContentCarouselItemFragment_ParagraphDivider_
   | ContentCarouselItemFragment_ParagraphFaq_
   | ContentCarouselItemFragment_ParagraphFaqs_
   | ContentCarouselItemFragment_ParagraphHeroHeader_
@@ -2560,6 +2613,9 @@ export type ContentCarouselItemFragment =
   | ContentCarouselItemFragment_ParagraphLargeCalloutText_
   | ContentCarouselItemFragment_ParagraphMediaHeader_
   | ContentCarouselItemFragment_ParagraphNewsListings_
+  | ContentCarouselItemFragment_ParagraphPrice_
+  | ContentCarouselItemFragment_ParagraphPriceList_
+  | ContentCarouselItemFragment_ParagraphPriceOption_
   | ContentCarouselItemFragment_ParagraphSchedule_
   | ContentCarouselItemFragment_ParagraphScheduleDay_
   | ContentCarouselItemFragment_ParagraphSocialMedia_
@@ -2756,6 +2812,11 @@ export type ParagraphContentTitleFragment = {
   __typename: 'ParagraphContentTitle';
   id: string;
   title?: string | null;
+};
+
+export type ParagraphDividerFragment = {
+  __typename: 'ParagraphDivider';
+  id: string;
 };
 
 export type ParagraphFaqsFragment = {
@@ -3262,6 +3323,67 @@ export type GetParagraphNewsListing = {
   } | null;
 };
 
+export type ParagraphPriceOptionFragment = {
+  __typename: 'ParagraphPriceOption';
+  id: string;
+  title: string;
+  subtitle?: string | null;
+};
+
+export type ParagraphPriceFragment = {
+  __typename: 'ParagraphPrice';
+  id: string;
+  title: string;
+  menuTitle?: string | null;
+  pricing: string;
+  options?: Array<
+    | { __typename: 'ParagraphDivider'; id: string }
+    | {
+        __typename: 'ParagraphPriceOption';
+        id: string;
+        title: string;
+        subtitle?: string | null;
+      }
+  > | null;
+};
+
+export type ParagraphPriceListFragment = {
+  __typename: 'ParagraphPriceList';
+  id: string;
+  pricesMain?: Array<{
+    __typename: 'ParagraphPrice';
+    id: string;
+    title: string;
+    menuTitle?: string | null;
+    pricing: string;
+    options?: Array<
+      | { __typename: 'ParagraphDivider'; id: string }
+      | {
+          __typename: 'ParagraphPriceOption';
+          id: string;
+          title: string;
+          subtitle?: string | null;
+        }
+    > | null;
+  }> | null;
+  pricesFooter?: {
+    __typename: 'ParagraphPrice';
+    id: string;
+    title: string;
+    menuTitle?: string | null;
+    pricing: string;
+    options?: Array<
+      | { __typename: 'ParagraphDivider'; id: string }
+      | {
+          __typename: 'ParagraphPriceOption';
+          id: string;
+          title: string;
+          subtitle?: string | null;
+        }
+    > | null;
+  } | null;
+};
+
 export type ParagraphScheduleFragment = {
   __typename: 'ParagraphSchedule';
   id: string;
@@ -3681,6 +3803,10 @@ type TwoColumnContentFragment_ParagraphContentTitle_ = {
   title?: string | null;
 };
 
+type TwoColumnContentFragment_ParagraphDivider_ = {
+  __typename?: 'ParagraphDivider';
+};
+
 type TwoColumnContentFragment_ParagraphFaq_ = { __typename?: 'ParagraphFaq' };
 
 type TwoColumnContentFragment_ParagraphFaqs_ = { __typename?: 'ParagraphFaqs' };
@@ -3754,6 +3880,18 @@ type TwoColumnContentFragment_ParagraphMediaHeader_ = {
 
 type TwoColumnContentFragment_ParagraphNewsListings_ = {
   __typename?: 'ParagraphNewsListings';
+};
+
+type TwoColumnContentFragment_ParagraphPrice_ = {
+  __typename?: 'ParagraphPrice';
+};
+
+type TwoColumnContentFragment_ParagraphPriceList_ = {
+  __typename?: 'ParagraphPriceList';
+};
+
+type TwoColumnContentFragment_ParagraphPriceOption_ = {
+  __typename?: 'ParagraphPriceOption';
 };
 
 type TwoColumnContentFragment_ParagraphSchedule_ = {
@@ -3835,6 +3973,7 @@ export type TwoColumnContentFragment =
   | TwoColumnContentFragment_ParagraphCarouselItem_
   | TwoColumnContentFragment_ParagraphContentCarousel_
   | TwoColumnContentFragment_ParagraphContentTitle_
+  | TwoColumnContentFragment_ParagraphDivider_
   | TwoColumnContentFragment_ParagraphFaq_
   | TwoColumnContentFragment_ParagraphFaqs_
   | TwoColumnContentFragment_ParagraphHeroHeader_
@@ -3847,6 +3986,9 @@ export type TwoColumnContentFragment =
   | TwoColumnContentFragment_ParagraphLargeCalloutText_
   | TwoColumnContentFragment_ParagraphMediaHeader_
   | TwoColumnContentFragment_ParagraphNewsListings_
+  | TwoColumnContentFragment_ParagraphPrice_
+  | TwoColumnContentFragment_ParagraphPriceList_
+  | TwoColumnContentFragment_ParagraphPriceOption_
   | TwoColumnContentFragment_ParagraphSchedule_
   | TwoColumnContentFragment_ParagraphScheduleDay_
   | TwoColumnContentFragment_ParagraphSocialMedia_
@@ -4288,6 +4430,8 @@ type ParagraphsFragment_ParagraphContentTitle_ = {
   title?: string | null;
 };
 
+type ParagraphsFragment_ParagraphDivider_ = { __typename?: 'ParagraphDivider' };
+
 type ParagraphsFragment_ParagraphFaq_ = { __typename?: 'ParagraphFaq' };
 
 type ParagraphsFragment_ParagraphFaqs_ = {
@@ -4605,6 +4749,49 @@ type ParagraphsFragment_ParagraphNewsListings_ = {
     | { __typename?: 'TalksAllResult' }
     | { __typename?: 'TalksByDateResult' }
     | { __typename?: 'TalksResult' };
+};
+
+type ParagraphsFragment_ParagraphPrice_ = { __typename?: 'ParagraphPrice' };
+
+type ParagraphsFragment_ParagraphPriceList_ = {
+  __typename: 'ParagraphPriceList';
+  id: string;
+  pricesMain?: Array<{
+    __typename: 'ParagraphPrice';
+    id: string;
+    title: string;
+    menuTitle?: string | null;
+    pricing: string;
+    options?: Array<
+      | { __typename: 'ParagraphDivider'; id: string }
+      | {
+          __typename: 'ParagraphPriceOption';
+          id: string;
+          title: string;
+          subtitle?: string | null;
+        }
+    > | null;
+  }> | null;
+  pricesFooter?: {
+    __typename: 'ParagraphPrice';
+    id: string;
+    title: string;
+    menuTitle?: string | null;
+    pricing: string;
+    options?: Array<
+      | { __typename: 'ParagraphDivider'; id: string }
+      | {
+          __typename: 'ParagraphPriceOption';
+          id: string;
+          title: string;
+          subtitle?: string | null;
+        }
+    > | null;
+  } | null;
+};
+
+type ParagraphsFragment_ParagraphPriceOption_ = {
+  __typename?: 'ParagraphPriceOption';
 };
 
 type ParagraphsFragment_ParagraphSchedule_ = {
@@ -5041,6 +5228,7 @@ export type ParagraphsFragment =
   | ParagraphsFragment_ParagraphCarouselItem_
   | ParagraphsFragment_ParagraphContentCarousel_
   | ParagraphsFragment_ParagraphContentTitle_
+  | ParagraphsFragment_ParagraphDivider_
   | ParagraphsFragment_ParagraphFaq_
   | ParagraphsFragment_ParagraphFaqs_
   | ParagraphsFragment_ParagraphHeroHeader_
@@ -5053,6 +5241,9 @@ export type ParagraphsFragment =
   | ParagraphsFragment_ParagraphLargeCalloutText_
   | ParagraphsFragment_ParagraphMediaHeader_
   | ParagraphsFragment_ParagraphNewsListings_
+  | ParagraphsFragment_ParagraphPrice_
+  | ParagraphsFragment_ParagraphPriceList_
+  | ParagraphsFragment_ParagraphPriceOption_
   | ParagraphsFragment_ParagraphSchedule_
   | ParagraphsFragment_ParagraphScheduleDay_
   | ParagraphsFragment_ParagraphSocialMedia_
@@ -5895,6 +6086,42 @@ export type GetNodeByPathQuery = {
                       | { __typename?: 'TalksAllResult' }
                       | { __typename?: 'TalksByDateResult' }
                       | { __typename?: 'TalksResult' };
+                  }
+                | {
+                    __typename: 'ParagraphPriceList';
+                    id: string;
+                    pricesMain?: Array<{
+                      __typename: 'ParagraphPrice';
+                      id: string;
+                      title: string;
+                      menuTitle?: string | null;
+                      pricing: string;
+                      options?: Array<
+                        | { __typename: 'ParagraphDivider'; id: string }
+                        | {
+                            __typename: 'ParagraphPriceOption';
+                            id: string;
+                            title: string;
+                            subtitle?: string | null;
+                          }
+                      > | null;
+                    }> | null;
+                    pricesFooter?: {
+                      __typename: 'ParagraphPrice';
+                      id: string;
+                      title: string;
+                      menuTitle?: string | null;
+                      pricing: string;
+                      options?: Array<
+                        | { __typename: 'ParagraphDivider'; id: string }
+                        | {
+                            __typename: 'ParagraphPriceOption';
+                            id: string;
+                            title: string;
+                            subtitle?: string | null;
+                          }
+                      > | null;
+                    } | null;
                   }
                 | {
                     __typename: 'ParagraphSpacer';

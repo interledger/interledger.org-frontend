@@ -1,0 +1,110 @@
+@use '@styles/base/mq-settings';
+@use '~sass-mq/mq' as *;
+@use '~sass-rem' as *;
+@use '@styles/base/variables' as *;
+@use '@styles/base/helpers' as *;
+
+.root {
+  overflow: hidden;
+}
+
+.priceMenu {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 rem(30px);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.priceMenuButton {
+  background-color: transparent;
+  font-size: rem(24px);
+  font-weight: 700;
+  border: 0;
+  cursor: pointer;
+
+  &.selected {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+}
+
+.pricesMain {
+  margin-bottom: rem(30px);
+  margin-left: auto;
+  margin-right: auto;
+  width: calc(80% - 21px);
+
+  @include mq($from: tablet) {
+    width: calc(50% - 21px);
+  }
+
+  @include mq($from: desktop) {
+    width: calc(33.33% - 21px);
+  }
+
+  :global(.swiper) {
+    overflow: visible;
+  }
+  :global(.swiper-slide) {
+    opacity: 0.5;
+  }
+
+  :global(.swiper-slide-active) {
+    opacity: 1;
+  }
+}
+
+.price {
+  padding: rem(30px) rem(12px);
+  border: 1px solid var(--color-primary);
+  flex: 1;
+}
+
+.priceTitle,
+.pricePricing {
+  text-align: center;
+}
+
+.priceTitle {
+  color: var(--color-primary);
+}
+
+.priceOptions {
+  border-top: 1px solid var(--color-primary);
+  margin-top: rem(30px);
+  padding-top: rem(60px);
+
+  &.columns {
+    columns: 1;
+
+    @include mq($from: tablet) {
+      columns: 2;
+    }
+
+    @include mq($from: desktop) {
+      columns: 3;
+    }
+  }
+}
+
+.priceOption {
+  display: flex;
+  align-items: flex-start;
+  font-size: rem(15px);
+
+  &:not(:last-of-type) {
+    margin-bottom: rem(30px);
+  }
+}
+
+.tick {
+  width: rem(15px);
+  margin-right: rem(19px);
+  margin-top: rem(2px);
+}
+
+.subtitle {
+  font-weight: 700;
+}
