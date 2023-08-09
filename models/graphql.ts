@@ -429,6 +429,19 @@ export type Mutation = {
   _: Scalars['Boolean'];
 };
 
+/** Result for view news display graphql_2. */
+export type NewsLatestResult = View & {
+  __typename?: 'NewsLatestResult';
+  description?: Maybe<Scalars['String']>;
+  display: Scalars['String'];
+  id: Scalars['ID'];
+  label?: Maybe<Scalars['String']>;
+  langcode?: Maybe<Scalars['String']>;
+  pageInfo: ViewPageInfo;
+  results: Array<NodeUnion>;
+  view: Scalars['String'];
+};
+
 /** Result for view news display graphql_1. */
 export type NewsResult = View & {
   __typename?: 'NewsResult';
@@ -924,9 +937,24 @@ export type ParagraphNewsListings = ParagraphInterface & {
   /**
    * This is a viewfield query proxy. Page size and contextual filters are applied
    * within the CMS. See the actual view base query for more documentation on
+   * filters and options available. News Latest View
+   */
+  newsLatestView: ViewResultUnion;
+  /**
+   * This is a viewfield query proxy. Page size and contextual filters are applied
+   * within the CMS. See the actual view base query for more documentation on
    * filters and options available. News View
    */
   newsView: ViewResultUnion;
+};
+
+/** Entity type paragraph. */
+export type ParagraphNewsListingsNewsLatestViewArgs = {
+  filter?: InputMaybe<Array<InputMaybe<KeyValueInput>>>;
+  offset?: InputMaybe<Scalars['Int']>;
+  page?: InputMaybe<Scalars['Int']>;
+  sortDir?: InputMaybe<SortDirection>;
+  sortKey?: InputMaybe<Scalars['String']>;
 };
 
 /** Entity type paragraph. */
@@ -1207,12 +1235,8 @@ export type Query = {
   info: SchemaInformation;
   /** Load a Route by path. */
   menu?: Maybe<Menu>;
-  /** Query for view news display graphql_1. */
-  news?: Maybe<NewsResult>;
   /** Query for view node_paths_graphql display graphql_1. */
   nodePaths?: Maybe<NodePathsResult>;
-  /** Fetch data for a specific ParagraphImageFullWidth */
-  paragraphImageFullWidth?: Maybe<ParagraphImageFullWidth>;
   /** Fetch data for a specific ParagraphNewsListings */
   paragraphNewsListings?: Maybe<ParagraphNewsListings>;
   /** Load a Route by path. */
@@ -1228,24 +1252,6 @@ export type Query = {
  */
 export type QueryMenuArgs = {
   name: MenuAvailable;
-};
-
-/**
- * The schema's entry-point for queries.
- *
- * This acts as the public, top-level API from which all queries must start.
- */
-export type QueryNewsArgs = {
-  page?: InputMaybe<Scalars['Int']>;
-};
-
-/**
- * The schema's entry-point for queries.
- *
- * This acts as the public, top-level API from which all queries must start.
- */
-export type QueryParagraphImageFullWidthArgs = {
-  id: Scalars['ID'];
 };
 
 /**
@@ -1552,6 +1558,7 @@ export type ViewReference = {
 
 /** All available view result types. */
 export type ViewResultUnion =
+  | NewsLatestResult
   | NewsResult
   | NodePathsResult
   | SpeakersResult

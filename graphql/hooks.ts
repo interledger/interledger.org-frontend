@@ -443,6 +443,16 @@ export const ParagraphNewsListingsFragment = /*#__PURE__*/ `
     fragment ParagraphNewsListingsFragment on ParagraphNewsListings {
   __typename
   id
+  newsLatestView {
+    ... on NewsLatestResult {
+      __typename
+      results {
+        ... on NodeArticle {
+          ...NodeArticleCardFragment
+        }
+      }
+    }
+  }
   newsView(page: $newsListingPage) {
     ... on NewsResult {
       __typename
