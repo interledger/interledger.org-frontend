@@ -1,0 +1,33 @@
+fragment ParagraphPriceOptionFragment on ParagraphPriceOption {
+  __typename
+  id
+  title
+  subtitle
+}
+
+fragment ParagraphPriceFragment on ParagraphPrice {
+  __typename
+  id
+  title
+  menuTitle
+  pricing
+  options {
+    ... on ParagraphPriceOption {
+      ...ParagraphPriceOptionFragment
+    }
+    ... on ParagraphDivider {
+      ...ParagraphDividerFragment
+    }
+  }
+}
+
+fragment ParagraphPriceListFragment on ParagraphPriceList {
+  __typename
+  id
+  pricesMain {
+    ...ParagraphPriceFragment
+  }
+  pricesFooter {
+    ...ParagraphPriceFragment
+  }
+}
