@@ -748,7 +748,69 @@ export type NodeFoundationPageFragment = {
     | {
         __typename: 'ParagraphNewsListings';
         id: string;
+        newsLatestView:
+          | {
+              __typename: 'NewsLatestResult';
+              results: Array<
+                | {
+                    __typename: 'NodeArticle';
+                    id: string;
+                    title: string;
+                    path: string;
+                    summary?: {
+                      __typename?: 'Text';
+                      processed?: any | null;
+                    } | null;
+                    created: { __typename?: 'DateTime'; time: any };
+                    teaser: {
+                      __typename: 'ParagraphTeaser';
+                      id: string;
+                      squareImage: {
+                        __typename: 'MediaImage';
+                        id: string;
+                        mediaImage: {
+                          __typename?: 'Image';
+                          alt?: string | null;
+                          responsive?: {
+                            __typename: 'ResponsiveImageStyleDerivative';
+                            height?: number | null;
+                            path?: string | null;
+                            srcSetPath?: string | null;
+                            width?: number | null;
+                          } | null;
+                        };
+                      };
+                      landscapeImage: {
+                        __typename: 'MediaImage';
+                        id: string;
+                        mediaImage: {
+                          __typename?: 'Image';
+                          alt?: string | null;
+                          responsive?: {
+                            __typename: 'ResponsiveImageStyleDerivative';
+                            height?: number | null;
+                            path?: string | null;
+                            srcSetPath?: string | null;
+                            width?: number | null;
+                          } | null;
+                        };
+                      };
+                    };
+                  }
+                | { __typename?: 'NodeFoundationPage' }
+                | { __typename?: 'NodePage' }
+                | { __typename?: 'NodeSpeaker' }
+                | { __typename?: 'NodeTalk' }
+              >;
+            }
+          | { __typename?: 'NewsResult' }
+          | { __typename?: 'NodePathsResult' }
+          | { __typename?: 'SpeakersResult' }
+          | { __typename?: 'TalksAllResult' }
+          | { __typename?: 'TalksByDateResult' }
+          | { __typename?: 'TalksResult' };
         newsView:
+          | { __typename?: 'NewsLatestResult' }
           | {
               __typename: 'NewsResult';
               pageInfo: {
@@ -1313,6 +1375,7 @@ export type NodePageFragment = {
           id: string;
           date: { __typename?: 'DateTime'; time: any };
           talksView:
+            | { __typename: 'NewsLatestResult' }
             | { __typename: 'NewsResult' }
             | { __typename: 'NodePathsResult' }
             | { __typename: 'SpeakersResult' }
@@ -1385,6 +1448,7 @@ export type NodePageFragment = {
         __typename: 'ParagraphSpeakersGrid';
         id: string;
         speakersView?:
+          | { __typename: 'NewsLatestResult' }
           | { __typename: 'NewsResult' }
           | { __typename: 'NodePathsResult' }
           | {
@@ -1448,6 +1512,7 @@ export type NodePageFragment = {
         __typename: 'ParagraphTalksGrid';
         id: string;
         talksView:
+          | { __typename: 'NewsLatestResult' }
           | { __typename: 'NewsResult' }
           | { __typename: 'NodePathsResult' }
           | { __typename: 'SpeakersResult' }
@@ -1881,6 +1946,7 @@ export type NodeSpeakerFragment = {
     };
   };
   talks:
+    | { __typename: 'NewsLatestResult' }
     | { __typename: 'NewsResult' }
     | { __typename: 'NodePathsResult' }
     | { __typename: 'SpeakersResult' }
@@ -2898,7 +2964,66 @@ export type ParagraphMediaHeaderFragment = {
 export type ParagraphNewsListingsFragment = {
   __typename: 'ParagraphNewsListings';
   id: string;
+  newsLatestView:
+    | {
+        __typename: 'NewsLatestResult';
+        results: Array<
+          | {
+              __typename: 'NodeArticle';
+              id: string;
+              title: string;
+              path: string;
+              summary?: { __typename?: 'Text'; processed?: any | null } | null;
+              created: { __typename?: 'DateTime'; time: any };
+              teaser: {
+                __typename: 'ParagraphTeaser';
+                id: string;
+                squareImage: {
+                  __typename: 'MediaImage';
+                  id: string;
+                  mediaImage: {
+                    __typename?: 'Image';
+                    alt?: string | null;
+                    responsive?: {
+                      __typename: 'ResponsiveImageStyleDerivative';
+                      height?: number | null;
+                      path?: string | null;
+                      srcSetPath?: string | null;
+                      width?: number | null;
+                    } | null;
+                  };
+                };
+                landscapeImage: {
+                  __typename: 'MediaImage';
+                  id: string;
+                  mediaImage: {
+                    __typename?: 'Image';
+                    alt?: string | null;
+                    responsive?: {
+                      __typename: 'ResponsiveImageStyleDerivative';
+                      height?: number | null;
+                      path?: string | null;
+                      srcSetPath?: string | null;
+                      width?: number | null;
+                    } | null;
+                  };
+                };
+              };
+            }
+          | { __typename?: 'NodeFoundationPage' }
+          | { __typename?: 'NodePage' }
+          | { __typename?: 'NodeSpeaker' }
+          | { __typename?: 'NodeTalk' }
+        >;
+      }
+    | { __typename?: 'NewsResult' }
+    | { __typename?: 'NodePathsResult' }
+    | { __typename?: 'SpeakersResult' }
+    | { __typename?: 'TalksAllResult' }
+    | { __typename?: 'TalksByDateResult' }
+    | { __typename?: 'TalksResult' };
   newsView:
+    | { __typename?: 'NewsLatestResult' }
     | {
         __typename: 'NewsResult';
         pageInfo: {
@@ -2974,7 +3099,69 @@ export type GetParagraphNewsListing = {
   paragraphNewsListings?: {
     __typename: 'ParagraphNewsListings';
     id: string;
+    newsLatestView:
+      | {
+          __typename: 'NewsLatestResult';
+          results: Array<
+            | {
+                __typename: 'NodeArticle';
+                id: string;
+                title: string;
+                path: string;
+                summary?: {
+                  __typename?: 'Text';
+                  processed?: any | null;
+                } | null;
+                created: { __typename?: 'DateTime'; time: any };
+                teaser: {
+                  __typename: 'ParagraphTeaser';
+                  id: string;
+                  squareImage: {
+                    __typename: 'MediaImage';
+                    id: string;
+                    mediaImage: {
+                      __typename?: 'Image';
+                      alt?: string | null;
+                      responsive?: {
+                        __typename: 'ResponsiveImageStyleDerivative';
+                        height?: number | null;
+                        path?: string | null;
+                        srcSetPath?: string | null;
+                        width?: number | null;
+                      } | null;
+                    };
+                  };
+                  landscapeImage: {
+                    __typename: 'MediaImage';
+                    id: string;
+                    mediaImage: {
+                      __typename?: 'Image';
+                      alt?: string | null;
+                      responsive?: {
+                        __typename: 'ResponsiveImageStyleDerivative';
+                        height?: number | null;
+                        path?: string | null;
+                        srcSetPath?: string | null;
+                        width?: number | null;
+                      } | null;
+                    };
+                  };
+                };
+              }
+            | { __typename?: 'NodeFoundationPage' }
+            | { __typename?: 'NodePage' }
+            | { __typename?: 'NodeSpeaker' }
+            | { __typename?: 'NodeTalk' }
+          >;
+        }
+      | { __typename?: 'NewsResult' }
+      | { __typename?: 'NodePathsResult' }
+      | { __typename?: 'SpeakersResult' }
+      | { __typename?: 'TalksAllResult' }
+      | { __typename?: 'TalksByDateResult' }
+      | { __typename?: 'TalksResult' };
     newsView:
+      | { __typename?: 'NewsLatestResult' }
       | {
           __typename: 'NewsResult';
           pageInfo: {
@@ -3053,6 +3240,7 @@ export type ParagraphScheduleFragment = {
     id: string;
     date: { __typename?: 'DateTime'; time: any };
     talksView:
+      | { __typename: 'NewsLatestResult' }
       | { __typename: 'NewsResult' }
       | { __typename: 'NodePathsResult' }
       | { __typename: 'SpeakersResult' }
@@ -3121,6 +3309,7 @@ export type ParagraphScheduleDayFragment = {
   id: string;
   date: { __typename?: 'DateTime'; time: any };
   talksView:
+    | { __typename: 'NewsLatestResult' }
     | { __typename: 'NewsResult' }
     | { __typename: 'NodePathsResult' }
     | { __typename: 'SpeakersResult' }
@@ -3194,6 +3383,7 @@ export type ParagraphSpeakersGridFragment = {
   __typename: 'ParagraphSpeakersGrid';
   id: string;
   speakersView?:
+    | { __typename: 'NewsLatestResult' }
     | { __typename: 'NewsResult' }
     | { __typename: 'NodePathsResult' }
     | {
@@ -3335,6 +3525,7 @@ export type ParagraphTalksGridFragment = {
   __typename: 'ParagraphTalksGrid';
   id: string;
   talksView:
+    | { __typename: 'NewsLatestResult' }
     | { __typename: 'NewsResult' }
     | { __typename: 'NodePathsResult' }
     | { __typename: 'SpeakersResult' }
@@ -4241,7 +4432,66 @@ type ParagraphsFragment_ParagraphMediaHeader_ = {
 type ParagraphsFragment_ParagraphNewsListings_ = {
   __typename: 'ParagraphNewsListings';
   id: string;
+  newsLatestView:
+    | {
+        __typename: 'NewsLatestResult';
+        results: Array<
+          | {
+              __typename: 'NodeArticle';
+              id: string;
+              title: string;
+              path: string;
+              summary?: { __typename?: 'Text'; processed?: any | null } | null;
+              created: { __typename?: 'DateTime'; time: any };
+              teaser: {
+                __typename: 'ParagraphTeaser';
+                id: string;
+                squareImage: {
+                  __typename: 'MediaImage';
+                  id: string;
+                  mediaImage: {
+                    __typename?: 'Image';
+                    alt?: string | null;
+                    responsive?: {
+                      __typename: 'ResponsiveImageStyleDerivative';
+                      height?: number | null;
+                      path?: string | null;
+                      srcSetPath?: string | null;
+                      width?: number | null;
+                    } | null;
+                  };
+                };
+                landscapeImage: {
+                  __typename: 'MediaImage';
+                  id: string;
+                  mediaImage: {
+                    __typename?: 'Image';
+                    alt?: string | null;
+                    responsive?: {
+                      __typename: 'ResponsiveImageStyleDerivative';
+                      height?: number | null;
+                      path?: string | null;
+                      srcSetPath?: string | null;
+                      width?: number | null;
+                    } | null;
+                  };
+                };
+              };
+            }
+          | { __typename?: 'NodeFoundationPage' }
+          | { __typename?: 'NodePage' }
+          | { __typename?: 'NodeSpeaker' }
+          | { __typename?: 'NodeTalk' }
+        >;
+      }
+    | { __typename?: 'NewsResult' }
+    | { __typename?: 'NodePathsResult' }
+    | { __typename?: 'SpeakersResult' }
+    | { __typename?: 'TalksAllResult' }
+    | { __typename?: 'TalksByDateResult' }
+    | { __typename?: 'TalksResult' };
   newsView:
+    | { __typename?: 'NewsLatestResult' }
     | {
         __typename: 'NewsResult';
         pageInfo: {
@@ -4316,6 +4566,7 @@ type ParagraphsFragment_ParagraphSchedule_ = {
     id: string;
     date: { __typename?: 'DateTime'; time: any };
     talksView:
+      | { __typename: 'NewsLatestResult' }
       | { __typename: 'NewsResult' }
       | { __typename: 'NodePathsResult' }
       | { __typename: 'SpeakersResult' }
@@ -4402,6 +4653,7 @@ type ParagraphsFragment_ParagraphSpeakersGrid_ = {
   __typename: 'ParagraphSpeakersGrid';
   id: string;
   speakersView?:
+    | { __typename: 'NewsLatestResult' }
     | { __typename: 'NewsResult' }
     | { __typename: 'NodePathsResult' }
     | {
@@ -4470,6 +4722,7 @@ type ParagraphsFragment_ParagraphTalksGrid_ = {
   __typename: 'ParagraphTalksGrid';
   id: string;
   talksView:
+    | { __typename: 'NewsLatestResult' }
     | { __typename: 'NewsResult' }
     | { __typename: 'NodePathsResult' }
     | { __typename: 'SpeakersResult' }
@@ -5451,7 +5704,69 @@ export type GetNodeByPathQuery = {
                 | {
                     __typename: 'ParagraphNewsListings';
                     id: string;
+                    newsLatestView:
+                      | {
+                          __typename: 'NewsLatestResult';
+                          results: Array<
+                            | {
+                                __typename: 'NodeArticle';
+                                id: string;
+                                title: string;
+                                path: string;
+                                summary?: {
+                                  __typename?: 'Text';
+                                  processed?: any | null;
+                                } | null;
+                                created: { __typename?: 'DateTime'; time: any };
+                                teaser: {
+                                  __typename: 'ParagraphTeaser';
+                                  id: string;
+                                  squareImage: {
+                                    __typename: 'MediaImage';
+                                    id: string;
+                                    mediaImage: {
+                                      __typename?: 'Image';
+                                      alt?: string | null;
+                                      responsive?: {
+                                        __typename: 'ResponsiveImageStyleDerivative';
+                                        height?: number | null;
+                                        path?: string | null;
+                                        srcSetPath?: string | null;
+                                        width?: number | null;
+                                      } | null;
+                                    };
+                                  };
+                                  landscapeImage: {
+                                    __typename: 'MediaImage';
+                                    id: string;
+                                    mediaImage: {
+                                      __typename?: 'Image';
+                                      alt?: string | null;
+                                      responsive?: {
+                                        __typename: 'ResponsiveImageStyleDerivative';
+                                        height?: number | null;
+                                        path?: string | null;
+                                        srcSetPath?: string | null;
+                                        width?: number | null;
+                                      } | null;
+                                    };
+                                  };
+                                };
+                              }
+                            | { __typename?: 'NodeFoundationPage' }
+                            | { __typename?: 'NodePage' }
+                            | { __typename?: 'NodeSpeaker' }
+                            | { __typename?: 'NodeTalk' }
+                          >;
+                        }
+                      | { __typename?: 'NewsResult' }
+                      | { __typename?: 'NodePathsResult' }
+                      | { __typename?: 'SpeakersResult' }
+                      | { __typename?: 'TalksAllResult' }
+                      | { __typename?: 'TalksByDateResult' }
+                      | { __typename?: 'TalksResult' };
                     newsView:
+                      | { __typename?: 'NewsLatestResult' }
                       | {
                           __typename: 'NewsResult';
                           pageInfo: {
@@ -5984,6 +6299,7 @@ export type GetNodeByPathQuery = {
                       id: string;
                       date: { __typename?: 'DateTime'; time: any };
                       talksView:
+                        | { __typename: 'NewsLatestResult' }
                         | { __typename: 'NewsResult' }
                         | { __typename: 'NodePathsResult' }
                         | { __typename: 'SpeakersResult' }
@@ -6059,6 +6375,7 @@ export type GetNodeByPathQuery = {
                     __typename: 'ParagraphSpeakersGrid';
                     id: string;
                     speakersView?:
+                      | { __typename: 'NewsLatestResult' }
                       | { __typename: 'NewsResult' }
                       | { __typename: 'NodePathsResult' }
                       | {
@@ -6122,6 +6439,7 @@ export type GetNodeByPathQuery = {
                     __typename: 'ParagraphTalksGrid';
                     id: string;
                     talksView:
+                      | { __typename: 'NewsLatestResult' }
                       | { __typename: 'NewsResult' }
                       | { __typename: 'NodePathsResult' }
                       | { __typename: 'SpeakersResult' }
@@ -6525,6 +6843,7 @@ export type GetNodeByPathQuery = {
                 };
               };
               talks:
+                | { __typename: 'NewsLatestResult' }
                 | { __typename: 'NewsResult' }
                 | { __typename: 'NodePathsResult' }
                 | { __typename: 'SpeakersResult' }

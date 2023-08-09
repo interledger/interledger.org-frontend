@@ -23,16 +23,16 @@ export const SwiperNavButton = forwardRef<
       {direction === 'prev' ? (
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36.779 76.069">
           <path
-            vector-effect="non-scaling-stroke"
-            stroke-width="2"
+            vectorEffect="non-scaling-stroke"
+            strokeWidth="2"
             d="M36.036 75.4 1.364 36.865 36.036.692"
           />
         </svg>
       ) : (
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36.779 76.069">
           <path
-            vector-effect="non-scaling-stroke"
-            stroke-width="2"
+            vectorEffect="non-scaling-stroke"
+            strokeWidth="2"
             d="m.743.669 34.672 38.535L.743 75.377"
           />
         </svg>

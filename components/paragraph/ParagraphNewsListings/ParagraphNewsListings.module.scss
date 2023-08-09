@@ -9,3 +9,84 @@
     margin-bottom: var(--vertical-spacing);
   }
 }
+
+.header {
+  display: grid;
+  gap: 0px 0px;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr auto;
+  margin-bottom: var(--component-spacing);
+
+  @include breakContainer;
+
+  @include mq($from: tablet) {
+    aspect-ratio: 16/9;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+  }
+
+  &::after {
+    content: '';
+    grid-area: 2 / 1 / 3 / 2;
+    background-color: var(--color-primary);
+    opacity: 6%;
+    mix-blend-mode: color-dodge;
+
+    @include mq($from: tablet) {
+      grid-area: 1 / 1 / 2 / 3;
+    }
+  }
+}
+
+.headerImage {
+  height: 100%;
+  grid-area: 1 / 1 / 2 / 2;
+  @include mq($from: tablet) {
+    grid-area: 1 / 3 / 2 / 5;
+  }
+
+  img {
+    object-fit: cover;
+  }
+}
+
+.headerText {
+  grid-area: 2 / 1 / 3 / 2;
+  align-self: center;
+  position: relative;
+  margin-bottom: var(--component-spacing);
+  margin-top: var(--component-spacing);
+  @include mq($from: tablet) {
+    grid-area: 1 / 1 / 2 / 5;
+  }
+}
+
+.headerContent {
+  @include mq($from: tablet) {
+    width: calc(50% - #{rem(60px)});
+  }
+}
+
+.summary {
+  margin-top: rem(12px);
+  @include mq($from: tablet) {
+    margin-top: rem(15px);
+  }
+}
+
+.link {
+  padding-top: rem(12px);
+  margin-top: rem(12px);
+  border-top: 1px solid var(--color-primary);
+
+  a {
+    color: var(--color-black);
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  @include mq($from: tablet) {
+    padding-top: rem(15px);
+    margin-top: rem(15px);
+  }
+}
