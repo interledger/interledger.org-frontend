@@ -660,6 +660,16 @@ export type NodeFoundationPageFragment = {
       }
     | { __typename: 'ParagraphContentTitle'; id: string; title?: string | null }
     | {
+        __typename: 'ParagraphFaqs';
+        id: string;
+        faqs?: Array<{
+          __typename?: 'ParagraphFaq';
+          id: string;
+          question: string;
+          answer: { __typename?: 'Text'; processed?: any | null };
+        }> | null;
+      }
+    | {
         __typename: 'ParagraphHighlightedList';
         id: string;
         listItem?: Array<string> | null;
@@ -2274,6 +2284,14 @@ type ContentCarouselItemFragment_ParagraphContentTitle_ = {
   __typename?: 'ParagraphContentTitle';
 };
 
+type ContentCarouselItemFragment_ParagraphFaq_ = {
+  __typename?: 'ParagraphFaq';
+};
+
+type ContentCarouselItemFragment_ParagraphFaqs_ = {
+  __typename?: 'ParagraphFaqs';
+};
+
 type ContentCarouselItemFragment_ParagraphHeroHeader_ = {
   __typename?: 'ParagraphHeroHeader';
 };
@@ -2530,6 +2548,8 @@ export type ContentCarouselItemFragment =
   | ContentCarouselItemFragment_ParagraphCarouselItem_
   | ContentCarouselItemFragment_ParagraphContentCarousel_
   | ContentCarouselItemFragment_ParagraphContentTitle_
+  | ContentCarouselItemFragment_ParagraphFaq_
+  | ContentCarouselItemFragment_ParagraphFaqs_
   | ContentCarouselItemFragment_ParagraphHeroHeader_
   | ContentCarouselItemFragment_ParagraphHighlightedList_
   | ContentCarouselItemFragment_ParagraphHighlightedSpeakers_
@@ -2736,6 +2756,17 @@ export type ParagraphContentTitleFragment = {
   __typename: 'ParagraphContentTitle';
   id: string;
   title?: string | null;
+};
+
+export type ParagraphFaqsFragment = {
+  __typename: 'ParagraphFaqs';
+  id: string;
+  faqs?: Array<{
+    __typename?: 'ParagraphFaq';
+    id: string;
+    question: string;
+    answer: { __typename?: 'Text'; processed?: any | null };
+  }> | null;
 };
 
 export type ParagraphHeroHeaderFragment = {
@@ -3650,6 +3681,10 @@ type TwoColumnContentFragment_ParagraphContentTitle_ = {
   title?: string | null;
 };
 
+type TwoColumnContentFragment_ParagraphFaq_ = { __typename?: 'ParagraphFaq' };
+
+type TwoColumnContentFragment_ParagraphFaqs_ = { __typename?: 'ParagraphFaqs' };
+
 type TwoColumnContentFragment_ParagraphHeroHeader_ = {
   __typename?: 'ParagraphHeroHeader';
 };
@@ -3800,6 +3835,8 @@ export type TwoColumnContentFragment =
   | TwoColumnContentFragment_ParagraphCarouselItem_
   | TwoColumnContentFragment_ParagraphContentCarousel_
   | TwoColumnContentFragment_ParagraphContentTitle_
+  | TwoColumnContentFragment_ParagraphFaq_
+  | TwoColumnContentFragment_ParagraphFaqs_
   | TwoColumnContentFragment_ParagraphHeroHeader_
   | TwoColumnContentFragment_ParagraphHighlightedList_
   | TwoColumnContentFragment_ParagraphHighlightedSpeakers_
@@ -4249,6 +4286,19 @@ type ParagraphsFragment_ParagraphContentTitle_ = {
   __typename: 'ParagraphContentTitle';
   id: string;
   title?: string | null;
+};
+
+type ParagraphsFragment_ParagraphFaq_ = { __typename?: 'ParagraphFaq' };
+
+type ParagraphsFragment_ParagraphFaqs_ = {
+  __typename: 'ParagraphFaqs';
+  id: string;
+  faqs?: Array<{
+    __typename?: 'ParagraphFaq';
+    id: string;
+    question: string;
+    answer: { __typename?: 'Text'; processed?: any | null };
+  }> | null;
 };
 
 type ParagraphsFragment_ParagraphHeroHeader_ = {
@@ -4991,6 +5041,8 @@ export type ParagraphsFragment =
   | ParagraphsFragment_ParagraphCarouselItem_
   | ParagraphsFragment_ParagraphContentCarousel_
   | ParagraphsFragment_ParagraphContentTitle_
+  | ParagraphsFragment_ParagraphFaq_
+  | ParagraphsFragment_ParagraphFaqs_
   | ParagraphsFragment_ParagraphHeroHeader_
   | ParagraphsFragment_ParagraphHighlightedList_
   | ParagraphsFragment_ParagraphHighlightedSpeakers_
@@ -5614,6 +5666,16 @@ export type GetNodeByPathQuery = {
                     __typename: 'ParagraphContentTitle';
                     id: string;
                     title?: string | null;
+                  }
+                | {
+                    __typename: 'ParagraphFaqs';
+                    id: string;
+                    faqs?: Array<{
+                      __typename?: 'ParagraphFaq';
+                      id: string;
+                      question: string;
+                      answer: { __typename?: 'Text'; processed?: any | null };
+                    }> | null;
                   }
                 | {
                     __typename: 'ParagraphHighlightedList';

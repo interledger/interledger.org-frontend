@@ -3,7 +3,6 @@ import { ParagraphNewsListingsFragment } from '@models/operations';
 import styles from './ParagraphNewsListings.module.scss';
 import { CardNews } from '@components/layout/CardNews/CardNews';
 import { useGetParagraphNewsListing } from '@graphql/hooks';
-import Pagination from '@components/ui/Pagination/Pagination';
 import { usePaginationQuery } from '@components/ui/Pagination/usePaginationQuery';
 import { MediaImage } from '@components/media/MediaImage/MediaImage';
 import { Container } from '@components/layout/Container/Container';
@@ -11,6 +10,12 @@ import { Text } from '@components/ui/Text/Text';
 import { DateFormat } from '@components/util/DateFormat/DateFormat';
 import { RichText } from '@components/util/RichText/RichText';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
+
+const Pagination = dynamic(
+  () => import('@components/ui/Pagination/Pagination'),
+  { ssr: false }
+);
 
 export interface ParagraphNewsListingsProps {
   /** Optional className for ParagraphNewsListings, pass in a sass module class to override component default */

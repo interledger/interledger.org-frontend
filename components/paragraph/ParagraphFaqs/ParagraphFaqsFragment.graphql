@@ -1,0 +1,11 @@
+fragment ParagraphFaqsFragment on ParagraphFaqs {
+  __typename
+  id
+  faqs {
+    id
+    question
+    answer {
+      processed
+    }
+  }
+}
