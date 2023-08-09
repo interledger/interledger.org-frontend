@@ -1,0 +1,41 @@
+@use '@styles/base/mq-settings';
+@use '~sass-mq/mq' as *;
+@use '~sass-rem' as *;
+@use '@styles/base/variables' as *;
+@use '@styles/base/helpers' as *;
+
+.root {
+}
+
+.faq {
+  border-top: 1px dashed var(--color-grey-mid);
+  border-bottom: 1px dashed var(--color-grey-mid);
+  padding: rem(20px) 0;
+}
+
+.question {
+  @include buttonReset;
+  display: flex;
+
+  svg {
+    width: rem(25px);
+    margin-left: auto;
+  }
+}
+
+.questionTitle {
+  padding-right: rem(20px);
+}
+
+.answer {
+  height: 0;
+  overflow: hidden;
+
+  > *:first-child {
+    margin-top: rem(20px);
+  }
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+}
