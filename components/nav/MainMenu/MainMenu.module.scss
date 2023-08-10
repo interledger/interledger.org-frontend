@@ -16,13 +16,14 @@
 
     li {
       margin: 0;
-      font-size: rem(18px);
-      text-align: center;
+      font-size: rem(50px);
+      font-weight: 700;
+      line-height: 1;
 
       @include mq($from: tablet) {
         margin: 0 rem(10px);
         font-size: rem(16px);
-        text-align: left;
+        font-weight: 400;
       }
 
       &:first-child {
