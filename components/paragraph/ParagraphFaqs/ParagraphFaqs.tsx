@@ -36,20 +36,22 @@ export const Faq = ({
         <Text className={styles.questionTitle} variant="h2" as="h4" noMargin>
           {faq.question}
         </Text>
-        <m.svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 14.045 25.829"
-          animate={{ rotate: selected ? 90 : 0 }}
-        >
-          <path
-            fill="none"
-            stroke="var(--color-primary)"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="m1.414 24.414 11.631-11.5-11.631-11.5"
-          />
-        </m.svg>
+        <div className={styles.questionIcon}>
+          <m.svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 14.045 25.829"
+            animate={{ rotate: selected ? 90 : 0 }}
+          >
+            <path
+              fill="none"
+              stroke="var(--color-primary)"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="m1.414 24.414 11.631-11.5-11.631-11.5"
+            />
+          </m.svg>
+        </div>
       </div>
       <m.div
         className={styles.answer}
