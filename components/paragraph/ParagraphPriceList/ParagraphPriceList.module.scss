@@ -34,7 +34,7 @@
   margin-bottom: rem(30px);
   margin-left: auto;
   margin-right: auto;
-  width: calc(80% - 21px);
+  width: 100%;
 
   @include mq($from: tablet) {
     width: calc(50% - 21px);
@@ -60,6 +60,8 @@
   padding: rem(30px) rem(12px);
   border: 1px solid var(--color-primary);
   flex: 1;
+  background-color: white;
+  mix-blend-mode: overlay;
 }
 
 .priceTitle,

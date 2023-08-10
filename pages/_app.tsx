@@ -67,7 +67,7 @@ export default function App({ Component, pageProps }: AppProps<PageProps>) {
             </Provider>
           </LazyMotion>
         </Hydrate>
-        <ReactQueryDevtools initialIsOpen={false} />
+        {/* <ReactQueryDevtools initialIsOpen={false} /> */}
       </QueryClientProvider>
     </>
   );
