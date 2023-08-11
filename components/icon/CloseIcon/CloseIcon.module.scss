@@ -5,9 +5,5 @@
 @use '@styles/base/helpers' as *;
 
 .root {
-  > div {
-    > section {
-      margin-bottom: var(--component-spacing);
-    }
-  }
+  fill: var(--color-primary);
 }

@@ -1,7 +1,7 @@
 import { MenuItemFragment } from '@models/operations';
 import cn from 'classnames';
 import { MenuItem } from '@components/nav/MenuItem/MenuItem';
-
+import { m } from 'framer-motion';
 import styles from './MenuList.module.scss';
 
 export interface MenuListProps {
@@ -31,10 +31,10 @@ export const MenuList = ({
 }: MenuListProps) => {
   const rootClassName = cn(styles.root, className);
   return (
-    <ul className={rootClassName} role="list">
-      {menus.map((m) =>
-        m ? <MenuItem key={m.url} menuItem={m} type={type} /> : null
+    <m.ul className={rootClassName} role="list" variants={container}>
+      {menus.map((menu) =>
+        menu ? <MenuItem key={menu.url} menuItem={menu} type={type} /> : null
       )}
-    </ul>
+    </m.ul>
   );
 };

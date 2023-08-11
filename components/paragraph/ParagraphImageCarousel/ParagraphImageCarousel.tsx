@@ -25,39 +25,40 @@ export const ParagraphImageCarousel = ({
   const rootClassName = cn(styles.root, className);
 
   return (
-    <Swiper
-      className={rootClassName}
-      modules={[Navigation]}
-      slidesPerView={1}
-      spaceBetween={28}
-      navigation={{
-        prevEl: `#prev${paragraph.id}`,
-        nextEl: `#next${paragraph.id}`,
-      }}
-      threshold={10}
-      speed={1000}
-    >
-      {paragraph?.carouselItem?.map((carouselItem) => (
-        <SwiperSlide className={styles.slide} key={carouselItem.id}>
-          <MediaImage
-            className={styles.headerImage}
-            media={carouselItem.image}
-          />
-        </SwiperSlide>
-      ))}
-      <SwiperPagination />
-      <SwiperNavButton
-        id={`prev${paragraph.id}`}
-        className={cn(styles.prev)}
-        direction="prev"
-        aria-label="Previous"
-      />
-      <SwiperNavButton
-        id={`next${paragraph.id}`}
-        className={cn(styles.next)}
-        direction="next"
-        aria-label="Next"
-      />
-    </Swiper>
+    <section className={rootClassName}>
+      <Swiper
+        modules={[Navigation]}
+        slidesPerView={1}
+        spaceBetween={28}
+        navigation={{
+          prevEl: `#prev${paragraph.id}`,
+          nextEl: `#next${paragraph.id}`,
+        }}
+        threshold={10}
+        speed={1000}
+      >
+        {paragraph?.carouselItem?.map((carouselItem) => (
+          <SwiperSlide className={styles.slide} key={carouselItem.id}>
+            <MediaImage
+              className={styles.headerImage}
+              media={carouselItem.image}
+            />
+          </SwiperSlide>
+        ))}
+        <SwiperPagination />
+        <SwiperNavButton
+          id={`prev${paragraph.id}`}
+          className={cn(styles.prev)}
+          direction="prev"
+          aria-label="Previous"
+        />
+        <SwiperNavButton
+          id={`next${paragraph.id}`}
+          className={cn(styles.next)}
+          direction="next"
+          aria-label="Next"
+        />
+      </Swiper>
+    </section>
   );
 };

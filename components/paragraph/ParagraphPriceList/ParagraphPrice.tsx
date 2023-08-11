@@ -22,6 +22,7 @@ export const ParagraphPrice = ({
   columns,
 }: ParagraphPriceProps) => {
   const rootClassName = cn(styles.price, className);
+
   return (
     <div className={rootClassName}>
       <Text className={styles.priceTitle} variant="h2">
@@ -31,15 +32,13 @@ export const ParagraphPrice = ({
         {paragraph.pricing}
       </Text>
       <div className={cn(styles.priceOptions, { [styles.columns]: columns })}>
-        {paragraph.options?.map((o) => (
-          <>
-            {o.__typename === 'ParagraphDivider' ? (
-              <ParagraphDivider key={o.id} paragraph={o} />
-            ) : o.__typename === 'ParagraphPriceOption' ? (
-              <ParagraphPriceOption key={o.id} paragraph={o} />
-            ) : null}
-          </>
-        ))}
+        {paragraph.options?.map((o) =>
+          o.__typename === 'ParagraphDivider' ? (
+            <ParagraphDivider key={o.id} paragraph={o} />
+          ) : o.__typename === 'ParagraphPriceOption' ? (
+            <ParagraphPriceOption key={o.id} paragraph={o} />
+          ) : null
+        )}
       </div>
     </div>
   );

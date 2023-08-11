@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import styles from './MenuItem.module.scss';
 import { ReactNode } from 'react';
+import { m } from 'framer-motion';
 
 export interface MenuItemProps {
   /** Optional className for MenuItem, pass in a sass module class to override component default */
@@ -14,8 +15,8 @@ export interface MenuItemProps {
 }
 
 const item = {
-  hide: { opacity: 0, zoom: 0.8, y: 30 },
-  show: { opacity: 1, zoom: 1, y: 0 },
+  hide: { opacity: 0, scale: 0.8, y: 30 },
+  show: { opacity: 1, scale: 1, y: 0 },
 };
 
 export const MenuItem = ({
@@ -33,7 +34,7 @@ export const MenuItem = ({
   }
 
   return (
-    <li>
+    <m.li variants={item} transition={{ type: 'spring' }}>
       {menuItem.url ? (
         <Link
           href={menuItem.url}
@@ -48,6 +49,6 @@ export const MenuItem = ({
         <span className={rootClassName}>{menuItem.title}</span>
       )}
       {children}
-    </li>
+    </m.li>
   );
 };

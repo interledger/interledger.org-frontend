@@ -8,7 +8,7 @@ import styles from './ParagraphHighlightedSpeakers.module.scss';
 export interface ParagraphHighlightedSpeakersProps {
   /** Optional className for ParagraphHighlightedSpeakers, pass in a sass module class to override component default */
   className?: string;
-  paragraph: ParagraphHighlightedSpeakersFragment
+  paragraph: ParagraphHighlightedSpeakersFragment;
 }
 
 interface SpeakerProps {
@@ -34,44 +34,44 @@ const getAnimationValues = (count: number) => {
       animationValues = {
         animateFromDistance: 150,
         animateToDistance: -450,
-        animateFromOffset: "end end",
-        animateToOffset: "end start"
-      }
+        animateFromOffset: 'end end',
+        animateToOffset: 'end start',
+      };
       break;
     case 2:
       animationValues = {
         animateFromDistance: 250,
         animateToDistance: -100,
-        animateFromOffset: "start end",
-        animateToOffset: "end start"
-      }
+        animateFromOffset: 'start end',
+        animateToOffset: 'end start',
+      };
       break;
     case 3:
       animationValues = {
         animateFromDistance: 250,
         animateToDistance: -300,
-        animateFromOffset: "start end",
-        animateToOffset: "end center"
-      }
+        animateFromOffset: 'start end',
+        animateToOffset: 'end center',
+      };
       break;
     case 4:
       animationValues = {
         animateFromDistance: 300,
         animateToDistance: -100,
-        animateFromOffset: "start end",
-        animateToOffset: "end start"
-      }
+        animateFromOffset: 'start end',
+        animateToOffset: 'end start',
+      };
       break;
   }
 
   return animationValues;
-}
+};
 
 const Speaker = ({ className, speaker }: SpeakerProps) => {
   const speakerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: speakerRef,
-    offset: [speaker.animateFromOffset, speaker.animateToOffset]
+    offset: [speaker.animateFromOffset, speaker.animateToOffset],
   });
   const y = useParallax(
     scrollYProgress,
@@ -81,47 +81,44 @@ const Speaker = ({ className, speaker }: SpeakerProps) => {
 
   return (
     <div className={className}>
-      <m.div
-        className={styles.speaker}
-        ref={speakerRef}
-        style={{ y }}
-      >
+      <m.div className={styles.speaker} ref={speakerRef} style={{ y }}>
         <MediaImage media={speaker.teaser.squareImage} />
         <h2>{speaker.title}</h2>
         <p>CEO, Coil</p>
       </m.div>
     </div>
-  )
-}
+  );
+};
 
-export const ParagraphHighlightedSpeakers = ({ className, paragraph }: ParagraphHighlightedSpeakersProps) => {
+export const ParagraphHighlightedSpeakers = ({
+  className,
+  paragraph,
+}: ParagraphHighlightedSpeakersProps) => {
   const rootClassName = cn(styles.root, className);
 
   let count = 0;
-  const speakersWithAnimationValues = paragraph.speakers?.map(speaker => {
+  const speakersWithAnimationValues = paragraph.speakers?.map((speaker) => {
     count += 1;
     if (count === 5) {
       count = 0;
     }
     const animationValues = getAnimationValues(count);
 
-    return (
-      {
-        ...speaker,
-        ...animationValues,
-      }
-    )
+    return {
+      ...speaker,
+      ...animationValues,
+    };
   });
 
   return (
-    <div className={rootClassName}>
-      {speakersWithAnimationValues?.map(speaker => (
+    <section className={rootClassName}>
+      {speakersWithAnimationValues?.map((speaker) => (
         <Speaker
           key={speaker.id}
           className={styles.speakerContainer}
           speaker={speaker}
         />
       ))}
-    </div>
+    </section>
   );
 };
