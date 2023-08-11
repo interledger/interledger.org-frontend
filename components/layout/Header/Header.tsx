@@ -12,6 +12,8 @@ import { useAtom } from 'jotai';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { useScrollLock } from '@hooks/useScrollLock';
+import { CloseIcon } from '@components/icon/CloseIcon/CloseIcon';
+import { m } from 'framer-motion';
 
 export interface HeaderProps {
   /** Optional className for Header, pass in a sass module class to override component default */
@@ -60,13 +62,16 @@ export const Header = ({ className, mainMenu, isSummit }: HeaderProps) => {
         </Link>
       </div>
       <div className={styles.hamburgerWrapper}>
-        <button
+        <m.button
+          key={menuOpen ? 'open' : 'close'}
           className={styles.menuButton}
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Open Menu"
+          initial={{ scale: 0 }}
+          animate={{ scale: 1.2 }}
         >
-          <HamburgerIcon />
-        </button>
+          {menuOpen ? <CloseIcon /> : <HamburgerIcon />}
+        </m.button>
       </div>
       <div
         className={cn(styles.navWrapper, {
