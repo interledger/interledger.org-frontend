@@ -18,11 +18,13 @@ export const Default: Story = {
           __typename: 'MenuItem' as const,
           title: 'Home',
           url: '/',
+          id: 'dsgfdfgdsfhgsdf',
         },
         {
           __typename: 'MenuItem' as const,
           title: 'Page',
           url: '/',
+          id: 'zsdfgdsgsdf',
         },
       ],
     },

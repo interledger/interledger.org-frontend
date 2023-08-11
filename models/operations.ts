@@ -97,20 +97,49 @@ export type MediaVideoFragment = {
   mediaVideoFile: { __typename?: 'File'; url: string };
 };
 
+export type DeveloperToolsMenuFragment = {
+  __typename: 'Menu';
+  id: string;
+  name: string;
+  items: Array<{
+    __typename: 'MenuItem';
+    title: string;
+    id: string;
+    url?: string | null;
+    children: Array<{
+      __typename: 'MenuItem';
+      title: string;
+      id: string;
+      url?: string | null;
+    }>;
+  }>;
+};
+
 export type FooterMenuFragment = {
   __typename: 'Menu';
   name: string;
-  items: Array<{ __typename: 'MenuItem'; title: string; url?: string | null }>;
+  items: Array<{
+    __typename: 'MenuItem';
+    title: string;
+    id: string;
+    url?: string | null;
+  }>;
 };
 
 export type MainMenuFragment = {
   __typename: 'Menu';
-  items: Array<{ __typename: 'MenuItem'; title: string; url?: string | null }>;
+  items: Array<{
+    __typename: 'MenuItem';
+    title: string;
+    id: string;
+    url?: string | null;
+  }>;
 };
 
 export type MenuItemFragment = {
   __typename: 'MenuItem';
   title: string;
+  id: string;
   url?: string | null;
 };
 
@@ -169,7 +198,7 @@ export type NodeArticleFragment = {
           title?: string | null;
         };
       }
-    | { __typename: 'ParagraphContentTitle'; id: string; title?: string | null }
+    | { __typename: 'ParagraphContentTitle'; id: string; title: string }
     | {
         __typename: 'ParagraphImageFullWidth';
         id: string;
@@ -228,11 +257,7 @@ export type NodeArticleFragment = {
                 title?: string | null;
               };
             }
-          | {
-              __typename: 'ParagraphContentTitle';
-              id: string;
-              title?: string | null;
-            }
+          | { __typename: 'ParagraphContentTitle'; id: string; title: string }
           | {
               __typename: 'ParagraphImage';
               id: string;
@@ -313,11 +338,7 @@ export type NodeArticleFragment = {
                 title?: string | null;
               };
             }
-          | {
-              __typename: 'ParagraphContentTitle';
-              id: string;
-              title?: string | null;
-            }
+          | { __typename: 'ParagraphContentTitle'; id: string; title: string }
           | {
               __typename: 'ParagraphImage';
               id: string;
@@ -465,6 +486,100 @@ export type NodeArticleCardFragment = {
   };
 };
 
+export type NodeDeveloperToolsFragment = {
+  __typename: 'NodeDeveloperTools';
+  id: string;
+  title: string;
+  path: string;
+  sections?: Array<
+    | { __typename: 'ParagraphAnchor'; id: string; title: string }
+    | {
+        __typename: 'ParagraphButton';
+        id: string;
+        link: {
+          __typename?: 'Link';
+          url?: string | null;
+          title?: string | null;
+        };
+      }
+    | { __typename: 'ParagraphContentTitle'; id: string; title: string }
+    | {
+        __typename: 'ParagraphImageFullWidth';
+        id: string;
+        landscapeImage: {
+          __typename: 'MediaImage';
+          id: string;
+          mediaImage: {
+            __typename?: 'Image';
+            alt?: string | null;
+            responsive?: {
+              __typename: 'ResponsiveImageStyleDerivative';
+              height?: number | null;
+              path?: string | null;
+              srcSetPath?: string | null;
+              width?: number | null;
+            } | null;
+          };
+        };
+        squareIamge: {
+          __typename: 'MediaImage';
+          id: string;
+          mediaImage: {
+            __typename?: 'Image';
+            alt?: string | null;
+            responsive?: {
+              __typename: 'ResponsiveImageStyleDerivative';
+              height?: number | null;
+              path?: string | null;
+              srcSetPath?: string | null;
+              width?: number | null;
+            } | null;
+          };
+        };
+      }
+    | {
+        __typename: 'ParagraphSpacer';
+        id: string;
+        spacerSize: string;
+        spacerLine?: boolean | null;
+      }
+    | {
+        __typename: 'ParagraphText';
+        id: string;
+        text: { __typename?: 'Text'; processed?: any | null };
+      }
+  > | null;
+  metatag: Array<
+    | {
+        __typename: 'MetaTagLink';
+        tag: string;
+        attributes: {
+          __typename?: 'MetaTagLinkAttributes';
+          href?: string | null;
+          rel?: string | null;
+        };
+      }
+    | {
+        __typename: 'MetaTagProperty';
+        tag: string;
+        attributes: {
+          __typename?: 'MetaTagPropertyAttributes';
+          content?: string | null;
+          property?: string | null;
+        };
+      }
+    | {
+        __typename: 'MetaTagValue';
+        tag: string;
+        attributes: {
+          __typename?: 'MetaTagValueAttributes';
+          content?: string | null;
+          name?: string | null;
+        };
+      }
+  >;
+};
+
 export type NodeFoundationPageFragment = {
   __typename: 'NodeFoundationPage';
   id: string;
@@ -496,11 +611,7 @@ export type NodeFoundationPageFragment = {
                   title?: string | null;
                 };
               }
-            | {
-                __typename: 'ParagraphContentTitle';
-                id: string;
-                title?: string | null;
-              }
+            | { __typename: 'ParagraphContentTitle'; id: string; title: string }
             | {
                 __typename: 'ParagraphImage';
                 id: string;
@@ -581,11 +692,7 @@ export type NodeFoundationPageFragment = {
                   title?: string | null;
                 };
               }
-            | {
-                __typename: 'ParagraphContentTitle';
-                id: string;
-                title?: string | null;
-              }
+            | { __typename: 'ParagraphContentTitle'; id: string; title: string }
             | {
                 __typename: 'ParagraphImage';
                 id: string;
@@ -658,7 +765,7 @@ export type NodeFoundationPageFragment = {
           > | null;
         }> | null;
       }
-    | { __typename: 'ParagraphContentTitle'; id: string; title?: string | null }
+    | { __typename: 'ParagraphContentTitle'; id: string; title: string }
     | {
         __typename: 'ParagraphFaqs';
         id: string;
@@ -807,6 +914,7 @@ export type NodeFoundationPageFragment = {
                       };
                     };
                   }
+                | { __typename?: 'NodeDeveloperTools' }
                 | { __typename?: 'NodeFoundationPage' }
                 | { __typename?: 'NodePage' }
                 | { __typename?: 'NodeSpeaker' }
@@ -876,6 +984,7 @@ export type NodeFoundationPageFragment = {
                       };
                     };
                   }
+                | { __typename?: 'NodeDeveloperTools' }
                 | { __typename?: 'NodeFoundationPage' }
                 | { __typename?: 'NodePage' }
                 | { __typename?: 'NodeSpeaker' }
@@ -948,11 +1057,7 @@ export type NodeFoundationPageFragment = {
                 title?: string | null;
               };
             }
-          | {
-              __typename: 'ParagraphContentTitle';
-              id: string;
-              title?: string | null;
-            }
+          | { __typename: 'ParagraphContentTitle'; id: string; title: string }
           | {
               __typename: 'ParagraphImage';
               id: string;
@@ -1033,11 +1138,7 @@ export type NodeFoundationPageFragment = {
                 title?: string | null;
               };
             }
-          | {
-              __typename: 'ParagraphContentTitle';
-              id: string;
-              title?: string | null;
-            }
+          | { __typename: 'ParagraphContentTitle'; id: string; title: string }
           | {
               __typename: 'ParagraphImage';
               id: string;
@@ -1200,7 +1301,7 @@ export type NodeFoundationPageFragment = {
   header?: {
     __typename: 'ParagraphHeroHeader';
     id: string;
-    title?: string | null;
+    title: string;
     whereText?: string | null;
     whenText?: string | null;
     image: {
@@ -1282,7 +1383,7 @@ export type NodePageFragment = {
           title?: string | null;
         };
       }
-    | { __typename: 'ParagraphContentTitle'; id: string; title?: string | null }
+    | { __typename: 'ParagraphContentTitle'; id: string; title: string }
     | {
         __typename: 'ParagraphHighlightedList';
         id: string;
@@ -1415,7 +1516,7 @@ export type NodePageFragment = {
     | {
         __typename: 'ParagraphSchedule';
         id: string;
-        title?: string | null;
+        title: string;
         days: Array<{
           __typename: 'ParagraphScheduleDay';
           id: string;
@@ -1430,6 +1531,7 @@ export type NodePageFragment = {
                 __typename: 'TalksByDateResult';
                 results: Array<
                   | { __typename?: 'NodeArticle' }
+                  | { __typename?: 'NodeDeveloperTools' }
                   | { __typename?: 'NodeFoundationPage' }
                   | { __typename?: 'NodePage' }
                   | { __typename?: 'NodeSpeaker' }
@@ -1502,6 +1604,7 @@ export type NodePageFragment = {
               id: string;
               results: Array<
                 | { __typename?: 'NodeArticle' }
+                | { __typename?: 'NodeDeveloperTools' }
                 | { __typename?: 'NodeFoundationPage' }
                 | { __typename?: 'NodePage' }
                 | {
@@ -1567,6 +1670,7 @@ export type NodePageFragment = {
               id: string;
               results: Array<
                 | { __typename?: 'NodeArticle' }
+                | { __typename?: 'NodeDeveloperTools' }
                 | { __typename?: 'NodeFoundationPage' }
                 | { __typename?: 'NodePage' }
                 | { __typename?: 'NodeSpeaker' }
@@ -1639,11 +1743,7 @@ export type NodePageFragment = {
                 title?: string | null;
               };
             }
-          | {
-              __typename: 'ParagraphContentTitle';
-              id: string;
-              title?: string | null;
-            }
+          | { __typename: 'ParagraphContentTitle'; id: string; title: string }
           | {
               __typename: 'ParagraphImage';
               id: string;
@@ -1724,11 +1824,7 @@ export type NodePageFragment = {
                 title?: string | null;
               };
             }
-          | {
-              __typename: 'ParagraphContentTitle';
-              id: string;
-              title?: string | null;
-            }
+          | { __typename: 'ParagraphContentTitle'; id: string; title: string }
           | {
               __typename: 'ParagraphImage';
               id: string;
@@ -1891,7 +1987,7 @@ export type NodePageFragment = {
   header?: {
     __typename: 'ParagraphHeroHeader';
     id: string;
-    title?: string | null;
+    title: string;
     whereText?: string | null;
     whenText?: string | null;
     image: {
@@ -2002,6 +2098,7 @@ export type NodeSpeakerFragment = {
         __typename: 'TalksResult';
         results: Array<
           | { __typename?: 'NodeArticle' }
+          | { __typename?: 'NodeDeveloperTools' }
           | { __typename?: 'NodeFoundationPage' }
           | { __typename?: 'NodePage' }
           | { __typename?: 'NodeSpeaker' }
@@ -2298,10 +2395,20 @@ export type NodeTalkCardFragment = {
   speakers?: Array<{ __typename?: 'NodeSpeaker'; title: string }> | null;
 };
 
+export type ParagraphAnchorFragment = {
+  __typename: 'ParagraphAnchor';
+  id: string;
+  title: string;
+};
+
 export type ParagraphButtonFragment = {
   __typename: 'ParagraphButton';
   id: string;
   link: { __typename?: 'Link'; url?: string | null; title?: string | null };
+};
+
+type ContentCarouselItemFragment_ParagraphAnchor_ = {
+  __typename?: 'ParagraphAnchor';
 };
 
 type ContentCarouselItemFragment_ParagraphButton_ = {
@@ -2437,7 +2544,7 @@ type ContentCarouselItemFragment_ParagraphTwoColumnContent_ = {
           title?: string | null;
         };
       }
-    | { __typename: 'ParagraphContentTitle'; id: string; title?: string | null }
+    | { __typename: 'ParagraphContentTitle'; id: string; title: string }
     | {
         __typename: 'ParagraphImage';
         id: string;
@@ -2518,7 +2625,7 @@ type ContentCarouselItemFragment_ParagraphTwoColumnContent_ = {
           title?: string | null;
         };
       }
-    | { __typename: 'ParagraphContentTitle'; id: string; title?: string | null }
+    | { __typename: 'ParagraphContentTitle'; id: string; title: string }
     | {
         __typename: 'ParagraphImage';
         id: string;
@@ -2596,6 +2703,7 @@ type ContentCarouselItemFragment_ParagraphVideo_ = {
 };
 
 export type ContentCarouselItemFragment =
+  | ContentCarouselItemFragment_ParagraphAnchor_
   | ContentCarouselItemFragment_ParagraphButton_
   | ContentCarouselItemFragment_ParagraphCarouselItem_
   | ContentCarouselItemFragment_ParagraphContentCarousel_
@@ -2645,11 +2753,7 @@ export type ParagraphContentCarouselFragment = {
             title?: string | null;
           };
         }
-      | {
-          __typename: 'ParagraphContentTitle';
-          id: string;
-          title?: string | null;
-        }
+      | { __typename: 'ParagraphContentTitle'; id: string; title: string }
       | {
           __typename: 'ParagraphImage';
           id: string;
@@ -2730,11 +2834,7 @@ export type ParagraphContentCarouselFragment = {
             title?: string | null;
           };
         }
-      | {
-          __typename: 'ParagraphContentTitle';
-          id: string;
-          title?: string | null;
-        }
+      | { __typename: 'ParagraphContentTitle'; id: string; title: string }
       | {
           __typename: 'ParagraphImage';
           id: string;
@@ -2811,7 +2911,7 @@ export type ParagraphContentCarouselFragment = {
 export type ParagraphContentTitleFragment = {
   __typename: 'ParagraphContentTitle';
   id: string;
-  title?: string | null;
+  title: string;
 };
 
 export type ParagraphDividerFragment = {
@@ -2833,7 +2933,7 @@ export type ParagraphFaqsFragment = {
 export type ParagraphHeroHeaderFragment = {
   __typename: 'ParagraphHeroHeader';
   id: string;
-  title?: string | null;
+  title: string;
   whereText?: string | null;
   whenText?: string | null;
   image: {
@@ -3102,6 +3202,7 @@ export type ParagraphNewsListingsFragment = {
                 };
               };
             }
+          | { __typename?: 'NodeDeveloperTools' }
           | { __typename?: 'NodeFoundationPage' }
           | { __typename?: 'NodePage' }
           | { __typename?: 'NodeSpeaker' }
@@ -3168,6 +3269,7 @@ export type ParagraphNewsListingsFragment = {
                 };
               };
             }
+          | { __typename?: 'NodeDeveloperTools' }
           | { __typename?: 'NodeFoundationPage' }
           | { __typename?: 'NodePage' }
           | { __typename?: 'NodeSpeaker' }
@@ -3240,6 +3342,7 @@ export type GetParagraphNewsListing = {
                   };
                 };
               }
+            | { __typename?: 'NodeDeveloperTools' }
             | { __typename?: 'NodeFoundationPage' }
             | { __typename?: 'NodePage' }
             | { __typename?: 'NodeSpeaker' }
@@ -3309,6 +3412,7 @@ export type GetParagraphNewsListing = {
                   };
                 };
               }
+            | { __typename?: 'NodeDeveloperTools' }
             | { __typename?: 'NodeFoundationPage' }
             | { __typename?: 'NodePage' }
             | { __typename?: 'NodeSpeaker' }
@@ -3387,7 +3491,7 @@ export type ParagraphPriceListFragment = {
 export type ParagraphScheduleFragment = {
   __typename: 'ParagraphSchedule';
   id: string;
-  title?: string | null;
+  title: string;
   days: Array<{
     __typename: 'ParagraphScheduleDay';
     id: string;
@@ -3402,6 +3506,7 @@ export type ParagraphScheduleFragment = {
           __typename: 'TalksByDateResult';
           results: Array<
             | { __typename?: 'NodeArticle' }
+            | { __typename?: 'NodeDeveloperTools' }
             | { __typename?: 'NodeFoundationPage' }
             | { __typename?: 'NodePage' }
             | { __typename?: 'NodeSpeaker' }
@@ -3471,6 +3576,7 @@ export type ParagraphScheduleDayFragment = {
         __typename: 'TalksByDateResult';
         results: Array<
           | { __typename?: 'NodeArticle' }
+          | { __typename?: 'NodeDeveloperTools' }
           | { __typename?: 'NodeFoundationPage' }
           | { __typename?: 'NodePage' }
           | { __typename?: 'NodeSpeaker' }
@@ -3544,6 +3650,7 @@ export type ParagraphSpeakersGridFragment = {
         id: string;
         results: Array<
           | { __typename?: 'NodeArticle' }
+          | { __typename?: 'NodeDeveloperTools' }
           | { __typename?: 'NodeFoundationPage' }
           | { __typename?: 'NodePage' }
           | {
@@ -3687,6 +3794,7 @@ export type ParagraphTalksGridFragment = {
         id: string;
         results: Array<
           | { __typename?: 'NodeArticle' }
+          | { __typename?: 'NodeDeveloperTools' }
           | { __typename?: 'NodeFoundationPage' }
           | { __typename?: 'NodePage' }
           | { __typename?: 'NodeSpeaker' }
@@ -3783,6 +3891,10 @@ export type ParagraphTextFragment = {
   text: { __typename?: 'Text'; processed?: any | null };
 };
 
+type TwoColumnContentFragment_ParagraphAnchor_ = {
+  __typename?: 'ParagraphAnchor';
+};
+
 type TwoColumnContentFragment_ParagraphButton_ = {
   __typename: 'ParagraphButton';
   id: string;
@@ -3800,7 +3912,7 @@ type TwoColumnContentFragment_ParagraphContentCarousel_ = {
 type TwoColumnContentFragment_ParagraphContentTitle_ = {
   __typename: 'ParagraphContentTitle';
   id: string;
-  title?: string | null;
+  title: string;
 };
 
 type TwoColumnContentFragment_ParagraphDivider_ = {
@@ -3969,6 +4081,7 @@ type TwoColumnContentFragment_ParagraphVideo_ = {
 };
 
 export type TwoColumnContentFragment =
+  | TwoColumnContentFragment_ParagraphAnchor_
   | TwoColumnContentFragment_ParagraphButton_
   | TwoColumnContentFragment_ParagraphCarouselItem_
   | TwoColumnContentFragment_ParagraphContentCarousel_
@@ -4015,7 +4128,7 @@ export type ParagraphTwoColumnContentFragment = {
           title?: string | null;
         };
       }
-    | { __typename: 'ParagraphContentTitle'; id: string; title?: string | null }
+    | { __typename: 'ParagraphContentTitle'; id: string; title: string }
     | {
         __typename: 'ParagraphImage';
         id: string;
@@ -4096,7 +4209,7 @@ export type ParagraphTwoColumnContentFragment = {
           title?: string | null;
         };
       }
-    | { __typename: 'ParagraphContentTitle'; id: string; title?: string | null }
+    | { __typename: 'ParagraphContentTitle'; id: string; title: string }
     | {
         __typename: 'ParagraphImage';
         id: string;
@@ -4235,6 +4348,12 @@ export type LinkFragment = {
   title?: string | null;
 };
 
+type ParagraphsFragment_ParagraphAnchor_ = {
+  __typename: 'ParagraphAnchor';
+  id: string;
+  title: string;
+};
+
 type ParagraphsFragment_ParagraphButton_ = {
   __typename: 'ParagraphButton';
   id: string;
@@ -4261,11 +4380,7 @@ type ParagraphsFragment_ParagraphContentCarousel_ = {
             title?: string | null;
           };
         }
-      | {
-          __typename: 'ParagraphContentTitle';
-          id: string;
-          title?: string | null;
-        }
+      | { __typename: 'ParagraphContentTitle'; id: string; title: string }
       | {
           __typename: 'ParagraphImage';
           id: string;
@@ -4346,11 +4461,7 @@ type ParagraphsFragment_ParagraphContentCarousel_ = {
             title?: string | null;
           };
         }
-      | {
-          __typename: 'ParagraphContentTitle';
-          id: string;
-          title?: string | null;
-        }
+      | { __typename: 'ParagraphContentTitle'; id: string; title: string }
       | {
           __typename: 'ParagraphImage';
           id: string;
@@ -4427,7 +4538,7 @@ type ParagraphsFragment_ParagraphContentCarousel_ = {
 type ParagraphsFragment_ParagraphContentTitle_ = {
   __typename: 'ParagraphContentTitle';
   id: string;
-  title?: string | null;
+  title: string;
 };
 
 type ParagraphsFragment_ParagraphDivider_ = { __typename?: 'ParagraphDivider' };
@@ -4672,6 +4783,7 @@ type ParagraphsFragment_ParagraphNewsListings_ = {
                 };
               };
             }
+          | { __typename?: 'NodeDeveloperTools' }
           | { __typename?: 'NodeFoundationPage' }
           | { __typename?: 'NodePage' }
           | { __typename?: 'NodeSpeaker' }
@@ -4738,6 +4850,7 @@ type ParagraphsFragment_ParagraphNewsListings_ = {
                 };
               };
             }
+          | { __typename?: 'NodeDeveloperTools' }
           | { __typename?: 'NodeFoundationPage' }
           | { __typename?: 'NodePage' }
           | { __typename?: 'NodeSpeaker' }
@@ -4797,7 +4910,7 @@ type ParagraphsFragment_ParagraphPriceOption_ = {
 type ParagraphsFragment_ParagraphSchedule_ = {
   __typename: 'ParagraphSchedule';
   id: string;
-  title?: string | null;
+  title: string;
   days: Array<{
     __typename: 'ParagraphScheduleDay';
     id: string;
@@ -4812,6 +4925,7 @@ type ParagraphsFragment_ParagraphSchedule_ = {
           __typename: 'TalksByDateResult';
           results: Array<
             | { __typename?: 'NodeArticle' }
+            | { __typename?: 'NodeDeveloperTools' }
             | { __typename?: 'NodeFoundationPage' }
             | { __typename?: 'NodePage' }
             | { __typename?: 'NodeSpeaker' }
@@ -4898,6 +5012,7 @@ type ParagraphsFragment_ParagraphSpeakersGrid_ = {
         id: string;
         results: Array<
           | { __typename?: 'NodeArticle' }
+          | { __typename?: 'NodeDeveloperTools' }
           | { __typename?: 'NodeFoundationPage' }
           | { __typename?: 'NodePage' }
           | {
@@ -4968,6 +5083,7 @@ type ParagraphsFragment_ParagraphTalksGrid_ = {
         id: string;
         results: Array<
           | { __typename?: 'NodeArticle' }
+          | { __typename?: 'NodeDeveloperTools' }
           | { __typename?: 'NodeFoundationPage' }
           | { __typename?: 'NodePage' }
           | { __typename?: 'NodeSpeaker' }
@@ -5044,7 +5160,7 @@ type ParagraphsFragment_ParagraphTwoColumnContent_ = {
           title?: string | null;
         };
       }
-    | { __typename: 'ParagraphContentTitle'; id: string; title?: string | null }
+    | { __typename: 'ParagraphContentTitle'; id: string; title: string }
     | {
         __typename: 'ParagraphImage';
         id: string;
@@ -5125,7 +5241,7 @@ type ParagraphsFragment_ParagraphTwoColumnContent_ = {
           title?: string | null;
         };
       }
-    | { __typename: 'ParagraphContentTitle'; id: string; title?: string | null }
+    | { __typename: 'ParagraphContentTitle'; id: string; title: string }
     | {
         __typename: 'ParagraphImage';
         id: string;
@@ -5224,6 +5340,7 @@ type ParagraphsFragment_ParagraphVideo_ = {
 };
 
 export type ParagraphsFragment =
+  | ParagraphsFragment_ParagraphAnchor_
   | ParagraphsFragment_ParagraphButton_
   | ParagraphsFragment_ParagraphCarouselItem_
   | ParagraphsFragment_ParagraphContentCarousel_
@@ -5284,6 +5401,7 @@ export type GetInitDataQuery = {
     items: Array<{
       __typename: 'MenuItem';
       title: string;
+      id: string;
       url?: string | null;
     }>;
   } | null;
@@ -5292,6 +5410,7 @@ export type GetInitDataQuery = {
     items: Array<{
       __typename: 'MenuItem';
       title: string;
+      id: string;
       url?: string | null;
     }>;
   } | null;
@@ -5301,6 +5420,7 @@ export type GetInitDataQuery = {
     items: Array<{
       __typename: 'MenuItem';
       title: string;
+      id: string;
       url?: string | null;
     }>;
   } | null;
@@ -5310,7 +5430,25 @@ export type GetInitDataQuery = {
     items: Array<{
       __typename: 'MenuItem';
       title: string;
+      id: string;
       url?: string | null;
+    }>;
+  } | null;
+  developerToolsMenu?: {
+    __typename: 'Menu';
+    id: string;
+    name: string;
+    items: Array<{
+      __typename: 'MenuItem';
+      title: string;
+      id: string;
+      url?: string | null;
+      children: Array<{
+        __typename: 'MenuItem';
+        title: string;
+        id: string;
+        url?: string | null;
+      }>;
     }>;
   } | null;
   siteSettings?: {
@@ -5389,7 +5527,7 @@ export type GetNodeByPathQuery = {
                 | {
                     __typename: 'ParagraphContentTitle';
                     id: string;
-                    title?: string | null;
+                    title: string;
                   }
                 | {
                     __typename: 'ParagraphImageFullWidth';
@@ -5452,7 +5590,7 @@ export type GetNodeByPathQuery = {
                       | {
                           __typename: 'ParagraphContentTitle';
                           id: string;
-                          title?: string | null;
+                          title: string;
                         }
                       | {
                           __typename: 'ParagraphImage';
@@ -5540,7 +5678,7 @@ export type GetNodeByPathQuery = {
                       | {
                           __typename: 'ParagraphContentTitle';
                           id: string;
-                          title?: string | null;
+                          title: string;
                         }
                       | {
                           __typename: 'ParagraphImage';
@@ -5649,6 +5787,103 @@ export type GetNodeByPathQuery = {
               >;
             }
           | {
+              __typename: 'NodeDeveloperTools';
+              id: string;
+              title: string;
+              path: string;
+              sections?: Array<
+                | { __typename: 'ParagraphAnchor'; id: string; title: string }
+                | {
+                    __typename: 'ParagraphButton';
+                    id: string;
+                    link: {
+                      __typename?: 'Link';
+                      url?: string | null;
+                      title?: string | null;
+                    };
+                  }
+                | {
+                    __typename: 'ParagraphContentTitle';
+                    id: string;
+                    title: string;
+                  }
+                | {
+                    __typename: 'ParagraphImageFullWidth';
+                    id: string;
+                    landscapeImage: {
+                      __typename: 'MediaImage';
+                      id: string;
+                      mediaImage: {
+                        __typename?: 'Image';
+                        alt?: string | null;
+                        responsive?: {
+                          __typename: 'ResponsiveImageStyleDerivative';
+                          height?: number | null;
+                          path?: string | null;
+                          srcSetPath?: string | null;
+                          width?: number | null;
+                        } | null;
+                      };
+                    };
+                    squareIamge: {
+                      __typename: 'MediaImage';
+                      id: string;
+                      mediaImage: {
+                        __typename?: 'Image';
+                        alt?: string | null;
+                        responsive?: {
+                          __typename: 'ResponsiveImageStyleDerivative';
+                          height?: number | null;
+                          path?: string | null;
+                          srcSetPath?: string | null;
+                          width?: number | null;
+                        } | null;
+                      };
+                    };
+                  }
+                | {
+                    __typename: 'ParagraphSpacer';
+                    id: string;
+                    spacerSize: string;
+                    spacerLine?: boolean | null;
+                  }
+                | {
+                    __typename: 'ParagraphText';
+                    id: string;
+                    text: { __typename?: 'Text'; processed?: any | null };
+                  }
+              > | null;
+              metatag: Array<
+                | {
+                    __typename: 'MetaTagLink';
+                    tag: string;
+                    attributes: {
+                      __typename?: 'MetaTagLinkAttributes';
+                      href?: string | null;
+                      rel?: string | null;
+                    };
+                  }
+                | {
+                    __typename: 'MetaTagProperty';
+                    tag: string;
+                    attributes: {
+                      __typename?: 'MetaTagPropertyAttributes';
+                      content?: string | null;
+                      property?: string | null;
+                    };
+                  }
+                | {
+                    __typename: 'MetaTagValue';
+                    tag: string;
+                    attributes: {
+                      __typename?: 'MetaTagValueAttributes';
+                      content?: string | null;
+                      name?: string | null;
+                    };
+                  }
+              >;
+            }
+          | {
               __typename: 'NodeFoundationPage';
               id: string;
               title: string;
@@ -5682,7 +5917,7 @@ export type GetNodeByPathQuery = {
                         | {
                             __typename: 'ParagraphContentTitle';
                             id: string;
-                            title?: string | null;
+                            title: string;
                           }
                         | {
                             __typename: 'ParagraphImage';
@@ -5773,7 +6008,7 @@ export type GetNodeByPathQuery = {
                         | {
                             __typename: 'ParagraphContentTitle';
                             id: string;
-                            title?: string | null;
+                            title: string;
                           }
                         | {
                             __typename: 'ParagraphImage';
@@ -5856,7 +6091,7 @@ export type GetNodeByPathQuery = {
                 | {
                     __typename: 'ParagraphContentTitle';
                     id: string;
-                    title?: string | null;
+                    title: string;
                   }
                 | {
                     __typename: 'ParagraphFaqs';
@@ -6006,6 +6241,7 @@ export type GetNodeByPathQuery = {
                                   };
                                 };
                               }
+                            | { __typename?: 'NodeDeveloperTools' }
                             | { __typename?: 'NodeFoundationPage' }
                             | { __typename?: 'NodePage' }
                             | { __typename?: 'NodeSpeaker' }
@@ -6075,6 +6311,7 @@ export type GetNodeByPathQuery = {
                                   };
                                 };
                               }
+                            | { __typename?: 'NodeDeveloperTools' }
                             | { __typename?: 'NodeFoundationPage' }
                             | { __typename?: 'NodePage' }
                             | { __typename?: 'NodeSpeaker' }
@@ -6150,7 +6387,7 @@ export type GetNodeByPathQuery = {
                       | {
                           __typename: 'ParagraphContentTitle';
                           id: string;
-                          title?: string | null;
+                          title: string;
                         }
                       | {
                           __typename: 'ParagraphImage';
@@ -6238,7 +6475,7 @@ export type GetNodeByPathQuery = {
                       | {
                           __typename: 'ParagraphContentTitle';
                           id: string;
-                          title?: string | null;
+                          title: string;
                         }
                       | {
                           __typename: 'ParagraphImage';
@@ -6405,7 +6642,7 @@ export type GetNodeByPathQuery = {
               header?: {
                 __typename: 'ParagraphHeroHeader';
                 id: string;
-                title?: string | null;
+                title: string;
                 whereText?: string | null;
                 whenText?: string | null;
                 image: {
@@ -6448,7 +6685,7 @@ export type GetNodeByPathQuery = {
                 | {
                     __typename: 'ParagraphContentTitle';
                     id: string;
-                    title?: string | null;
+                    title: string;
                   }
                 | {
                     __typename: 'ParagraphHighlightedList';
@@ -6582,7 +6819,7 @@ export type GetNodeByPathQuery = {
                 | {
                     __typename: 'ParagraphSchedule';
                     id: string;
-                    title?: string | null;
+                    title: string;
                     days: Array<{
                       __typename: 'ParagraphScheduleDay';
                       id: string;
@@ -6597,6 +6834,7 @@ export type GetNodeByPathQuery = {
                             __typename: 'TalksByDateResult';
                             results: Array<
                               | { __typename?: 'NodeArticle' }
+                              | { __typename?: 'NodeDeveloperTools' }
                               | { __typename?: 'NodeFoundationPage' }
                               | { __typename?: 'NodePage' }
                               | { __typename?: 'NodeSpeaker' }
@@ -6672,6 +6910,7 @@ export type GetNodeByPathQuery = {
                           id: string;
                           results: Array<
                             | { __typename?: 'NodeArticle' }
+                            | { __typename?: 'NodeDeveloperTools' }
                             | { __typename?: 'NodeFoundationPage' }
                             | { __typename?: 'NodePage' }
                             | {
@@ -6737,6 +6976,7 @@ export type GetNodeByPathQuery = {
                           id: string;
                           results: Array<
                             | { __typename?: 'NodeArticle' }
+                            | { __typename?: 'NodeDeveloperTools' }
                             | { __typename?: 'NodeFoundationPage' }
                             | { __typename?: 'NodePage' }
                             | { __typename?: 'NodeSpeaker' }
@@ -6815,7 +7055,7 @@ export type GetNodeByPathQuery = {
                       | {
                           __typename: 'ParagraphContentTitle';
                           id: string;
-                          title?: string | null;
+                          title: string;
                         }
                       | {
                           __typename: 'ParagraphImage';
@@ -6903,7 +7143,7 @@ export type GetNodeByPathQuery = {
                       | {
                           __typename: 'ParagraphContentTitle';
                           id: string;
-                          title?: string | null;
+                          title: string;
                         }
                       | {
                           __typename: 'ParagraphImage';
@@ -7070,7 +7310,7 @@ export type GetNodeByPathQuery = {
               header?: {
                 __typename: 'ParagraphHeroHeader';
                 id: string;
-                title?: string | null;
+                title: string;
                 whereText?: string | null;
                 whenText?: string | null;
                 image: {
@@ -7142,6 +7382,7 @@ export type GetNodeByPathQuery = {
                     __typename: 'TalksResult';
                     results: Array<
                       | { __typename?: 'NodeArticle' }
+                      | { __typename?: 'NodeDeveloperTools' }
                       | { __typename?: 'NodeFoundationPage' }
                       | { __typename?: 'NodePage' }
                       | { __typename?: 'NodeSpeaker' }
@@ -7367,6 +7608,7 @@ export type GetNodesPathsQuery = {
     __typename?: 'NodePathsResult';
     results: Array<
       | { __typename?: 'NodeArticle'; path: string }
+      | { __typename?: 'NodeDeveloperTools'; path: string }
       | { __typename?: 'NodeFoundationPage'; path: string }
       | { __typename?: 'NodePage'; path: string }
       | { __typename?: 'NodeSpeaker'; path: string }

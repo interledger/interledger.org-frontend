@@ -1,0 +1,12 @@
+fragment NodeDeveloperToolsFragment on NodeDeveloperTools {
+  __typename
+  id
+  title
+  path
+  sections {
+    ...ParagraphsFragment
+  }
+  metatag {
+    ...MetaTagFragment
+  }
+}

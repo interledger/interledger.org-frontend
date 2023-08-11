@@ -1,0 +1,11 @@
+fragment DeveloperToolsMenuFragment on Menu {
+  __typename
+  id
+  name
+  items {
+    ...MenuItemFragment
+    children {
+      ...MenuItemFragment
+    }
+  }
+}

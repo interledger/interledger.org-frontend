@@ -299,6 +299,8 @@ export type Menu = MenuInterface & {
 
 /** List of menus available to load. */
 export enum MenuAvailable {
+  /** Developer Tools */
+  DeveloperTools = 'DEVELOPER_TOOLS',
   /** Footer */
   Footer = 'FOOTER',
   /** Interledger Foundation */
@@ -497,6 +499,43 @@ export type NodeArticleSectionsUnion =
   | ParagraphSpacer
   | ParagraphText
   | ParagraphTwoColumnContent;
+
+/** Entity type node. */
+export type NodeDeveloperTools = MetaTagInterface &
+  NodeInterface & {
+    __typename?: 'NodeDeveloperTools';
+    /** The time that the node was last edited. */
+    changed: DateTime;
+    /** The time that the node was created. */
+    created: DateTime;
+    /** The Universally Unique IDentifier (UUID). */
+    id: Scalars['ID'];
+    /** Language */
+    langcode: Language;
+    /** The computed meta tags for the entity. */
+    metatag: Array<MetaTagUnion>;
+    /** URL alias */
+    path: Scalars['String'];
+    /** Promoted to front page */
+    promote: Scalars['Boolean'];
+    /** Sections */
+    sections?: Maybe<Array<NodeDeveloperToolsSectionsUnion>>;
+    /** Published */
+    status: Scalars['Boolean'];
+    /** Sticky at top of lists */
+    sticky: Scalars['Boolean'];
+    /** Title */
+    title: Scalars['String'];
+  };
+
+/** Sections */
+export type NodeDeveloperToolsSectionsUnion =
+  | ParagraphAnchor
+  | ParagraphButton
+  | ParagraphContentTitle
+  | ParagraphImageFullWidth
+  | ParagraphSpacer
+  | ParagraphText;
 
 /** Entity type node. */
 export type NodeFoundationPage = MetaTagInterface &
@@ -733,10 +772,24 @@ export type NodeTalk = MetaTagInterface &
 /** Entity type node. */
 export type NodeUnion =
   | NodeArticle
+  | NodeDeveloperTools
   | NodeFoundationPage
   | NodePage
   | NodeSpeaker
   | NodeTalk;
+
+/** Entity type paragraph. */
+export type ParagraphAnchor = ParagraphInterface & {
+  __typename?: 'ParagraphAnchor';
+  /** The time that the Paragraph was created. */
+  created: DateTime;
+  /** The Universally Unique IDentifier (UUID). */
+  id: Scalars['ID'];
+  /** The paragraphs entity language code. */
+  langcode: Language;
+  /** Title */
+  title: Scalars['String'];
+};
 
 /** Entity type paragraph. */
 export type ParagraphButton = ParagraphInterface & {
@@ -787,7 +840,7 @@ export type ParagraphContentTitle = ParagraphInterface & {
   /** The paragraphs entity language code. */
   langcode: Language;
   /** Content Title */
-  title?: Maybe<Scalars['String']>;
+  title: Scalars['String'];
 };
 
 /** Entity type paragraph. */
@@ -841,7 +894,7 @@ export type ParagraphHeroHeader = ParagraphInterface & {
   /** Poster Image */
   singleImage: MediaImage;
   /** Header Title */
-  title?: Maybe<Scalars['String']>;
+  title: Scalars['String'];
   /** Video */
   video?: Maybe<MediaVideo>;
   /** When text */
@@ -1073,7 +1126,7 @@ export type ParagraphSchedule = ParagraphInterface & {
   /** The paragraphs entity language code. */
   langcode: Language;
   /** Title */
-  title?: Maybe<Scalars['String']>;
+  title: Scalars['String'];
 };
 
 /** Entity type paragraph. */
@@ -1277,6 +1330,7 @@ export type ParagraphTwoColumnContentSecondColumnUnion =
 
 /** Entity type paragraph. */
 export type ParagraphUnion =
+  | ParagraphAnchor
   | ParagraphButton
   | ParagraphCarouselItem
   | ParagraphContentCarousel
@@ -1434,6 +1488,7 @@ export type Route = {
 /** A list of possible entities that can be returned by URL. */
 export type RouteEntityUnion =
   | NodeArticle
+  | NodeDeveloperTools
   | NodeFoundationPage
   | NodePage
   | NodeSpeaker

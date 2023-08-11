@@ -59,4 +59,7 @@ fragment ParagraphsFragment on ParagraphInterface {
   ... on ParagraphPriceList {
     ...ParagraphPriceListFragment
   }
+  ... on ParagraphAnchor {
+    ...ParagraphAnchorFragment
+  }
 }

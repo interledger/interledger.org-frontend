@@ -1,0 +1,60 @@
+@use '@styles/base/mq-settings';
+@use '~sass-mq/mq' as *;
+@use '~sass-rem' as *;
+@use '@styles/base/variables' as *;
+@use '@styles/base/helpers' as *;
+
+.root {
+  width: 100%;
+  vertical-align: top;
+  caption-side: bottom;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+  font-size: rem(18px);
+
+  th {
+    text-align: inherit;
+  }
+
+  thead,
+  tbody,
+  tfoot,
+  tr,
+  td,
+  th {
+    border-color: inherit;
+    border-style: solid;
+    border-width: 0;
+  }
+
+  > tbody {
+    vertical-align: inherit;
+  }
+
+  > thead {
+    vertical-align: bottom;
+  }
+
+  > :not(:last-child) > :last-child > * {
+    border-bottom-color: currentColor;
+  }
+
+  > :not(caption) > * {
+    border-width: 1px 0;
+  }
+
+  > :not(caption) > * > * {
+    border-width: 0 rem(1px);
+    padding: rem(8px);
+    border-bottom-width: rem(1px);
+    background-color: transparent;
+    background-image: linear-gradient(
+      var(--table-accent-bg),
+      var(--table-accent-bg)
+    );
+  }
+
+  > tbody > tr:nth-of-type(odd) {
+    --table-accent-bg: rgba(0, 0, 0, 0.05);
+  }
+}

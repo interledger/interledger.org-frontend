@@ -13,6 +13,7 @@
   grid-template-rows: auto;
   gap: 0px 0px;
   grid-template-areas: 'logo menu';
+  height: rem(96px);
 
   @include mq($from: tablet) {
     gap: 0px 0px;
@@ -52,9 +53,16 @@
 }
 
 .menuWrapper {
-  justify-self: center;
+  justify-self: left;
   grid-area: menu;
   align-self: center;
+
+  @include mq($from: tablet) {
+    justify-self: center;
+    grid-area: menu;
+    align-self: center;
+  }
+
   nav {
     margin: 0 auto;
   }
@@ -97,10 +105,10 @@
       'menu'
       'site';
     position: fixed;
-    top: 0;
+    top: rem(96px);
     left: 0;
     z-index: 11;
-    height: 100%;
+    height: calc(100% - #{rem(96px)});
     width: 100%;
 
     @include mq($from: tablet) {

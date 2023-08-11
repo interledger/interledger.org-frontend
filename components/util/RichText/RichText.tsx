@@ -1,3 +1,5 @@
+import { TableResponsive } from '@components/layout/TableResponsive/TableResponsive';
+import { Table } from '@components/ui/Table/Table';
 import { Text } from '@components/ui/Text/Text';
 import parse, { Element, HTMLReactParserOptions } from 'html-react-parser';
 import Link from 'next/link';
@@ -85,6 +87,28 @@ export const RichText = ({ html }: RichTextProps) => {
           return <strong key={`strong-${index.current}`}>{children}</strong>;
         case 'em':
           return <em key={`em-${index.current}`}>{children}</em>;
+        case 'pre':
+          return <pre key={`pre-${index.current}`}>{children}</pre>;
+        case 'code':
+          return <code key={`code-${index.current}`}>{children}</code>;
+        case 'span':
+          return <span key={`span-${index.current}`}>{children}</span>;
+        case 'table':
+          return (
+            <TableResponsive key={`table-${index.current}`}>
+              <Table>{children}</Table>
+            </TableResponsive>
+          );
+        case 'tr':
+          return <tr key={`tr-${index.current}`}>{children}</tr>;
+        case 'td':
+          return <td key={`td-${index.current}`}>{children}</td>;
+        case 'th':
+          return <th key={`th-${index.current}`}>{children}</th>;
+        case 'tbody':
+          return <tbody key={`tbody-${index.current}`}>{children}</tbody>;
+        case 'thead':
+          return <thead key={`thead-${index.current}`}>{children}</thead>;
         default:
           return null;
       }

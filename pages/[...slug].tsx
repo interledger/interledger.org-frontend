@@ -1,5 +1,6 @@
 import { withInitData } from '@components/hoc/withInitData/withInitData';
 import { NodeArticle } from '@components/node/NodeArticle/NodeArticle';
+import { NodeDeveloperTools } from '@components/node/NodeDeveloperTools/NodeDeveloperTools';
 import { NodeFoundationPage } from '@components/node/NodeFoundationPage/NodeFoundationPage';
 import { NodePage } from '@components/node/NodePage/NodePage';
 import { NodeSpeaker } from '@components/node/NodeSpeaker/NodeSpeaker';
@@ -10,6 +11,7 @@ import { getRouteEntity } from '@graphql/helpers';
 import { useGetNodeByPathQuery, useGetNodesPathsQuery } from '@graphql/hooks';
 import {
   NodeArticleFragment,
+  NodeDeveloperToolsFragment,
   NodeFoundationPageFragment,
   NodePageFragment,
   NodeSpeakerFragment,
@@ -27,7 +29,8 @@ type NodeFragmentUnion =
   | NodeArticleFragment
   | NodeSpeakerFragment
   | NodeTalkFragment
-  | NodeFoundationPageFragment;
+  | NodeFoundationPageFragment
+  | NodeDeveloperToolsFragment;
 
 interface NodeSelectorProps {
   node: NodeFragmentUnion;
@@ -52,6 +55,10 @@ const NodeSelector = ({ node }: NodeSelectorProps) => {
 
   if (node.__typename === 'NodeTalk') {
     return <NodeTalk node={node} />;
+  }
+
+  if (node.__typename === 'NodeDeveloperTools') {
+    return <NodeDeveloperTools node={node} />;
   }
 
   return null;
@@ -91,7 +98,7 @@ export const getStaticProps: GetStaticProps = withInitData(
     );
 
     return {
-      notFound: data === null,
+      notFound: data.route === null,
       props: {
         preview: preview ?? false,
         redirect:

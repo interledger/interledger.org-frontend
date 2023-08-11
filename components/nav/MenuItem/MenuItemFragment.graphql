@@ -1,5 +1,6 @@
 fragment MenuItemFragment on MenuItem {
   __typename
   title
+  id
   url
 }

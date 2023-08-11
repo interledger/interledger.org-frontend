@@ -11,6 +11,9 @@ query GetInitDataQuery {
   summitFooterMenu: menu(name: INTERLEDGER_SUMMIT_FOOTER) {
     ...FooterMenuFragment
   }
+  developerToolsMenu: menu(name: DEVELOPER_TOOLS) {
+    ...DeveloperToolsMenuFragment
+  }
   siteSettings(id: "555ebe67-59de-41ca-a877-75a5c5fed44c") {
     social {
       ...SocialFragment
