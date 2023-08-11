@@ -37,7 +37,7 @@ export const NodeArticle = ({ className, node }: NodeArticleProps) => {
       </header>
       <Container>
         <TwoColumn>
-          <TwoColumn.Content>
+          <TwoColumn.Content className={styles.sections}>
             {node.sections && <Paragraphs paragraphs={node.sections} />}
           </TwoColumn.Content>
           <TwoColumn.Side>

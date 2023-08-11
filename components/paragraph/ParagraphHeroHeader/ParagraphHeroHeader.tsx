@@ -32,7 +32,7 @@ export const ParagraphHeroHeader = ({
   }, [headerEl]);
 
   return (
-    <div className={rootClassName} ref={headerEl}>
+    <section className={rootClassName} ref={headerEl}>
       {paragraph.video && (
         <VideoPlayer
           className={styles.headerMedia}
@@ -93,6 +93,6 @@ export const ParagraphHeroHeader = ({
           </button>
         </div>
       </div>
-    </div>
+    </section>
   );
 };

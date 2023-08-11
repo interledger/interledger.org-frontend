@@ -20,16 +20,16 @@ export const ParagraphLargeCalloutText = ({
 }: ParagraphLargeCalloutTextProps) => {
   const rootClassName = cn(styles.root, className);
   return (
-    <m.div
+    <m.section
       className={rootClassName}
       initial={{ opacity: 0, y: 25 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
       viewport={{ once: true, margin: '-300px 0px 0px 0px' }}
     >
-      <Text className={styles.text} variant="body1" as="h1">
+      <Text className={styles.text} variant="body1" as="h1" noMargin>
         {paragraph.largeCalloutText}
       </Text>
-    </m.div>
+    </m.section>
   );
 };

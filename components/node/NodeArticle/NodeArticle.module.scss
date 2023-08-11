@@ -78,3 +78,9 @@
     border-bottom: 1px solid var(--color-primary);
   }
 }
+
+.sections {
+  > section {
+    margin-bottom: var(--component-spacing);
+  }
+}

@@ -21,11 +21,15 @@ export const ParagraphTalksGrid = ({
   const rootClassName = cn(styles.root, className);
 
   return (
-    <Grid className={rootClassName} cols={1} colsTablet={2} colsDesktop={2}>
-      {paragraph.talksView?.__typename === 'TalksAllResult' &&
-        paragraph.talksView?.results.map((t) =>
-          t.__typename === 'NodeTalk' ? <CardTalk key={t.id} talk={t} /> : null
-        )}
-    </Grid>
+    <section className={rootClassName}>
+      <Grid cols={1} colsTablet={2} colsDesktop={2}>
+        {paragraph.talksView?.__typename === 'TalksAllResult' &&
+          paragraph.talksView?.results.map((t) =>
+            t.__typename === 'NodeTalk' ? (
+              <CardTalk key={t.id} talk={t} />
+            ) : null
+          )}
+      </Grid>
+    </section>
   );
 };
