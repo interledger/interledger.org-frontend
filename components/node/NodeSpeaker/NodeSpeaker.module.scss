@@ -1,0 +1,31 @@
+@use '@styles/base/mq-settings';
+@use '~sass-mq/mq' as *;
+@use '~sass-rem' as *;
+@use '@styles/base/variables' as *;
+@use '@styles/base/helpers' as *;
+
+.root {
+  margin-bottom: var(--component-spacing);
+}
+
+.header {
+  aspect-ratio: 16/9;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  color: var(--color-white);
+  margin-bottom: var(--component-spacing);
+}
+
+.headerImage {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  z-index: 0;
+}
+
+.headerText {
+  position: relative;
+  margin-bottom: var(--component-spacing);
+}

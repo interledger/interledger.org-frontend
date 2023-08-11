@@ -8,24 +8,33 @@ export interface MenuListProps {
   /** Optional className for MenuList, pass in a sass module class to override component default */
   className?: string;
   menus: Array<MenuItemFragment | null>;
+  type?: 'default' | 'main';
 }
+
+const container = {
+  hide: {},
+  show: {
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
 
 /**
  * Returns a list of MenuItems
  */
 
-export const MenuList = ({ className, menus }: MenuListProps) => {
+export const MenuList = ({
+  className,
+  menus,
+  type = 'default',
+}: MenuListProps) => {
   const rootClassName = cn(styles.root, className);
   return (
     <ul className={rootClassName} role="list">
-      {menus.map((m) => {
-        if (
-          m?.route?.__typename === 'RouteInternal' ||
-          m?.route?.__typename === 'RouteExternal'
-        ) {
-          return <MenuItem key={m?.route.url} menuItem={m} />;
-        }
-      })}
+      {menus.map((m) =>
+        m ? <MenuItem key={m.url} menuItem={m} type={type} /> : null
+      )}
     </ul>
   );
 };

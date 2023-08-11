@@ -1,0 +1,15 @@
+fragment ParagraphTalksGridFragment on ParagraphTalksGrid {
+  __typename
+  id
+  talksView {
+    __typename
+    ... on TalksAllResult {
+      id
+      results {
+        ... on NodeTalk {
+          ...NodeTalkCardFragment
+        }
+      }
+    }
+  }
+}

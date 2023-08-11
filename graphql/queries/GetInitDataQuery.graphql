@@ -2,7 +2,21 @@ query GetInitDataQuery {
   mainMenu: menu(name: MAIN) {
     ...MainMenuFragment
   }
-  footerMenu: menu(name: FOOTER) {
+  summitMenu: menu(name: SUMMIT) {
+    ...MainMenuFragment
+  }
+  foundationFooterMenu: menu(name: INTERLEDGER_FOUNDATION_FOOTER) {
     ...FooterMenuFragment
+  }
+  summitFooterMenu: menu(name: INTERLEDGER_SUMMIT_FOOTER) {
+    ...FooterMenuFragment
+  }
+  developerToolsMenu: menu(name: DEVELOPER_TOOLS) {
+    ...DeveloperToolsMenuFragment
+  }
+  siteSettings(id: "555ebe67-59de-41ca-a877-75a5c5fed44c") {
+    social {
+      ...SocialFragment
+    }
   }
 }

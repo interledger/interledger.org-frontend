@@ -24,8 +24,8 @@ h4,
 h5,
 h6 {
   margin-top: 0;
-  margin-bottom: 0;
-  font-family: var(--font-display);
+  margin-bottom: 1rem;
+  font-weight: 700;
 }
 
 a {
@@ -42,7 +42,7 @@ li {
   padding: 0;
 
   &::marker {
-    color: var(--color-bullets);
+    color: var(--color-text-reverse);
   }
 }
 
@@ -54,8 +54,12 @@ ol {
 
 li {
   padding-left: 10px;
-  font-size: rem(18px);
   line-height: 1.466;
+  font-size: rem(18px);
+
+  @include mq($from: tablet) {
+    font-size: rem(25px);
+  }
 }
 
 ul[role='list'],
@@ -79,19 +83,29 @@ ol[role='list'] {
   outline-offset: 0.1rem;
 }
 
-article {
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  -ms-word-break: break-all;
-  word-break: break-all;
-  word-break: break-word;
-  -ms-hyphens: auto;
-  -moz-hyphens: auto;
-  -webkit-hyphens: auto;
-  hyphens: auto;
-}
+// article {
+//   overflow-wrap: break-word;
+//   word-wrap: break-word;
+//   word-break: break-word;
+//   hyphens: auto;
+// }
 
 strong {
-  font-family: var(--font-display);
-  font-weight: normal;
+  font-weight: 700;
+}
+
+pre {
+  background: var(--color-black);
+  color: var(--color-white);
+  padding: rem(20px);
+  line-height: 1.4;
+
+  code {
+    color: var(--color-white);
+  }
+}
+
+code {
+  color: var(--color-primary);
+  word-wrap: break-word;
 }

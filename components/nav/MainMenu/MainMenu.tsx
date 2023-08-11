@@ -13,7 +13,7 @@ export const MainMenu = ({ className, mainMenu }: MainMenuProps) => {
   const rootClassName = cn(styles.root, className);
   return (
     <nav className={rootClassName}>
-      {mainMenu?.items && <MenuList menus={mainMenu.items} />}
+      {mainMenu?.items && <MenuList menus={mainMenu.items} type="main" />}
     </nav>
   );
 };

@@ -15,7 +15,7 @@
   }
 
   .column {
-    width: calc(90%);
+    width: calc(100%);
 
     @include mq($from: tablet) {
       width: calc(50% - rem(15px));

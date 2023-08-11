@@ -10,14 +10,17 @@ import { VideoPlayer } from '@components/ui/VideoPlayer/VideoPlayer';
 export interface ParagraphHeroHeaderProps {
   /** Optional className for ParagraphHeroHeader, pass in a sass module class to override component default */
   className?: string;
-  paragraph: ParagraphHeroHeaderFragment
+  paragraph: ParagraphHeroHeaderFragment;
 }
 
 /**
  * ParagraphHeroHeader description
  */
 
-export const ParagraphHeroHeader = ({ className, paragraph }: ParagraphHeroHeaderProps) => {
+export const ParagraphHeroHeader = ({
+  className,
+  paragraph,
+}: ParagraphHeroHeaderProps) => {
   const [headerHeight, setHeaderHeight] = useState(0);
   const headerEl = useRef<HTMLDivElement>(null);
   const rootClassName = cn(styles.root, className);
@@ -41,28 +44,32 @@ export const ParagraphHeroHeader = ({ className, paragraph }: ParagraphHeroHeade
           loop={true}
           controls={false}
           setHeight
+          overlay
         />
       )}
       {!paragraph.video && (
-        <MediaImage
-          className={styles.headerMedia}
-          media={paragraph.image}
-        />
+        <MediaImage className={styles.headerMedia} media={paragraph.image} />
       )}
       <div className={styles.overlayContent}>
         <div className={styles.textContainer}>
           <div className={styles.titleContainer}>
-            <Text variant="h1">{paragraph.title}</Text>
+            <Text variant="h1" noMargin>
+              {paragraph.title}
+            </Text>
           </div>
           <div className={styles.infoContainer}>
             <div className={styles.when}>
-              <Text className={styles.infoTitle} variant="body1">When</Text>
+              <Text className={styles.infoTitle} variant="body1">
+                When
+              </Text>
               <Text className={styles.infoText} variant="body1">
                 {paragraph.whenText}
               </Text>
             </div>
             <div className={styles.where}>
-              <Text className={styles.infoTitle} variant="body1">Where</Text>
+              <Text className={styles.infoTitle} variant="body1">
+                Where
+              </Text>
               <Text className={styles.infoText} variant="body1">
                 {paragraph.whereText}
               </Text>
@@ -72,11 +79,15 @@ export const ParagraphHeroHeader = ({ className, paragraph }: ParagraphHeroHeade
         <div className={styles.scrollChevron}>
           <button
             className={styles.scrollButton}
-            onClick={() => window.scrollTo({
-              top: headerHeight,
-              left: 0,
-              behavior: 'smooth'
-            })}
+            onClick={() => {
+              if (typeof window !== 'undefined') {
+                window.scrollTo({
+                  top: headerHeight,
+                  left: 0,
+                  behavior: 'smooth',
+                });
+              }
+            }}
           >
             <Chevron />
           </button>

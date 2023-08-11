@@ -17,6 +17,9 @@ fragment TwoColumnContentFragment on ParagraphInterface {
   ... on ParagraphVideo {
     ...ParagraphVideoFragment
   }
+  ... on ParagraphImage {
+    ...ParagraphImageFragment
+  }
 }
 
 fragment ParagraphTwoColumnContentFragment on ParagraphTwoColumnContent {

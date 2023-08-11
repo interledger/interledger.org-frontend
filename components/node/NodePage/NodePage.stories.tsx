@@ -10,20 +10,20 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-  args: {
-    node: {
-      __typename: 'NodePage',
-      id: 'fsdgfdgsdfg',
-      title: 'Page',
-      path: '/',
-      metatag: [
-        {
-          __typename: 'MetaTagValue',
-          tag: 'title',
-          attributes: {},
-        },
-      ],
-    },
-  },
-};
+// export const Default: Story = {
+//   args: {
+//     node: {
+//       __typename: 'NodePage',
+//       id: 'fsdgfdgsdfg',
+//       title: 'Page',
+//       path: '/',
+//       metatag: [
+//         {
+//           __typename: 'MetaTagValue',
+//           tag: 'title',
+//           attributes: {},
+//         },
+//       ],
+//     },
+//   },
+// };

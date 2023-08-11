@@ -4,29 +4,34 @@
 :root {
   --page-width: #{rem(1118px)};
   --page-gutter: #{rem(20px)};
+  --page-gutter-left: calc(var(--page-gutter) + env(safe-area-inset-left));
+  --page-gutter-right: calc(var(--page-gutter) + env(safe-area-inset-right));
+  --component-spacing: #{rem(44px)};
   --vertical-spacing: #{rem(30px)};
   --horizontal-spacing: #{rem(30px)};
-  --grid-vertical-spacing: #{rem(15px)};
-  --grid-horizontal-spacing: #{rem(15px)};
+  --grid-vertical-spacing: #{rem(40px)};
+  --grid-horizontal-spacing: #{rem(34px)};
 
   // Colors
-  --color-divider: lightgrey;
-  --color-bullets: var(--color-primary);
-  --color-link: var(--color-primary);
-  --color-swiper-pagination: var(--color-white);
-
   --color-black: #000;
   --color-white: #fff;
-  --color-primary: #01ffff;
-  --color-secondary: #6200b1;
-
-  --color-text: var(--color-white);
+  --color-primary: #6d00cc;
+  --color-secondary: #01ffff;
+  --color-divider: lightgrey;
+  --color-text: var(--color-black);
+  --color-text-reverse: var(--color-black);
+  --color-bullets: var(--color-text);
+  --color-link: var(--color-primary);
+  --color-swiper-pagination: var(--color-black);
 
   @include mq($from: tablet) {
+    --component-spacing: #{rem(100px)};
     --page-gutter: #{rem(40px)};
+    --page-gutter-left: calc(var(--page-gutter) + env(safe-area-inset-left));
+    --page-gutter-right: calc(var(--page-gutter) + env(safe-area-inset-right));
     --vertical-spacing: #{rem(60px)};
     --horizontal-spacing: #{rem(60px)};
-    --grid-vertical-spacing: #{rem(30px)};
-    --grid-horizontal-spacing: #{rem(30px)};
+    --grid-vertical-spacing: #{rem(50px)};
+    --grid-horizontal-spacing: #{rem(86px)};
   }
 }

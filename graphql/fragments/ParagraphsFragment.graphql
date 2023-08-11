@@ -20,6 +20,9 @@ fragment ParagraphsFragment on ParagraphInterface {
   ... on ParagraphImage {
     ...ParagraphImageFragment
   }
+  ... on ParagraphImageFullWidth {
+    ...ParagraphImageFullWidthFragment
+  }
   ... on ParagraphImageCarousel {
     ...ParagraphImageCarouselFragment
   }
@@ -34,5 +37,29 @@ fragment ParagraphsFragment on ParagraphInterface {
   }
   ... on ParagraphVideo {
     ...ParagraphVideoFragment
+  }
+  ... on ParagraphSpeakersGrid {
+    ...ParagraphSpeakersGridFragment
+  }
+  ... on ParagraphTalksGrid {
+    ...ParagraphTalksGridFragment
+  }
+  ... on ParagraphSchedule {
+    ...ParagraphScheduleFragment
+  }
+  ... on ParagraphContentCarousel {
+    ...ParagraphContentCarouselFragment
+  }
+  ... on ParagraphNewsListings {
+    ...ParagraphNewsListingsFragment
+  }
+  ... on ParagraphFaqs {
+    ...ParagraphFaqsFragment
+  }
+  ... on ParagraphPriceList {
+    ...ParagraphPriceListFragment
+  }
+  ... on ParagraphAnchor {
+    ...ParagraphAnchorFragment
   }
 }

@@ -1,0 +1,10 @@
+fragment ParagraphImageFullWidthFragment on ParagraphImageFullWidth {
+  __typename
+  id
+  landscapeImage: singleImage {
+    ...MediaImageLandscapeFragment
+  }
+  squareIamge: singleImage {
+    ...MediaImageSquareFragment
+  }
+}

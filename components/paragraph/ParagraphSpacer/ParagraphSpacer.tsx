@@ -17,7 +17,6 @@ export const ParagraphSpacer = ({
   paragraph,
 }: ParagraphSpacerProps) => {
   const rootClassName = cn(
-    styles.root,
     styles[paragraph.spacerSize],
     { [styles.spacerLine]: paragraph.spacerLine },
     className

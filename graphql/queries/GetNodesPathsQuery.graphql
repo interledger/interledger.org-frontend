@@ -1,13 +1,22 @@
-query GetNodesPathsQuery($first: Int) {
-  nodes(first: $first) {
-    nodes {
+query GetNodesPathsQuery {
+  nodePaths {
+    results {
       ... on NodeArticle {
         path
       }
       ... on NodePage {
         path
       }
+      ... on NodeFoundationPage {
+        path
+      }
       ... on NodeSpeaker {
+        path
+      }
+      ... on NodeTalk {
+        path
+      }
+      ... on NodeDeveloperTools {
         path
       }
     }

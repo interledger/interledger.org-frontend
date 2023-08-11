@@ -1,0 +1,43 @@
+@use '@styles/base/mq-settings';
+@use '~sass-mq/mq' as *;
+@use '~sass-rem' as *;
+@use '@styles/base/variables' as *;
+@use '@styles/base/helpers' as *;
+
+.root {
+  @include mq($from: tablet) {
+    margin: 0 calc(-1 * var(--page-gutter));
+  }
+}
+
+.content {
+  @include mq($from: tablet) {
+    padding: 0 var(--page-gutter);
+    position: relative;
+  }
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-100%);
+  display: none;
+  z-index: 20;
+
+  @include mq($from: tablet) {
+    display: block;
+  }
+
+  svg {
+    width: rem(16px);
+  }
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}

@@ -1,0 +1,5 @@
+fragment ParagraphAnchorFragment on ParagraphAnchor {
+  __typename
+  id
+  title
+}

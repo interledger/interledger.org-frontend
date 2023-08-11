@@ -7,14 +7,20 @@
 .root {
   h2 {
     font-size: rem(52px);
+    font-size: clamp(
+      #{rem(52px)},
+      0.9732142857142856rem + 9.340659340659341vw,
+      #{rem(120px)}
+    );
+
     margin-bottom: rem(23px);
+    margin-bottom: clamp(
+      #{rem(23px)},
+      0.5334821428571429rem + 3.708791208791209vw,
+      #{rem(50px)}
+    );
     line-height: 1;
     color: var(--color-primary);
-
-    @include mq($from: tablet) {
-      font-size: rem(120px);
-      margin-bottom: rem(50px);
-    }
 
     &:last-of-type {
       margin-bottom: 0;

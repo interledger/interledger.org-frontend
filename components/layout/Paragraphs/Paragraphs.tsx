@@ -11,6 +11,15 @@ import {
   ParagraphHighlightedSpeakersFragment,
   ParagraphImageGalleryFragment,
   ParagraphVideoFragment,
+  ParagraphSpeakersGridFragment,
+  ParagraphTalksGridFragment,
+  ParagraphScheduleFragment,
+  ParagraphContentCarouselFragment,
+  ParagraphImageFullWidthFragment,
+  ParagraphNewsListingsFragment,
+  ParagraphFaqsFragment,
+  ParagraphPriceListFragment,
+  ParagraphAnchorFragment,
 } from '@models/operations';
 import dynamic from 'next/dynamic';
 
@@ -21,21 +30,21 @@ const ParagraphVideo = dynamic(() =>
 );
 
 const ParagraphImageGallery = dynamic(() =>
-  import('@components/paragraph/ParagraphImageGallery/ParagraphImageGallery').then(
-    (paragraph) => paragraph.ParagraphImageGallery
-  )
+  import(
+    '@components/paragraph/ParagraphImageGallery/ParagraphImageGallery'
+  ).then((paragraph) => paragraph.ParagraphImageGallery)
 );
 
 const ParagraphHighlightedSpeakers = dynamic(() =>
-  import('@components/paragraph/ParagraphHighlightedSpeakers/ParagraphHighlightedSpeakers').then(
-    (paragraph) => paragraph.ParagraphHighlightedSpeakers
-  )
+  import(
+    '@components/paragraph/ParagraphHighlightedSpeakers/ParagraphHighlightedSpeakers'
+  ).then((paragraph) => paragraph.ParagraphHighlightedSpeakers)
 );
 
 const ParagraphImageCarousel = dynamic(() =>
-  import('@components/paragraph/ParagraphImageCarousel/ParagraphImageCarousel').then(
-    (paragraph) => paragraph.ParagraphImageCarousel
-  )
+  import(
+    '@components/paragraph/ParagraphImageCarousel/ParagraphImageCarousel'
+  ).then((paragraph) => paragraph.ParagraphImageCarousel)
 );
 
 const ParagraphImage = dynamic(() =>
@@ -45,21 +54,21 @@ const ParagraphImage = dynamic(() =>
 );
 
 const ParagraphHighlightedList = dynamic(() =>
-  import('@components/paragraph/ParagraphHighlightedList/ParagraphHighlightedList').then(
-    (paragraph) => paragraph.ParagraphHighlightedList
-  )
+  import(
+    '@components/paragraph/ParagraphHighlightedList/ParagraphHighlightedList'
+  ).then((paragraph) => paragraph.ParagraphHighlightedList)
 );
 
 const ParagraphContentTitle = dynamic(() =>
-  import('@components/paragraph/ParagraphContentTitle/ParagraphContentTitle').then(
-    (paragraph) => paragraph.ParagraphContentTitle
-  )
+  import(
+    '@components/paragraph/ParagraphContentTitle/ParagraphContentTitle'
+  ).then((paragraph) => paragraph.ParagraphContentTitle)
 );
 
 const ParagraphLargeCalloutText = dynamic(() =>
-  import('@components/paragraph/ParagraphLargeCalloutText/ParagraphLargeCalloutText').then(
-    (paragraph) => paragraph.ParagraphLargeCalloutText
-  )
+  import(
+    '@components/paragraph/ParagraphLargeCalloutText/ParagraphLargeCalloutText'
+  ).then((paragraph) => paragraph.ParagraphLargeCalloutText)
 );
 
 const ParagraphButton = dynamic(() =>
@@ -81,8 +90,62 @@ const ParagraphSpacer = dynamic(() =>
 );
 
 const ParagraphTwoColumnContent = dynamic(() =>
-  import('@components/paragraph/ParagraphTwoColumnContent/ParagraphTwoColumnContent').then(
-    (paragraph) => paragraph.ParagraphTwoColumnContent
+  import(
+    '@components/paragraph/ParagraphTwoColumnContent/ParagraphTwoColumnContent'
+  ).then((paragraph) => paragraph.ParagraphTwoColumnContent)
+);
+
+const ParagraphTalksGrid = dynamic(() =>
+  import('@components/paragraph/ParagraphTalksGrid/ParagraphTalksGrid').then(
+    (paragraph) => paragraph.ParagraphTalksGrid
+  )
+);
+
+const ParagraphSpeakersGrid = dynamic(() =>
+  import(
+    '@components/paragraph/ParagraphSpeakersGrid/ParagraphSpeakersGrid'
+  ).then((paragraph) => paragraph.ParagraphSpeakersGrid)
+);
+
+const ParagraphSchedule = dynamic(() =>
+  import('@components/paragraph/ParagraphSchedule/ParagraphSchedule').then(
+    (paragraph) => paragraph.ParagraphSchedule
+  )
+);
+
+const ParagraphContentCarousel = dynamic(() =>
+  import(
+    '@components/paragraph/ParagraphContentCarousel/ParagraphContentCarousel'
+  ).then((paragraph) => paragraph.ParagraphContentCarousel)
+);
+
+const ParagraphImageFullWidth = dynamic(() =>
+  import(
+    '@components/paragraph/ParagraphImageFullWidth/ParagraphImageFullWidth'
+  ).then((paragraph) => paragraph.ParagraphImageFullWidth)
+);
+
+const ParagraphNewsListings = dynamic(() =>
+  import(
+    '@components/paragraph/ParagraphNewsListings/ParagraphNewsListings'
+  ).then((paragraph) => paragraph.ParagraphNewsListings)
+);
+
+const ParagraphFaqs = dynamic(() =>
+  import('@components/paragraph/ParagraphFaqs/ParagraphFaqs').then(
+    (paragraph) => paragraph.ParagraphFaqs
+  )
+);
+
+const ParagraphPriceList = dynamic(() =>
+  import('@components/paragraph/ParagraphPriceList/ParagraphPriceList').then(
+    (paragraph) => paragraph.ParagraphPriceList
+  )
+);
+
+const ParagraphAnchor = dynamic(() =>
+  import('@components/paragraph/ParagraphAnchor/ParagraphAnchor').then(
+    (paragraph) => paragraph.ParagraphAnchor
   )
 );
 
@@ -95,10 +158,19 @@ export type ParagraphTypes =
   | ParagraphContentTitleFragment
   | ParagraphHighlightedListFragment
   | ParagraphImageFragment
+  | ParagraphImageFullWidthFragment
   | ParagraphImageCarouselFragment
   | ParagraphHighlightedSpeakersFragment
   | ParagraphImageGalleryFragment
   | ParagraphVideoFragment
+  | ParagraphSpeakersGridFragment
+  | ParagraphTalksGridFragment
+  | ParagraphScheduleFragment
+  | ParagraphContentCarouselFragment
+  | ParagraphNewsListingsFragment
+  | ParagraphFaqsFragment
+  | ParagraphPriceListFragment
+  | ParagraphAnchorFragment
   | null;
 
 export interface ParagraphsProps {
@@ -118,21 +190,42 @@ const Paragraph = ({ paragraph, className }: ParagraphProps) => {
 
   switch (paragraph.__typename) {
     case 'ParagraphVideo':
-      return <ParagraphVideo key={paragraph.id} paragraph={paragraph} className={className} />;
+      return (
+        <ParagraphVideo
+          key={paragraph.id}
+          paragraph={paragraph}
+          className={className}
+        />
+      );
     case 'ParagraphImageGallery':
       return <ParagraphImageGallery key={paragraph.id} paragraph={paragraph} />;
     case 'ParagraphHighlightedSpeakers':
-      return <ParagraphHighlightedSpeakers key={paragraph.id} paragraph={paragraph} />;
+      return (
+        <ParagraphHighlightedSpeakers
+          key={paragraph.id}
+          paragraph={paragraph}
+        />
+      );
     case 'ParagraphImageCarousel':
-      return <ParagraphImageCarousel key={paragraph.id} paragraph={paragraph} />;
+      return (
+        <ParagraphImageCarousel key={paragraph.id} paragraph={paragraph} />
+      );
+    case 'ParagraphImageFullWidth':
+      return (
+        <ParagraphImageFullWidth key={paragraph.id} paragraph={paragraph} />
+      );
     case 'ParagraphImage':
       return <ParagraphImage key={paragraph.id} paragraph={paragraph} />;
     case 'ParagraphContentTitle':
       return <ParagraphContentTitle key={paragraph.id} paragraph={paragraph} />;
     case 'ParagraphHighlightedList':
-      return <ParagraphHighlightedList key={paragraph.id} paragraph={paragraph} />;
+      return (
+        <ParagraphHighlightedList key={paragraph.id} paragraph={paragraph} />
+      );
     case 'ParagraphLargeCalloutText':
-      return <ParagraphLargeCalloutText key={paragraph.id} paragraph={paragraph} />;
+      return (
+        <ParagraphLargeCalloutText key={paragraph.id} paragraph={paragraph} />
+      );
     case 'ParagraphButton':
       return <ParagraphButton key={paragraph.id} paragraph={paragraph} />;
     case 'ParagraphText':
@@ -140,7 +233,27 @@ const Paragraph = ({ paragraph, className }: ParagraphProps) => {
     case 'ParagraphSpacer':
       return <ParagraphSpacer key={paragraph.id} paragraph={paragraph} />;
     case 'ParagraphTwoColumnContent':
-      return <ParagraphTwoColumnContent key={paragraph.id} paragraph={paragraph} />;
+      return (
+        <ParagraphTwoColumnContent key={paragraph.id} paragraph={paragraph} />
+      );
+    case 'ParagraphSpeakersGrid':
+      return <ParagraphSpeakersGrid key={paragraph.id} paragraph={paragraph} />;
+    case 'ParagraphTalksGrid':
+      return <ParagraphTalksGrid key={paragraph.id} paragraph={paragraph} />;
+    case 'ParagraphSchedule':
+      return <ParagraphSchedule key={paragraph.id} paragraph={paragraph} />;
+    case 'ParagraphContentCarousel':
+      return (
+        <ParagraphContentCarousel key={paragraph.id} paragraph={paragraph} />
+      );
+    case 'ParagraphNewsListings':
+      return <ParagraphNewsListings key={paragraph.id} paragraph={paragraph} />;
+    case 'ParagraphFaqs':
+      return <ParagraphFaqs key={paragraph.id} paragraph={paragraph} />;
+    case 'ParagraphPriceList':
+      return <ParagraphPriceList key={paragraph.id} paragraph={paragraph} />;
+    case 'ParagraphAnchor':
+      return <ParagraphAnchor key={paragraph.id} paragraph={paragraph} />;
     default:
       return null;
   }

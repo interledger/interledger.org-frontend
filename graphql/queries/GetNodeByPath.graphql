@@ -1,4 +1,4 @@
-query GetNodeByPathQuery($slug: String!) {
+query GetNodeByPathQuery($slug: String!, $newsListingPage: Int = 0) {
   route(path: $slug) {
     ... on RouteInternal {
       __typename
@@ -11,19 +11,19 @@ query GetNodeByPathQuery($slug: String!) {
         ... on NodePage {
           ...NodePageFragment
         }
+        ... on NodeFoundationPage {
+          ...NodeFoundationPageFragment
+        }
+        ... on NodeSpeaker {
+          ...NodeSpeakerFragment
+        }
+        ... on NodeTalk {
+          ...NodeTalkFragment
+        }
+        ... on NodeDeveloperTools {
+          ...NodeDeveloperToolsFragment
+        }
       }
-    }
-    ... on RouteExternal {
-      __typename
-      internal
-      url
-    }
-    ... on RouteRedirect {
-      __typename
-      internal
-      redirect
-      status
-      url
     }
   }
 }

@@ -5,14 +5,34 @@
 @use '@styles/base/helpers' as *;
 
 .root {
+  padding-left: var(--page-gutter-left);
+  padding-right: var(--page-gutter-right);
+
+  @include mq($from: tablet) {
+    padding: 0;
+  }
+
   ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    display: flex;
+
+    @include mq($from: tablet) {
+      display: flex;
+    }
 
     li {
-      margin: 0 rem(10px);
+      margin: 0 0 rem(30px);
+      font-size: rem(50px);
+      font-weight: 700;
+      line-height: 1;
+      padding: 0;
+
+      @include mq($from: tablet) {
+        margin: 0 rem(10px);
+        font-size: rem(16px);
+        font-weight: 400;
+      }
 
       &:first-child {
         margin-left: 0;

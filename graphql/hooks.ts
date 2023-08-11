@@ -21,20 +21,32 @@ function fetcher<TData, TVariables>(query: string, variables?: TVariables) {
     return json.data;
   };
 }
-export const ImageStyleFragment = /*#__PURE__*/ `
-    fragment ImageStyleFragment on ImageStylePathDerivative {
-  __typename
-  height
-  path
-  width
-}
-    `;
 export const ResponsiveImageStyleFragment = /*#__PURE__*/ `
     fragment ResponsiveImageStyleFragment on ResponsiveImageStyleDerivative {
   __typename
   height
   path
   srcSetPath
+  width
+}
+    `;
+export const MediaImageWidthFragment = /*#__PURE__*/ `
+    fragment MediaImageWidthFragment on MediaImage {
+  __typename
+  id
+  mediaImage {
+    alt
+    responsive(name: WIDTH) {
+      ...ResponsiveImageStyleFragment
+    }
+  }
+}
+    `;
+export const ImageStyleFragment = /*#__PURE__*/ `
+    fragment ImageStyleFragment on ImageStylePathDerivative {
+  __typename
+  height
+  path
   width
 }
     `;
@@ -53,39 +65,23 @@ export const MediaImageFragment = /*#__PURE__*/ `
   }
 }
     `;
-export const MediaRemoteVideoFragment = /*#__PURE__*/ `
-    fragment MediaRemoteVideoFragment on MediaRemoteVideo {
-  __typename
-  id
-  mediaOembedVideo
-}
-    `;
-export const RouteUnionFragment = /*#__PURE__*/ `
-    fragment RouteUnionFragment on RouteUnion {
-  ... on RouteInternal {
-    __typename
-    url
-    internal
-  }
-  ... on RouteExternal {
-    __typename
-    internal
-    url
-  }
-}
-    `;
 export const MenuItemFragment = /*#__PURE__*/ `
     fragment MenuItemFragment on MenuItem {
   __typename
   title
-  route {
-    ...RouteUnionFragment
-  }
-  children {
-    __typename
-    title
-    route {
-      ...RouteUnionFragment
+  id
+  url
+}
+    `;
+export const DeveloperToolsMenuFragment = /*#__PURE__*/ `
+    fragment DeveloperToolsMenuFragment on Menu {
+  __typename
+  id
+  name
+  items {
+    ...MenuItemFragment
+    children {
+      ...MenuItemFragment
     }
   }
 }
@@ -93,6 +89,7 @@ export const MenuItemFragment = /*#__PURE__*/ `
 export const FooterMenuFragment = /*#__PURE__*/ `
     fragment FooterMenuFragment on Menu {
   __typename
+  name
   items {
     ...MenuItemFragment
   }
@@ -103,6 +100,42 @@ export const MainMenuFragment = /*#__PURE__*/ `
   __typename
   items {
     ...MenuItemFragment
+  }
+}
+    `;
+export const SocialFragment = /*#__PURE__*/ `
+    fragment SocialFragment on ParagraphSocialMedia {
+  __typename
+  id
+  socialMediaLinks {
+    socialMediaType
+    link {
+      url
+    }
+  }
+}
+    `;
+export const MediaImageSquareFragment = /*#__PURE__*/ `
+    fragment MediaImageSquareFragment on MediaImage {
+  __typename
+  id
+  mediaImage {
+    alt
+    responsive(name: ASPECT_RATIO_SQUARE_1_1) {
+      ...ResponsiveImageStyleFragment
+    }
+  }
+}
+    `;
+export const MediaImageLandscapeFragment = /*#__PURE__*/ `
+    fragment MediaImageLandscapeFragment on MediaImage {
+  __typename
+  id
+  mediaImage {
+    alt
+    responsive(name: ASPECT_RATIO_LANDSCAPE_16_9) {
+      ...ResponsiveImageStyleFragment
+    }
   }
 }
     `;
@@ -154,18 +187,6 @@ export const MediaVideoFragment = /*#__PURE__*/ `
   }
 }
     `;
-export const MediaImageLandscapeFragment = /*#__PURE__*/ `
-    fragment MediaImageLandscapeFragment on MediaImage {
-  __typename
-  id
-  mediaImage {
-    alt
-    responsive(name: ASPECT_RATIO_LANDSCAPE_16_9) {
-      ...ResponsiveImageStyleFragment
-    }
-  }
-}
-    `;
 export const ParagraphVideoFragment = /*#__PURE__*/ `
     fragment ParagraphVideoFragment on ParagraphVideo {
   __typename
@@ -177,6 +198,18 @@ export const ParagraphVideoFragment = /*#__PURE__*/ `
     ... on MediaImage {
       ...MediaImageLandscapeFragment
     }
+  }
+}
+    `;
+export const ParagraphImageFragment = /*#__PURE__*/ `
+    fragment ParagraphImageFragment on ParagraphImage {
+  __typename
+  id
+  landscapeImage: singleImage {
+    ...MediaImageLandscapeFragment
+  }
+  squareIamge: singleImage {
+    ...MediaImageSquareFragment
   }
 }
     `;
@@ -199,6 +232,9 @@ export const TwoColumnContentFragment = /*#__PURE__*/ `
   }
   ... on ParagraphVideo {
     ...ParagraphVideoFragment
+  }
+  ... on ParagraphImage {
+    ...ParagraphImageFragment
   }
 }
     `;
@@ -228,20 +264,8 @@ export const ParagraphHighlightedListFragment = /*#__PURE__*/ `
   listItem
 }
     `;
-export const MediaImageSquareFragment = /*#__PURE__*/ `
-    fragment MediaImageSquareFragment on MediaImage {
-  __typename
-  id
-  mediaImage {
-    alt
-    responsive(name: ASPECT_RATIO_SQUARE_1_1) {
-      ...ResponsiveImageStyleFragment
-    }
-  }
-}
-    `;
-export const ParagraphImageFragment = /*#__PURE__*/ `
-    fragment ParagraphImageFragment on ParagraphImage {
+export const ParagraphImageFullWidthFragment = /*#__PURE__*/ `
+    fragment ParagraphImageFullWidthFragment on ParagraphImageFullWidth {
   __typename
   id
   landscapeImage: singleImage {
@@ -258,9 +282,6 @@ export const ParagraphImageCarouselFragment = /*#__PURE__*/ `
   id
   carouselItem {
     id
-    link {
-      ...LinkFragment
-    }
     image: singleImage {
       ... on MediaImage {
         ...MediaImageLandscapeFragment
@@ -305,6 +326,228 @@ export const ParagraphImageGalleryFragment = /*#__PURE__*/ `
   }
 }
     `;
+export const NodeSpeakerCardFragment = /*#__PURE__*/ `
+    fragment NodeSpeakerCardFragment on NodeSpeaker {
+  __typename
+  id
+  title
+  path
+  company
+  role
+  teaser {
+    ...ParagraphTeaserFragment
+  }
+}
+    `;
+export const ParagraphSpeakersGridFragment = /*#__PURE__*/ `
+    fragment ParagraphSpeakersGridFragment on ParagraphSpeakersGrid {
+  __typename
+  id
+  speakersView {
+    __typename
+    ... on SpeakersResult {
+      id
+      results {
+        ... on NodeSpeaker {
+          ...NodeSpeakerCardFragment
+        }
+      }
+    }
+  }
+}
+    `;
+export const NodeTalkCardFragment = /*#__PURE__*/ `
+    fragment NodeTalkCardFragment on NodeTalk {
+  __typename
+  id
+  title
+  path
+  dateTime {
+    time
+  }
+  duration
+  teaser {
+    ...ParagraphTeaserFragment
+  }
+  speakers {
+    title
+  }
+}
+    `;
+export const ParagraphTalksGridFragment = /*#__PURE__*/ `
+    fragment ParagraphTalksGridFragment on ParagraphTalksGrid {
+  __typename
+  id
+  talksView {
+    __typename
+    ... on TalksAllResult {
+      id
+      results {
+        ... on NodeTalk {
+          ...NodeTalkCardFragment
+        }
+      }
+    }
+  }
+}
+    `;
+export const ParagraphScheduleDayFragment = /*#__PURE__*/ `
+    fragment ParagraphScheduleDayFragment on ParagraphScheduleDay {
+  __typename
+  id
+  date {
+    time
+  }
+  talksView {
+    __typename
+    ... on TalksByDateResult {
+      results {
+        ... on NodeTalk {
+          ...NodeTalkCardFragment
+        }
+      }
+    }
+  }
+}
+    `;
+export const ParagraphScheduleFragment = /*#__PURE__*/ `
+    fragment ParagraphScheduleFragment on ParagraphSchedule {
+  __typename
+  id
+  title
+  days {
+    ...ParagraphScheduleDayFragment
+  }
+}
+    `;
+export const ContentCarouselItemFragment = /*#__PURE__*/ `
+    fragment ContentCarouselItemFragment on ParagraphInterface {
+  ... on ParagraphTwoColumnContent {
+    ...ParagraphTwoColumnContentFragment
+  }
+}
+    `;
+export const ParagraphContentCarouselFragment = /*#__PURE__*/ `
+    fragment ParagraphContentCarouselFragment on ParagraphContentCarousel {
+  __typename
+  id
+  carouselItem {
+    ...ContentCarouselItemFragment
+  }
+}
+    `;
+export const NodeArticleCardFragment = /*#__PURE__*/ `
+    fragment NodeArticleCardFragment on NodeArticle {
+  __typename
+  id
+  title
+  path
+  summary {
+    processed
+  }
+  created {
+    time
+  }
+  teaser {
+    ...ParagraphTeaserFragment
+  }
+}
+    `;
+export const ParagraphNewsListingsFragment = /*#__PURE__*/ `
+    fragment ParagraphNewsListingsFragment on ParagraphNewsListings {
+  __typename
+  id
+  newsLatestView {
+    ... on NewsLatestResult {
+      __typename
+      results {
+        ... on NodeArticle {
+          ...NodeArticleCardFragment
+        }
+      }
+    }
+  }
+  newsView(page: $newsListingPage) {
+    ... on NewsResult {
+      __typename
+      pageInfo {
+        offset
+        page
+        pageSize
+        total
+      }
+      results {
+        ... on NodeArticle {
+          ...NodeArticleCardFragment
+        }
+      }
+    }
+  }
+}
+    `;
+export const ParagraphFaqsFragment = /*#__PURE__*/ `
+    fragment ParagraphFaqsFragment on ParagraphFaqs {
+  __typename
+  id
+  faqs {
+    id
+    question
+    answer {
+      processed
+    }
+  }
+}
+    `;
+export const ParagraphPriceOptionFragment = /*#__PURE__*/ `
+    fragment ParagraphPriceOptionFragment on ParagraphPriceOption {
+  __typename
+  id
+  title
+  subtitle
+}
+    `;
+export const ParagraphDividerFragment = /*#__PURE__*/ `
+    fragment ParagraphDividerFragment on ParagraphDivider {
+  __typename
+  id
+}
+    `;
+export const ParagraphPriceFragment = /*#__PURE__*/ `
+    fragment ParagraphPriceFragment on ParagraphPrice {
+  __typename
+  id
+  title
+  menuTitle
+  pricing
+  options {
+    ... on ParagraphPriceOption {
+      ...ParagraphPriceOptionFragment
+    }
+    ... on ParagraphDivider {
+      ...ParagraphDividerFragment
+    }
+  }
+}
+    `;
+export const ParagraphPriceListFragment = /*#__PURE__*/ `
+    fragment ParagraphPriceListFragment on ParagraphPriceList {
+  __typename
+  id
+  pricesMain {
+    ...ParagraphPriceFragment
+  }
+  pricesFooter {
+    ...ParagraphPriceFragment
+  }
+}
+    `;
+export const ParagraphAnchorFragment = /*#__PURE__*/ `
+    fragment ParagraphAnchorFragment on ParagraphAnchor {
+  __typename
+  id
+  title
+}
+    `;
 export const ParagraphsFragment = /*#__PURE__*/ `
     fragment ParagraphsFragment on ParagraphInterface {
   ... on ParagraphButton {
@@ -328,6 +571,9 @@ export const ParagraphsFragment = /*#__PURE__*/ `
   ... on ParagraphImage {
     ...ParagraphImageFragment
   }
+  ... on ParagraphImageFullWidth {
+    ...ParagraphImageFullWidthFragment
+  }
   ... on ParagraphImageCarousel {
     ...ParagraphImageCarouselFragment
   }
@@ -342,6 +588,30 @@ export const ParagraphsFragment = /*#__PURE__*/ `
   }
   ... on ParagraphVideo {
     ...ParagraphVideoFragment
+  }
+  ... on ParagraphSpeakersGrid {
+    ...ParagraphSpeakersGridFragment
+  }
+  ... on ParagraphTalksGrid {
+    ...ParagraphTalksGridFragment
+  }
+  ... on ParagraphSchedule {
+    ...ParagraphScheduleFragment
+  }
+  ... on ParagraphContentCarousel {
+    ...ParagraphContentCarouselFragment
+  }
+  ... on ParagraphNewsListings {
+    ...ParagraphNewsListingsFragment
+  }
+  ... on ParagraphFaqs {
+    ...ParagraphFaqsFragment
+  }
+  ... on ParagraphPriceList {
+    ...ParagraphPriceListFragment
+  }
+  ... on ParagraphAnchor {
+    ...ParagraphAnchorFragment
   }
 }
     `;
@@ -377,6 +647,29 @@ export const NodeArticleFragment = /*#__PURE__*/ `
   id
   title
   path
+  squareImage: image {
+    ...MediaImageSquareFragment
+  }
+  landscapeImage: image {
+    ...MediaImageLandscapeFragment
+  }
+  sections {
+    ...ParagraphsFragment
+  }
+  created {
+    time
+  }
+  metatag {
+    ...MetaTagFragment
+  }
+}
+    `;
+export const NodeDeveloperToolsFragment = /*#__PURE__*/ `
+    fragment NodeDeveloperToolsFragment on NodeDeveloperTools {
+  __typename
+  id
+  title
+  path
   sections {
     ...ParagraphsFragment
   }
@@ -402,6 +695,37 @@ export const ParagraphHeroHeaderFragment = /*#__PURE__*/ `
   }
 }
     `;
+export const NodeFoundationPageFragment = /*#__PURE__*/ `
+    fragment NodeFoundationPageFragment on NodeFoundationPage {
+  __typename
+  id
+  title
+  path
+  sections {
+    ...ParagraphsFragment
+  }
+  metatag {
+    ...MetaTagFragment
+  }
+  teaser {
+    ...ParagraphTeaserFragment
+  }
+  header {
+    ...ParagraphHeroHeaderFragment
+  }
+}
+    `;
+export const NodeFoundationPageCardFragment = /*#__PURE__*/ `
+    fragment NodeFoundationPageCardFragment on NodeFoundationPage {
+  __typename
+  id
+  title
+  path
+  teaser {
+    ...ParagraphTeaserFragment
+  }
+}
+    `;
 export const NodePageFragment = /*#__PURE__*/ `
     fragment NodePageFragment on NodePage {
   __typename
@@ -422,19 +746,6 @@ export const NodePageFragment = /*#__PURE__*/ `
   }
 }
     `;
-export const NodeArticleCardFragment = /*#__PURE__*/ `
-    fragment NodeArticleCardFragment on NodeArticle {
-  __typename
-  id
-  title
-  path
-  image {
-    ... on MediaImage {
-      ...MediaImageLandscapeFragment
-    }
-  }
-}
-    `;
 export const NodePageCardFragment = /*#__PURE__*/ `
     fragment NodePageCardFragment on NodePage {
   __typename
@@ -446,29 +757,185 @@ export const NodePageCardFragment = /*#__PURE__*/ `
   }
 }
     `;
-export const NodeCardFragment = /*#__PURE__*/ `
-    fragment NodeCardFragment on Node {
-  ... on NodeArticle {
-    ...NodeArticleCardFragment
+export const NodeSpeakerFragment = /*#__PURE__*/ `
+    fragment NodeSpeakerFragment on NodeSpeaker {
+  __typename
+  id
+  path
+  biography {
+    processed
   }
-  ... on NodePage {
-    ...NodePageCardFragment
+  company
+  role
+  summary {
+    value
+  }
+  title
+  email
+  socialMedia {
+    socialMediaLinks {
+      link {
+        url
+      }
+      socialMediaType
+    }
+  }
+  image {
+    ...MediaImageLandscapeFragment
+  }
+  talks {
+    __typename
+    ... on TalksResult {
+      results {
+        ... on NodeTalk {
+          ...NodeTalkCardFragment
+        }
+      }
+    }
   }
 }
     `;
+export const MediaRemoteVideoFragment = /*#__PURE__*/ `
+    fragment MediaRemoteVideoFragment on MediaRemoteVideo {
+  __typename
+  id
+  mediaOembedVideo
+}
+    `;
+export const ParagraphMediaHeaderFragment = /*#__PURE__*/ `
+    fragment ParagraphMediaHeaderFragment on ParagraphMediaHeader {
+  __typename
+  id
+  image: singleImage {
+    ... on MediaImage {
+      ...MediaImageLandscapeFragment
+    }
+  }
+  video {
+    ...MediaRemoteVideoFragment
+  }
+}
+    `;
+export const ParagraphTalkHeaderFragment = /*#__PURE__*/ `
+    fragment ParagraphTalkHeaderFragment on ParagraphTalkHeader {
+  __typename
+  id
+  headerBefore {
+    ...ParagraphMediaHeaderFragment
+  }
+  headerDuring {
+    ...ParagraphMediaHeaderFragment
+  }
+  headerAfter {
+    ...ParagraphMediaHeaderFragment
+  }
+}
+    `;
+export const NodeTalkFragment = /*#__PURE__*/ `
+    fragment NodeTalkFragment on NodeTalk {
+  __typename
+  id
+  title
+  path
+  metatag {
+    ...MetaTagFragment
+  }
+  header {
+    ...ParagraphTalkHeaderFragment
+  }
+  description {
+    processed
+  }
+  duration
+  speakers {
+    ...NodeSpeakerCardFragment
+  }
+}
+    `;
+export const RouteUnionFragment = /*#__PURE__*/ `
+    fragment RouteUnionFragment on RouteUnion {
+  ... on RouteInternal {
+    __typename
+    url
+    internal
+  }
+  ... on RouteExternal {
+    __typename
+    internal
+    url
+  }
+}
+    `;
+export const GetParagraphNewsListingDocument = /*#__PURE__*/ `
+    query GetParagraphNewsListing($id: ID!, $newsListingPage: Int) {
+  paragraphNewsListings(id: $id) {
+    ...ParagraphNewsListingsFragment
+  }
+}
+    ${ParagraphNewsListingsFragment}
+${NodeArticleCardFragment}
+${ParagraphTeaserFragment}
+${MediaImageSquareFragment}
+${ResponsiveImageStyleFragment}
+${MediaImageLandscapeFragment}`;
+export const useGetParagraphNewsListing = <
+  TData = OperationTypes.GetParagraphNewsListing,
+  TError = unknown
+>(
+  variables: OperationTypes.GetParagraphNewsListingVariables,
+  options?: UseQueryOptions<
+    OperationTypes.GetParagraphNewsListing,
+    TError,
+    TData
+  >
+) =>
+  useQuery<OperationTypes.GetParagraphNewsListing, TError, TData>(
+    ['GetParagraphNewsListing', variables],
+    fetcher<
+      OperationTypes.GetParagraphNewsListing,
+      OperationTypes.GetParagraphNewsListingVariables
+    >(GetParagraphNewsListingDocument, variables),
+    options
+  );
+
+useGetParagraphNewsListing.getKey = (
+  variables: OperationTypes.GetParagraphNewsListingVariables
+) => ['GetParagraphNewsListing', variables];
+useGetParagraphNewsListing.fetcher = (
+  variables: OperationTypes.GetParagraphNewsListingVariables
+) =>
+  fetcher<
+    OperationTypes.GetParagraphNewsListing,
+    OperationTypes.GetParagraphNewsListingVariables
+  >(GetParagraphNewsListingDocument, variables);
 export const GetInitDataQueryDocument = /*#__PURE__*/ `
     query GetInitDataQuery {
   mainMenu: menu(name: MAIN) {
     ...MainMenuFragment
   }
-  footerMenu: menu(name: FOOTER) {
+  summitMenu: menu(name: SUMMIT) {
+    ...MainMenuFragment
+  }
+  foundationFooterMenu: menu(name: INTERLEDGER_FOUNDATION_FOOTER) {
     ...FooterMenuFragment
+  }
+  summitFooterMenu: menu(name: INTERLEDGER_SUMMIT_FOOTER) {
+    ...FooterMenuFragment
+  }
+  developerToolsMenu: menu(name: DEVELOPER_TOOLS) {
+    ...DeveloperToolsMenuFragment
+  }
+  siteSettings(id: "555ebe67-59de-41ca-a877-75a5c5fed44c") {
+    social {
+      ...SocialFragment
+    }
   }
 }
     ${MainMenuFragment}
 ${MenuItemFragment}
-${RouteUnionFragment}
-${FooterMenuFragment}`;
+${FooterMenuFragment}
+${DeveloperToolsMenuFragment}
+${SocialFragment}`;
 export const useGetInitDataQuery = <
   TData = OperationTypes.GetInitDataQuery,
   TError = unknown
@@ -501,7 +968,7 @@ useGetInitDataQuery.fetcher = (
     OperationTypes.GetInitDataQueryVariables
   >(GetInitDataQueryDocument, variables);
 export const GetNodeByPathQueryDocument = /*#__PURE__*/ `
-    query GetNodeByPathQuery($slug: String!) {
+    query GetNodeByPathQuery($slug: String!, $newsListingPage: Int = 0) {
   route(path: $slug) {
     ... on RouteInternal {
       __typename
@@ -514,23 +981,26 @@ export const GetNodeByPathQueryDocument = /*#__PURE__*/ `
         ... on NodePage {
           ...NodePageFragment
         }
+        ... on NodeFoundationPage {
+          ...NodeFoundationPageFragment
+        }
+        ... on NodeSpeaker {
+          ...NodeSpeakerFragment
+        }
+        ... on NodeTalk {
+          ...NodeTalkFragment
+        }
+        ... on NodeDeveloperTools {
+          ...NodeDeveloperToolsFragment
+        }
       }
-    }
-    ... on RouteExternal {
-      __typename
-      internal
-      url
-    }
-    ... on RouteRedirect {
-      __typename
-      internal
-      redirect
-      status
-      url
     }
   }
 }
     ${NodeArticleFragment}
+${MediaImageSquareFragment}
+${ResponsiveImageStyleFragment}
+${MediaImageLandscapeFragment}
 ${ParagraphsFragment}
 ${ParagraphButtonFragment}
 ${LinkFragment}
@@ -541,19 +1011,40 @@ ${TwoColumnContentFragment}
 ${ParagraphContentTitleFragment}
 ${ParagraphVideoFragment}
 ${MediaVideoFragment}
-${MediaImageLandscapeFragment}
-${ResponsiveImageStyleFragment}
+${ParagraphImageFragment}
 ${ParagraphLargeCalloutTextFragment}
 ${ParagraphHighlightedListFragment}
-${ParagraphImageFragment}
-${MediaImageSquareFragment}
+${ParagraphImageFullWidthFragment}
 ${ParagraphImageCarouselFragment}
 ${ParagraphHighlightedSpeakersFragment}
 ${ParagraphTeaserFragment}
 ${ParagraphImageGalleryFragment}
+${ParagraphSpeakersGridFragment}
+${NodeSpeakerCardFragment}
+${ParagraphTalksGridFragment}
+${NodeTalkCardFragment}
+${ParagraphScheduleFragment}
+${ParagraphScheduleDayFragment}
+${ParagraphContentCarouselFragment}
+${ContentCarouselItemFragment}
+${ParagraphNewsListingsFragment}
+${NodeArticleCardFragment}
+${ParagraphFaqsFragment}
+${ParagraphPriceListFragment}
+${ParagraphPriceFragment}
+${ParagraphPriceOptionFragment}
+${ParagraphDividerFragment}
+${ParagraphAnchorFragment}
 ${MetaTagFragment}
 ${NodePageFragment}
-${ParagraphHeroHeaderFragment}`;
+${ParagraphHeroHeaderFragment}
+${NodeFoundationPageFragment}
+${NodeSpeakerFragment}
+${NodeTalkFragment}
+${ParagraphTalkHeaderFragment}
+${ParagraphMediaHeaderFragment}
+${MediaRemoteVideoFragment}
+${NodeDeveloperToolsFragment}`;
 export const useGetNodeByPathQuery = <
   TData = OperationTypes.GetNodeByPathQuery,
   TError = unknown
@@ -581,16 +1072,25 @@ useGetNodeByPathQuery.fetcher = (
     OperationTypes.GetNodeByPathQueryVariables
   >(GetNodeByPathQueryDocument, variables);
 export const GetNodesPathsQueryDocument = /*#__PURE__*/ `
-    query GetNodesPathsQuery($first: Int) {
-  nodes(first: $first) {
-    nodes {
+    query GetNodesPathsQuery {
+  nodePaths {
+    results {
       ... on NodeArticle {
         path
       }
       ... on NodePage {
         path
       }
+      ... on NodeFoundationPage {
+        path
+      }
       ... on NodeSpeaker {
+        path
+      }
+      ... on NodeTalk {
+        path
+      }
+      ... on NodeDeveloperTools {
         path
       }
     }
@@ -628,57 +1128,3 @@ useGetNodesPathsQuery.fetcher = (
     OperationTypes.GetNodesPathsQuery,
     OperationTypes.GetNodesPathsQueryVariables
   >(GetNodesPathsQueryDocument, variables);
-export const GetNodesQueryDocument = /*#__PURE__*/ `
-    query GetNodesQuery($first: Int, $after: Cursor, $before: Cursor, $last: Int, $filter: ConnectionFilter, $sortKey: ConnectionSortKeys, $reverse: Boolean) {
-  nodes(
-    first: $first
-    after: $after
-    before: $before
-    last: $last
-    filter: $filter
-    sortKey: $sortKey
-    reverse: $reverse
-  ) {
-    nodes {
-      ...NodeCardFragment
-    }
-    pageInfo {
-      endCursor
-      hasNextPage
-      hasPreviousPage
-      startCursor
-    }
-  }
-}
-    ${NodeCardFragment}
-${NodeArticleCardFragment}
-${MediaImageLandscapeFragment}
-${ResponsiveImageStyleFragment}
-${NodePageCardFragment}
-${ParagraphTeaserFragment}
-${MediaImageSquareFragment}`;
-export const useGetNodesQuery = <
-  TData = OperationTypes.GetNodesQuery,
-  TError = unknown
->(
-  variables?: OperationTypes.GetNodesQueryVariables,
-  options?: UseQueryOptions<OperationTypes.GetNodesQuery, TError, TData>
-) =>
-  useQuery<OperationTypes.GetNodesQuery, TError, TData>(
-    variables === undefined ? ['GetNodesQuery'] : ['GetNodesQuery', variables],
-    fetcher<
-      OperationTypes.GetNodesQuery,
-      OperationTypes.GetNodesQueryVariables
-    >(GetNodesQueryDocument, variables),
-    options
-  );
-
-useGetNodesQuery.getKey = (variables?: OperationTypes.GetNodesQueryVariables) =>
-  variables === undefined ? ['GetNodesQuery'] : ['GetNodesQuery', variables];
-useGetNodesQuery.fetcher = (
-  variables?: OperationTypes.GetNodesQueryVariables
-) =>
-  fetcher<OperationTypes.GetNodesQuery, OperationTypes.GetNodesQueryVariables>(
-    GetNodesQueryDocument,
-    variables
-  );

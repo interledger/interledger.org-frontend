@@ -1,0 +1,12 @@
+fragment ParagraphMediaHeaderFragment on ParagraphMediaHeader {
+  __typename
+  id
+  image: singleImage {
+    ... on MediaImage {
+      ...MediaImageLandscapeFragment
+    }
+  }
+  video {
+    ...MediaRemoteVideoFragment
+  }
+}

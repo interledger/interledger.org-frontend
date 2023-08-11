@@ -1,0 +1,48 @@
+fragment NodeSpeakerFragment on NodeSpeaker {
+  __typename
+  id
+  path
+  biography {
+    processed
+  }
+  company
+  role
+  summary {
+    value
+  }
+  title
+  email
+  socialMedia {
+    socialMediaLinks {
+      link {
+        url
+      }
+      socialMediaType
+    }
+  }
+  image {
+    ...MediaImageLandscapeFragment
+  }
+  talks {
+    __typename
+    ... on TalksResult {
+      results {
+        ... on NodeTalk {
+          ...NodeTalkCardFragment
+        }
+      }
+    }
+  }
+}
+
+fragment NodeSpeakerCardFragment on NodeSpeaker {
+  __typename
+  id
+  title
+  path
+  company
+  role
+  teaser {
+    ...ParagraphTeaserFragment
+  }
+}

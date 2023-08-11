@@ -5,7 +5,132 @@
 @use '@styles/base/helpers' as *;
 
 .root {
-  padding: rem(15px) var(--page-gutter);
-  background-color: black;
-  color: white;
+  position: relative;
+  padding: rem(30px) var(--page-gutter-right) rem(30px) var(--page-gutter-left);
+  background-color: transparent;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 0px 0px;
+  grid-template-areas: 'logo menu';
+  height: rem(96px);
+
+  @include mq($from: tablet) {
+    gap: 0px 0px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 'logo nav nav';
+  }
+}
+
+.hamburgerWrapper {
+  justify-self: end;
+  align-self: center;
+  grid-area: menu;
+
+  @include mq($from: tablet) {
+    display: none;
+  }
+}
+
+.menuButton {
+  background-color: transparent;
+  border: 0;
+
+  svg {
+    width: rem(20px);
+    height: rem(20px);
+  }
+}
+
+.logoWrapper {
+  grid-area: logo;
+  align-self: center;
+}
+
+.logo {
+  width: rem(150px);
+}
+
+.menuWrapper {
+  justify-self: left;
+  grid-area: menu;
+  align-self: center;
+
+  @include mq($from: tablet) {
+    justify-self: center;
+    grid-area: menu;
+    align-self: center;
+  }
+
+  nav {
+    margin: 0 auto;
+  }
+}
+
+.siteWrapper {
+  justify-self: center;
+  grid-area: site;
+  padding: var(--page-gutter);
+
+  @include mq($from: tablet) {
+    justify-self: end;
+    align-self: center;
+    padding: 0;
+  }
+  a {
+    text-decoration: none;
+  }
+}
+
+.navWrapper {
+  display: none;
+  gap: 0px 0px;
+
+  @include mq($from: tablet) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: 'menu site';
+    grid-area: nav;
+    position: relative;
+  }
+
+  &.menuOpen {
+    background-color: var(--color-white);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto;
+    grid-template-areas:
+      'menu'
+      'site';
+    position: fixed;
+    top: rem(96px);
+    left: 0;
+    z-index: 11;
+    height: calc(100% - #{rem(96px)});
+    width: 100%;
+
+    @include mq($from: tablet) {
+      background-color: transparent;
+    }
+  }
+
+  &.dark {
+    background-color: var(--color-black);
+
+    @include mq($from: tablet) {
+      background-color: transparent;
+    }
+  }
+}
+
+.menuClose {
+  position: absolute;
+  top: rem(20px);
+  right: rem(20px);
+
+  @include mq($from: tablet) {
+    display: none;
+  }
 }

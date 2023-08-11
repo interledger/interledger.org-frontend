@@ -30,7 +30,7 @@ interface VideoProps {
   className?: string;
 }
 
-const Video = ({
+export const Video = ({
   url,
   autoPlay = false,
   muted = false,
@@ -71,6 +71,7 @@ export interface VideoPlayerProps {
   loop?: boolean;
   controls?: boolean;
   setHeight?: boolean;
+  overlay?: boolean;
 }
 
 /**
@@ -88,9 +89,12 @@ export const VideoPlayer = ({
   loop = false,
   controls = false,
   setHeight = false,
+  overlay,
 }: VideoPlayerProps) => {
   const [play, setPlay] = useState(autoPlay);
-  const rootClassName = cn(styles.root, className, { [styles.setHeight]: setHeight });
+  const rootClassName = cn(styles.root, className, {
+    [styles.setHeight]: setHeight,
+  });
 
   return (
     <div className={rootClassName}>
@@ -118,7 +122,8 @@ export const VideoPlayer = ({
           </MediaRemoteVideo>
         )}
       </>
-      <Button className={styles.play} onClick={() => setPlay(play => !play)}>
+      {overlay ? <div className={styles.overlay}></div> : null}
+      <Button className={styles.play} onClick={() => setPlay((play) => !play)}>
         {play ? <Pause /> : <Play />}
       </Button>
     </div>

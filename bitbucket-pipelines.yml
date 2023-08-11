@@ -26,43 +26,45 @@ definitions:
           - mkdir deploy
           - cp -R {.ebextensions,Procfile,public,.next/standalone/*,.next/standalone/.next} deploy/
           - cp -R .next/static deploy/.next/
-          - zip -r application.zip deploy/
+          - cd deploy && zip -r application.zip .ebextensions .next lib node_modules public package.json Procfile server.js
           - export BITBUCKET_COMMIT_SHORT=$(echo $BITBUCKET_COMMIT | cut -c1-7)
-          - pipe: atlassian/aws-elasticbeanstalk-deploy:1.0.2
+          - pipe: atlassian/aws-elasticbeanstalk-deploy:1.1.1
             variables:
               AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
               AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
               AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
-              APPLICATION_NAME: $AWS_APPLICATION_NAME
+              APPLICATION_NAME: $APPLICATION_NAME
               COMMAND: "upload-only"
               ZIP_FILE: "application.zip"
-              S3_BUCKET: $AWS_S3_BUCKET
-              VERSION_LABEL: "develop-$BITBUCKET_BUILD_NUMBER-deploy-$BITBUCKET_COMMIT_SHORT"
+              S3_BUCKET: $S3_BUCKET
+              VERSION_LABEL: "$BITBUCKET_BUILD_NUMBER-deploy-$BITBUCKET_COMMIT_SHORT"
     - step: &deploy
         name: "Deploy | Develop"
         script:
           - echo "Deployment!"
           - export BITBUCKET_COMMIT_SHORT=$(echo $BITBUCKET_COMMIT | cut -c1-7)
-          - pipe: atlassian/aws-elasticbeanstalk-deploy:1.0.2
+          - pipe: atlassian/aws-elasticbeanstalk-deploy:1.1.1
             variables:
               AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
               AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
               AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
-              APPLICATION_NAME: $AWS_APPLICATION_NAME
+              APPLICATION_NAME: $APPLICATION_NAME
               COMMAND: "deploy-only"
-              VERSION_LABEL: "develop-$BITBUCKET_BUILD_NUMBER-deploy-$BITBUCKET_COMMIT_SHORT"
-              ENVIRONMENT_NAME: $AWS_ENV
+              VERSION_LABEL: "$BITBUCKET_BUILD_NUMBER-deploy-$BITBUCKET_COMMIT_SHORT"
+              ENVIRONMENT_NAME: $ENVIRONMENT_NAME
               WAIT: "true"
+    - step: &invalidate
+        name: "Invalidate Cache"
+        script:
+          - pipe: atlassian/aws-cloudfront-invalidate:0.6.0
+            variables:
+              AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+              AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+              AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
+              DISTRIBUTION_ID: $AWS_DISTRIBUTION_ID
 
 pipelines:
   branches:
-    develop:
-      - stage:
-          deployment: develop
-          steps:
-            - step: *build
-            - step: *package
-            - step: *deploy
     staging:
       - stage:
           deployment: staging
@@ -70,6 +72,7 @@ pipelines:
             - step: *build
             - step: *package
             - step: *deploy
+            - step: *invalidate
     main:
       - stage:
           deployment: production
@@ -77,3 +80,4 @@ pipelines:
             - step: *build
             - step: *package
             - step: *deploy
+            - step: *invalidate

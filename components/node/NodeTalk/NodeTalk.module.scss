@@ -1,0 +1,23 @@
+@use '@styles/base/mq-settings';
+@use '~sass-mq/mq' as *;
+@use '~sass-rem' as *;
+@use '@styles/base/variables' as *;
+@use '@styles/base/helpers' as *;
+
+.root {
+  margin-bottom: var(--component-spacing);
+}
+
+.header {
+  margin-bottom: var(--component-spacing);
+}
+
+.content {
+  margin-top: var(--component-spacing);
+}
+
+.sideBar {
+  article {
+    margin-bottom: rem(20px);
+  }
+}

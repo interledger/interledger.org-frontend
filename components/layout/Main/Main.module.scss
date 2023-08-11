@@ -15,5 +15,16 @@
   main {
     padding: 0;
     min-width: 0; // Fixes swiper layout issues
+    position: relative;
   }
+}
+
+.dark {
+  --color-primary: var(--color-secondary);
+  --color-swiper-pagination: var(--color-white);
+  --color-link: var(--color-secondary);
+  --color-text-reverse: var(--color-white);
+
+  color: var(--color-white);
+  background-color: var(--color-black);
 }

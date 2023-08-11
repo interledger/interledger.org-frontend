@@ -5,8 +5,8 @@
 @use '@styles/base/helpers' as *;
 
 .root {
-  padding-left: calc(var(--page-gutter) + env(safe-area-inset-left));
-  padding-right: calc(var(--page-gutter) + env(safe-area-inset-right));
+  padding-left: var(--page-gutter-left);
+  padding-right: var(--page-gutter-right);
 }
 
 .container {

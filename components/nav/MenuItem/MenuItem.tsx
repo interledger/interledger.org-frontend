@@ -1,16 +1,31 @@
-import cn from 'classnames';
 import { MenuItemFragment } from '@models/operations';
-import styles from './MenuItem.module.scss';
+import cn from 'classnames';
 import Link from 'next/link';
-import { MenuList } from '../MenuList/MenuList';
+import { useRouter } from 'next/router';
+import styles from './MenuItem.module.scss';
+import { ReactNode } from 'react';
 
 export interface MenuItemProps {
   /** Optional className for MenuItem, pass in a sass module class to override component default */
   className?: string;
   menuItem: MenuItemFragment | null;
+  type?: 'default' | 'main';
+  children?: ReactNode;
 }
 
-export const MenuItem = ({ className, menuItem }: MenuItemProps) => {
+const item = {
+  hide: { opacity: 0, zoom: 0.8, y: 30 },
+  show: { opacity: 1, zoom: 1, y: 0 },
+};
+
+export const MenuItem = ({
+  className,
+  menuItem,
+  type = 'default',
+  children,
+}: MenuItemProps) => {
+  const router = useRouter();
+  const currentRoute = router.asPath;
   const rootClassName = cn(styles.root, className);
 
   if (!menuItem) {
@@ -19,17 +34,20 @@ export const MenuItem = ({ className, menuItem }: MenuItemProps) => {
 
   return (
     <li>
-      {menuItem.route?.__typename === 'RouteInternal' ||
-      menuItem.route?.__typename === 'RouteExternal' ? (
-        <Link href={menuItem.route.url} className={rootClassName}>
+      {menuItem.url ? (
+        <Link
+          href={menuItem.url}
+          className={cn(rootClassName, {
+            [styles.active]: menuItem.url === currentRoute,
+            [styles.main]: type === 'main',
+          })}
+        >
           {menuItem.title}
         </Link>
       ) : (
-        <span className={rootClassName}> {menuItem.title}</span>
+        <span className={rootClassName}>{menuItem.title}</span>
       )}
-      {menuItem.children && menuItem.children.length > 0 ? (
-        <MenuList menus={menuItem.children} />
-      ) : null}
+      {children}
     </li>
   );
 };

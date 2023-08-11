@@ -5,10 +5,49 @@
 @use '@styles/base/helpers' as *;
 
 .root {
-    color: white;
-    text-decoration: none;
+  text-decoration: none;
+  color: var(--color-text-reverse);
 
-    &:hover {
-        text-decoration: underline;
+  &:hover {
+    color: var(--color-primary);
+  }
+}
+
+.active {
+  color: var(--color-primary);
+  position: relative;
+}
+
+.main {
+  border-left: 2px solid transparent;
+  padding-left: rem(19px);
+  display: block;
+  line-height: 0.75;
+
+  &.active {
+    border-left: 2px solid var(--color-primary);
+  }
+
+  @include mq($from: tablet) {
+    border: 0;
+    padding: 0;
+    line-height: 1;
+
+    &.active {
+      border: 0;
+
+      &::after {
+        content: '';
+        width: rem(6px);
+        height: rem(6px);
+        border-radius: 50%;
+        background-color: var(--color-primary);
+        display: block;
+        position: absolute;
+        bottom: -#{rem(10px)};
+        left: 50%;
+        transform: translateX(-50%);
+      }
     }
+  }
 }

@@ -1,32 +1,26 @@
+/* eslint-disable @next/next/no-img-element */
 import cn from 'classnames';
 
 import styles from './BackgroundSwirl.module.scss';
+import { menuAtom } from '@store/site';
+import { useAtom } from 'jotai';
 
 export interface BackgroundSwirlProps {
   /** Optional className for BackgroundSwirl, pass in a sass module class to override component default */
   className?: string;
-  theme?: string;
 }
 
 /**
  * BackgroundSwirl description
  */
 
-export const BackgroundSwirl = ({ className, theme }: BackgroundSwirlProps) => {
-  const rootClassName = cn(
-    styles.root,
-    className,
-    theme && styles[theme],
-  );
+export const BackgroundSwirl = ({ className }: BackgroundSwirlProps) => {
+  const [menuOpen] = useAtom(menuAtom);
+  const rootClassName = cn(styles.root, className);
 
-  return (
-    <div className={rootClassName}>
-      <img src="/logo-swirl-large.svg" alt="" />
-      <img src="/logo-swirl-large.svg" alt="" />
-      <img src="/logo-swirl-large.svg" alt="" />
-      <img src="/logo-swirl-large.svg" alt="" />
-      <img src="/logo-swirl-large.svg" alt="" />
-      <img src="/logo-swirl-large.svg" alt="" />
-    </div>
-  );
+  if (menuOpen) {
+    return null;
+  }
+
+  return <div className={rootClassName} />;
 };

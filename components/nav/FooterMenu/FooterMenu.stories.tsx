@@ -13,26 +13,19 @@ export const Default: Story = {
   args: {
     footerMenu: {
       __typename: 'Menu' as const,
+      name: 'Footer Menu',
       items: [
         {
           __typename: 'MenuItem' as const,
           title: 'Home',
-          route: {
-            __typename: 'RouteInternal' as const,
-            url: '/',
-            internal: true,
-          },
-          children: [],
+          url: '/',
+          id: 'dfgfdgdfsg'
         },
         {
           __typename: 'MenuItem' as const,
           title: 'Page',
-          route: {
-            __typename: 'RouteInternal' as const,
-            url: '/',
-            internal: true,
-          },
-          children: [],
+          url: '/',
+          id: 'dfgfdgdffdgdfgfdgg'
         },
       ],
     },

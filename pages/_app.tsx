@@ -9,10 +9,13 @@ import {
 } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { LazyMotion } from 'framer-motion';
+import { Provider } from 'jotai';
 import type { AppProps } from 'next/app';
+import { PT_Sans } from 'next/font/google';
 import { Router } from 'next/router';
 import { useState } from 'react';
-import { PT_Sans } from 'next/font/google';
+import NextAdapterPages from 'next-query-params/pages';
+import { QueryParamProvider } from 'use-query-params';
 import '../styles/globals.scss';
 
 function syncDrupalPreviewRoutes(path: string) {
@@ -32,17 +35,13 @@ export const loadFeatures = () =>
   import('../lib/framerFeatures').then((res) => res.default);
 
 type PageProps = {
-  theme?: 'dark' | 'light';
   dehydratedState?: DehydratedState;
 };
 
-const PTSansRegular = PT_Sans({
+const PTSans = PT_Sans({
   subsets: ['latin'],
-  weight: '400'
-});
-const PTSansBold = PT_Sans({
-  subsets: ['latin'],
-  weight: '700'
+  weight: ['400', '700'],
+  style: ['normal', 'italic'],
 });
 
 export default function App({ Component, pageProps }: AppProps<PageProps>) {
@@ -51,18 +50,21 @@ export default function App({ Component, pageProps }: AppProps<PageProps>) {
   return (
     <>
       <style jsx global>{`
-      :root {
-        --font-base: ${PTSansRegular.style.fontFamily};
-        --font-display: ${PTSansBold.style.fontFamily};
-      }
-    `}</style>
+        :root {
+          --font-base: ${PTSans.style.fontFamily};
+        }
+      `}</style>
       <QueryClientProvider client={queryClient}>
         <Hydrate state={pageProps.dehydratedState}>
           <GoogleAnalytics trackPageViews />
           <LazyMotion features={loadFeatures} strict>
-            <Main theme={pageProps.theme}>
-              <Component {...pageProps} />
-            </Main>
+            <Provider>
+              <QueryParamProvider adapter={NextAdapterPages}>
+                <Main>
+                  <Component {...pageProps} />
+                </Main>
+              </QueryParamProvider>
+            </Provider>
           </LazyMotion>
         </Hydrate>
         <ReactQueryDevtools initialIsOpen={false} />

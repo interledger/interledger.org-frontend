@@ -1,5 +1,5 @@
 import { withInitData } from '@components/hoc/withInitData/withInitData';
-import { NodePage } from '@components/node/NodePage/NodePage';
+import { NodeFoundationPage } from '@components/node/NodeFoundationPage/NodeFoundationPage';
 import { MetaTag } from '@components/util/MetaTag/MetaTag';
 import { getRouteEntity } from '@graphql/helpers';
 import { useGetNodeByPathQuery } from '@graphql/hooks';
@@ -8,23 +8,22 @@ import { GetStaticProps, NextPage } from 'next';
 
 interface HomeProps {
   slug: string;
-  theme: 'dark' | 'light';
 }
 
-const Home: NextPage<HomeProps> = ({ slug, theme }) => {
+const Home: NextPage<HomeProps> = ({ slug }) => {
   const { data: page } = useGetNodeByPathQuery(
     { slug },
     { select: (data) => getRouteEntity(data) }
   );
 
-  if (page?.__typename !== 'NodePage') {
+  if (page?.__typename !== 'NodeFoundationPage') {
     return null;
   }
 
   return (
     <>
       {page?.metatag && <MetaTag metatags={page.metatag} />}
-      {page && <NodePage node={page} theme={theme} />}
+      {page && <NodeFoundationPage node={page} />}
     </>
   );
 };
@@ -45,8 +44,6 @@ export const getStaticProps: GetStaticProps = withInitData(
         preview: preview ?? false,
         dehydratedState: dehydrate(queryClient),
         slug,
-        theme: 'dark',
-        // theme: 'light',
       },
     };
   }
