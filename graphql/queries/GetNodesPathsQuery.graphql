@@ -16,6 +16,9 @@ query GetNodesPathsQuery {
       ... on NodeTalk {
         path
       }
+      ... on NodeDeveloperTools {
+        path
+      }
     }
   }
 }

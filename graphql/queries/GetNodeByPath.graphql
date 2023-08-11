@@ -20,6 +20,9 @@ query GetNodeByPathQuery($slug: String!, $newsListingPage: Int = 0) {
         ... on NodeTalk {
           ...NodeTalkFragment
         }
+        ... on NodeDeveloperTools {
+          ...NodeDeveloperToolsFragment
+        }
       }
     }
   }

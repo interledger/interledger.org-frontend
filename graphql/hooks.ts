@@ -69,7 +69,21 @@ export const MenuItemFragment = /*#__PURE__*/ `
     fragment MenuItemFragment on MenuItem {
   __typename
   title
+  id
   url
+}
+    `;
+export const DeveloperToolsMenuFragment = /*#__PURE__*/ `
+    fragment DeveloperToolsMenuFragment on Menu {
+  __typename
+  id
+  name
+  items {
+    ...MenuItemFragment
+    children {
+      ...MenuItemFragment
+    }
+  }
 }
     `;
 export const FooterMenuFragment = /*#__PURE__*/ `
@@ -527,6 +541,13 @@ export const ParagraphPriceListFragment = /*#__PURE__*/ `
   }
 }
     `;
+export const ParagraphAnchorFragment = /*#__PURE__*/ `
+    fragment ParagraphAnchorFragment on ParagraphAnchor {
+  __typename
+  id
+  title
+}
+    `;
 export const ParagraphsFragment = /*#__PURE__*/ `
     fragment ParagraphsFragment on ParagraphInterface {
   ... on ParagraphButton {
@@ -589,6 +610,9 @@ export const ParagraphsFragment = /*#__PURE__*/ `
   ... on ParagraphPriceList {
     ...ParagraphPriceListFragment
   }
+  ... on ParagraphAnchor {
+    ...ParagraphAnchorFragment
+  }
 }
     `;
 export const MetaTagFragment = /*#__PURE__*/ `
@@ -634,6 +658,20 @@ export const NodeArticleFragment = /*#__PURE__*/ `
   }
   created {
     time
+  }
+  metatag {
+    ...MetaTagFragment
+  }
+}
+    `;
+export const NodeDeveloperToolsFragment = /*#__PURE__*/ `
+    fragment NodeDeveloperToolsFragment on NodeDeveloperTools {
+  __typename
+  id
+  title
+  path
+  sections {
+    ...ParagraphsFragment
   }
   metatag {
     ...MetaTagFragment
@@ -884,6 +922,9 @@ export const GetInitDataQueryDocument = /*#__PURE__*/ `
   summitFooterMenu: menu(name: INTERLEDGER_SUMMIT_FOOTER) {
     ...FooterMenuFragment
   }
+  developerToolsMenu: menu(name: DEVELOPER_TOOLS) {
+    ...DeveloperToolsMenuFragment
+  }
   siteSettings(id: "555ebe67-59de-41ca-a877-75a5c5fed44c") {
     social {
       ...SocialFragment
@@ -893,6 +934,7 @@ export const GetInitDataQueryDocument = /*#__PURE__*/ `
     ${MainMenuFragment}
 ${MenuItemFragment}
 ${FooterMenuFragment}
+${DeveloperToolsMenuFragment}
 ${SocialFragment}`;
 export const useGetInitDataQuery = <
   TData = OperationTypes.GetInitDataQuery,
@@ -948,6 +990,9 @@ export const GetNodeByPathQueryDocument = /*#__PURE__*/ `
         ... on NodeTalk {
           ...NodeTalkFragment
         }
+        ... on NodeDeveloperTools {
+          ...NodeDeveloperToolsFragment
+        }
       }
     }
   }
@@ -989,6 +1034,7 @@ ${ParagraphPriceListFragment}
 ${ParagraphPriceFragment}
 ${ParagraphPriceOptionFragment}
 ${ParagraphDividerFragment}
+${ParagraphAnchorFragment}
 ${MetaTagFragment}
 ${NodePageFragment}
 ${ParagraphHeroHeaderFragment}
@@ -997,7 +1043,8 @@ ${NodeSpeakerFragment}
 ${NodeTalkFragment}
 ${ParagraphTalkHeaderFragment}
 ${ParagraphMediaHeaderFragment}
-${MediaRemoteVideoFragment}`;
+${MediaRemoteVideoFragment}
+${NodeDeveloperToolsFragment}`;
 export const useGetNodeByPathQuery = <
   TData = OperationTypes.GetNodeByPathQuery,
   TError = unknown
@@ -1041,6 +1088,9 @@ export const GetNodesPathsQueryDocument = /*#__PURE__*/ `
         path
       }
       ... on NodeTalk {
+        path
+      }
+      ... on NodeDeveloperTools {
         path
       }
     }

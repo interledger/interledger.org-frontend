@@ -3,12 +3,14 @@ import cn from 'classnames';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import styles from './MenuItem.module.scss';
+import { ReactNode } from 'react';
 
 export interface MenuItemProps {
   /** Optional className for MenuItem, pass in a sass module class to override component default */
   className?: string;
   menuItem: MenuItemFragment | null;
   type?: 'default' | 'main';
+  children?: ReactNode;
 }
 
 const item = {
@@ -20,6 +22,7 @@ export const MenuItem = ({
   className,
   menuItem,
   type = 'default',
+  children,
 }: MenuItemProps) => {
   const router = useRouter();
   const currentRoute = router.asPath;
@@ -44,6 +47,7 @@ export const MenuItem = ({
       ) : (
         <span className={rootClassName}>{menuItem.title}</span>
       )}
+      {children}
     </li>
   );
 };

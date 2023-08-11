@@ -83,18 +83,29 @@ ol[role='list'] {
   outline-offset: 0.1rem;
 }
 
-article {
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  -ms-word-break: break-all;
-  word-break: break-all;
-  word-break: break-word;
-  -ms-hyphens: auto;
-  -moz-hyphens: auto;
-  -webkit-hyphens: auto;
-  hyphens: auto;
-}
+// article {
+//   overflow-wrap: break-word;
+//   word-wrap: break-word;
+//   word-break: break-word;
+//   hyphens: auto;
+// }
 
 strong {
   font-weight: 700;
+}
+
+pre {
+  background: var(--color-black);
+  color: var(--color-white);
+  padding: rem(20px);
+  line-height: 1.4;
+
+  code {
+    color: var(--color-white);
+  }
+}
+
+code {
+  color: var(--color-primary);
+  word-wrap: break-word;
 }

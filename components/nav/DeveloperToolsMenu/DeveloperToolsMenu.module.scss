@@ -1,0 +1,32 @@
+@use '@styles/base/mq-settings';
+@use '~sass-mq/mq' as *;
+@use '~sass-rem' as *;
+@use '@styles/base/variables' as *;
+@use '@styles/base/helpers' as *;
+
+.root {
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin: 0;
+      padding: 0;
+    }
+
+    a,
+    span {
+      font-size: rem(30px);
+      color: var(--color-primary);
+    }
+
+    ul {
+      a,
+      span {
+        font-size: rem(18px);
+        color: var(--color-black);
+      }
+    }
+  }
+}
