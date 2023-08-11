@@ -1,8 +1,9 @@
-# Four Next.js Skeleton
+# Interledger Frontend Next.js
 
 ## Setup
 
-`git clone https://github.com/joipolloi/headless-drupal-next-client.git new-app-name`
+- `yarn`
+- Add `.env.local`
 
 ## Available Scripts
 
@@ -71,7 +72,3 @@ If needed styles can be imported using
 ## Debugging
 
 Debug your Next.js application using the regular Chrome DevTools, all you have to do now is open a new tab in Chrome with the url being: chrome://inspect.
-
-## Todo
-
-- Add pipeline for versioning on push
