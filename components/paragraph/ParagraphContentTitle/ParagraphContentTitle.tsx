@@ -20,7 +20,7 @@ export const ParagraphContentTitle = ({
   const rootClassName = cn(styles.root, className);
   return (
     <div className={rootClassName}>
-      <Text variant="h2" as="h1" noMargin>
+      <Text variant="h2" as="h1">
         {paragraph.title}
       </Text>
     </div>

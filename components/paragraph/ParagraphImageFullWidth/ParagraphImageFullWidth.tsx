@@ -19,8 +19,8 @@ export const ParagraphImageFullWidth = ({
 }: ParagraphImageFullWidthProps) => {
   const rootClassName = cn(styles.root, className);
   return (
-    <div className={rootClassName}>
+    <section className={rootClassName}>
       <MediaImage media={paragraph.landscapeImage} fit />
-    </div>
+    </section>
   );
 };

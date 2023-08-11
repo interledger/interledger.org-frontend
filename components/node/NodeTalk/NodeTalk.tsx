@@ -1,19 +1,13 @@
-import cn from 'classnames';
-import { NodeTalkFragment } from '@models/operations';
-import styles from './NodeTalk.module.scss';
-import { ParagraphTalkHeader } from '@components/paragraph/ParagraphTalkHeader/ParagraphTalkHeader';
+import { CardSpeaker } from '@components/layout/CardSpeaker/CardSpeaker';
 import { Container } from '@components/layout/Container/Container';
+import { TwoColumn } from '@components/layout/TwoColumn/TwoColumn';
+import { ParagraphTalkHeader } from '@components/paragraph/ParagraphTalkHeader/ParagraphTalkHeader';
+import { Duration } from '@components/ui/Duration/Duration';
 import { Text } from '@components/ui/Text/Text';
 import { RichText } from '@components/util/RichText/RichText';
-import { TwoColumn } from '@components/layout/TwoColumn/TwoColumn';
-import {
-  Card,
-  CardContent,
-  CardImage,
-  CardLink,
-} from '@components/layout/Card/Card';
-import { Duration } from '@components/ui/Duration/Duration';
-import { CardSpeaker } from '@components/layout/CardSpeaker/CardSpeaker';
+import { NodeTalkFragment } from '@models/operations';
+import cn from 'classnames';
+import styles from './NodeTalk.module.scss';
 
 export interface NodeTalkProps {
   /** Optional className for NodeTalk, pass in a sass module class to override component default */

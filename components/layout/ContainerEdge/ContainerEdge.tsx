@@ -15,5 +15,5 @@ export interface ContainerEdgeProps {
 
 export const ContainerEdge = ({ className, children }: ContainerEdgeProps) => {
   const rootClassName = cn(styles.root, className);
-  return <div className={rootClassName}>{children}</div>;
+  return <section className={rootClassName}>{children}</section>;
 };
