@@ -548,6 +548,38 @@ export const ParagraphAnchorFragment = /*#__PURE__*/ `
   title
 }
     `;
+export const NodePeopleCardFragment = /*#__PURE__*/ `
+    fragment NodePeopleCardFragment on NodePeople {
+  __typename
+  id
+  path
+  title
+  description {
+    processed
+  }
+  position
+  teaser {
+    ...ParagraphTeaserFragment
+  }
+}
+    `;
+export const ParagraphPeopleGridFragment = /*#__PURE__*/ `
+    fragment ParagraphPeopleGridFragment on ParagraphPeopleGrid {
+  __typename
+  id
+  peopleView {
+    __typename
+    ... on PeopleResult {
+      id
+      results {
+        ... on NodePeople {
+          ...NodePeopleCardFragment
+        }
+      }
+    }
+  }
+}
+    `;
 export const ParagraphsFragment = /*#__PURE__*/ `
     fragment ParagraphsFragment on ParagraphInterface {
   ... on ParagraphButton {
@@ -612,6 +644,9 @@ export const ParagraphsFragment = /*#__PURE__*/ `
   }
   ... on ParagraphAnchor {
     ...ParagraphAnchorFragment
+  }
+  ... on ParagraphPeopleGrid {
+    ...ParagraphPeopleGridFragment
   }
 }
     `;
@@ -754,6 +789,17 @@ export const NodePageCardFragment = /*#__PURE__*/ `
   path
   teaser {
     ...ParagraphTeaserFragment
+  }
+}
+    `;
+export const NodePeopleFragment = /*#__PURE__*/ `
+    fragment NodePeopleFragment on NodePeople {
+  __typename
+  id
+  path
+  title
+  description {
+    processed
   }
 }
     `;
@@ -993,6 +1039,9 @@ export const GetNodeByPathQueryDocument = /*#__PURE__*/ `
         ... on NodeDeveloperTools {
           ...NodeDeveloperToolsFragment
         }
+        ... on NodePeople {
+          ...NodePeopleFragment
+        }
       }
     }
   }
@@ -1035,6 +1084,8 @@ ${ParagraphPriceFragment}
 ${ParagraphPriceOptionFragment}
 ${ParagraphDividerFragment}
 ${ParagraphAnchorFragment}
+${ParagraphPeopleGridFragment}
+${NodePeopleCardFragment}
 ${MetaTagFragment}
 ${NodePageFragment}
 ${ParagraphHeroHeaderFragment}
@@ -1044,7 +1095,8 @@ ${NodeTalkFragment}
 ${ParagraphTalkHeaderFragment}
 ${ParagraphMediaHeaderFragment}
 ${MediaRemoteVideoFragment}
-${NodeDeveloperToolsFragment}`;
+${NodeDeveloperToolsFragment}
+${NodePeopleFragment}`;
 export const useGetNodeByPathQuery = <
   TData = OperationTypes.GetNodeByPathQuery,
   TError = unknown
@@ -1091,6 +1143,9 @@ export const GetNodesPathsQueryDocument = /*#__PURE__*/ `
         path
       }
       ... on NodeDeveloperTools {
+        path
+      }
+      ... on NodePeople {
         path
       }
     }

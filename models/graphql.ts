@@ -581,6 +581,7 @@ export type NodeFoundationPageSectionsUnion =
   | ParagraphImageGallery
   | ParagraphLargeCalloutText
   | ParagraphNewsListings
+  | ParagraphPeopleGrid
   | ParagraphPriceList
   | ParagraphSpacer
   | ParagraphText
@@ -673,6 +674,38 @@ export type NodePathsResult = View & {
   results: Array<NodeUnion>;
   view: Scalars['String'];
 };
+
+/** Entity type node. */
+export type NodePeople = MetaTagInterface &
+  NodeInterface & {
+    __typename?: 'NodePeople';
+    /** The time that the node was last edited. */
+    changed: DateTime;
+    /** The time that the node was created. */
+    created: DateTime;
+    /** Description */
+    description?: Maybe<Text>;
+    /** The Universally Unique IDentifier (UUID). */
+    id: Scalars['ID'];
+    /** Language */
+    langcode: Language;
+    /** The computed meta tags for the entity. */
+    metatag: Array<MetaTagUnion>;
+    /** URL alias */
+    path: Scalars['String'];
+    /** Position */
+    position: Scalars['String'];
+    /** Promoted to front page */
+    promote: Scalars['Boolean'];
+    /** Published */
+    status: Scalars['Boolean'];
+    /** Sticky at top of lists */
+    sticky: Scalars['Boolean'];
+    /** Preview image pulled in when post displayed in listings */
+    teaser: ParagraphTeaser;
+    /** Title */
+    title: Scalars['String'];
+  };
 
 /** Entity type node. */
 export type NodeSpeaker = MetaTagInterface &
@@ -775,6 +808,7 @@ export type NodeUnion =
   | NodeDeveloperTools
   | NodeFoundationPage
   | NodePage
+  | NodePeople
   | NodeSpeaker
   | NodeTalk;
 
@@ -1053,6 +1087,32 @@ export type ParagraphNewsListingsNewsLatestViewArgs = {
 
 /** Entity type paragraph. */
 export type ParagraphNewsListingsNewsViewArgs = {
+  filter?: InputMaybe<Array<InputMaybe<KeyValueInput>>>;
+  offset?: InputMaybe<Scalars['Int']>;
+  page?: InputMaybe<Scalars['Int']>;
+  sortDir?: InputMaybe<SortDirection>;
+  sortKey?: InputMaybe<Scalars['String']>;
+};
+
+/** Entity type paragraph. */
+export type ParagraphPeopleGrid = ParagraphInterface & {
+  __typename?: 'ParagraphPeopleGrid';
+  /** The time that the Paragraph was created. */
+  created: DateTime;
+  /** The Universally Unique IDentifier (UUID). */
+  id: Scalars['ID'];
+  /** The paragraphs entity language code. */
+  langcode: Language;
+  /**
+   * This is a viewfield query proxy. Page size and contextual filters are applied
+   * within the CMS. See the actual view base query for more documentation on
+   * filters and options available. People View
+   */
+  peopleView: ViewResultUnion;
+};
+
+/** Entity type paragraph. */
+export type ParagraphPeopleGridPeopleViewArgs = {
   filter?: InputMaybe<Array<InputMaybe<KeyValueInput>>>;
   offset?: InputMaybe<Scalars['Int']>;
   page?: InputMaybe<Scalars['Int']>;
@@ -1348,6 +1408,7 @@ export type ParagraphUnion =
   | ParagraphLargeCalloutText
   | ParagraphMediaHeader
   | ParagraphNewsListings
+  | ParagraphPeopleGrid
   | ParagraphPrice
   | ParagraphPriceList
   | ParagraphPriceOption
@@ -1377,6 +1438,19 @@ export type ParagraphVideo = ParagraphInterface & {
   singleImage: MediaImage;
   /** Video */
   video: MediaVideo;
+};
+
+/** Result for view people display graphql_1. */
+export type PeopleResult = View & {
+  __typename?: 'PeopleResult';
+  description?: Maybe<Scalars['String']>;
+  display: Scalars['String'];
+  id: Scalars['ID'];
+  label?: Maybe<Scalars['String']>;
+  langcode?: Maybe<Scalars['String']>;
+  pageInfo: ViewPageInfo;
+  results: Array<NodeUnion>;
+  view: Scalars['String'];
 };
 
 /**
@@ -1491,6 +1565,7 @@ export type RouteEntityUnion =
   | NodeDeveloperTools
   | NodeFoundationPage
   | NodePage
+  | NodePeople
   | NodeSpeaker
   | NodeTalk;
 
@@ -1717,6 +1792,7 @@ export type ViewResultUnion =
   | NewsLatestResult
   | NewsResult
   | NodePathsResult
+  | PeopleResult
   | SpeakersResult
   | TalksAllResult
   | TalksByDateResult

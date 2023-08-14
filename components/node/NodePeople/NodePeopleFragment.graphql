@@ -1,0 +1,23 @@
+fragment NodePeopleFragment on NodePeople {
+  __typename
+  id
+  path
+  title
+  description {
+    processed
+  }
+}
+
+fragment NodePeopleCardFragment on NodePeople {
+  __typename
+  id
+  path
+  title
+  description {
+    processed
+  }
+  position
+  teaser {
+    ...ParagraphTeaserFragment
+  }
+}

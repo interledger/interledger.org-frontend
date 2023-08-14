@@ -19,6 +19,9 @@ query GetNodesPathsQuery {
       ... on NodeDeveloperTools {
         path
       }
+      ... on NodePeople {
+        path
+      }
     }
   }
 }

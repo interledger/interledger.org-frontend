@@ -62,4 +62,7 @@ fragment ParagraphsFragment on ParagraphInterface {
   ... on ParagraphAnchor {
     ...ParagraphAnchorFragment
   }
+  ... on ParagraphPeopleGrid {
+    ...ParagraphPeopleGridFragment
+  }
 }
