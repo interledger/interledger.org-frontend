@@ -8,6 +8,7 @@ import { useState } from 'react';
 import { InferType } from 'yup';
 import { Button } from '@components/ui/Button/Button';
 import { FormInput } from '@components/ui/FormInput/FormInput';
+import { FormSelect } from '@components/ui/FormSelect/FormSelect';
 
 export interface ParagraphContactFormProps {
   /** Optional className for ParagraphContactForm, pass in a sass module class to override component default */
@@ -70,14 +71,16 @@ export const ParagraphContactForm = ({
           </FormInput>
           <FormInput>
             <label htmlFor="subject">Topic</label>
-            <select id="subject" {...register('subject')}>
-              <option value="">Select topic</option>
-              {topics.map((t) => (
-                <option value={t.name} key={t.id}>
-                  {t.name}
-                </option>
-              ))}
-            </select>
+            <FormSelect>
+              <select id="subject" {...register('subject')}>
+                <option value="">Select topic</option>
+                {topics.map((t) => (
+                  <option value={t.name} key={t.id}>
+                    {t.name}
+                  </option>
+                ))}
+              </select>
+            </FormSelect>
           </FormInput>
           <FormInput>
             <label htmlFor="message">Message</label>

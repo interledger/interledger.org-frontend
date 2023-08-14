@@ -5,17 +5,23 @@
 @use '@styles/base/helpers' as *;
 
 .root {
-  label {
-    font-size: rem(30px);
-    display: block;
-    margin-bottom: rem(10px);
+  position: relative;
+
+  &::before {
+    position: absolute;
+    top: 50%;
+    right: rem(15px);
+    content: var(--select-arrow);
+    width: rem(23px);
+    margin-top: -#{rem(6px)};
+    pointer-events: none;
   }
 
-  input,
-  textarea {
+  select {
     font-size: rem(30px);
     padding: rem(10px) rem(15px);
     border: rem(2px) solid var(--color-primary);
     width: 100%;
+    appearance: none;
   }
 }
