@@ -29,7 +29,7 @@ export const ParagraphContactForm = ({
   const [status, setStatus] = useState<'error' | 'success'>();
   const rootClassName = cn(styles.root, className);
 
-  const { register, handleSubmit, formState, reset } = useForm({
+  const { register, handleSubmit, formState, reset, getValues } = useForm({
     resolver: yupResolver(ParagraphContactFormSchema),
   });
 
@@ -72,8 +72,14 @@ export const ParagraphContactForm = ({
           <FormInput>
             <label htmlFor="subject">Topic</label>
             <FormSelect>
-              <select id="subject" {...register('subject')}>
-                <option value="">Select topic</option>
+              <select
+                id="subject"
+                {...register('subject')}
+                defaultValue={paragraph.contactTopic?.name}
+              >
+                <option value={''} disabled={getValues('subject') != undefined}>
+                  Select topic
+                </option>
                 {topics.map((t) => (
                   <option value={t.name} key={t.id}>
                     {t.name}
