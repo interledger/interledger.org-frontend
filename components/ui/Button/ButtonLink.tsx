@@ -2,6 +2,7 @@ import cn from 'classnames';
 import Link, { LinkProps } from 'next/link';
 
 import styles from './Button.module.scss';
+import { Arrow } from '@components/icon/Arrow/Arrow';
 
 export interface ButtonLinkProps extends LinkProps {
   /** Optional className for Button, pass in a sass module class to override component default */
@@ -14,7 +15,7 @@ export const ButtonLink = ({
   children,
   ...rest
 }: ButtonLinkProps) => {
-  const rootClassName = cn(styles.root, className);
+  const rootClassName = cn(styles.button, className);
   const externalLink = !rest.href.toString().startsWith('/');
   return (
     <Link
@@ -23,7 +24,8 @@ export const ButtonLink = ({
       rel={externalLink ? 'noreferrer' : undefined}
       {...rest}
     >
-      {children}
+      <span className={styles.titleMarkup}>{children}</span>
+      <Arrow />
     </Link>
   );
 };

@@ -123,9 +123,9 @@ export const VideoPlayer = ({
         )}
       </>
       {overlay ? <div className={styles.overlay}></div> : null}
-      <Button className={styles.play} onClick={() => setPlay((play) => !play)}>
+      <button className={styles.play} onClick={() => setPlay((play) => !play)}>
         {play ? <Pause /> : <Play />}
-      </Button>
+      </button>
     </div>
   );
 };

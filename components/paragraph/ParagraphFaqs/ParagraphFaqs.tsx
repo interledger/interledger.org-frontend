@@ -29,13 +29,14 @@ export const Faq = ({
 
   return (
     <div className={styles.faq}>
-      <div
+      <button
+        id={`faq${faq.id}`}
         className={styles.question}
         onClick={() => setSelected(selected ? '' : faq.id)}
+        aria-expanded={selected}
+        aria-controls={`answer${faq.id}`}
       >
-        <Text className={styles.questionTitle} variant="h2" as="h4" noMargin>
-          {faq.question}
-        </Text>
+        <span className={styles.questionTitle}>{faq.question}</span>
         <div className={styles.questionIcon}>
           <m.svg
             xmlns="http://www.w3.org/2000/svg"
@@ -52,9 +53,12 @@ export const Faq = ({
             />
           </m.svg>
         </div>
-      </div>
+      </button>
       <m.div
+        id={`answer${faq.id}`}
         className={styles.answer}
+        role="region"
+        aria-labelledby={`faq${faq.id}`}
         animate={{
           height: selected ? 'auto' : 0,
         }}

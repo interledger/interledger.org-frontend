@@ -1,0 +1,21 @@
+@use '@styles/base/mq-settings';
+@use '~sass-mq/mq' as *;
+@use '~sass-rem' as *;
+@use '@styles/base/variables' as *;
+@use '@styles/base/helpers' as *;
+
+.root {
+  label {
+    font-size: rem(30px);
+    display: block;
+    margin-bottom: rem(10px);
+  }
+
+  input,
+  textarea {
+    font-size: rem(30px);
+    padding: rem(10px) rem(15px);
+    border: rem(2px) solid var(--color-primary);
+    width: 100%;
+  }
+}

@@ -3,6 +3,7 @@ import { NodeArticle } from '@components/node/NodeArticle/NodeArticle';
 import { NodeDeveloperTools } from '@components/node/NodeDeveloperTools/NodeDeveloperTools';
 import { NodeFoundationPage } from '@components/node/NodeFoundationPage/NodeFoundationPage';
 import { NodePage } from '@components/node/NodePage/NodePage';
+import { NodePeople } from '@components/node/NodePeople/NodePeople';
 import { NodeSpeaker } from '@components/node/NodeSpeaker/NodeSpeaker';
 import { NodeTalk } from '@components/node/NodeTalk/NodeTalk';
 import { MetaTag } from '@components/util/MetaTag/MetaTag';
@@ -14,6 +15,7 @@ import {
   NodeDeveloperToolsFragment,
   NodeFoundationPageFragment,
   NodePageFragment,
+  NodePeopleFragment,
   NodeSpeakerFragment,
   NodeTalkFragment,
 } from '@models/operations';
@@ -30,7 +32,8 @@ type NodeFragmentUnion =
   | NodeSpeakerFragment
   | NodeTalkFragment
   | NodeFoundationPageFragment
-  | NodeDeveloperToolsFragment;
+  | NodeDeveloperToolsFragment
+  | NodePeopleFragment;
 
 interface NodeSelectorProps {
   node: NodeFragmentUnion;
@@ -59,6 +62,10 @@ const NodeSelector = ({ node }: NodeSelectorProps) => {
 
   if (node.__typename === 'NodeDeveloperTools') {
     return <NodeDeveloperTools node={node} />;
+  }
+
+  if (node.__typename === 'NodePeople') {
+    return <NodePeople node={node} />;
   }
 
   return null;

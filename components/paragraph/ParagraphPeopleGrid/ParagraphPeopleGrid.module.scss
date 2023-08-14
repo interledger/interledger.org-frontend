@@ -5,4 +5,6 @@
 @use '@styles/base/helpers' as *;
 
 .root {
+  --grid-vertical-spacing: #{rem(38px)};
+  --grid-horizontal-spacing: #{rem(48px)};
 }
