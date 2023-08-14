@@ -65,4 +65,7 @@ fragment ParagraphsFragment on ParagraphInterface {
   ... on ParagraphPeopleGrid {
     ...ParagraphPeopleGridFragment
   }
+  ... on ParagraphContactForm {
+    ...ParagraphContactFormFragment
+  }
 }

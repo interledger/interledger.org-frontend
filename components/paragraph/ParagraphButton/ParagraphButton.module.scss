@@ -5,45 +5,4 @@
 @use '@styles/base/helpers' as *;
 
 .root {
-  a {
-    text-decoration: none;
-    color: var(--color-primary);
-    text-transform: capitalize;
-    font-size: rem(24px);
-    font-size: clamp(
-      #{rem(24px)},
-      1.2991071428571428rem + 0.8241758241758242vw,
-      #{rem(30px)}
-    );
-    display: flex;
-    align-items: center;
-
-    &:hover {
-      svg {
-        transform: translateX(rem(-10px));
-      }
-    }
-
-    svg {
-      position: relative;
-      transition: 0.4s ease transform;
-      width: rem(48px);
-      width: clamp(
-        #{rem(30px)},
-        1.2723214285714284rem + 2.4725274725274726vw,
-        #{rem(48px)}
-      );
-    }
-  }
-
-  .titleMarkup {
-    span {
-      font-weight: 700;
-      margin-right: rem(20px);
-
-      @include mq($from: tablet) {
-        margin-right: rem(35px);
-      }
-    }
-  }
 }

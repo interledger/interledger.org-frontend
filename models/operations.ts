@@ -596,6 +596,32 @@ export type NodeFoundationPageFragment = {
         };
       }
     | {
+        __typename: 'ParagraphContactForm';
+        id: string;
+        contactTopicsView:
+          | {
+              __typename: 'ContactTopicsResult';
+              results: Array<{
+                __typename?: 'TermContactTopics';
+                id: string;
+                name: string;
+              }>;
+            }
+          | { __typename: 'NewsLatestResult' }
+          | { __typename: 'NewsResult' }
+          | { __typename: 'NodePathsResult' }
+          | { __typename: 'PeopleResult' }
+          | { __typename: 'SpeakersResult' }
+          | { __typename: 'TalksAllResult' }
+          | { __typename: 'TalksByDateResult' }
+          | { __typename: 'TalksResult' };
+        contactTopic?: {
+          __typename?: 'TermContactTopics';
+          name: string;
+          id: string;
+        } | null;
+      }
+    | {
         __typename: 'ParagraphContentCarousel';
         id: string;
         carouselItem?: Array<{
@@ -866,6 +892,7 @@ export type NodeFoundationPageFragment = {
         __typename: 'ParagraphNewsListings';
         id: string;
         newsLatestView:
+          | { __typename?: 'ContactTopicsResult' }
           | {
               __typename: 'NewsLatestResult';
               results: Array<
@@ -930,6 +957,7 @@ export type NodeFoundationPageFragment = {
           | { __typename?: 'TalksByDateResult' }
           | { __typename?: 'TalksResult' };
         newsView:
+          | { __typename?: 'ContactTopicsResult' }
           | { __typename?: 'NewsLatestResult' }
           | {
               __typename: 'NewsResult';
@@ -1005,6 +1033,7 @@ export type NodeFoundationPageFragment = {
         __typename: 'ParagraphPeopleGrid';
         id: string;
         peopleView:
+          | { __typename: 'ContactTopicsResult' }
           | { __typename: 'NewsLatestResult' }
           | { __typename: 'NewsResult' }
           | { __typename: 'NodePathsResult' }
@@ -1595,6 +1624,7 @@ export type NodePageFragment = {
           id: string;
           date: { __typename?: 'DateTime'; time: any };
           talksView:
+            | { __typename: 'ContactTopicsResult' }
             | { __typename: 'NewsLatestResult' }
             | { __typename: 'NewsResult' }
             | { __typename: 'NodePathsResult' }
@@ -1671,6 +1701,7 @@ export type NodePageFragment = {
         __typename: 'ParagraphSpeakersGrid';
         id: string;
         speakersView?:
+          | { __typename: 'ContactTopicsResult' }
           | { __typename: 'NewsLatestResult' }
           | { __typename: 'NewsResult' }
           | { __typename: 'NodePathsResult' }
@@ -1738,6 +1769,7 @@ export type NodePageFragment = {
         __typename: 'ParagraphTalksGrid';
         id: string;
         talksView:
+          | { __typename: 'ContactTopicsResult' }
           | { __typename: 'NewsLatestResult' }
           | { __typename: 'NewsResult' }
           | { __typename: 'NodePathsResult' }
@@ -2218,6 +2250,7 @@ export type NodeSpeakerFragment = {
     };
   };
   talks:
+    | { __typename: 'ContactTopicsResult' }
     | { __typename: 'NewsLatestResult' }
     | { __typename: 'NewsResult' }
     | { __typename: 'NodePathsResult' }
@@ -2539,6 +2572,33 @@ export type ParagraphButtonFragment = {
   link: { __typename?: 'Link'; url?: string | null; title?: string | null };
 };
 
+export type ParagraphContactFormFragment = {
+  __typename: 'ParagraphContactForm';
+  id: string;
+  contactTopicsView:
+    | {
+        __typename: 'ContactTopicsResult';
+        results: Array<{
+          __typename?: 'TermContactTopics';
+          id: string;
+          name: string;
+        }>;
+      }
+    | { __typename: 'NewsLatestResult' }
+    | { __typename: 'NewsResult' }
+    | { __typename: 'NodePathsResult' }
+    | { __typename: 'PeopleResult' }
+    | { __typename: 'SpeakersResult' }
+    | { __typename: 'TalksAllResult' }
+    | { __typename: 'TalksByDateResult' }
+    | { __typename: 'TalksResult' };
+  contactTopic?: {
+    __typename?: 'TermContactTopics';
+    name: string;
+    id: string;
+  } | null;
+};
+
 type ContentCarouselItemFragment_ParagraphAnchor_ = {
   __typename?: 'ParagraphAnchor';
 };
@@ -2549,6 +2609,10 @@ type ContentCarouselItemFragment_ParagraphButton_ = {
 
 type ContentCarouselItemFragment_ParagraphCarouselItem_ = {
   __typename?: 'ParagraphCarouselItem';
+};
+
+type ContentCarouselItemFragment_ParagraphContactForm_ = {
+  __typename?: 'ParagraphContactForm';
 };
 
 type ContentCarouselItemFragment_ParagraphContentCarousel_ = {
@@ -2842,6 +2906,7 @@ export type ContentCarouselItemFragment =
   | ContentCarouselItemFragment_ParagraphAnchor_
   | ContentCarouselItemFragment_ParagraphButton_
   | ContentCarouselItemFragment_ParagraphCarouselItem_
+  | ContentCarouselItemFragment_ParagraphContactForm_
   | ContentCarouselItemFragment_ParagraphContentCarousel_
   | ContentCarouselItemFragment_ParagraphContentTitle_
   | ContentCarouselItemFragment_ParagraphDivider_
@@ -3294,6 +3359,7 @@ export type ParagraphNewsListingsFragment = {
   __typename: 'ParagraphNewsListings';
   id: string;
   newsLatestView:
+    | { __typename?: 'ContactTopicsResult' }
     | {
         __typename: 'NewsLatestResult';
         results: Array<
@@ -3355,6 +3421,7 @@ export type ParagraphNewsListingsFragment = {
     | { __typename?: 'TalksByDateResult' }
     | { __typename?: 'TalksResult' };
   newsView:
+    | { __typename?: 'ContactTopicsResult' }
     | { __typename?: 'NewsLatestResult' }
     | {
         __typename: 'NewsResult';
@@ -3435,6 +3502,7 @@ export type GetParagraphNewsListing = {
     __typename: 'ParagraphNewsListings';
     id: string;
     newsLatestView:
+      | { __typename?: 'ContactTopicsResult' }
       | {
           __typename: 'NewsLatestResult';
           results: Array<
@@ -3499,6 +3567,7 @@ export type GetParagraphNewsListing = {
       | { __typename?: 'TalksByDateResult' }
       | { __typename?: 'TalksResult' };
     newsView:
+      | { __typename?: 'ContactTopicsResult' }
       | { __typename?: 'NewsLatestResult' }
       | {
           __typename: 'NewsResult';
@@ -3576,6 +3645,7 @@ export type ParagraphPeopleGridFragment = {
   __typename: 'ParagraphPeopleGrid';
   id: string;
   peopleView:
+    | { __typename: 'ContactTopicsResult' }
     | { __typename: 'NewsLatestResult' }
     | { __typename: 'NewsResult' }
     | { __typename: 'NodePathsResult' }
@@ -3712,6 +3782,7 @@ export type ParagraphScheduleFragment = {
     id: string;
     date: { __typename?: 'DateTime'; time: any };
     talksView:
+      | { __typename: 'ContactTopicsResult' }
       | { __typename: 'NewsLatestResult' }
       | { __typename: 'NewsResult' }
       | { __typename: 'NodePathsResult' }
@@ -3784,6 +3855,7 @@ export type ParagraphScheduleDayFragment = {
   id: string;
   date: { __typename?: 'DateTime'; time: any };
   talksView:
+    | { __typename: 'ContactTopicsResult' }
     | { __typename: 'NewsLatestResult' }
     | { __typename: 'NewsResult' }
     | { __typename: 'NodePathsResult' }
@@ -3861,6 +3933,7 @@ export type ParagraphSpeakersGridFragment = {
   __typename: 'ParagraphSpeakersGrid';
   id: string;
   speakersView?:
+    | { __typename: 'ContactTopicsResult' }
     | { __typename: 'NewsLatestResult' }
     | { __typename: 'NewsResult' }
     | { __typename: 'NodePathsResult' }
@@ -4006,6 +4079,7 @@ export type ParagraphTalksGridFragment = {
   __typename: 'ParagraphTalksGrid';
   id: string;
   talksView:
+    | { __typename: 'ContactTopicsResult' }
     | { __typename: 'NewsLatestResult' }
     | { __typename: 'NewsResult' }
     | { __typename: 'NodePathsResult' }
@@ -4126,6 +4200,10 @@ type TwoColumnContentFragment_ParagraphButton_ = {
 
 type TwoColumnContentFragment_ParagraphCarouselItem_ = {
   __typename?: 'ParagraphCarouselItem';
+};
+
+type TwoColumnContentFragment_ParagraphContactForm_ = {
+  __typename?: 'ParagraphContactForm';
 };
 
 type TwoColumnContentFragment_ParagraphContentCarousel_ = {
@@ -4311,6 +4389,7 @@ export type TwoColumnContentFragment =
   | TwoColumnContentFragment_ParagraphAnchor_
   | TwoColumnContentFragment_ParagraphButton_
   | TwoColumnContentFragment_ParagraphCarouselItem_
+  | TwoColumnContentFragment_ParagraphContactForm_
   | TwoColumnContentFragment_ParagraphContentCarousel_
   | TwoColumnContentFragment_ParagraphContentTitle_
   | TwoColumnContentFragment_ParagraphDivider_
@@ -4590,6 +4669,33 @@ type ParagraphsFragment_ParagraphButton_ = {
 
 type ParagraphsFragment_ParagraphCarouselItem_ = {
   __typename?: 'ParagraphCarouselItem';
+};
+
+type ParagraphsFragment_ParagraphContactForm_ = {
+  __typename: 'ParagraphContactForm';
+  id: string;
+  contactTopicsView:
+    | {
+        __typename: 'ContactTopicsResult';
+        results: Array<{
+          __typename?: 'TermContactTopics';
+          id: string;
+          name: string;
+        }>;
+      }
+    | { __typename: 'NewsLatestResult' }
+    | { __typename: 'NewsResult' }
+    | { __typename: 'NodePathsResult' }
+    | { __typename: 'PeopleResult' }
+    | { __typename: 'SpeakersResult' }
+    | { __typename: 'TalksAllResult' }
+    | { __typename: 'TalksByDateResult' }
+    | { __typename: 'TalksResult' };
+  contactTopic?: {
+    __typename?: 'TermContactTopics';
+    name: string;
+    id: string;
+  } | null;
 };
 
 type ParagraphsFragment_ParagraphContentCarousel_ = {
@@ -4966,6 +5072,7 @@ type ParagraphsFragment_ParagraphNewsListings_ = {
   __typename: 'ParagraphNewsListings';
   id: string;
   newsLatestView:
+    | { __typename?: 'ContactTopicsResult' }
     | {
         __typename: 'NewsLatestResult';
         results: Array<
@@ -5027,6 +5134,7 @@ type ParagraphsFragment_ParagraphNewsListings_ = {
     | { __typename?: 'TalksByDateResult' }
     | { __typename?: 'TalksResult' };
   newsView:
+    | { __typename?: 'ContactTopicsResult' }
     | { __typename?: 'NewsLatestResult' }
     | {
         __typename: 'NewsResult';
@@ -5100,6 +5208,7 @@ type ParagraphsFragment_ParagraphPeopleGrid_ = {
   __typename: 'ParagraphPeopleGrid';
   id: string;
   peopleView:
+    | { __typename: 'ContactTopicsResult' }
     | { __typename: 'NewsLatestResult' }
     | { __typename: 'NewsResult' }
     | { __typename: 'NodePathsResult' }
@@ -5218,6 +5327,7 @@ type ParagraphsFragment_ParagraphSchedule_ = {
     id: string;
     date: { __typename?: 'DateTime'; time: any };
     talksView:
+      | { __typename: 'ContactTopicsResult' }
       | { __typename: 'NewsLatestResult' }
       | { __typename: 'NewsResult' }
       | { __typename: 'NodePathsResult' }
@@ -5308,6 +5418,7 @@ type ParagraphsFragment_ParagraphSpeakersGrid_ = {
   __typename: 'ParagraphSpeakersGrid';
   id: string;
   speakersView?:
+    | { __typename: 'ContactTopicsResult' }
     | { __typename: 'NewsLatestResult' }
     | { __typename: 'NewsResult' }
     | { __typename: 'NodePathsResult' }
@@ -5380,6 +5491,7 @@ type ParagraphsFragment_ParagraphTalksGrid_ = {
   __typename: 'ParagraphTalksGrid';
   id: string;
   talksView:
+    | { __typename: 'ContactTopicsResult' }
     | { __typename: 'NewsLatestResult' }
     | { __typename: 'NewsResult' }
     | { __typename: 'NodePathsResult' }
@@ -5651,6 +5763,7 @@ export type ParagraphsFragment =
   | ParagraphsFragment_ParagraphAnchor_
   | ParagraphsFragment_ParagraphButton_
   | ParagraphsFragment_ParagraphCarouselItem_
+  | ParagraphsFragment_ParagraphContactForm_
   | ParagraphsFragment_ParagraphContentCarousel_
   | ParagraphsFragment_ParagraphContentTitle_
   | ParagraphsFragment_ParagraphDivider_
@@ -6208,6 +6321,32 @@ export type GetNodeByPathQuery = {
                     };
                   }
                 | {
+                    __typename: 'ParagraphContactForm';
+                    id: string;
+                    contactTopicsView:
+                      | {
+                          __typename: 'ContactTopicsResult';
+                          results: Array<{
+                            __typename?: 'TermContactTopics';
+                            id: string;
+                            name: string;
+                          }>;
+                        }
+                      | { __typename: 'NewsLatestResult' }
+                      | { __typename: 'NewsResult' }
+                      | { __typename: 'NodePathsResult' }
+                      | { __typename: 'PeopleResult' }
+                      | { __typename: 'SpeakersResult' }
+                      | { __typename: 'TalksAllResult' }
+                      | { __typename: 'TalksByDateResult' }
+                      | { __typename: 'TalksResult' };
+                    contactTopic?: {
+                      __typename?: 'TermContactTopics';
+                      name: string;
+                      id: string;
+                    } | null;
+                  }
+                | {
                     __typename: 'ParagraphContentCarousel';
                     id: string;
                     carouselItem?: Array<{
@@ -6502,6 +6641,7 @@ export type GetNodeByPathQuery = {
                     __typename: 'ParagraphNewsListings';
                     id: string;
                     newsLatestView:
+                      | { __typename?: 'ContactTopicsResult' }
                       | {
                           __typename: 'NewsLatestResult';
                           results: Array<
@@ -6566,6 +6706,7 @@ export type GetNodeByPathQuery = {
                       | { __typename?: 'TalksByDateResult' }
                       | { __typename?: 'TalksResult' };
                     newsView:
+                      | { __typename?: 'ContactTopicsResult' }
                       | { __typename?: 'NewsLatestResult' }
                       | {
                           __typename: 'NewsResult';
@@ -6641,6 +6782,7 @@ export type GetNodeByPathQuery = {
                     __typename: 'ParagraphPeopleGrid';
                     id: string;
                     peopleView:
+                      | { __typename: 'ContactTopicsResult' }
                       | { __typename: 'NewsLatestResult' }
                       | { __typename: 'NewsResult' }
                       | { __typename: 'NodePathsResult' }
@@ -7207,6 +7349,7 @@ export type GetNodeByPathQuery = {
                       id: string;
                       date: { __typename?: 'DateTime'; time: any };
                       talksView:
+                        | { __typename: 'ContactTopicsResult' }
                         | { __typename: 'NewsLatestResult' }
                         | { __typename: 'NewsResult' }
                         | { __typename: 'NodePathsResult' }
@@ -7286,6 +7429,7 @@ export type GetNodeByPathQuery = {
                     __typename: 'ParagraphSpeakersGrid';
                     id: string;
                     speakersView?:
+                      | { __typename: 'ContactTopicsResult' }
                       | { __typename: 'NewsLatestResult' }
                       | { __typename: 'NewsResult' }
                       | { __typename: 'NodePathsResult' }
@@ -7353,6 +7497,7 @@ export type GetNodeByPathQuery = {
                     __typename: 'ParagraphTalksGrid';
                     id: string;
                     talksView:
+                      | { __typename: 'ContactTopicsResult' }
                       | { __typename: 'NewsLatestResult' }
                       | { __typename: 'NewsResult' }
                       | { __typename: 'NodePathsResult' }
@@ -7770,6 +7915,7 @@ export type GetNodeByPathQuery = {
                 };
               };
               talks:
+                | { __typename: 'ContactTopicsResult' }
                 | { __typename: 'NewsLatestResult' }
                 | { __typename: 'NewsResult' }
                 | { __typename: 'NodePathsResult' }

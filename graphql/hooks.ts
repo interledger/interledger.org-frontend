@@ -580,6 +580,27 @@ export const ParagraphPeopleGridFragment = /*#__PURE__*/ `
   }
 }
     `;
+export const ParagraphContactFormFragment = /*#__PURE__*/ `
+    fragment ParagraphContactFormFragment on ParagraphContactForm {
+  __typename
+  id
+  contactTopicsView {
+    __typename
+    ... on ContactTopicsResult {
+      results {
+        ... on TermContactTopics {
+          id
+          name
+        }
+      }
+    }
+  }
+  contactTopic {
+    name
+    id
+  }
+}
+    `;
 export const ParagraphsFragment = /*#__PURE__*/ `
     fragment ParagraphsFragment on ParagraphInterface {
   ... on ParagraphButton {
@@ -647,6 +668,9 @@ export const ParagraphsFragment = /*#__PURE__*/ `
   }
   ... on ParagraphPeopleGrid {
     ...ParagraphPeopleGridFragment
+  }
+  ... on ParagraphContactForm {
+    ...ParagraphContactFormFragment
   }
 }
     `;
@@ -1086,6 +1110,7 @@ ${ParagraphDividerFragment}
 ${ParagraphAnchorFragment}
 ${ParagraphPeopleGridFragment}
 ${NodePeopleCardFragment}
+${ParagraphContactFormFragment}
 ${MetaTagFragment}
 ${NodePageFragment}
 ${ParagraphHeroHeaderFragment}

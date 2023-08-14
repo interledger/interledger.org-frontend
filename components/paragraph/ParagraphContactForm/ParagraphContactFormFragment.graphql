@@ -1,0 +1,19 @@
+fragment ParagraphContactFormFragment on ParagraphContactForm {
+  __typename
+  id
+  contactTopicsView {
+    __typename
+    ... on ContactTopicsResult {
+      results {
+        ... on TermContactTopics {
+          id
+          name
+        }
+      }
+    }
+  }
+  contactTopic {
+    name
+    id
+  }
+}

@@ -27,9 +27,11 @@ export const ParagraphButton = ({
     const titleSplit = title.split(' ');
     const titlePop = titleSplit.pop();
     const titleMinusLastWord = titleSplit.join(' ');
-    const wrapTitlePop = `<span>${titlePop}</span>`
-
-    titleMarkup = `${titleMinusLastWord} ${wrapTitlePop}`
+    titleMarkup = (
+      <>
+        {titleMinusLastWord} <span>{titlePop}</span>
+      </>
+    );
   }
 
   return (
@@ -38,17 +40,9 @@ export const ParagraphButton = ({
       initial={{ y: 100 }}
       whileInView={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      viewport={{ once: true, margin: "0px", amount: "all" }}
+      viewport={{ once: true, margin: '0px', amount: 'all' }}
     >
-      <ButtonLink href={paragraph.link.url}>
-        {titleMarkup && (
-          <span
-            className={styles.titleMarkup}
-            dangerouslySetInnerHTML={{ __html: titleMarkup }}
-          />
-        )}
-        <Arrow />
-      </ButtonLink>
+      <ButtonLink href={paragraph.link.url}>{titleMarkup}</ButtonLink>
     </m.section>
   );
 };
