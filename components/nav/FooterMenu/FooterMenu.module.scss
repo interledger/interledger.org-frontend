@@ -1,6 +1,6 @@
 @use '@styles/base/mq-settings';
 @use '~sass-mq/mq' as *;
-@use '~sass-rem' as *;
+@use '~sass-rem' as to;
 @use '@styles/base/variables' as *;
 @use '@styles/base/helpers' as *;
 
@@ -13,7 +13,7 @@
     li {
       margin: 0;
       padding: 0;
-      font-size: rem(18px);
+      font-size: to.rem(18px);
 
       &:first-child {
         margin-left: 0;

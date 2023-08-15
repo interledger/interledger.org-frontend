@@ -1,6 +1,6 @@
 @use '@styles/base/mq-settings';
 @use '~sass-mq/mq' as *;
-@use '~sass-rem' as *;
+@use '~sass-rem' as to;
 @use '@styles/base/variables' as *;
 @use '@styles/base/helpers' as *;
 
@@ -61,18 +61,18 @@
 
 .headerContent {
   @include mq($from: tablet) {
-    width: calc(50% - #{rem(60px)});
+    width: calc(50% - #{to.rem(60px)});
   }
 }
 
 .date {
-  margin-top: rem(30px);
+  margin-top: to.rem(30px);
 }
 
 .published {
-  padding: rem(20px) 0;
+  padding: to.rem(20px) 0;
   border-top: 1px solid var(--color-primary);
-  font-size: rem(18px);
+  font-size: to.rem(18px);
 
   @include mq($from: tablet) {
     border-bottom: 1px solid var(--color-primary);

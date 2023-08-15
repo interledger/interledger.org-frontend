@@ -1,6 +1,6 @@
 @use '@styles/base/mq-settings';
 @use '~sass-mq/mq' as *;
-@use '~sass-rem' as *;
+@use '~sass-rem' as to;
 @use '@styles/base/variables' as *;
 @use '@styles/base/helpers' as *;
 
@@ -8,19 +8,19 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  grid-column-gap: rem(20px);
-  grid-row-gap: rem(100px);
+  grid-column-gap: to.rem(20px);
+  grid-row-gap: to.rem(100px);
 
   @include mq($from: tablet) {
-    grid-column-gap: rem(30px);
-    grid-row-gap: rem(30px);
-    gap: rem(30px);
+    grid-column-gap: to.rem(30px);
+    grid-row-gap: to.rem(30px);
+    gap: to.rem(30px);
   }
 }
 
 .speakerContainer {
-  max-width: rem(525px);
-  max-width: calc(50% - rem(20px));
+  max-width: to.rem(525px);
+  max-width: calc(50% - to.rem(20px));
 
   @include mq($until: tablet) {
     .speaker {
@@ -29,19 +29,19 @@
   }
 
   h2 {
-    margin: rem(10px) 0 rem(7px);
-    font-size: rem(20px);
-    line-height: rem(26px);
+    margin: to.rem(10px) 0 to.rem(7px);
+    font-size: to.rem(20px);
+    line-height: to.rem(26px);
 
     @include mq($from: tablet) {
-      margin: rem(20px) 0 rem(10px);
-      font-size: rem(24px);
-      line-height: rem(30px);
+      margin: to.rem(20px) 0 to.rem(10px);
+      font-size: to.rem(24px);
+      line-height: to.rem(30px);
     }
   }
 
   p {
-    font-size: rem(18px);
+    font-size: to.rem(18px);
     margin: 0;
   }
 
@@ -55,29 +55,29 @@
       position: relative;
 
       .speaker {
-        max-width: rem(303px);
-        top: rem(130px);
+        max-width: to.rem(303px);
+        top: to.rem(130px);
         position: relative;
       }
     }
 
     &:nth-child(4n + 2) {
-      padding-right: rem(30px);
+      padding-right: to.rem(30px);
 
       .speaker {
-        max-width: rem(575px);
+        max-width: to.rem(575px);
       }
     }
 
     &:nth-child(4n + 3) {
       display: flex;
       justify-content: flex-end;
-      padding-right: rem(20px);
+      padding-right: to.rem(20px);
       width: 100%;
 
       .speaker {
-        max-width: rem(414px);
-        padding-top: rem(250px);
+        max-width: to.rem(414px);
+        padding-top: to.rem(250px);
         align-self: center;
       }
     }
@@ -88,8 +88,8 @@
       width: 100%;
 
       .speaker {
-        max-width: rem(303px);
-        padding-top: rem(100px);
+        max-width: to.rem(303px);
+        padding-top: to.rem(100px);
         width: 100%;
       }
     }

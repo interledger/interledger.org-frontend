@@ -1,6 +1,6 @@
 @use '@styles/base/mq-settings';
 @use '~sass-mq/mq' as *;
-@use '~sass-rem' as *;
+@use '~sass-rem' as to;
 @use '@styles/base/variables' as *;
 @use '@styles/base/helpers' as *;
 
@@ -48,48 +48,48 @@
     font-weight: 400;
   }
   h2 {
-    font-size: rem(24px);
-    margin-bottom: rem(15px);
+    font-size: to.rem(24px);
+    margin-bottom: to.rem(15px);
 
     @include mq($from: tablet) {
-      font-size: rem(30px);
+      font-size: to.rem(30px);
     }
   }
   h3 {
-    font-size: rem(18px);
+    font-size: to.rem(18px);
 
     @include mq($from: tablet) {
-      font-size: rem(24px);
+      font-size: to.rem(24px);
     }
   }
 }
 
 .talkTime {
   align-self: flex-end;
-  margin-top: rem(15px);
-  padding-top: rem(15px);
-  font-size: rem(18px);
+  margin-top: to.rem(15px);
+  padding-top: to.rem(15px);
+  font-size: to.rem(18px);
   font-weight: 700;
-  border-top: rem(1px) solid var(--color-primary);
+  border-top: to.rem(1px) solid var(--color-primary);
 }
 
 .dayButton {
   display: block;
-  font-size: rem(22px);
+  font-size: to.rem(22px);
   color: var(--color-primary);
   background-color: transparent;
   border: 0;
   padding: 0;
   cursor: pointer;
   &:not(:last-child) {
-    margin-right: rem(35px);
+    margin-right: to.rem(35px);
   }
 
   @include mq($from: tablet) {
-    font-size: rem(30px);
+    font-size: to.rem(30px);
 
     &:not(:last-child) {
-      margin-bottom: rem(50px);
+      margin-bottom: to.rem(50px);
     }
   }
 }

@@ -1,4 +1,4 @@
-@use '~sass-rem' as *;
+@use '~sass-rem' as to;
 @use 'sass:math';
 
 $max-vw: var(--page-width);
@@ -6,7 +6,7 @@ $max-vw: var(--page-width);
 @mixin fluidType(
   $min-value,
   $max-value,
-  $min-vw: rem(320px),
+  $min-vw: to.rem(320px),
   $max-vw: $max-vw,
   $content: null
 ) {
