@@ -601,6 +601,12 @@ export const ParagraphContactFormFragment = /*#__PURE__*/ `
   }
 }
     `;
+export const ParagraphContentColumnCardsFragment = /*#__PURE__*/ `
+    fragment ParagraphContentColumnCardsFragment on ParagraphContentColumnCards {
+  __typename
+  id
+}
+    `;
 export const ParagraphsFragment = /*#__PURE__*/ `
     fragment ParagraphsFragment on ParagraphInterface {
   ... on ParagraphButton {
@@ -671,6 +677,9 @@ export const ParagraphsFragment = /*#__PURE__*/ `
   }
   ... on ParagraphContactForm {
     ...ParagraphContactFormFragment
+  }
+  ... on ParagraphContentColumnCards {
+    ...ParagraphContentColumnCardsFragment
   }
 }
     `;
@@ -1111,6 +1120,7 @@ ${ParagraphAnchorFragment}
 ${ParagraphPeopleGridFragment}
 ${NodePeopleCardFragment}
 ${ParagraphContactFormFragment}
+${ParagraphContentColumnCardsFragment}
 ${MetaTagFragment}
 ${NodePageFragment}
 ${ParagraphHeroHeaderFragment}

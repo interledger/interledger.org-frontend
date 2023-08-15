@@ -791,7 +791,7 @@ export type NodeFoundationPageFragment = {
           > | null;
         }> | null;
       }
-    | { __typename?: 'ParagraphContentColumnCards' }
+    | { __typename: 'ParagraphContentColumnCards'; id: string }
     | { __typename: 'ParagraphContentTitle'; id: string; title: string }
     | {
         __typename: 'ParagraphFaqs';
@@ -3121,6 +3121,11 @@ export type ParagraphContentCarouselFragment = {
   }> | null;
 };
 
+export type ParagraphContentColumnCardsFragment = {
+  __typename: 'ParagraphContentColumnCards';
+  id: string;
+};
+
 export type ParagraphContentTitleFragment = {
   __typename: 'ParagraphContentTitle';
   id: string;
@@ -4895,7 +4900,8 @@ type ParagraphsFragment_ParagraphContentCarousel_ = {
 };
 
 type ParagraphsFragment_ParagraphContentColumnCards_ = {
-  __typename?: 'ParagraphContentColumnCards';
+  __typename: 'ParagraphContentColumnCards';
+  id: string;
 };
 
 type ParagraphsFragment_ParagraphContentTitle_ = {
@@ -6567,7 +6573,7 @@ export type GetNodeByPathQuery = {
                       > | null;
                     }> | null;
                   }
-                | { __typename?: 'ParagraphContentColumnCards' }
+                | { __typename: 'ParagraphContentColumnCards'; id: string }
                 | {
                     __typename: 'ParagraphContentTitle';
                     id: string;

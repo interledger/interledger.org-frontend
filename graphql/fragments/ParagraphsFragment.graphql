@@ -68,4 +68,7 @@ fragment ParagraphsFragment on ParagraphInterface {
   ... on ParagraphContactForm {
     ...ParagraphContactFormFragment
   }
+  ... on ParagraphContentColumnCards {
+    ...ParagraphContentColumnCardsFragment
+  }
 }
