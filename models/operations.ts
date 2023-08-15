@@ -791,6 +791,7 @@ export type NodeFoundationPageFragment = {
           > | null;
         }> | null;
       }
+    | { __typename?: 'ParagraphContentColumnCards' }
     | { __typename: 'ParagraphContentTitle'; id: string; title: string }
     | {
         __typename: 'ParagraphFaqs';
@@ -2611,12 +2612,20 @@ type ContentCarouselItemFragment_ParagraphCarouselItem_ = {
   __typename?: 'ParagraphCarouselItem';
 };
 
+type ContentCarouselItemFragment_ParagraphColumnCard_ = {
+  __typename?: 'ParagraphColumnCard';
+};
+
 type ContentCarouselItemFragment_ParagraphContactForm_ = {
   __typename?: 'ParagraphContactForm';
 };
 
 type ContentCarouselItemFragment_ParagraphContentCarousel_ = {
   __typename?: 'ParagraphContentCarousel';
+};
+
+type ContentCarouselItemFragment_ParagraphContentColumnCards_ = {
+  __typename?: 'ParagraphContentColumnCards';
 };
 
 type ContentCarouselItemFragment_ParagraphContentTitle_ = {
@@ -2906,8 +2915,10 @@ export type ContentCarouselItemFragment =
   | ContentCarouselItemFragment_ParagraphAnchor_
   | ContentCarouselItemFragment_ParagraphButton_
   | ContentCarouselItemFragment_ParagraphCarouselItem_
+  | ContentCarouselItemFragment_ParagraphColumnCard_
   | ContentCarouselItemFragment_ParagraphContactForm_
   | ContentCarouselItemFragment_ParagraphContentCarousel_
+  | ContentCarouselItemFragment_ParagraphContentColumnCards_
   | ContentCarouselItemFragment_ParagraphContentTitle_
   | ContentCarouselItemFragment_ParagraphDivider_
   | ContentCarouselItemFragment_ParagraphFaq_
@@ -4202,12 +4213,20 @@ type TwoColumnContentFragment_ParagraphCarouselItem_ = {
   __typename?: 'ParagraphCarouselItem';
 };
 
+type TwoColumnContentFragment_ParagraphColumnCard_ = {
+  __typename?: 'ParagraphColumnCard';
+};
+
 type TwoColumnContentFragment_ParagraphContactForm_ = {
   __typename?: 'ParagraphContactForm';
 };
 
 type TwoColumnContentFragment_ParagraphContentCarousel_ = {
   __typename?: 'ParagraphContentCarousel';
+};
+
+type TwoColumnContentFragment_ParagraphContentColumnCards_ = {
+  __typename?: 'ParagraphContentColumnCards';
 };
 
 type TwoColumnContentFragment_ParagraphContentTitle_ = {
@@ -4389,8 +4408,10 @@ export type TwoColumnContentFragment =
   | TwoColumnContentFragment_ParagraphAnchor_
   | TwoColumnContentFragment_ParagraphButton_
   | TwoColumnContentFragment_ParagraphCarouselItem_
+  | TwoColumnContentFragment_ParagraphColumnCard_
   | TwoColumnContentFragment_ParagraphContactForm_
   | TwoColumnContentFragment_ParagraphContentCarousel_
+  | TwoColumnContentFragment_ParagraphContentColumnCards_
   | TwoColumnContentFragment_ParagraphContentTitle_
   | TwoColumnContentFragment_ParagraphDivider_
   | TwoColumnContentFragment_ParagraphFaq_
@@ -4671,6 +4692,10 @@ type ParagraphsFragment_ParagraphCarouselItem_ = {
   __typename?: 'ParagraphCarouselItem';
 };
 
+type ParagraphsFragment_ParagraphColumnCard_ = {
+  __typename?: 'ParagraphColumnCard';
+};
+
 type ParagraphsFragment_ParagraphContactForm_ = {
   __typename: 'ParagraphContactForm';
   id: string;
@@ -4867,6 +4892,10 @@ type ParagraphsFragment_ParagraphContentCarousel_ = {
         }
     > | null;
   }> | null;
+};
+
+type ParagraphsFragment_ParagraphContentColumnCards_ = {
+  __typename?: 'ParagraphContentColumnCards';
 };
 
 type ParagraphsFragment_ParagraphContentTitle_ = {
@@ -5763,8 +5792,10 @@ export type ParagraphsFragment =
   | ParagraphsFragment_ParagraphAnchor_
   | ParagraphsFragment_ParagraphButton_
   | ParagraphsFragment_ParagraphCarouselItem_
+  | ParagraphsFragment_ParagraphColumnCard_
   | ParagraphsFragment_ParagraphContactForm_
   | ParagraphsFragment_ParagraphContentCarousel_
+  | ParagraphsFragment_ParagraphContentColumnCards_
   | ParagraphsFragment_ParagraphContentTitle_
   | ParagraphsFragment_ParagraphDivider_
   | ParagraphsFragment_ParagraphFaq_
@@ -6536,6 +6567,7 @@ export type GetNodeByPathQuery = {
                       > | null;
                     }> | null;
                   }
+                | { __typename?: 'ParagraphContentColumnCards' }
                 | {
                     __typename: 'ParagraphContentTitle';
                     id: string;

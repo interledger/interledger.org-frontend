@@ -587,6 +587,7 @@ export type NodeFoundationPageSectionsUnion =
   | ParagraphButton
   | ParagraphContactForm
   | ParagraphContentCarousel
+  | ParagraphContentColumnCards
   | ParagraphContentTitle
   | ParagraphFaqs
   | ParagraphHighlightedList
@@ -866,6 +867,26 @@ export type ParagraphCarouselItem = ParagraphInterface & {
 };
 
 /** Entity type paragraph. */
+export type ParagraphColumnCard = ParagraphInterface & {
+  __typename?: 'ParagraphColumnCard';
+  /** The time that the Paragraph was created. */
+  created: DateTime;
+  /** The Universally Unique IDentifier (UUID). */
+  id: Scalars['ID'];
+  /** The paragraphs entity language code. */
+  langcode: Language;
+  /** Link */
+  link: Link;
+  /** Image */
+  singleImage: ParagraphColumnCardSingleImageUnion;
+  /** Text */
+  text: Text;
+};
+
+/** Image */
+export type ParagraphColumnCardSingleImageUnion = MediaImage | MediaVectorImage;
+
+/** Entity type paragraph. */
 export type ParagraphContactForm = ParagraphInterface & {
   __typename?: 'ParagraphContactForm';
   /** Contact Topic */
@@ -902,6 +923,21 @@ export type ParagraphContentCarousel = ParagraphInterface & {
   created: DateTime;
   /** The Universally Unique IDentifier (UUID). */
   id: Scalars['ID'];
+  /** The paragraphs entity language code. */
+  langcode: Language;
+};
+
+/** Entity type paragraph. */
+export type ParagraphContentColumnCards = ParagraphInterface & {
+  __typename?: 'ParagraphContentColumnCards';
+  /** Content */
+  content?: Maybe<Array<ParagraphColumnCard>>;
+  /** The time that the Paragraph was created. */
+  created: DateTime;
+  /** The Universally Unique IDentifier (UUID). */
+  id: Scalars['ID'];
+  /** Image Style */
+  imageStyle: Scalars['String'];
   /** The paragraphs entity language code. */
   langcode: Language;
 };
@@ -1435,8 +1471,10 @@ export type ParagraphUnion =
   | ParagraphAnchor
   | ParagraphButton
   | ParagraphCarouselItem
+  | ParagraphColumnCard
   | ParagraphContactForm
   | ParagraphContentCarousel
+  | ParagraphContentColumnCards
   | ParagraphContentTitle
   | ParagraphDivider
   | ParagraphFaq
