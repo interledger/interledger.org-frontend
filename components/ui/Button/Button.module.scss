@@ -1,6 +1,6 @@
 @use '@styles/base/mq-settings';
 @use '~sass-mq/mq' as *;
-@use '~sass-rem' as *;
+@use '~sass-rem' as to;
 @use '@styles/base/variables' as *;
 @use '@styles/base/helpers' as *;
 
@@ -12,4 +12,34 @@
   text-decoration: none;
   appearance: none;
   cursor: pointer;
+  color: var(--color-primary);
+  text-transform: capitalize;
+  font-size: rem(24px);
+  font-size: fluid(24px, 30px);
+  background-color: transparent;
+
+  &:hover {
+    svg {
+      transform: translateX(rem(-10px));
+    }
+  }
+
+  svg {
+    position: relative;
+    transition: 0.4s ease transform;
+    width: rem(48px);
+    width: fluid(30px, 48px);
+  }
+}
+
+.titleMarkup {
+  margin-right: rem(20px);
+
+  @include mq($from: tablet) {
+    margin-right: rem(35px);
+  }
+
+  span {
+    font-weight: 700;
+  }
 }

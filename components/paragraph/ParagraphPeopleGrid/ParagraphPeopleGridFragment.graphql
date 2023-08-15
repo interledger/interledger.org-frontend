@@ -1,0 +1,15 @@
+fragment ParagraphPeopleGridFragment on ParagraphPeopleGrid {
+  __typename
+  id
+  peopleView {
+    __typename
+    ... on PeopleResult {
+      id
+      results {
+        ... on NodePeople {
+          ...NodePeopleCardFragment
+        }
+      }
+    }
+  }
+}

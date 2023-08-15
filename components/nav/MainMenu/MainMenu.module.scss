@@ -1,6 +1,6 @@
 @use '@styles/base/mq-settings';
 @use '~sass-mq/mq' as *;
-@use '~sass-rem' as *;
+@use '~sass-rem' as to;
 @use '@styles/base/variables' as *;
 @use '@styles/base/helpers' as *;
 
@@ -22,15 +22,15 @@
     }
 
     li {
-      margin: 0 0 rem(30px);
-      font-size: rem(50px);
+      margin: 0 0 to.rem(30px);
+      font-size: to.rem(50px);
       font-weight: 700;
       line-height: 1;
       padding: 0;
 
       @include mq($from: tablet) {
-        margin: 0 rem(10px);
-        font-size: rem(16px);
+        margin: 0 to.rem(10px);
+        font-size: to.rem(16px);
         font-weight: 400;
       }
 

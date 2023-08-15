@@ -1,24 +1,16 @@
 @use '@styles/base/mq-settings';
 @use '~sass-mq/mq' as *;
-@use '~sass-rem' as *;
+@use '~sass-rem' as to;
 @use '@styles/base/variables' as *;
 @use '@styles/base/helpers' as *;
 
 .root {
   h2 {
-    font-size: rem(52px);
-    font-size: clamp(
-      #{rem(52px)},
-      0.9732142857142856rem + 9.340659340659341vw,
-      #{rem(120px)}
-    );
+    font-size: to.rem(52px);
+    font-size: fluid(52px, 120px);
 
-    margin-bottom: rem(23px);
-    margin-bottom: clamp(
-      #{rem(23px)},
-      0.5334821428571429rem + 3.708791208791209vw,
-      #{rem(50px)}
-    );
+    margin-bottom: to.rem(23px);
+    margin-bottom: fluid(23px, 50px);
     line-height: 1;
     color: var(--color-primary);
 

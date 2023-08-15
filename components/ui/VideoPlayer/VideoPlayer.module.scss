@@ -1,6 +1,6 @@
 @use '@styles/base/mq-settings';
 @use '~sass-mq/mq' as *;
-@use '~sass-rem' as *;
+@use '~sass-rem' as to;
 @use '@styles/base/variables' as *;
 @use '@styles/base/helpers' as *;
 
@@ -36,10 +36,11 @@
   align-self: center;
   justify-self: center;
   position: absolute;
-  bottom: rem(40px);
-  right: rem(40px);
+  bottom: to.rem(40px);
+  right: to.rem(40px);
   background-color: transparent;
-  padding: rem(10px);
+  padding: to.rem(10px);
+  border: 0;
 
   svg {
     max-width: 25px;

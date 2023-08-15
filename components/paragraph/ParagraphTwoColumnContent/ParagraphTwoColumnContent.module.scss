@@ -1,14 +1,14 @@
 @use '@styles/base/mq-settings';
 @use '~sass-mq/mq' as *;
-@use '~sass-rem' as *;
+@use '~sass-rem' as to;
 @use '@styles/base/variables' as *;
 @use '@styles/base/helpers' as *;
 
 .root {
   display: flex;
   flex-direction: column;
-  grid-column-gap: rem(40px);
-  gap: rem(40px);
+  grid-column-gap: to.rem(40px);
+  gap: to.rem(40px);
 
   @include mq($from: tablet) {
     flex-direction: row;
@@ -18,7 +18,7 @@
     width: calc(100%);
 
     @include mq($from: tablet) {
-      width: calc(50% - rem(15px));
+      width: calc(50% - to.rem(15px));
     }
   }
 

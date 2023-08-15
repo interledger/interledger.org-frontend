@@ -1,10 +1,12 @@
 @use '@styles/base/mq-settings';
 @use '~sass-mq/mq' as *;
-@use '~sass-rem' as *;
+@use '~sass-rem' as to;
 @use '@styles/base/variables' as *;
 @use '@styles/base/helpers' as *;
 
 .root {
+  --select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 25.828 14.046'%3E%3Cpath fill='none' stroke='%23620ab1' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m1.414 1.414 11.5 11.631 11.5-11.631' /%3E%3C/svg%3E");
+
   min-height: 100%;
   display: grid;
   grid-template-rows: auto 1fr auto;
@@ -20,6 +22,7 @@
 }
 
 .dark {
+  --select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 25.828 14.046'%3E%3Cpath fill='none' stroke='%2301ffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m1.414 1.414 11.5 11.631 11.5-11.631' /%3E%3C/svg%3E");
   --color-primary: var(--color-secondary);
   --color-swiper-pagination: var(--color-white);
   --color-link: var(--color-secondary);
