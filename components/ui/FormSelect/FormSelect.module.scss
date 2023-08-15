@@ -1,6 +1,6 @@
 @use '@styles/base/mq-settings';
 @use '~sass-mq/mq' as *;
-@use '~sass-rem' as *;
+@use '~sass-rem' as to;
 @use '@styles/base/variables' as *;
 @use '@styles/base/helpers' as *;
 
@@ -10,17 +10,17 @@
   &::before {
     position: absolute;
     top: 50%;
-    right: rem(15px);
+    right: to.rem(15px);
     content: var(--select-arrow);
-    width: rem(23px);
-    margin-top: -#{rem(6px)};
+    width: to.rem(23px);
+    margin-top: -#{to.rem(6px)};
     pointer-events: none;
   }
 
   select {
-    font-size: rem(30px);
-    padding: rem(10px) rem(15px);
-    border: rem(2px) solid var(--color-primary);
+    font-size: to.rem(30px);
+    padding: to.rem(10px) to.rem(15px);
+    border: to.rem(2px) solid var(--color-primary);
     width: 100%;
     appearance: none;
   }
