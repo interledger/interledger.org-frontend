@@ -791,7 +791,55 @@ export type NodeFoundationPageFragment = {
           > | null;
         }> | null;
       }
-    | { __typename: 'ParagraphContentColumnCards'; id: string }
+    | {
+        __typename: 'ParagraphContentColumnCards';
+        id: string;
+        imageStyle: string;
+        content?: Array<{
+          __typename: 'ParagraphColumnCard';
+          id: string;
+          squareImage:
+            | {
+                __typename: 'MediaImage';
+                id: string;
+                mediaImage: {
+                  __typename?: 'Image';
+                  alt?: string | null;
+                  responsive?: {
+                    __typename: 'ResponsiveImageStyleDerivative';
+                    height?: number | null;
+                    path?: string | null;
+                    srcSetPath?: string | null;
+                    width?: number | null;
+                  } | null;
+                };
+              }
+            | { __typename?: 'MediaVectorImage' };
+          landscapeImage:
+            | {
+                __typename: 'MediaImage';
+                id: string;
+                mediaImage: {
+                  __typename?: 'Image';
+                  alt?: string | null;
+                  responsive?: {
+                    __typename: 'ResponsiveImageStyleDerivative';
+                    height?: number | null;
+                    path?: string | null;
+                    srcSetPath?: string | null;
+                    width?: number | null;
+                  } | null;
+                };
+              }
+            | { __typename?: 'MediaVectorImage' };
+          text: { __typename?: 'Text'; processed?: any | null };
+          link: {
+            __typename?: 'Link';
+            title?: string | null;
+            url?: string | null;
+          };
+        }> | null;
+      }
     | { __typename: 'ParagraphContentTitle'; id: string; title: string }
     | {
         __typename: 'ParagraphFaqs';
@@ -3121,9 +3169,91 @@ export type ParagraphContentCarouselFragment = {
   }> | null;
 };
 
+export type ParagraphColumnCardFragment = {
+  __typename: 'ParagraphColumnCard';
+  id: string;
+  squareImage:
+    | {
+        __typename: 'MediaImage';
+        id: string;
+        mediaImage: {
+          __typename?: 'Image';
+          alt?: string | null;
+          responsive?: {
+            __typename: 'ResponsiveImageStyleDerivative';
+            height?: number | null;
+            path?: string | null;
+            srcSetPath?: string | null;
+            width?: number | null;
+          } | null;
+        };
+      }
+    | { __typename?: 'MediaVectorImage' };
+  landscapeImage:
+    | {
+        __typename: 'MediaImage';
+        id: string;
+        mediaImage: {
+          __typename?: 'Image';
+          alt?: string | null;
+          responsive?: {
+            __typename: 'ResponsiveImageStyleDerivative';
+            height?: number | null;
+            path?: string | null;
+            srcSetPath?: string | null;
+            width?: number | null;
+          } | null;
+        };
+      }
+    | { __typename?: 'MediaVectorImage' };
+  text: { __typename?: 'Text'; processed?: any | null };
+  link: { __typename?: 'Link'; title?: string | null; url?: string | null };
+};
+
 export type ParagraphContentColumnCardsFragment = {
   __typename: 'ParagraphContentColumnCards';
   id: string;
+  imageStyle: string;
+  content?: Array<{
+    __typename: 'ParagraphColumnCard';
+    id: string;
+    squareImage:
+      | {
+          __typename: 'MediaImage';
+          id: string;
+          mediaImage: {
+            __typename?: 'Image';
+            alt?: string | null;
+            responsive?: {
+              __typename: 'ResponsiveImageStyleDerivative';
+              height?: number | null;
+              path?: string | null;
+              srcSetPath?: string | null;
+              width?: number | null;
+            } | null;
+          };
+        }
+      | { __typename?: 'MediaVectorImage' };
+    landscapeImage:
+      | {
+          __typename: 'MediaImage';
+          id: string;
+          mediaImage: {
+            __typename?: 'Image';
+            alt?: string | null;
+            responsive?: {
+              __typename: 'ResponsiveImageStyleDerivative';
+              height?: number | null;
+              path?: string | null;
+              srcSetPath?: string | null;
+              width?: number | null;
+            } | null;
+          };
+        }
+      | { __typename?: 'MediaVectorImage' };
+    text: { __typename?: 'Text'; processed?: any | null };
+    link: { __typename?: 'Link'; title?: string | null; url?: string | null };
+  }> | null;
 };
 
 export type ParagraphContentTitleFragment = {
@@ -4902,6 +5032,47 @@ type ParagraphsFragment_ParagraphContentCarousel_ = {
 type ParagraphsFragment_ParagraphContentColumnCards_ = {
   __typename: 'ParagraphContentColumnCards';
   id: string;
+  imageStyle: string;
+  content?: Array<{
+    __typename: 'ParagraphColumnCard';
+    id: string;
+    squareImage:
+      | {
+          __typename: 'MediaImage';
+          id: string;
+          mediaImage: {
+            __typename?: 'Image';
+            alt?: string | null;
+            responsive?: {
+              __typename: 'ResponsiveImageStyleDerivative';
+              height?: number | null;
+              path?: string | null;
+              srcSetPath?: string | null;
+              width?: number | null;
+            } | null;
+          };
+        }
+      | { __typename?: 'MediaVectorImage' };
+    landscapeImage:
+      | {
+          __typename: 'MediaImage';
+          id: string;
+          mediaImage: {
+            __typename?: 'Image';
+            alt?: string | null;
+            responsive?: {
+              __typename: 'ResponsiveImageStyleDerivative';
+              height?: number | null;
+              path?: string | null;
+              srcSetPath?: string | null;
+              width?: number | null;
+            } | null;
+          };
+        }
+      | { __typename?: 'MediaVectorImage' };
+    text: { __typename?: 'Text'; processed?: any | null };
+    link: { __typename?: 'Link'; title?: string | null; url?: string | null };
+  }> | null;
 };
 
 type ParagraphsFragment_ParagraphContentTitle_ = {
@@ -6573,7 +6744,55 @@ export type GetNodeByPathQuery = {
                       > | null;
                     }> | null;
                   }
-                | { __typename: 'ParagraphContentColumnCards'; id: string }
+                | {
+                    __typename: 'ParagraphContentColumnCards';
+                    id: string;
+                    imageStyle: string;
+                    content?: Array<{
+                      __typename: 'ParagraphColumnCard';
+                      id: string;
+                      squareImage:
+                        | {
+                            __typename: 'MediaImage';
+                            id: string;
+                            mediaImage: {
+                              __typename?: 'Image';
+                              alt?: string | null;
+                              responsive?: {
+                                __typename: 'ResponsiveImageStyleDerivative';
+                                height?: number | null;
+                                path?: string | null;
+                                srcSetPath?: string | null;
+                                width?: number | null;
+                              } | null;
+                            };
+                          }
+                        | { __typename?: 'MediaVectorImage' };
+                      landscapeImage:
+                        | {
+                            __typename: 'MediaImage';
+                            id: string;
+                            mediaImage: {
+                              __typename?: 'Image';
+                              alt?: string | null;
+                              responsive?: {
+                                __typename: 'ResponsiveImageStyleDerivative';
+                                height?: number | null;
+                                path?: string | null;
+                                srcSetPath?: string | null;
+                                width?: number | null;
+                              } | null;
+                            };
+                          }
+                        | { __typename?: 'MediaVectorImage' };
+                      text: { __typename?: 'Text'; processed?: any | null };
+                      link: {
+                        __typename?: 'Link';
+                        title?: string | null;
+                        url?: string | null;
+                      };
+                    }> | null;
+                  }
                 | {
                     __typename: 'ParagraphContentTitle';
                     id: string;
