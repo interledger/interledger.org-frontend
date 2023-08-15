@@ -20,7 +20,7 @@
 
   &:hover {
     svg {
-      transform: translateX(rem(-10px));
+      transform: translateX(to.rem(-10px));
     }
   }
 
