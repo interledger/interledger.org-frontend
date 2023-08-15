@@ -1,10 +1,14 @@
+import 'dotenv/config';
 import type { CodegenConfig } from '@graphql-codegen/cli';
+
+const graphqlUrl =
+  `${process.env.NEXT_PUBLIC_DRUPAL_BASE_URL}/graphql` as string;
 
 const config: CodegenConfig = {
   overwrite: true,
   schema: [
     {
-      'http://admin.interledger.test/graphql': {
+      [graphqlUrl]: {
         loader: './lib/codegen-loader.ts',
       },
     },

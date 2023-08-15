@@ -878,13 +878,10 @@ export type ParagraphColumnCard = ParagraphInterface & {
   /** Link */
   link: Link;
   /** Image */
-  singleImage: ParagraphColumnCardSingleImageUnion;
+  singleImage: MediaImage;
   /** Text */
   text: Text;
 };
-
-/** Image */
-export type ParagraphColumnCardSingleImageUnion = MediaImage | MediaVectorImage;
 
 /** Entity type paragraph. */
 export type ParagraphContactForm = ParagraphInterface & {
