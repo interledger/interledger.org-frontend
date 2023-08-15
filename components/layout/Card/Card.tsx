@@ -33,9 +33,10 @@ export interface CardLinkProps {
   /** Optional className for Card, pass in a sass module class to override component default */
   className?: string;
   link: string;
+  title?: string;
 }
 
-export const CardLink = ({ className, link }: CardLinkProps) => {
+export const CardLink = ({ className, title, link }: CardLinkProps) => {
   const rootClassName = cn(styles.link, className);
   return (
     <Link href={link} passHref legacyBehavior>
@@ -44,7 +45,7 @@ export const CardLink = ({ className, link }: CardLinkProps) => {
         target={externalLink(link) ? '_blank' : undefined}
         rel={externalLink(link) ? 'noreferrer' : undefined}
       >
-        <VisuallyHidden>Read more</VisuallyHidden>
+        <VisuallyHidden>{title || 'Read more'}</VisuallyHidden>
       </a>
     </Link>
   );

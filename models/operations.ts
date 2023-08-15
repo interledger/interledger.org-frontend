@@ -798,40 +798,36 @@ export type NodeFoundationPageFragment = {
         content?: Array<{
           __typename: 'ParagraphColumnCard';
           id: string;
-          squareImage:
-            | {
-                __typename: 'MediaImage';
-                id: string;
-                mediaImage: {
-                  __typename?: 'Image';
-                  alt?: string | null;
-                  responsive?: {
-                    __typename: 'ResponsiveImageStyleDerivative';
-                    height?: number | null;
-                    path?: string | null;
-                    srcSetPath?: string | null;
-                    width?: number | null;
-                  } | null;
-                };
-              }
-            | { __typename?: 'MediaVectorImage' };
-          landscapeImage:
-            | {
-                __typename: 'MediaImage';
-                id: string;
-                mediaImage: {
-                  __typename?: 'Image';
-                  alt?: string | null;
-                  responsive?: {
-                    __typename: 'ResponsiveImageStyleDerivative';
-                    height?: number | null;
-                    path?: string | null;
-                    srcSetPath?: string | null;
-                    width?: number | null;
-                  } | null;
-                };
-              }
-            | { __typename?: 'MediaVectorImage' };
+          squareImage: {
+            __typename: 'MediaImage';
+            id: string;
+            mediaImage: {
+              __typename?: 'Image';
+              alt?: string | null;
+              responsive?: {
+                __typename: 'ResponsiveImageStyleDerivative';
+                height?: number | null;
+                path?: string | null;
+                srcSetPath?: string | null;
+                width?: number | null;
+              } | null;
+            };
+          };
+          landscapeImage: {
+            __typename: 'MediaImage';
+            id: string;
+            mediaImage: {
+              __typename?: 'Image';
+              alt?: string | null;
+              responsive?: {
+                __typename: 'ResponsiveImageStyleDerivative';
+                height?: number | null;
+                path?: string | null;
+                srcSetPath?: string | null;
+                width?: number | null;
+              } | null;
+            };
+          };
           text: { __typename?: 'Text'; processed?: any | null };
           link: {
             __typename?: 'Link';
@@ -3172,40 +3168,36 @@ export type ParagraphContentCarouselFragment = {
 export type ParagraphColumnCardFragment = {
   __typename: 'ParagraphColumnCard';
   id: string;
-  squareImage:
-    | {
-        __typename: 'MediaImage';
-        id: string;
-        mediaImage: {
-          __typename?: 'Image';
-          alt?: string | null;
-          responsive?: {
-            __typename: 'ResponsiveImageStyleDerivative';
-            height?: number | null;
-            path?: string | null;
-            srcSetPath?: string | null;
-            width?: number | null;
-          } | null;
-        };
-      }
-    | { __typename?: 'MediaVectorImage' };
-  landscapeImage:
-    | {
-        __typename: 'MediaImage';
-        id: string;
-        mediaImage: {
-          __typename?: 'Image';
-          alt?: string | null;
-          responsive?: {
-            __typename: 'ResponsiveImageStyleDerivative';
-            height?: number | null;
-            path?: string | null;
-            srcSetPath?: string | null;
-            width?: number | null;
-          } | null;
-        };
-      }
-    | { __typename?: 'MediaVectorImage' };
+  squareImage: {
+    __typename: 'MediaImage';
+    id: string;
+    mediaImage: {
+      __typename?: 'Image';
+      alt?: string | null;
+      responsive?: {
+        __typename: 'ResponsiveImageStyleDerivative';
+        height?: number | null;
+        path?: string | null;
+        srcSetPath?: string | null;
+        width?: number | null;
+      } | null;
+    };
+  };
+  landscapeImage: {
+    __typename: 'MediaImage';
+    id: string;
+    mediaImage: {
+      __typename?: 'Image';
+      alt?: string | null;
+      responsive?: {
+        __typename: 'ResponsiveImageStyleDerivative';
+        height?: number | null;
+        path?: string | null;
+        srcSetPath?: string | null;
+        width?: number | null;
+      } | null;
+    };
+  };
   text: { __typename?: 'Text'; processed?: any | null };
   link: { __typename?: 'Link'; title?: string | null; url?: string | null };
 };
@@ -3217,40 +3209,36 @@ export type ParagraphContentColumnCardsFragment = {
   content?: Array<{
     __typename: 'ParagraphColumnCard';
     id: string;
-    squareImage:
-      | {
-          __typename: 'MediaImage';
-          id: string;
-          mediaImage: {
-            __typename?: 'Image';
-            alt?: string | null;
-            responsive?: {
-              __typename: 'ResponsiveImageStyleDerivative';
-              height?: number | null;
-              path?: string | null;
-              srcSetPath?: string | null;
-              width?: number | null;
-            } | null;
-          };
-        }
-      | { __typename?: 'MediaVectorImage' };
-    landscapeImage:
-      | {
-          __typename: 'MediaImage';
-          id: string;
-          mediaImage: {
-            __typename?: 'Image';
-            alt?: string | null;
-            responsive?: {
-              __typename: 'ResponsiveImageStyleDerivative';
-              height?: number | null;
-              path?: string | null;
-              srcSetPath?: string | null;
-              width?: number | null;
-            } | null;
-          };
-        }
-      | { __typename?: 'MediaVectorImage' };
+    squareImage: {
+      __typename: 'MediaImage';
+      id: string;
+      mediaImage: {
+        __typename?: 'Image';
+        alt?: string | null;
+        responsive?: {
+          __typename: 'ResponsiveImageStyleDerivative';
+          height?: number | null;
+          path?: string | null;
+          srcSetPath?: string | null;
+          width?: number | null;
+        } | null;
+      };
+    };
+    landscapeImage: {
+      __typename: 'MediaImage';
+      id: string;
+      mediaImage: {
+        __typename?: 'Image';
+        alt?: string | null;
+        responsive?: {
+          __typename: 'ResponsiveImageStyleDerivative';
+          height?: number | null;
+          path?: string | null;
+          srcSetPath?: string | null;
+          width?: number | null;
+        } | null;
+      };
+    };
     text: { __typename?: 'Text'; processed?: any | null };
     link: { __typename?: 'Link'; title?: string | null; url?: string | null };
   }> | null;
@@ -5036,40 +5024,36 @@ type ParagraphsFragment_ParagraphContentColumnCards_ = {
   content?: Array<{
     __typename: 'ParagraphColumnCard';
     id: string;
-    squareImage:
-      | {
-          __typename: 'MediaImage';
-          id: string;
-          mediaImage: {
-            __typename?: 'Image';
-            alt?: string | null;
-            responsive?: {
-              __typename: 'ResponsiveImageStyleDerivative';
-              height?: number | null;
-              path?: string | null;
-              srcSetPath?: string | null;
-              width?: number | null;
-            } | null;
-          };
-        }
-      | { __typename?: 'MediaVectorImage' };
-    landscapeImage:
-      | {
-          __typename: 'MediaImage';
-          id: string;
-          mediaImage: {
-            __typename?: 'Image';
-            alt?: string | null;
-            responsive?: {
-              __typename: 'ResponsiveImageStyleDerivative';
-              height?: number | null;
-              path?: string | null;
-              srcSetPath?: string | null;
-              width?: number | null;
-            } | null;
-          };
-        }
-      | { __typename?: 'MediaVectorImage' };
+    squareImage: {
+      __typename: 'MediaImage';
+      id: string;
+      mediaImage: {
+        __typename?: 'Image';
+        alt?: string | null;
+        responsive?: {
+          __typename: 'ResponsiveImageStyleDerivative';
+          height?: number | null;
+          path?: string | null;
+          srcSetPath?: string | null;
+          width?: number | null;
+        } | null;
+      };
+    };
+    landscapeImage: {
+      __typename: 'MediaImage';
+      id: string;
+      mediaImage: {
+        __typename?: 'Image';
+        alt?: string | null;
+        responsive?: {
+          __typename: 'ResponsiveImageStyleDerivative';
+          height?: number | null;
+          path?: string | null;
+          srcSetPath?: string | null;
+          width?: number | null;
+        } | null;
+      };
+    };
     text: { __typename?: 'Text'; processed?: any | null };
     link: { __typename?: 'Link'; title?: string | null; url?: string | null };
   }> | null;
@@ -6751,40 +6735,36 @@ export type GetNodeByPathQuery = {
                     content?: Array<{
                       __typename: 'ParagraphColumnCard';
                       id: string;
-                      squareImage:
-                        | {
-                            __typename: 'MediaImage';
-                            id: string;
-                            mediaImage: {
-                              __typename?: 'Image';
-                              alt?: string | null;
-                              responsive?: {
-                                __typename: 'ResponsiveImageStyleDerivative';
-                                height?: number | null;
-                                path?: string | null;
-                                srcSetPath?: string | null;
-                                width?: number | null;
-                              } | null;
-                            };
-                          }
-                        | { __typename?: 'MediaVectorImage' };
-                      landscapeImage:
-                        | {
-                            __typename: 'MediaImage';
-                            id: string;
-                            mediaImage: {
-                              __typename?: 'Image';
-                              alt?: string | null;
-                              responsive?: {
-                                __typename: 'ResponsiveImageStyleDerivative';
-                                height?: number | null;
-                                path?: string | null;
-                                srcSetPath?: string | null;
-                                width?: number | null;
-                              } | null;
-                            };
-                          }
-                        | { __typename?: 'MediaVectorImage' };
+                      squareImage: {
+                        __typename: 'MediaImage';
+                        id: string;
+                        mediaImage: {
+                          __typename?: 'Image';
+                          alt?: string | null;
+                          responsive?: {
+                            __typename: 'ResponsiveImageStyleDerivative';
+                            height?: number | null;
+                            path?: string | null;
+                            srcSetPath?: string | null;
+                            width?: number | null;
+                          } | null;
+                        };
+                      };
+                      landscapeImage: {
+                        __typename: 'MediaImage';
+                        id: string;
+                        mediaImage: {
+                          __typename?: 'Image';
+                          alt?: string | null;
+                          responsive?: {
+                            __typename: 'ResponsiveImageStyleDerivative';
+                            height?: number | null;
+                            path?: string | null;
+                            srcSetPath?: string | null;
+                            width?: number | null;
+                          } | null;
+                        };
+                      };
                       text: { __typename?: 'Text'; processed?: any | null };
                       link: {
                         __typename?: 'Link';
