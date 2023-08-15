@@ -4,7 +4,7 @@ import { externalLink } from '@lib/helpers';
 import { MediaImageFragment } from '@models/operations';
 import cn from 'classnames';
 import Link from 'next/link';
-import { ReactNode } from 'react';
+import { ButtonHTMLAttributes, ReactNode } from 'react';
 import styles from './Card.module.scss';
 
 export interface CardImageProps {
@@ -51,6 +51,22 @@ export const CardLink = ({ className, title, link }: CardLinkProps) => {
   );
 };
 
+export interface CardButtonProps
+  extends ButtonHTMLAttributes<HTMLButtonElement> {
+  /** Optional className for Card, pass in a sass module class to override component default */
+  className?: string;
+  title?: string;
+}
+
+export const CardButton = ({ className, title, ...rest }: CardButtonProps) => {
+  const rootClassName = cn(styles.link, className);
+  return (
+    <button className={rootClassName} {...rest}>
+      <VisuallyHidden>{title || 'Select'}</VisuallyHidden>
+    </button>
+  );
+};
+
 export interface CardProps {
   /** Optional className for Card, pass in a sass module class to override component default */
   className?: string;
@@ -65,3 +81,4 @@ export const Card = ({ className, children }: CardProps) => {
 Card.Image = CardImage;
 Card.Content = CardContent;
 Card.Link = CardLink;
+Card.Button = CardButton;

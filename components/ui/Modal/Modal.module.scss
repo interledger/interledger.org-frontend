@@ -1,0 +1,41 @@
+@use '@styles/base/mq-settings';
+@use '~sass-mq/mq' as *;
+@use '~sass-rem' as to;
+@use '@styles/base/variables' as *;
+@use '@styles/base/helpers' as *;
+
+.root {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba($color: #000000, $alpha: 0.5);
+  padding: var(--page-gutter);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+}
+
+.content {
+  background-color: var(--color-white);
+  padding: var(--page-gutter);
+  position: relative;
+  max-width: var(--page-width);
+  width: 100%;
+}
+
+.closeButton {
+  position: absolute;
+  top: to.rem(10px);
+  right: to.rem(10px);
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+
+  svg {
+    width: to.rem(20px);
+    height: to.rem(20px);
+  }
+}

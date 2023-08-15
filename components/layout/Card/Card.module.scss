@@ -17,6 +17,9 @@
 }
 
 .link {
+  background-color: transparent;
+  border: 0;
+
   &::after {
     position: absolute;
     inset-block: 0;
