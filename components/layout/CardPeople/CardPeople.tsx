@@ -12,6 +12,8 @@ import {
 import { Text } from '@components/ui/Text/Text';
 import { useState } from 'react';
 import { Modal } from '@components/ui/Modal/Modal';
+import { RichText } from '@components/util/RichText/RichText';
+import { MediaImage } from '@components/media/MediaImage/MediaImage';
 
 export interface CardPeopleProps {
   /** Optional className for CardPeople, pass in a sass module class to override component default */
@@ -44,7 +46,18 @@ export const CardPeople = ({ className, people }: CardPeopleProps) => {
         closeAriaLabel={`Close ${people.title}`}
         onClose={() => setShowModal(false)}
       >
-        {people.title}
+        <article className={styles.peopleModal}>
+          <div className={styles.image}>
+            <MediaImage media={people.teaser.squareImage} />
+          </div>
+          <div className={styles.content}>
+            <Text variant="h2" noMargin>
+              {people.title}
+            </Text>
+            <Text variant="body2">{people.position}</Text>
+            <RichText html={people.description?.processed} />
+          </div>
+        </article>
       </Modal>
     </>
   );
