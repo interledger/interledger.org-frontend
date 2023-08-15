@@ -1,6 +1,6 @@
 @use '@styles/base/mq-settings';
 @use '~sass-mq/mq' as *;
-@use '~sass-rem' as *;
+@use '~sass-rem' as to;
 @use '@styles/base/variables' as *;
 @use '@styles/base/helpers' as *;
 
@@ -15,10 +15,10 @@
 
 .headerMedia {
   grid-area: 1 / 1 / 2 / 4;
-  min-height: rem(830px);
+  min-height: to.rem(830px);
 
   @include mq($from: tablet) {
-    min-height: rem(760px);
+    min-height: to.rem(760px);
   }
 }
 
@@ -36,8 +36,8 @@
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
-  grid-row-gap: rem(100px);
-  gap: rem(100px);
+  grid-row-gap: to.rem(100px);
+  gap: to.rem(100px);
 
   @include mq($from: tablet) {
     align-items: flex-end;
@@ -54,12 +54,8 @@
 
   h1 {
     color: var(--color-white);
-    font-size: rem(50px);
-    font-size: clamp(
-      #{rem(50px)},
-      1.450892857142857rem + 6.868131868131869vw,
-      #{rem(100px)}
-    );
+    font-size: to.rem(50px);
+    font-size: fluid(50px, 100px);
     line-height: 1.2;
   }
 }
@@ -68,31 +64,31 @@
   color: var(--color-white);
   display: flex;
   flex-direction: column;
-  grid-row-gap: rem(30px);
-  gap: rem(30px);
+  grid-row-gap: to.rem(30px);
+  gap: to.rem(30px);
 
   @include mq($from: tablet) {
     width: 312 / 1080 * 100%;
-    grid-row-gap: rem(40px);
-    gap: rem(40px);
-    padding-bottom: rem(15px);
+    grid-row-gap: to.rem(40px);
+    gap: to.rem(40px);
+    padding-bottom: to.rem(15px);
   }
 
   .infoTitle {
     color: var(--color-white);
     font-weight: 700;
-    font-size: rem(24px);
-    line-height: rem(26px);
+    font-size: to.rem(24px);
+    line-height: to.rem(26px);
     margin-bottom: 0;
 
     @include mq($from: tablet) {
-      padding-bottom: rem(5px);
+      padding-bottom: to.rem(5px);
     }
   }
 
   .infoText {
-    font-size: rem(30px);
-    line-height: rem(32px);
+    font-size: to.rem(30px);
+    line-height: to.rem(32px);
     margin-bottom: 0;
   }
 }
@@ -100,12 +96,12 @@
 .scrollButton {
   background: none;
   border: 0;
-  padding: rem(15px);
+  padding: to.rem(15px);
   cursor: pointer;
   transition: 0.4s ease transform;
 
   &:hover {
-    transform: translateY(rem(10px));
+    transform: translateY(to.rem(10px));
   }
 }
 
@@ -117,7 +113,7 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    padding-top: rem(70px);
-    top: rem(70px);
+    padding-top: to.rem(70px);
+    top: to.rem(70px);
   }
 }

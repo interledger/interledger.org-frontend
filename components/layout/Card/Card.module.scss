@@ -1,6 +1,6 @@
 @use '@styles/base/mq-settings';
 @use '~sass-mq/mq' as *;
-@use '~sass-rem' as *;
+@use '~sass-rem' as to;
 @use '@styles/base/variables' as *;
 @use '@styles/base/helpers' as *;
 
@@ -9,7 +9,7 @@
 }
 
 .content {
-  padding: rem(20px) 0 0;
+  padding: to.rem(20px) 0 0;
 
   > *:last-child {
     margin-bottom: 0;

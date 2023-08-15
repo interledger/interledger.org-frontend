@@ -4,10 +4,4 @@
 @use '@styles/base/variables' as *;
 @use '@styles/base/helpers' as *;
 
-.root {
-  > div {
-    > section {
-      margin-bottom: var(--component-spacing);
-    }
-  }
-}
+.root {}

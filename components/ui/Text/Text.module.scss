@@ -1,6 +1,6 @@
 @use '@styles/base/mq-settings';
 @use '~sass-mq/mq' as *;
-@use '~sass-rem' as *;
+@use '~sass-rem' as to;
 @use '@styles/base/variables' as *;
 @use '@styles/base/helpers' as *;
 
@@ -10,37 +10,33 @@
 }
 
 .h1 {
-  font-size: rem(32px);
-  font-size: clamp(
-    #{rem(32px)},
-    1.3303571428571428rem + 2.7472527472527477vw,
-    #{rem(52px)}
-  );
+  font-size: to.rem(32px);
+  font-size: fluid(32px, 52px);
   font-weight: 700;
 }
 
 .h2 {
-  font-size: rem(24px);
+  font-size: to.rem(24px);
   font-weight: 700;
 }
 
 .h3 {
-  font-size: rem(18px);
+  font-size: to.rem(18px);
   font-weight: 700;
 }
 
 .h4 {
-  font-size: rem(13px);
+  font-size: to.rem(13px);
   font-weight: 700;
 }
 
 .h5 {
-  font-size: rem(13px);
+  font-size: to.rem(13px);
   font-weight: 700;
 }
 
 .h6 {
-  font-size: rem(13px);
+  font-size: to.rem(13px);
   font-weight: 700;
 }
 
@@ -48,23 +44,19 @@
   font-weight: 400;
   margin-bottom: 1rem;
   line-height: 1.466;
-  font-size: clamp(
-    #{rem(18px)},
-    0.890625rem + 0.9615384615384616vw,
-    #{rem(25px)}
-  );
+  font-size: fluid(18px, 25px);
 }
 
 .body2 {
   font-weight: 400;
-  font-size: rem(18px);
+  font-size: to.rem(18px);
   margin-bottom: 1rem;
   line-height: 1.538;
 }
 
 .quote {
   font-weight: 400;
-  font-size: rem(15px);
+  font-size: to.rem(15px);
   margin-bottom: 1rem;
   line-height: 1.466;
   display: block;

@@ -1,6 +1,6 @@
 @use '@styles/base/mq-settings';
 @use '~sass-mq/mq' as *;
-@use '~sass-rem' as *;
+@use '~sass-rem' as to;
 @use '@styles/base/variables' as *;
 @use '@styles/base/helpers' as *;
 
@@ -11,7 +11,7 @@
 .priceMenu {
   list-style: none;
   padding: 0;
-  margin: 0 0 rem(30px);
+  margin: 0 0 to.rem(30px);
   text-align: center;
   display: flex;
   justify-content: center;
@@ -19,7 +19,7 @@
 
 .priceMenuButton {
   background-color: transparent;
-  font-size: rem(24px);
+  font-size: fluid(18px, 24px);
   font-weight: 700;
   border: 0;
   cursor: pointer;
@@ -31,7 +31,7 @@
 }
 
 .pricesMain {
-  margin-bottom: rem(30px);
+  margin-bottom: to.rem(30px);
   margin-left: auto;
   margin-right: auto;
   width: 100%;
@@ -57,7 +57,7 @@
 }
 
 .price {
-  padding: rem(30px) rem(12px);
+  padding: to.rem(30px) to.rem(12px);
   border: 1px solid var(--color-primary);
   flex: 1;
   background-color: white;
@@ -75,8 +75,8 @@
 
 .priceOptions {
   border-top: 1px solid var(--color-primary);
-  margin-top: rem(30px);
-  padding-top: rem(60px);
+  margin-top: to.rem(30px);
+  padding-top: to.rem(60px);
 
   &.columns {
     columns: 1;
@@ -94,17 +94,17 @@
 .priceOption {
   display: flex;
   align-items: flex-start;
-  font-size: rem(15px);
+  font-size: to.rem(15px);
 
   &:not(:last-of-type) {
-    margin-bottom: rem(30px);
+    margin-bottom: to.rem(30px);
   }
 }
 
 .tick {
-  width: rem(15px);
-  margin-right: rem(19px);
-  margin-top: rem(2px);
+  width: to.rem(15px);
+  margin-right: to.rem(19px);
+  margin-top: to.rem(2px);
 }
 
 .subtitle {

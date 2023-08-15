@@ -1,11 +1,11 @@
 @use '@styles/base/mq-settings';
 @use '~sass-mq/mq' as *;
-@use '~sass-rem' as *;
+@use '~sass-rem' as to;
 @use '@styles/base/variables' as *;
 @use '@styles/base/helpers' as *;
 
 .root {
-  height: rem(1px);
+  height: to.rem(1px);
   background-color: var(--color-primary);
-  margin-bottom: rem(30px);
+  margin-bottom: to.rem(30px);
 }

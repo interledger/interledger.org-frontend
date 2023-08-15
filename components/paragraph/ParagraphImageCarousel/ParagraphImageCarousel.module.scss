@@ -1,6 +1,6 @@
 @use '@styles/base/mq-settings';
 @use '~sass-mq/mq' as *;
-@use '~sass-rem' as *;
+@use '~sass-rem' as to;
 @use '@styles/base/variables' as *;
 @use '@styles/base/helpers' as *;
 
@@ -23,15 +23,15 @@
   }
 
   svg {
-    width: rem(40px);
+    width: to.rem(40px);
     stroke: white;
   }
 }
 
 .prev {
-  left: calc(var(--page-gutter) + #{rem(20px)});
+  left: calc(var(--page-gutter) + #{to.rem(20px)});
 }
 
 .next {
-  right: calc(var(--page-gutter) + #{rem(20px)});
+  right: calc(var(--page-gutter) + #{to.rem(20px)});
 }

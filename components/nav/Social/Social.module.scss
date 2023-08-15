@@ -1,6 +1,6 @@
 @use '@styles/base/mq-settings';
 @use '~sass-mq/mq' as *;
-@use '~sass-rem' as *;
+@use '~sass-rem' as to;
 @use '@styles/base/variables' as *;
 @use '@styles/base/helpers' as *;
 
@@ -14,10 +14,10 @@
 
   li {
     &:not(:last-child) {
-      margin-right: rem(40px);
+      margin-right: to.rem(40px);
     }
     svg {
-      height: rem(34px);
+      height: to.rem(34px);
     }
   }
 }
