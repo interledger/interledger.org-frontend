@@ -601,10 +601,33 @@ export const ParagraphContactFormFragment = /*#__PURE__*/ `
   }
 }
     `;
+export const ParagraphColumnCardFragment = /*#__PURE__*/ `
+    fragment ParagraphColumnCardFragment on ParagraphColumnCard {
+  __typename
+  id
+  squareImage: singleImage {
+    ...MediaImageSquareFragment
+  }
+  landscapeImage: singleImage {
+    ...MediaImageLandscapeFragment
+  }
+  text {
+    processed
+  }
+  link {
+    title
+    url
+  }
+}
+    `;
 export const ParagraphContentColumnCardsFragment = /*#__PURE__*/ `
     fragment ParagraphContentColumnCardsFragment on ParagraphContentColumnCards {
   __typename
   id
+  imageStyle
+  content {
+    ...ParagraphColumnCardFragment
+  }
 }
     `;
 export const ParagraphsFragment = /*#__PURE__*/ `
@@ -1121,6 +1144,7 @@ ${ParagraphPeopleGridFragment}
 ${NodePeopleCardFragment}
 ${ParagraphContactFormFragment}
 ${ParagraphContentColumnCardsFragment}
+${ParagraphColumnCardFragment}
 ${MetaTagFragment}
 ${NodePageFragment}
 ${ParagraphHeroHeaderFragment}
