@@ -1,4 +1,26 @@
+fragment ParagraphColumnCardFragment on ParagraphColumnCard {
+  __typename
+  id
+  squareImage: singleImage {
+    ...MediaImageSquareFragment
+  }
+  landscapeImage: singleImage {
+    ...MediaImageLandscapeFragment
+  }
+  text {
+    processed
+  }
+  link {
+    title
+    url
+  }
+}
+
 fragment ParagraphContentColumnCardsFragment on ParagraphContentColumnCards {
   __typename
   id
+  imageStyle
+  content {
+    ...ParagraphColumnCardFragment
+  }
 }
