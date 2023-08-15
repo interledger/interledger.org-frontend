@@ -1,10 +1,10 @@
 @use '@styles/base/mq-settings';
 @use '~sass-mq/mq' as *;
-@use '~sass-rem' as *;
+@use '~sass-rem' as to;
 @use '@styles/base/variables' as *;
 @use '@styles/base/helpers' as *;
 
 .root {
-  --grid-vertical-spacing: #{rem(38px)};
-  --grid-horizontal-spacing: #{rem(48px)};
+  --grid-vertical-spacing: #{to.rem(38px)};
+  --grid-horizontal-spacing: #{to.rem(48px)};
 }
