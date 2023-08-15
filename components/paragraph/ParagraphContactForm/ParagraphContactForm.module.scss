@@ -1,6 +1,6 @@
 @use '@styles/base/mq-settings';
 @use '~sass-mq/mq' as *;
-@use '~sass-rem' as *;
+@use '~sass-rem' as to;
 @use '@styles/base/variables' as *;
 @use '@styles/base/helpers' as *;
 
@@ -13,7 +13,7 @@
   justify-content: space-between;
 
   > div {
-    margin-bottom: rem(30px);
+    margin-bottom: to.rem(30px);
     width: 100%;
   }
 
