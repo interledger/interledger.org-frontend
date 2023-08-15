@@ -1,21 +1,21 @@
 @use '@styles/base/mq-settings';
 @use '~sass-mq/mq' as *;
-@use '~sass-rem' as *;
+@use '~sass-rem' as to;
 @use '@styles/base/variables' as *;
 @use '@styles/base/helpers' as *;
 
 .root {
-  margin-top: rem(44px);
+  margin-top: to.rem(44px);
   text-align: center;
 }
 
 .bullet {
-  margin: 0 rem(7.5px);
+  margin: 0 to.rem(7.5px);
   display: inline-block;
   appearance: none;
   cursor: pointer;
-  width: rem(15px);
-  height: rem(15px);
+  width: to.rem(15px);
+  height: to.rem(15px);
   border-radius: 50%;
   outline-offset: 4px;
   border: 0;

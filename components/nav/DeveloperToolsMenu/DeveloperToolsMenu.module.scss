@@ -1,6 +1,6 @@
 @use '@styles/base/mq-settings';
 @use '~sass-mq/mq' as *;
-@use '~sass-rem' as *;
+@use '~sass-rem' as to;
 @use '@styles/base/variables' as *;
 @use '@styles/base/helpers' as *;
 
@@ -17,14 +17,14 @@
 
     a,
     span {
-      font-size: rem(30px);
+      font-size: to.rem(30px);
       color: var(--color-primary);
     }
 
     ul {
       a,
       span {
-        font-size: rem(18px);
+        font-size: to.rem(18px);
         color: var(--color-black);
       }
     }

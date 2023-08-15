@@ -1,6 +1,6 @@
 @use '@styles/base/mq-settings';
 @use '~sass-mq/mq' as *;
-@use '~sass-rem' as *;
+@use '~sass-rem' as to;
 @use '@styles/base/variables' as *;
 @use '@styles/base/helpers' as *;
 
@@ -22,11 +22,11 @@
 }
 
 .content {
-  margin-top: rem(20px);
+  margin-top: to.rem(20px);
   width: 100%;
 
   h2 {
-    font-size: rem(30px);
+    font-size: to.rem(30px);
   }
 
   p:last-of-type {
@@ -35,21 +35,21 @@
 
   @include mq($from: tablet) {
     margin-top: 0;
-    margin-left: rem(30px);
-    width: calc(72% - #{rem(30px)});
+    margin-left: to.rem(30px);
+    width: calc(72% - #{to.rem(30px)});
   }
 }
 
 .summary {
-  margin-top: rem(12px);
+  margin-top: to.rem(12px);
   @include mq($from: tablet) {
-    margin-top: rem(15px);
+    margin-top: to.rem(15px);
   }
 }
 
 .link {
-  padding-top: rem(12px);
-  margin-top: rem(12px);
+  padding-top: to.rem(12px);
+  margin-top: to.rem(12px);
   border-top: 1px solid var(--color-primary);
 
   a {
@@ -59,7 +59,7 @@
   }
 
   @include mq($from: tablet) {
-    padding-top: rem(15px);
-    margin-top: rem(15px);
+    padding-top: to.rem(15px);
+    margin-top: to.rem(15px);
   }
 }

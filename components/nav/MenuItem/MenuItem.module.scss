@@ -1,6 +1,6 @@
 @use '@styles/base/mq-settings';
 @use '~sass-mq/mq' as *;
-@use '~sass-rem' as *;
+@use '~sass-rem' as to;
 @use '@styles/base/variables' as *;
 @use '@styles/base/helpers' as *;
 
@@ -20,7 +20,7 @@
 
 .main {
   border-left: 2px solid transparent;
-  padding-left: rem(19px);
+  padding-left: to.rem(19px);
   display: block;
   line-height: 0.75;
 
@@ -38,13 +38,13 @@
 
       &::after {
         content: '';
-        width: rem(6px);
-        height: rem(6px);
+        width: to.rem(6px);
+        height: to.rem(6px);
         border-radius: 50%;
         background-color: var(--color-primary);
         display: block;
         position: absolute;
-        bottom: -#{rem(10px)};
+        bottom: -#{to.rem(10px)};
         left: 50%;
         transform: translateX(-50%);
       }

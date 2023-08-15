@@ -1,15 +1,15 @@
 @use '@styles/base/mq-settings';
 @use '~sass-mq/mq' as *;
-@use '~sass-rem' as *;
+@use '~sass-rem' as to;
 @use '@styles/base/variables' as *;
 @use '@styles/base/helpers' as *;
 
 .root {
   h2 {
-    font-size: rem(52px);
+    font-size: to.rem(52px);
     font-size: fluid(52px, 120px);
 
-    margin-bottom: rem(23px);
+    margin-bottom: to.rem(23px);
     margin-bottom: fluid(23px, 50px);
     line-height: 1;
     color: var(--color-primary);

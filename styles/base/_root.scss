@@ -1,17 +1,17 @@
 @use '~sass-mq/mq' as *;
-@use '~sass-rem' as *;
+@use '~sass-rem' as to;
 @use '@styles/base/helpers' as *;
 
 :root {
-  --page-width: #{rem(1118px)};
-  --page-gutter: #{rem(20px)};
+  --page-width: #{to.rem(1118px)};
+  --page-gutter: #{to.rem(20px)};
   --page-gutter-left: calc(var(--page-gutter) + env(safe-area-inset-left));
   --page-gutter-right: calc(var(--page-gutter) + env(safe-area-inset-right));
   --component-spacing: #{fluid(44px, 100px)};
-  --vertical-spacing: #{rem(30px)};
-  --horizontal-spacing: #{rem(30px)};
-  --grid-vertical-spacing: #{rem(40px)};
-  --grid-horizontal-spacing: #{rem(34px)};
+  --vertical-spacing: #{to.rem(30px)};
+  --horizontal-spacing: #{to.rem(30px)};
+  --grid-vertical-spacing: #{to.rem(40px)};
+  --grid-horizontal-spacing: #{to.rem(34px)};
 
   // Colors
   --color-black: #000;
@@ -26,12 +26,12 @@
   --color-swiper-pagination: var(--color-black);
 
   @include mq($from: tablet) {
-    --page-gutter: #{rem(40px)};
+    --page-gutter: #{to.rem(40px)};
     --page-gutter-left: calc(var(--page-gutter) + env(safe-area-inset-left));
     --page-gutter-right: calc(var(--page-gutter) + env(safe-area-inset-right));
-    --vertical-spacing: #{rem(60px)};
-    --horizontal-spacing: #{rem(60px)};
-    --grid-vertical-spacing: #{rem(50px)};
-    --grid-horizontal-spacing: #{rem(86px)};
+    --vertical-spacing: #{to.rem(60px)};
+    --horizontal-spacing: #{to.rem(60px)};
+    --grid-vertical-spacing: #{to.rem(50px)};
+    --grid-horizontal-spacing: #{to.rem(86px)};
   }
 }
