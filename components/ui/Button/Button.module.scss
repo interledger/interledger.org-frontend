@@ -14,7 +14,7 @@
   cursor: pointer;
   color: var(--color-primary);
   text-transform: capitalize;
-  font-size: rem(24px);
+  font-size: to.rem(24px);
   font-size: fluid(24px, 30px);
   background-color: transparent;
 
@@ -27,16 +27,16 @@
   svg {
     position: relative;
     transition: 0.4s ease transform;
-    width: rem(48px);
+    width: to.rem(48px);
     width: fluid(30px, 48px);
   }
 }
 
 .titleMarkup {
-  margin-right: rem(20px);
+  margin-right: to.rem(20px);
 
   @include mq($from: tablet) {
-    margin-right: rem(35px);
+    margin-right: to.rem(35px);
   }
 
   span {
