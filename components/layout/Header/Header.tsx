@@ -66,7 +66,7 @@ export const Header = ({ className, mainMenu, isSummit }: HeaderProps) => {
           key={menuOpen ? 'open' : 'close'}
           className={styles.menuButton}
           onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Open Menu"
+          aria-label={menuOpen ? 'Close Menu' : 'Open Menu'}
           initial={{ scale: 0 }}
           animate={{ scale: 1.2 }}
         >
