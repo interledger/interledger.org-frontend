@@ -1,12 +1,13 @@
 @use '~sass-mq/mq' as *;
 @use '~sass-rem' as *;
+@use '@styles/base/helpers' as *;
 
 :root {
   --page-width: #{rem(1118px)};
   --page-gutter: #{rem(20px)};
   --page-gutter-left: calc(var(--page-gutter) + env(safe-area-inset-left));
   --page-gutter-right: calc(var(--page-gutter) + env(safe-area-inset-right));
-  --component-spacing: #{rem(44px)};
+  --component-spacing: #{fluid(44px, 100px)};
   --vertical-spacing: #{rem(30px)};
   --horizontal-spacing: #{rem(30px)};
   --grid-vertical-spacing: #{rem(40px)};
@@ -25,7 +26,6 @@
   --color-swiper-pagination: var(--color-black);
 
   @include mq($from: tablet) {
-    --component-spacing: #{rem(100px)};
     --page-gutter: #{rem(40px)};
     --page-gutter-left: calc(var(--page-gutter) + env(safe-area-inset-left));
     --page-gutter-right: calc(var(--page-gutter) + env(safe-area-inset-right));

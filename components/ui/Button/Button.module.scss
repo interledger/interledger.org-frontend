@@ -15,11 +15,7 @@
   color: var(--color-primary);
   text-transform: capitalize;
   font-size: rem(24px);
-  font-size: clamp(
-    #{rem(24px)},
-    1.2991071428571428rem + 0.8241758241758242vw,
-    #{rem(30px)}
-  );
+  font-size: fluid(24px, 30px);
   background-color: transparent;
 
   &:hover {
@@ -32,11 +28,7 @@
     position: relative;
     transition: 0.4s ease transform;
     width: rem(48px);
-    width: clamp(
-      #{rem(30px)},
-      1.2723214285714284rem + 2.4725274725274726vw,
-      #{rem(48px)}
-    );
+    width: fluid(30px, 48px);
   }
 }
 
