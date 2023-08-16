@@ -9,6 +9,8 @@ import { InferType } from 'yup';
 import { Button } from '@components/ui/Button/Button';
 import { FormInput } from '@components/ui/FormInput/FormInput';
 import { FormSelect } from '@components/ui/FormSelect/FormSelect';
+import { FormFieldError } from '@components/ui/FormFieldError/FormFieldError';
+import { Text } from '@components/ui/Text/Text';
 
 export interface ParagraphContactFormProps {
   /** Optional className for ParagraphContactForm, pass in a sass module class to override component default */
@@ -29,7 +31,13 @@ export const ParagraphContactForm = ({
   const [status, setStatus] = useState<'error' | 'success'>();
   const rootClassName = cn(styles.root, className);
 
-  const { register, handleSubmit, formState, reset, getValues } = useForm({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    reset,
+    getValues,
+  } = useForm({
     resolver: yupResolver(ParagraphContactFormSchema),
   });
 
@@ -59,20 +67,44 @@ export const ParagraphContactForm = ({
         <div className={styles.formFields}>
           <FormInput>
             <label htmlFor="first_name">First Name</label>
-            <input id="first_name" type="text" {...register('first_name')} />
+            <input
+              id="first_name"
+              type="text"
+              {...register('first_name')}
+              disabled={isSubmitting}
+              autoComplete="given-name"
+            />
+            {errors.first_name && errors.first_name.type === 'required' ? (
+              <FormFieldError message={'This is required'} />
+            ) : null}
           </FormInput>
           <FormInput>
             <label htmlFor="last_name">Last Name</label>
-            <input id="last_name" type="text" {...register('last_name')} />
+            <input
+              id="last_name"
+              type="text"
+              {...register('last_name')}
+              disabled={isSubmitting}
+              autoComplete="family-name"
+            />
           </FormInput>
           <FormInput>
             <label htmlFor="email">Email</label>
-            <input id="email" type="email" {...register('email')} />
+            <input
+              id="email"
+              type="email"
+              {...register('email')}
+              disabled={isSubmitting}
+            />
+            {errors.email && errors.email.type === 'required' ? (
+              <FormFieldError message={'This is required'} />
+            ) : null}
           </FormInput>
           <FormInput>
             <label htmlFor="subject">Topic</label>
             <FormSelect>
               <select
+                disabled={isSubmitting}
                 id="subject"
                 {...register('subject')}
                 defaultValue={paragraph.contactTopic?.name}
@@ -87,14 +119,32 @@ export const ParagraphContactForm = ({
                 ))}
               </select>
             </FormSelect>
+            {errors.subject && errors.subject.type === 'required' ? (
+              <FormFieldError message={'This is required'} />
+            ) : null}
           </FormInput>
           <FormInput>
             <label htmlFor="message">Message</label>
-            <textarea id="message" {...register('message')}></textarea>
+            <textarea
+              id="message"
+              {...register('message')}
+              disabled={isSubmitting}
+            ></textarea>
+            {errors.message && errors.message.type === 'required' ? (
+              <FormFieldError message={'This is required'} />
+            ) : null}
           </FormInput>
         </div>
-        <Button type="submit">Submit</Button>
+        <Button type="submit" disabled={isSubmitting}>
+          Submit
+        </Button>
       </form>
+      {status === 'success' ? (
+        <Text className={styles.successMessage} variant="body1">
+          Thank you for contacting us. A member of our team will be in touch
+          soon.
+        </Text>
+      ) : null}
     </section>
   );
 };
