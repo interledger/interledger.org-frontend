@@ -1,19 +1,13 @@
 import cn from 'classnames';
 
-import styles from './CardPeople.module.scss';
-import { NodePeopleCardFragment } from '@models/operations';
-import {
-  Card,
-  CardImage,
-  CardContent,
-  CardLink,
-  CardButton,
-} from '../Card/Card';
-import { Text } from '@components/ui/Text/Text';
-import { useState } from 'react';
-import { Modal } from '@components/ui/Modal/Modal';
-import { RichText } from '@components/util/RichText/RichText';
 import { MediaImage } from '@components/media/MediaImage/MediaImage';
+import { Modal } from '@components/ui/Modal/Modal';
+import { Text } from '@components/ui/Text/Text';
+import { RichText } from '@components/util/RichText/RichText';
+import { NodePeopleCardFragment } from '@models/operations';
+import { useState } from 'react';
+import { Card, CardButton, CardContent, CardImage } from '../Card/Card';
+import styles from './CardPeople.module.scss';
 
 export interface CardPeopleProps {
   /** Optional className for CardPeople, pass in a sass module class to override component default */
