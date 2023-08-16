@@ -5,4 +5,7 @@
 @use '@styles/base/helpers' as *;
 
 .root {
+  color: var(--color-red);
+  margin-top: to.rem(5px);
+  display: block;
 }

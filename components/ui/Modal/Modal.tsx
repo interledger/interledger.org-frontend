@@ -56,10 +56,12 @@ export const Modal = ({
     ? createPortal(
         <div className={rootClassName} ref={modalRef}>
           <m.div
+            role="dialog"
             className={styles.content}
             initial={{ y: 50 }}
             animate={{ y: 0 }}
             transition={{ type: 'spring' }}
+            aria-modal="true"
           >
             <button
               className={styles.closeButton}

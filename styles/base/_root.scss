@@ -1,9 +1,10 @@
 @use '~sass-mq/mq' as *;
 @use '~sass-rem' as to;
 @use '@styles/base/helpers' as *;
+@use '@styles/base/variables' as *;
 
 :root {
-  --page-width: #{to.rem(1118px)};
+  --page-width: #{to.rem($default-max-bp)};
   --page-gutter: #{to.rem(20px)};
   --page-gutter-left: calc(var(--page-gutter) + env(safe-area-inset-left));
   --page-gutter-right: calc(var(--page-gutter) + env(safe-area-inset-right));
@@ -18,6 +19,8 @@
   --color-white: #fff;
   --color-primary: #6d00cc;
   --color-secondary: #01ffff;
+  --color-red: #fe2f2c;
+  --color-green: #49a239;
   --color-divider: lightgrey;
   --color-text: var(--color-black);
   --color-text-reverse: var(--color-black);

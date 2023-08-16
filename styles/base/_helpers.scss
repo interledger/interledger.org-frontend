@@ -1,8 +1,6 @@
 @use '~sass-rem' as to;
 @use 'sass:math';
-
-$default-min-bp: 320px;
-$default-max-bp: 1118px;
+@use '@styles/base/variables' as *;
 
 @function roundNumber($number, $decimals: 0) {
   $n: 1;

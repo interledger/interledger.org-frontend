@@ -23,5 +23,9 @@
     border: to.rem(2px) solid var(--color-primary);
     width: 100%;
     appearance: none;
+
+    &:disabled {
+      border-color: lightgrey;
+    }
   }
 }
