@@ -8,12 +8,12 @@ import cn from 'classnames';
 import Link from 'next/link';
 import styles from './Header.module.scss';
 
+import { CloseIcon } from '@components/icon/CloseIcon/CloseIcon';
+import { useScrollLock } from '@hooks/useScrollLock';
+import { m } from 'framer-motion';
 import { useAtom } from 'jotai';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
-import { useScrollLock } from '@hooks/useScrollLock';
-import { CloseIcon } from '@components/icon/CloseIcon/CloseIcon';
-import { m } from 'framer-motion';
 
 export interface HeaderProps {
   /** Optional className for Header, pass in a sass module class to override component default */
