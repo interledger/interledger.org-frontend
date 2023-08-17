@@ -13,17 +13,11 @@ import { useRouter } from 'next/router';
 export interface FooterProps {
   /** Optional className for Footer, pass in a sass module class to override component default */
   className?: string;
-  foundationFooterMenu?: FooterMenuFragment | null;
-  summitFooterMenu?: FooterMenuFragment | null;
+  footerMenu?: FooterMenuFragment | null;
   social?: SocialFragment | null;
 }
 
-export const Footer = ({
-  className,
-  foundationFooterMenu,
-  summitFooterMenu,
-  social,
-}: FooterProps) => {
+export const Footer = ({ className, footerMenu, social }: FooterProps) => {
   const rootClassName = cn(styles.root, className);
   const year = new Date().getFullYear();
   const [showModal, setShowModal] = useState(false);
@@ -63,17 +57,8 @@ export const Footer = ({
             <Social social={social} />
           </div>
         )}
-        {foundationFooterMenu && (
-          <FooterMenu
-            className={styles.foundationMenu}
-            footerMenu={foundationFooterMenu}
-          />
-        )}
-        {summitFooterMenu && (
-          <FooterMenu
-            className={styles.summitMenu}
-            footerMenu={summitFooterMenu}
-          />
+        {footerMenu && (
+          <FooterMenu className={styles.summitMenu} footerMenu={footerMenu} />
         )}
       </footer>
       <Modal

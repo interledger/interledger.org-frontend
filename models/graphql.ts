@@ -316,10 +316,6 @@ export enum MenuAvailable {
   DeveloperTools = 'DEVELOPER_TOOLS',
   /** Footer */
   Footer = 'FOOTER',
-  /** Interledger Foundation */
-  InterledgerFoundationFooter = 'INTERLEDGER_FOUNDATION_FOOTER',
-  /** Interledger Summit */
-  InterledgerSummitFooter = 'INTERLEDGER_SUMMIT_FOOTER',
   /** Main navigation */
   Main = 'MAIN',
   /** Summit */
