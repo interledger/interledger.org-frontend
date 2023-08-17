@@ -23,16 +23,16 @@ export const NodeTalk = ({ className, node }: NodeTalkProps) => {
   const rootClassName = cn(styles.root, className);
   return (
     <Container as="article" className={rootClassName}>
-      {node.header && (
+      {/* {node.header && (
         <ParagraphTalkHeader
           className={styles.header}
           paragraph={node.header}
         />
-      )}
+      )} */}
       {node.title ? <Text variant="h1">{node.title}</Text> : null}
-      <Text variant="body2">
+      {/* <Text variant="body2">
         <Duration duration={node.duration} />
-      </Text>
+      </Text> */}
       <TwoColumn className={styles.content}>
         <TwoColumn.Content>
           {node.description?.processed ? (

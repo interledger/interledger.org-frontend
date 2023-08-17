@@ -7,41 +7,22 @@ export interface CardSpeakerProps {
   /** Optional className for CardSpeaker, pass in a sass module class to override component default */
   className?: string;
   speaker: NodeSpeakerCardFragment;
-  layout?: 'square' | 'landscape';
 }
 
 /**
  * CardSpeaker description
  */
 
-export const CardSpeaker = ({
-  className,
-  speaker,
-  layout = 'square',
-}: CardSpeakerProps) => {
+export const CardSpeaker = ({ className, speaker }: CardSpeakerProps) => {
   const rootClassName = cn(className);
   return (
     <Card className={rootClassName}>
-      <CardImage
-        media={
-          layout === 'landscape'
-            ? speaker.teaser.landscapeImage
-            : speaker.teaser.squareImage
-        }
-      />
+      <CardImage media={speaker.squareImage} />
       <CardContent>
         <Text variant="h2" noMargin>
           {speaker.title}
         </Text>
-        <Text variant="body2">
-          {speaker.role}
-          {speaker.company ? (
-            <>
-              {', '}
-              {speaker.company}
-            </>
-          ) : null}
-        </Text>
+        <Text variant="body2">{speaker.tagLine}</Text>
       </CardContent>
       <CardLink link={speaker.path} />
     </Card>

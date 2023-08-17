@@ -6,13 +6,9 @@ fragment NodeTalkFragment on NodeTalk {
   metatag {
     ...MetaTagFragment
   }
-  header {
-    ...ParagraphTalkHeaderFragment
-  }
   description {
     processed
   }
-  duration
   speakers {
     ...NodeSpeakerCardFragment
   }
@@ -26,11 +22,10 @@ fragment NodeTalkCardFragment on NodeTalk {
   dateTime {
     time
   }
-  duration
-  teaser {
-    ...ParagraphTeaserFragment
-  }
   speakers {
     title
+    squareImage: image {
+      ...MediaImageSquareFragment
+    }
   }
 }
