@@ -9,7 +9,6 @@ export interface CardTalkProps {
   /** Optional className for CardTalk, pass in a sass module class to override component default */
   className?: string;
   talk: NodeTalkCardFragment;
-  layout?: 'square' | 'landscape';
 }
 
 /**
@@ -19,18 +18,14 @@ export interface CardTalkProps {
 export const CardTalk = ({
   className,
   talk,
-  layout = 'landscape',
 }: CardTalkProps) => {
   const rootClassName = cn(styles.root, className);
   return (
     <Card className={rootClassName}>
-      <CardImage
-        media={
-          layout === 'landscape'
-            ? talk.teaser.landscapeImage
-            : talk.teaser.squareImage
-        }
-      />
+      {!!talk.speakers?.length ? (
+        <CardImage media={talk.speakers[0].squareImage} />
+      ) : null}
+
       <CardContent>
         <Text variant="h2" noMargin>
           {talk.title}
