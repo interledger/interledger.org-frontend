@@ -314,7 +314,7 @@ export type Menu = MenuInterface & {
 export enum MenuAvailable {
   /** Developer Tools */
   DeveloperTools = 'DEVELOPER_TOOLS',
-  /** Footer */
+  /** Information */
   Footer = 'FOOTER',
   /** Main navigation */
   Main = 'MAIN',
@@ -726,8 +726,6 @@ export type NodeSpeaker = MetaTagInterface &
     biography?: Maybe<Text>;
     /** The time that the node was last edited. */
     changed: DateTime;
-    /** Company */
-    company?: Maybe<Scalars['String']>;
     /** The time that the node was created. */
     created: DateTime;
     /** Email */
@@ -744,8 +742,6 @@ export type NodeSpeaker = MetaTagInterface &
     path: Scalars['String'];
     /** Promoted to front page */
     promote: Scalars['Boolean'];
-    /** Role */
-    role?: Maybe<Scalars['String']>;
     /** Social Media */
     socialMedia?: Maybe<ParagraphSocialMedia>;
     /** Published */
@@ -754,14 +750,14 @@ export type NodeSpeaker = MetaTagInterface &
     sticky: Scalars['Boolean'];
     /** Summary */
     summary?: Maybe<Text>;
+    /** Tag Line */
+    tagLine?: Maybe<Scalars['String']>;
     /**
      * This is a viewfield query proxy. Page size and contextual filters are applied
      * within the CMS. See the actual view base query for more documentation on
      * filters and options available. Speaker Talks
      */
     talks: ViewResultUnion;
-    /** Teaser */
-    teaser: ParagraphTeaser;
     /** Title */
     title: Scalars['String'];
   };
@@ -784,13 +780,9 @@ export type NodeTalk = MetaTagInterface &
     /** The time that the node was created. */
     created: DateTime;
     /** Date & Time */
-    dateTime: DateTime;
+    dateTime?: Maybe<DateTime>;
     /** Description */
     description?: Maybe<Text>;
-    /** Enter talk duration in minutes */
-    duration: Scalars['Int'];
-    /** Header */
-    header?: Maybe<ParagraphTalkHeader>;
     /** The Universally Unique IDentifier (UUID). */
     id: Scalars['ID'];
     /** Language */
@@ -807,8 +799,6 @@ export type NodeTalk = MetaTagInterface &
     status: Scalars['Boolean'];
     /** Sticky at top of lists */
     sticky: Scalars['Boolean'];
-    /** Preview image pulled in when post displayed in listings */
-    teaser: ParagraphTeaser;
     /** Title */
     title: Scalars['String'];
   };

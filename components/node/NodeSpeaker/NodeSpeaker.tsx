@@ -22,29 +22,28 @@ export const NodeSpeaker = ({ className, node }: NodeSpeakerProps) => {
   return (
     <article className={rootClassName}>
       <header className={styles.header}>
-        <MediaImage className={styles.headerImage} media={node.image} />
-        <Container className={styles.headerText}>
-          <Text variant="h1">{node.title}</Text>
-          {node.role ? (
-            <Text variant="body1" noMargin>
-              {node.role}
-            </Text>
-          ) : null}
-          {node.company ? (
-            <Text variant="body1" noMargin>
-              {node.company}
-            </Text>
-          ) : null}
-        </Container>
+        <MediaImage
+          className={styles.headerImage}
+          media={node.squareImage}
+          fit
+        />
+        <div className={styles.headerText}>
+          <Container>
+            <div className={styles.headerContent}>
+              <Text variant="h1" noMargin>
+                {node.title}
+              </Text>
+
+              <Text variant="body1" noMargin>
+                {node.tagLine}
+              </Text>
+            </div>
+          </Container>
+        </div>
       </header>
       <Container>
         <TwoColumn>
           <TwoColumn.Content>
-            {node.summary?.value ? (
-              <Text variant="body1" as="h1">
-                {node.summary.value}
-              </Text>
-            ) : null}
             {node.biography?.processed ? (
               <RichText html={node.biography.processed} />
             ) : null}

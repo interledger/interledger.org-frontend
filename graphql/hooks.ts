@@ -290,18 +290,6 @@ export const ParagraphImageCarouselFragment = /*#__PURE__*/ `
   }
 }
     `;
-export const ParagraphTeaserFragment = /*#__PURE__*/ `
-    fragment ParagraphTeaserFragment on ParagraphTeaser {
-  __typename
-  id
-  squareImage: singleImage {
-    ...MediaImageSquareFragment
-  }
-  landscapeImage: singleImage {
-    ...MediaImageLandscapeFragment
-  }
-}
-    `;
 export const ParagraphHighlightedSpeakersFragment = /*#__PURE__*/ `
     fragment ParagraphHighlightedSpeakersFragment on ParagraphHighlightedSpeakers {
   __typename
@@ -309,8 +297,8 @@ export const ParagraphHighlightedSpeakersFragment = /*#__PURE__*/ `
   speakers {
     id
     title
-    teaser {
-      ...ParagraphTeaserFragment
+    squareImage: image {
+      ...MediaImageSquareFragment
     }
   }
 }
@@ -332,10 +320,9 @@ export const NodeSpeakerCardFragment = /*#__PURE__*/ `
   id
   title
   path
-  company
-  role
-  teaser {
-    ...ParagraphTeaserFragment
+  tagLine
+  squareImage: image {
+    ...MediaImageSquareFragment
   }
 }
     `;
@@ -365,12 +352,11 @@ export const NodeTalkCardFragment = /*#__PURE__*/ `
   dateTime {
     time
   }
-  duration
-  teaser {
-    ...ParagraphTeaserFragment
-  }
   speakers {
     title
+    squareImage: image {
+      ...MediaImageSquareFragment
+    }
   }
 }
     `;
@@ -433,6 +419,18 @@ export const ParagraphContentCarouselFragment = /*#__PURE__*/ `
   id
   carouselItem {
     ...ContentCarouselItemFragment
+  }
+}
+    `;
+export const ParagraphTeaserFragment = /*#__PURE__*/ `
+    fragment ParagraphTeaserFragment on ParagraphTeaser {
+  __typename
+  id
+  squareImage: singleImage {
+    ...MediaImageSquareFragment
+  }
+  landscapeImage: singleImage {
+    ...MediaImageLandscapeFragment
   }
 }
     `;
@@ -867,8 +865,7 @@ export const NodeSpeakerFragment = /*#__PURE__*/ `
   biography {
     processed
   }
-  company
-  role
+  tagLine
   summary {
     value
   }
@@ -882,8 +879,8 @@ export const NodeSpeakerFragment = /*#__PURE__*/ `
       socialMediaType
     }
   }
-  image {
-    ...MediaImageLandscapeFragment
+  squareImage: image {
+    ...MediaImageSquareFragment
   }
   talks {
     __typename
@@ -894,6 +891,23 @@ export const NodeSpeakerFragment = /*#__PURE__*/ `
         }
       }
     }
+  }
+}
+    `;
+export const NodeTalkFragment = /*#__PURE__*/ `
+    fragment NodeTalkFragment on NodeTalk {
+  __typename
+  id
+  title
+  path
+  metatag {
+    ...MetaTagFragment
+  }
+  description {
+    processed
+  }
+  speakers {
+    ...NodeSpeakerCardFragment
   }
 }
     `;
@@ -930,27 +944,6 @@ export const ParagraphTalkHeaderFragment = /*#__PURE__*/ `
   }
   headerAfter {
     ...ParagraphMediaHeaderFragment
-  }
-}
-    `;
-export const NodeTalkFragment = /*#__PURE__*/ `
-    fragment NodeTalkFragment on NodeTalk {
-  __typename
-  id
-  title
-  path
-  metatag {
-    ...MetaTagFragment
-  }
-  header {
-    ...ParagraphTalkHeaderFragment
-  }
-  description {
-    processed
-  }
-  duration
-  speakers {
-    ...NodeSpeakerCardFragment
   }
 }
     `;
@@ -1119,7 +1112,6 @@ ${ParagraphHighlightedListFragment}
 ${ParagraphImageFullWidthFragment}
 ${ParagraphImageCarouselFragment}
 ${ParagraphHighlightedSpeakersFragment}
-${ParagraphTeaserFragment}
 ${ParagraphImageGalleryFragment}
 ${ParagraphSpeakersGridFragment}
 ${NodeSpeakerCardFragment}
@@ -1131,6 +1123,7 @@ ${ParagraphContentCarouselFragment}
 ${ContentCarouselItemFragment}
 ${ParagraphNewsListingsFragment}
 ${NodeArticleCardFragment}
+${ParagraphTeaserFragment}
 ${ParagraphFaqsFragment}
 ${ParagraphPriceListFragment}
 ${ParagraphPriceFragment}
@@ -1148,9 +1141,6 @@ ${ParagraphHeroHeaderFragment}
 ${NodeFoundationPageFragment}
 ${NodeSpeakerFragment}
 ${NodeTalkFragment}
-${ParagraphTalkHeaderFragment}
-${ParagraphMediaHeaderFragment}
-${MediaRemoteVideoFragment}
 ${NodeDeveloperToolsFragment}
 ${NodePeopleFragment}`;
 export const useGetNodeByPathQuery = <
