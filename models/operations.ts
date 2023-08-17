@@ -6028,17 +6028,7 @@ export type GetInitDataQuery = {
       url?: string | null;
     }>;
   } | null;
-  foundationFooterMenu?: {
-    __typename: 'Menu';
-    name: string;
-    items: Array<{
-      __typename: 'MenuItem';
-      title: string;
-      id: string;
-      url?: string | null;
-    }>;
-  } | null;
-  summitFooterMenu?: {
+  footerMenu?: {
     __typename: 'Menu';
     name: string;
     items: Array<{

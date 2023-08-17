@@ -1018,10 +1018,7 @@ export const GetInitDataQueryDocument = /*#__PURE__*/ `
   summitMenu: menu(name: SUMMIT) {
     ...MainMenuFragment
   }
-  foundationFooterMenu: menu(name: INTERLEDGER_FOUNDATION_FOOTER) {
-    ...FooterMenuFragment
-  }
-  summitFooterMenu: menu(name: INTERLEDGER_SUMMIT_FOOTER) {
+  footerMenu: menu(name: FOOTER) {
     ...FooterMenuFragment
   }
   developerToolsMenu: menu(name: DEVELOPER_TOOLS) {

@@ -29,8 +29,7 @@ export const Main = ({ className, children }: MainProps) => {
       />
       <main>{children}</main>
       <Footer
-        foundationFooterMenu={initData?.foundationFooterMenu}
-        summitFooterMenu={initData?.summitFooterMenu}
+        footerMenu={initData?.footerMenu}
         social={initData?.siteSettings?.social}
       />
     </div>
