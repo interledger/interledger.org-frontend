@@ -18,7 +18,7 @@
   @include breakContainer;
 
   @include mq($from: tablet) {
-    aspect-ratio: 16/6;
+    aspect-ratio: 16/7;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr;
   }

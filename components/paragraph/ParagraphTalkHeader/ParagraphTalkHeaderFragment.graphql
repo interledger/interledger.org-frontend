@@ -1,13 +1,10 @@
 fragment ParagraphTalkHeaderFragment on ParagraphTalkHeader {
   __typename
   id
-  headerBefore {
-    ...ParagraphMediaHeaderFragment
+  liveVideo {
+    ...MediaRemoteVideoFragment
   }
-  headerDuring {
-    ...ParagraphMediaHeaderFragment
-  }
-  headerAfter {
-    ...ParagraphMediaHeaderFragment
+  recordingVideo {
+    ...MediaRemoteVideoFragment
   }
 }

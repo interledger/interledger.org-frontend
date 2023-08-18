@@ -2,6 +2,7 @@ import cn from 'classnames';
 import { ParagraphTalkHeaderFragment } from '@models/operations';
 import styles from './ParagraphTalkHeader.module.scss';
 import { ParagraphMediaHeader } from '../ParagraphMediaHeader/ParagraphMediaHeader';
+import { MediaHeader } from '@components/ui/MediaHeader/MediaHeader';
 
 export interface ParagraphTalkHeaderProps {
   /** Optional className for ParagraphTalkHeader, pass in a sass module class to override component default */
@@ -20,9 +21,7 @@ export const ParagraphTalkHeader = ({
   const rootClassName = cn(styles.root, className);
   return (
     <header className={rootClassName}>
-      {paragraph.headerBefore && (
-        <ParagraphMediaHeader paragraph={paragraph.headerBefore} />
-      )}
+      {paragraph.liveVideo && <MediaHeader video={paragraph.liveVideo} />}
     </header>
   );
 };

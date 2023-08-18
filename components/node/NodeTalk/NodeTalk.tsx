@@ -29,7 +29,11 @@ export const NodeTalk = ({ className, node }: NodeTalkProps) => {
           paragraph={node.header}
         />
       )} */}
-      {node.title ? <Text variant="h1">{node.title}</Text> : null}
+      {node.title ? (
+        <Text variant="h1" className={styles.title}>
+          {node.title}
+        </Text>
+      ) : null}
       {/* <Text variant="body2">
         <Duration duration={node.duration} />
       </Text> */}
