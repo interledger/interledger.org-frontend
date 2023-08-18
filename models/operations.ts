@@ -133,6 +133,12 @@ export type MainMenuFragment = {
     title: string;
     id: string;
     url?: string | null;
+    children: Array<{
+      __typename: 'MenuItem';
+      title: string;
+      id: string;
+      url?: string | null;
+    }>;
   }>;
 };
 
@@ -5554,6 +5560,12 @@ export type GetInitDataQuery = {
       title: string;
       id: string;
       url?: string | null;
+      children: Array<{
+        __typename: 'MenuItem';
+        title: string;
+        id: string;
+        url?: string | null;
+      }>;
     }>;
   } | null;
   summitMenu?: {
@@ -5563,6 +5575,12 @@ export type GetInitDataQuery = {
       title: string;
       id: string;
       url?: string | null;
+      children: Array<{
+        __typename: 'MenuItem';
+        title: string;
+        id: string;
+        url?: string | null;
+      }>;
     }>;
   } | null;
   footerMenu?: {

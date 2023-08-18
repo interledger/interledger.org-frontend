@@ -100,6 +100,9 @@ export const MainMenuFragment = /*#__PURE__*/ `
   __typename
   items {
     ...MenuItemFragment
+    children {
+      ...MenuItemFragment
+    }
   }
 }
     `;
