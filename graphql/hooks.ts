@@ -349,7 +349,10 @@ export const NodeTalkCardFragment = /*#__PURE__*/ `
   id
   title
   path
-  dateTime {
+  startsAt {
+    time
+  }
+  endsAt {
     time
   }
   speakers {
@@ -900,6 +903,12 @@ export const NodeTalkFragment = /*#__PURE__*/ `
   id
   title
   path
+  startsAt {
+    time
+  }
+  endsAt {
+    time
+  }
   metatag {
     ...MetaTagFragment
   }
@@ -936,14 +945,11 @@ export const ParagraphTalkHeaderFragment = /*#__PURE__*/ `
     fragment ParagraphTalkHeaderFragment on ParagraphTalkHeader {
   __typename
   id
-  headerBefore {
-    ...ParagraphMediaHeaderFragment
+  liveVideo {
+    ...MediaRemoteVideoFragment
   }
-  headerDuring {
-    ...ParagraphMediaHeaderFragment
-  }
-  headerAfter {
-    ...ParagraphMediaHeaderFragment
+  recordingVideo {
+    ...MediaRemoteVideoFragment
   }
 }
     `;

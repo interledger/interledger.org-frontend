@@ -779,10 +779,12 @@ export type NodeTalk = MetaTagInterface &
     changed: DateTime;
     /** The time that the node was created. */
     created: DateTime;
-    /** Date & Time */
-    dateTime?: Maybe<DateTime>;
     /** Description */
     description?: Maybe<Text>;
+    /** Ends At */
+    endsAt?: Maybe<DateTime>;
+    /** Header */
+    header?: Maybe<ParagraphTalkHeader>;
     /** The Universally Unique IDentifier (UUID). */
     id: Scalars['ID'];
     /** Language */
@@ -795,6 +797,8 @@ export type NodeTalk = MetaTagInterface &
     promote: Scalars['Boolean'];
     /** Speakers */
     speakers?: Maybe<Array<NodeSpeaker>>;
+    /** Starts At */
+    startsAt?: Maybe<DateTime>;
     /** Published */
     status: Scalars['Boolean'];
     /** Sticky at top of lists */
@@ -1352,16 +1356,14 @@ export type ParagraphTalkHeader = ParagraphInterface & {
   __typename?: 'ParagraphTalkHeader';
   /** The time that the Paragraph was created. */
   created: DateTime;
-  /** Header After */
-  headerAfter: ParagraphMediaHeader;
-  /** Header Before */
-  headerBefore: ParagraphMediaHeader;
-  /** Header During */
-  headerDuring: ParagraphMediaHeader;
   /** The Universally Unique IDentifier (UUID). */
   id: Scalars['ID'];
   /** The paragraphs entity language code. */
   langcode: Language;
+  /** Live Video */
+  liveVideo?: Maybe<MediaRemoteVideo>;
+  /** Recording Video */
+  recordingVideo?: Maybe<MediaRemoteVideo>;
 };
 
 /** Entity type paragraph. */

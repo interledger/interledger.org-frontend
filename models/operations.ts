@@ -1671,7 +1671,8 @@ export type NodePageFragment = {
                       id: string;
                       title: string;
                       path: string;
-                      dateTime?: { __typename?: 'DateTime'; time: any } | null;
+                      startsAt?: { __typename?: 'DateTime'; time: any } | null;
+                      endsAt?: { __typename?: 'DateTime'; time: any } | null;
                       speakers?: Array<{
                         __typename?: 'NodeSpeaker';
                         title: string;
@@ -1776,7 +1777,8 @@ export type NodePageFragment = {
                     id: string;
                     title: string;
                     path: string;
-                    dateTime?: { __typename?: 'DateTime'; time: any } | null;
+                    startsAt?: { __typename?: 'DateTime'; time: any } | null;
+                    endsAt?: { __typename?: 'DateTime'; time: any } | null;
                     speakers?: Array<{
                       __typename?: 'NodeSpeaker';
                       title: string;
@@ -2237,7 +2239,8 @@ export type NodeSpeakerFragment = {
               id: string;
               title: string;
               path: string;
-              dateTime?: { __typename?: 'DateTime'; time: any } | null;
+              startsAt?: { __typename?: 'DateTime'; time: any } | null;
+              endsAt?: { __typename?: 'DateTime'; time: any } | null;
               speakers?: Array<{
                 __typename?: 'NodeSpeaker';
                 title: string;
@@ -2290,6 +2293,8 @@ export type NodeTalkFragment = {
   id: string;
   title: string;
   path: string;
+  startsAt?: { __typename?: 'DateTime'; time: any } | null;
+  endsAt?: { __typename?: 'DateTime'; time: any } | null;
   metatag: Array<
     | {
         __typename: 'MetaTagLink';
@@ -2349,7 +2354,8 @@ export type NodeTalkCardFragment = {
   id: string;
   title: string;
   path: string;
-  dateTime?: { __typename?: 'DateTime'; time: any } | null;
+  startsAt?: { __typename?: 'DateTime'; time: any } | null;
+  endsAt?: { __typename?: 'DateTime'; time: any } | null;
   speakers?: Array<{
     __typename?: 'NodeSpeaker';
     title: string;
@@ -3684,7 +3690,8 @@ export type ParagraphScheduleFragment = {
                 id: string;
                 title: string;
                 path: string;
-                dateTime?: { __typename?: 'DateTime'; time: any } | null;
+                startsAt?: { __typename?: 'DateTime'; time: any } | null;
+                endsAt?: { __typename?: 'DateTime'; time: any } | null;
                 speakers?: Array<{
                   __typename?: 'NodeSpeaker';
                   title: string;
@@ -3737,7 +3744,8 @@ export type ParagraphScheduleDayFragment = {
               id: string;
               title: string;
               path: string;
-              dateTime?: { __typename?: 'DateTime'; time: any } | null;
+              startsAt?: { __typename?: 'DateTime'; time: any } | null;
+              endsAt?: { __typename?: 'DateTime'; time: any } | null;
               speakers?: Array<{
                 __typename?: 'NodeSpeaker';
                 title: string;
@@ -3822,78 +3830,16 @@ export type ParagraphSpeakersGridFragment = {
 export type ParagraphTalkHeaderFragment = {
   __typename: 'ParagraphTalkHeader';
   id: string;
-  headerBefore: {
-    __typename: 'ParagraphMediaHeader';
+  liveVideo?: {
+    __typename: 'MediaRemoteVideo';
     id: string;
-    image: {
-      __typename: 'MediaImage';
-      id: string;
-      mediaImage: {
-        __typename?: 'Image';
-        alt?: string | null;
-        responsive?: {
-          __typename: 'ResponsiveImageStyleDerivative';
-          height?: number | null;
-          path?: string | null;
-          srcSetPath?: string | null;
-          width?: number | null;
-        } | null;
-      };
-    };
-    video?: {
-      __typename: 'MediaRemoteVideo';
-      id: string;
-      mediaOembedVideo: string;
-    } | null;
-  };
-  headerDuring: {
-    __typename: 'ParagraphMediaHeader';
+    mediaOembedVideo: string;
+  } | null;
+  recordingVideo?: {
+    __typename: 'MediaRemoteVideo';
     id: string;
-    image: {
-      __typename: 'MediaImage';
-      id: string;
-      mediaImage: {
-        __typename?: 'Image';
-        alt?: string | null;
-        responsive?: {
-          __typename: 'ResponsiveImageStyleDerivative';
-          height?: number | null;
-          path?: string | null;
-          srcSetPath?: string | null;
-          width?: number | null;
-        } | null;
-      };
-    };
-    video?: {
-      __typename: 'MediaRemoteVideo';
-      id: string;
-      mediaOembedVideo: string;
-    } | null;
-  };
-  headerAfter: {
-    __typename: 'ParagraphMediaHeader';
-    id: string;
-    image: {
-      __typename: 'MediaImage';
-      id: string;
-      mediaImage: {
-        __typename?: 'Image';
-        alt?: string | null;
-        responsive?: {
-          __typename: 'ResponsiveImageStyleDerivative';
-          height?: number | null;
-          path?: string | null;
-          srcSetPath?: string | null;
-          width?: number | null;
-        } | null;
-      };
-    };
-    video?: {
-      __typename: 'MediaRemoteVideo';
-      id: string;
-      mediaOembedVideo: string;
-    } | null;
-  };
+    mediaOembedVideo: string;
+  } | null;
 };
 
 export type ParagraphTalksGridFragment = {
@@ -3921,7 +3867,8 @@ export type ParagraphTalksGridFragment = {
               id: string;
               title: string;
               path: string;
-              dateTime?: { __typename?: 'DateTime'; time: any } | null;
+              startsAt?: { __typename?: 'DateTime'; time: any } | null;
+              endsAt?: { __typename?: 'DateTime'; time: any } | null;
               speakers?: Array<{
                 __typename?: 'NodeSpeaker';
                 title: string;
@@ -5186,7 +5133,8 @@ type ParagraphsFragment_ParagraphSchedule_ = {
                 id: string;
                 title: string;
                 path: string;
-                dateTime?: { __typename?: 'DateTime'; time: any } | null;
+                startsAt?: { __typename?: 'DateTime'; time: any } | null;
+                endsAt?: { __typename?: 'DateTime'; time: any } | null;
                 speakers?: Array<{
                   __typename?: 'NodeSpeaker';
                   title: string;
@@ -5310,7 +5258,8 @@ type ParagraphsFragment_ParagraphTalksGrid_ = {
               id: string;
               title: string;
               path: string;
-              dateTime?: { __typename?: 'DateTime'; time: any } | null;
+              startsAt?: { __typename?: 'DateTime'; time: any } | null;
+              endsAt?: { __typename?: 'DateTime'; time: any } | null;
               speakers?: Array<{
                 __typename?: 'NodeSpeaker';
                 title: string;
@@ -7166,7 +7115,11 @@ export type GetNodeByPathQuery = {
                                   id: string;
                                   title: string;
                                   path: string;
-                                  dateTime?: {
+                                  startsAt?: {
+                                    __typename?: 'DateTime';
+                                    time: any;
+                                  } | null;
+                                  endsAt?: {
                                     __typename?: 'DateTime';
                                     time: any;
                                   } | null;
@@ -7274,7 +7227,11 @@ export type GetNodeByPathQuery = {
                                 id: string;
                                 title: string;
                                 path: string;
-                                dateTime?: {
+                                startsAt?: {
+                                  __typename?: 'DateTime';
+                                  time: any;
+                                } | null;
+                                endsAt?: {
                                   __typename?: 'DateTime';
                                   time: any;
                                 } | null;
@@ -7672,7 +7629,11 @@ export type GetNodeByPathQuery = {
                           id: string;
                           title: string;
                           path: string;
-                          dateTime?: {
+                          startsAt?: {
+                            __typename?: 'DateTime';
+                            time: any;
+                          } | null;
+                          endsAt?: {
                             __typename?: 'DateTime';
                             time: any;
                           } | null;
@@ -7704,6 +7665,8 @@ export type GetNodeByPathQuery = {
               id: string;
               title: string;
               path: string;
+              startsAt?: { __typename?: 'DateTime'; time: any } | null;
+              endsAt?: { __typename?: 'DateTime'; time: any } | null;
               metatag: Array<
                 | {
                     __typename: 'MetaTagLink';

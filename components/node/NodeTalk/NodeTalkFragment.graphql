@@ -3,6 +3,12 @@ fragment NodeTalkFragment on NodeTalk {
   id
   title
   path
+  startsAt {
+    time
+  }
+  endsAt {
+    time
+  }
   metatag {
     ...MetaTagFragment
   }
@@ -19,7 +25,10 @@ fragment NodeTalkCardFragment on NodeTalk {
   id
   title
   path
-  dateTime {
+  startsAt {
+    time
+  }
+  endsAt {
     time
   }
   speakers {
