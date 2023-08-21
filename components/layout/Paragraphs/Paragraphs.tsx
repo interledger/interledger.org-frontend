@@ -23,6 +23,7 @@ import {
   ParagraphPeopleGridFragment,
   ParagraphContactFormFragment,
   ParagraphContentColumnCardsFragment,
+  ParagraphScrollingLogoCarouselFragment,
 } from '@models/operations';
 import dynamic from 'next/dynamic';
 
@@ -170,6 +171,12 @@ const ParagraphContentColumnCards = dynamic(() =>
   ).then((paragraph) => paragraph.ParagraphContentColumnCards)
 );
 
+const ParagraphScrollingLogoCarousel = dynamic(() =>
+  import(
+    '@components/paragraph/ParagraphScrollingLogoCarousel/ParagraphScrollingLogoCarousel'
+  ).then((paragraph) => paragraph.ParagraphScrollingLogoCarousel)
+);
+
 export type ParagraphTypes =
   | ParagraphLargeCalloutTextFragment
   | ParagraphButtonFragment
@@ -195,6 +202,7 @@ export type ParagraphTypes =
   | ParagraphPeopleGridFragment
   | ParagraphContactFormFragment
   | ParagraphContentColumnCardsFragment
+  | ParagraphScrollingLogoCarouselFragment
   | null;
 
 export interface ParagraphsProps {
@@ -285,6 +293,13 @@ const Paragraph = ({ paragraph, className }: ParagraphProps) => {
     case 'ParagraphContentColumnCards':
       return (
         <ParagraphContentColumnCards key={paragraph.id} paragraph={paragraph} />
+      );
+    case 'ParagraphScrollingLogoCarousel':
+      return (
+        <ParagraphScrollingLogoCarousel
+          key={paragraph.id}
+          paragraph={paragraph}
+        />
       );
     default:
       return null;

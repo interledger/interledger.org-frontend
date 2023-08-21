@@ -1,0 +1,7 @@
+fragment ParagraphScrollingLogoCarouselFragment on ParagraphScrollingLogoCarousel {
+  __typename
+  id
+  images {
+    ...MediaImageWidthFragment
+  }
+}

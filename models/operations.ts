@@ -1,5 +1,1138 @@
 import * as GraphqlTypes from '@models/graphql';
 
+type ParagraphsFragment_ParagraphAnchor_ = {
+  __typename: 'ParagraphAnchor';
+  id: string;
+  title: string;
+};
+
+type ParagraphsFragment_ParagraphButton_ = {
+  __typename: 'ParagraphButton';
+  id: string;
+  link: { __typename?: 'Link'; url?: string | null; title?: string | null };
+};
+
+type ParagraphsFragment_ParagraphCarouselItem_ = {
+  __typename?: 'ParagraphCarouselItem';
+};
+
+type ParagraphsFragment_ParagraphColumnCard_ = {
+  __typename?: 'ParagraphColumnCard';
+};
+
+type ParagraphsFragment_ParagraphContactForm_ = {
+  __typename: 'ParagraphContactForm';
+  id: string;
+  contactTopicsView:
+    | {
+        __typename: 'ContactTopicsResult';
+        results: Array<{
+          __typename?: 'TermContactTopics';
+          id: string;
+          name: string;
+        }>;
+      }
+    | { __typename: 'NewsLatestResult' }
+    | { __typename: 'NewsResult' }
+    | { __typename: 'NodePathsResult' }
+    | { __typename: 'PeopleResult' }
+    | { __typename: 'SpeakersResult' }
+    | { __typename: 'TalksAllResult' }
+    | { __typename: 'TalksByDateResult' }
+    | { __typename: 'TalksResult' };
+  contactTopic?: {
+    __typename?: 'TermContactTopics';
+    name: string;
+    id: string;
+  } | null;
+};
+
+type ParagraphsFragment_ParagraphContentCarousel_ = {
+  __typename: 'ParagraphContentCarousel';
+  id: string;
+  carouselItem?: Array<{
+    __typename: 'ParagraphTwoColumnContent';
+    id: string;
+    firstColumn?: Array<
+      | {
+          __typename: 'ParagraphButton';
+          id: string;
+          link: {
+            __typename?: 'Link';
+            url?: string | null;
+            title?: string | null;
+          };
+        }
+      | { __typename: 'ParagraphContentTitle'; id: string; title: string }
+      | {
+          __typename: 'ParagraphImage';
+          id: string;
+          landscapeImage: {
+            __typename: 'MediaImage';
+            id: string;
+            mediaImage: {
+              __typename?: 'Image';
+              alt?: string | null;
+              responsive?: {
+                __typename: 'ResponsiveImageStyleDerivative';
+                height?: number | null;
+                path?: string | null;
+                srcSetPath?: string | null;
+                width?: number | null;
+              } | null;
+            };
+          };
+          squareIamge: {
+            __typename: 'MediaImage';
+            id: string;
+            mediaImage: {
+              __typename?: 'Image';
+              alt?: string | null;
+              responsive?: {
+                __typename: 'ResponsiveImageStyleDerivative';
+                height?: number | null;
+                path?: string | null;
+                srcSetPath?: string | null;
+                width?: number | null;
+              } | null;
+            };
+          };
+        }
+      | {
+          __typename: 'ParagraphSpacer';
+          id: string;
+          spacerSize: string;
+          spacerLine?: boolean | null;
+        }
+      | {
+          __typename: 'ParagraphText';
+          id: string;
+          text: { __typename?: 'Text'; processed?: any | null };
+        }
+      | {
+          __typename: 'ParagraphVideo';
+          id: string;
+          video: {
+            __typename: 'MediaVideo';
+            id: string;
+            mediaVideoFile: { __typename?: 'File'; url: string };
+          };
+          image: {
+            __typename: 'MediaImage';
+            id: string;
+            mediaImage: {
+              __typename?: 'Image';
+              alt?: string | null;
+              responsive?: {
+                __typename: 'ResponsiveImageStyleDerivative';
+                height?: number | null;
+                path?: string | null;
+                srcSetPath?: string | null;
+                width?: number | null;
+              } | null;
+            };
+          };
+        }
+    > | null;
+    secondColumn?: Array<
+      | {
+          __typename: 'ParagraphButton';
+          id: string;
+          link: {
+            __typename?: 'Link';
+            url?: string | null;
+            title?: string | null;
+          };
+        }
+      | { __typename: 'ParagraphContentTitle'; id: string; title: string }
+      | {
+          __typename: 'ParagraphImage';
+          id: string;
+          landscapeImage: {
+            __typename: 'MediaImage';
+            id: string;
+            mediaImage: {
+              __typename?: 'Image';
+              alt?: string | null;
+              responsive?: {
+                __typename: 'ResponsiveImageStyleDerivative';
+                height?: number | null;
+                path?: string | null;
+                srcSetPath?: string | null;
+                width?: number | null;
+              } | null;
+            };
+          };
+          squareIamge: {
+            __typename: 'MediaImage';
+            id: string;
+            mediaImage: {
+              __typename?: 'Image';
+              alt?: string | null;
+              responsive?: {
+                __typename: 'ResponsiveImageStyleDerivative';
+                height?: number | null;
+                path?: string | null;
+                srcSetPath?: string | null;
+                width?: number | null;
+              } | null;
+            };
+          };
+        }
+      | {
+          __typename: 'ParagraphSpacer';
+          id: string;
+          spacerSize: string;
+          spacerLine?: boolean | null;
+        }
+      | {
+          __typename: 'ParagraphText';
+          id: string;
+          text: { __typename?: 'Text'; processed?: any | null };
+        }
+      | {
+          __typename: 'ParagraphVideo';
+          id: string;
+          video: {
+            __typename: 'MediaVideo';
+            id: string;
+            mediaVideoFile: { __typename?: 'File'; url: string };
+          };
+          image: {
+            __typename: 'MediaImage';
+            id: string;
+            mediaImage: {
+              __typename?: 'Image';
+              alt?: string | null;
+              responsive?: {
+                __typename: 'ResponsiveImageStyleDerivative';
+                height?: number | null;
+                path?: string | null;
+                srcSetPath?: string | null;
+                width?: number | null;
+              } | null;
+            };
+          };
+        }
+    > | null;
+  }> | null;
+};
+
+type ParagraphsFragment_ParagraphContentColumnCards_ = {
+  __typename: 'ParagraphContentColumnCards';
+  id: string;
+  imageStyle: string;
+  content?: Array<{
+    __typename: 'ParagraphColumnCard';
+    id: string;
+    squareImage: {
+      __typename: 'MediaImage';
+      id: string;
+      mediaImage: {
+        __typename?: 'Image';
+        alt?: string | null;
+        responsive?: {
+          __typename: 'ResponsiveImageStyleDerivative';
+          height?: number | null;
+          path?: string | null;
+          srcSetPath?: string | null;
+          width?: number | null;
+        } | null;
+      };
+    };
+    landscapeImage: {
+      __typename: 'MediaImage';
+      id: string;
+      mediaImage: {
+        __typename?: 'Image';
+        alt?: string | null;
+        responsive?: {
+          __typename: 'ResponsiveImageStyleDerivative';
+          height?: number | null;
+          path?: string | null;
+          srcSetPath?: string | null;
+          width?: number | null;
+        } | null;
+      };
+    };
+    text: { __typename?: 'Text'; processed?: any | null };
+    link: { __typename?: 'Link'; title?: string | null; url?: string | null };
+  }> | null;
+};
+
+type ParagraphsFragment_ParagraphContentTitle_ = {
+  __typename: 'ParagraphContentTitle';
+  id: string;
+  title: string;
+};
+
+type ParagraphsFragment_ParagraphDivider_ = { __typename?: 'ParagraphDivider' };
+
+type ParagraphsFragment_ParagraphFaq_ = { __typename?: 'ParagraphFaq' };
+
+type ParagraphsFragment_ParagraphFaqs_ = {
+  __typename: 'ParagraphFaqs';
+  id: string;
+  faqs?: Array<{
+    __typename?: 'ParagraphFaq';
+    id: string;
+    question: string;
+    answer: { __typename?: 'Text'; processed?: any | null };
+  }> | null;
+};
+
+type ParagraphsFragment_ParagraphHeroHeader_ = {
+  __typename?: 'ParagraphHeroHeader';
+};
+
+type ParagraphsFragment_ParagraphHighlightedList_ = {
+  __typename: 'ParagraphHighlightedList';
+  id: string;
+  listItem?: Array<string> | null;
+};
+
+type ParagraphsFragment_ParagraphHighlightedSpeakers_ = {
+  __typename: 'ParagraphHighlightedSpeakers';
+  id: string;
+  speakers?: Array<{
+    __typename?: 'NodeSpeaker';
+    id: string;
+    title: string;
+    squareImage: {
+      __typename: 'MediaImage';
+      id: string;
+      mediaImage: {
+        __typename?: 'Image';
+        alt?: string | null;
+        responsive?: {
+          __typename: 'ResponsiveImageStyleDerivative';
+          height?: number | null;
+          path?: string | null;
+          srcSetPath?: string | null;
+          width?: number | null;
+        } | null;
+      };
+    };
+  }> | null;
+};
+
+type ParagraphsFragment_ParagraphImage_ = {
+  __typename: 'ParagraphImage';
+  id: string;
+  landscapeImage: {
+    __typename: 'MediaImage';
+    id: string;
+    mediaImage: {
+      __typename?: 'Image';
+      alt?: string | null;
+      responsive?: {
+        __typename: 'ResponsiveImageStyleDerivative';
+        height?: number | null;
+        path?: string | null;
+        srcSetPath?: string | null;
+        width?: number | null;
+      } | null;
+    };
+  };
+  squareIamge: {
+    __typename: 'MediaImage';
+    id: string;
+    mediaImage: {
+      __typename?: 'Image';
+      alt?: string | null;
+      responsive?: {
+        __typename: 'ResponsiveImageStyleDerivative';
+        height?: number | null;
+        path?: string | null;
+        srcSetPath?: string | null;
+        width?: number | null;
+      } | null;
+    };
+  };
+};
+
+type ParagraphsFragment_ParagraphImageCarousel_ = {
+  __typename: 'ParagraphImageCarousel';
+  id: string;
+  carouselItem?: Array<{
+    __typename?: 'ParagraphCarouselItem';
+    id: string;
+    image: {
+      __typename: 'MediaImage';
+      id: string;
+      mediaImage: {
+        __typename?: 'Image';
+        alt?: string | null;
+        responsive?: {
+          __typename: 'ResponsiveImageStyleDerivative';
+          height?: number | null;
+          path?: string | null;
+          srcSetPath?: string | null;
+          width?: number | null;
+        } | null;
+      };
+    };
+  }> | null;
+};
+
+type ParagraphsFragment_ParagraphImageFullWidth_ = {
+  __typename: 'ParagraphImageFullWidth';
+  id: string;
+  landscapeImage: {
+    __typename: 'MediaImage';
+    id: string;
+    mediaImage: {
+      __typename?: 'Image';
+      alt?: string | null;
+      responsive?: {
+        __typename: 'ResponsiveImageStyleDerivative';
+        height?: number | null;
+        path?: string | null;
+        srcSetPath?: string | null;
+        width?: number | null;
+      } | null;
+    };
+  };
+  squareIamge: {
+    __typename: 'MediaImage';
+    id: string;
+    mediaImage: {
+      __typename?: 'Image';
+      alt?: string | null;
+      responsive?: {
+        __typename: 'ResponsiveImageStyleDerivative';
+        height?: number | null;
+        path?: string | null;
+        srcSetPath?: string | null;
+        width?: number | null;
+      } | null;
+    };
+  };
+};
+
+type ParagraphsFragment_ParagraphImageGallery_ = {
+  __typename: 'ParagraphImageGallery';
+  id: string;
+  multipleImages: Array<{
+    __typename: 'MediaImage';
+    id: string;
+    mediaImage: {
+      __typename?: 'Image';
+      alt?: string | null;
+      responsive?: {
+        __typename: 'ResponsiveImageStyleDerivative';
+        height?: number | null;
+        path?: string | null;
+        srcSetPath?: string | null;
+        width?: number | null;
+      } | null;
+    };
+  }>;
+};
+
+type ParagraphsFragment_ParagraphLargeCalloutText_ = {
+  __typename: 'ParagraphLargeCalloutText';
+  id: string;
+  largeCalloutText?: string | null;
+};
+
+type ParagraphsFragment_ParagraphMediaHeader_ = {
+  __typename?: 'ParagraphMediaHeader';
+};
+
+type ParagraphsFragment_ParagraphNewsListings_ = {
+  __typename: 'ParagraphNewsListings';
+  id: string;
+  newsLatestView:
+    | { __typename?: 'ContactTopicsResult' }
+    | {
+        __typename: 'NewsLatestResult';
+        results: Array<
+          | {
+              __typename: 'NodeArticle';
+              id: string;
+              title: string;
+              path: string;
+              summary?: { __typename?: 'Text'; processed?: any | null } | null;
+              created: { __typename?: 'DateTime'; time: any };
+              teaser: {
+                __typename: 'ParagraphTeaser';
+                id: string;
+                squareImage: {
+                  __typename: 'MediaImage';
+                  id: string;
+                  mediaImage: {
+                    __typename?: 'Image';
+                    alt?: string | null;
+                    responsive?: {
+                      __typename: 'ResponsiveImageStyleDerivative';
+                      height?: number | null;
+                      path?: string | null;
+                      srcSetPath?: string | null;
+                      width?: number | null;
+                    } | null;
+                  };
+                };
+                landscapeImage: {
+                  __typename: 'MediaImage';
+                  id: string;
+                  mediaImage: {
+                    __typename?: 'Image';
+                    alt?: string | null;
+                    responsive?: {
+                      __typename: 'ResponsiveImageStyleDerivative';
+                      height?: number | null;
+                      path?: string | null;
+                      srcSetPath?: string | null;
+                      width?: number | null;
+                    } | null;
+                  };
+                };
+              };
+            }
+          | { __typename?: 'NodeDeveloperTools' }
+          | { __typename?: 'NodeFoundationPage' }
+          | { __typename?: 'NodePage' }
+          | { __typename?: 'NodePeople' }
+          | { __typename?: 'NodeSpeaker' }
+          | { __typename?: 'NodeTalk' }
+        >;
+      }
+    | { __typename?: 'NewsResult' }
+    | { __typename?: 'NodePathsResult' }
+    | { __typename?: 'PeopleResult' }
+    | { __typename?: 'SpeakersResult' }
+    | { __typename?: 'TalksAllResult' }
+    | { __typename?: 'TalksByDateResult' }
+    | { __typename?: 'TalksResult' };
+  newsView:
+    | { __typename?: 'ContactTopicsResult' }
+    | { __typename?: 'NewsLatestResult' }
+    | {
+        __typename: 'NewsResult';
+        pageInfo: {
+          __typename?: 'ViewPageInfo';
+          offset: number;
+          page: number;
+          pageSize: number;
+          total: number;
+        };
+        results: Array<
+          | {
+              __typename: 'NodeArticle';
+              id: string;
+              title: string;
+              path: string;
+              summary?: { __typename?: 'Text'; processed?: any | null } | null;
+              created: { __typename?: 'DateTime'; time: any };
+              teaser: {
+                __typename: 'ParagraphTeaser';
+                id: string;
+                squareImage: {
+                  __typename: 'MediaImage';
+                  id: string;
+                  mediaImage: {
+                    __typename?: 'Image';
+                    alt?: string | null;
+                    responsive?: {
+                      __typename: 'ResponsiveImageStyleDerivative';
+                      height?: number | null;
+                      path?: string | null;
+                      srcSetPath?: string | null;
+                      width?: number | null;
+                    } | null;
+                  };
+                };
+                landscapeImage: {
+                  __typename: 'MediaImage';
+                  id: string;
+                  mediaImage: {
+                    __typename?: 'Image';
+                    alt?: string | null;
+                    responsive?: {
+                      __typename: 'ResponsiveImageStyleDerivative';
+                      height?: number | null;
+                      path?: string | null;
+                      srcSetPath?: string | null;
+                      width?: number | null;
+                    } | null;
+                  };
+                };
+              };
+            }
+          | { __typename?: 'NodeDeveloperTools' }
+          | { __typename?: 'NodeFoundationPage' }
+          | { __typename?: 'NodePage' }
+          | { __typename?: 'NodePeople' }
+          | { __typename?: 'NodeSpeaker' }
+          | { __typename?: 'NodeTalk' }
+        >;
+      }
+    | { __typename?: 'NodePathsResult' }
+    | { __typename?: 'PeopleResult' }
+    | { __typename?: 'SpeakersResult' }
+    | { __typename?: 'TalksAllResult' }
+    | { __typename?: 'TalksByDateResult' }
+    | { __typename?: 'TalksResult' };
+};
+
+type ParagraphsFragment_ParagraphPeopleGrid_ = {
+  __typename: 'ParagraphPeopleGrid';
+  id: string;
+  peopleView:
+    | { __typename: 'ContactTopicsResult' }
+    | { __typename: 'NewsLatestResult' }
+    | { __typename: 'NewsResult' }
+    | { __typename: 'NodePathsResult' }
+    | {
+        __typename: 'PeopleResult';
+        id: string;
+        results: Array<
+          | { __typename?: 'NodeArticle' }
+          | { __typename?: 'NodeDeveloperTools' }
+          | { __typename?: 'NodeFoundationPage' }
+          | { __typename?: 'NodePage' }
+          | {
+              __typename: 'NodePeople';
+              id: string;
+              path: string;
+              title: string;
+              position: string;
+              description?: {
+                __typename?: 'Text';
+                processed?: any | null;
+              } | null;
+              teaser: {
+                __typename: 'ParagraphTeaser';
+                id: string;
+                squareImage: {
+                  __typename: 'MediaImage';
+                  id: string;
+                  mediaImage: {
+                    __typename?: 'Image';
+                    alt?: string | null;
+                    responsive?: {
+                      __typename: 'ResponsiveImageStyleDerivative';
+                      height?: number | null;
+                      path?: string | null;
+                      srcSetPath?: string | null;
+                      width?: number | null;
+                    } | null;
+                  };
+                };
+                landscapeImage: {
+                  __typename: 'MediaImage';
+                  id: string;
+                  mediaImage: {
+                    __typename?: 'Image';
+                    alt?: string | null;
+                    responsive?: {
+                      __typename: 'ResponsiveImageStyleDerivative';
+                      height?: number | null;
+                      path?: string | null;
+                      srcSetPath?: string | null;
+                      width?: number | null;
+                    } | null;
+                  };
+                };
+              };
+            }
+          | { __typename?: 'NodeSpeaker' }
+          | { __typename?: 'NodeTalk' }
+        >;
+      }
+    | { __typename: 'SpeakersResult' }
+    | { __typename: 'TalksAllResult' }
+    | { __typename: 'TalksByDateResult' }
+    | { __typename: 'TalksResult' };
+};
+
+type ParagraphsFragment_ParagraphPrice_ = { __typename?: 'ParagraphPrice' };
+
+type ParagraphsFragment_ParagraphPriceList_ = {
+  __typename: 'ParagraphPriceList';
+  id: string;
+  pricesMain?: Array<{
+    __typename: 'ParagraphPrice';
+    id: string;
+    title: string;
+    menuTitle?: string | null;
+    pricing: string;
+    options?: Array<
+      | { __typename: 'ParagraphDivider'; id: string }
+      | {
+          __typename: 'ParagraphPriceOption';
+          id: string;
+          title: string;
+          subtitle?: string | null;
+        }
+    > | null;
+  }> | null;
+  pricesFooter?: {
+    __typename: 'ParagraphPrice';
+    id: string;
+    title: string;
+    menuTitle?: string | null;
+    pricing: string;
+    options?: Array<
+      | { __typename: 'ParagraphDivider'; id: string }
+      | {
+          __typename: 'ParagraphPriceOption';
+          id: string;
+          title: string;
+          subtitle?: string | null;
+        }
+    > | null;
+  } | null;
+};
+
+type ParagraphsFragment_ParagraphPriceOption_ = {
+  __typename?: 'ParagraphPriceOption';
+};
+
+type ParagraphsFragment_ParagraphSchedule_ = {
+  __typename: 'ParagraphSchedule';
+  id: string;
+  title: string;
+  days: Array<{
+    __typename: 'ParagraphScheduleDay';
+    id: string;
+    date: { __typename?: 'DateTime'; time: any };
+    talksView:
+      | { __typename: 'ContactTopicsResult' }
+      | { __typename: 'NewsLatestResult' }
+      | { __typename: 'NewsResult' }
+      | { __typename: 'NodePathsResult' }
+      | { __typename: 'PeopleResult' }
+      | { __typename: 'SpeakersResult' }
+      | { __typename: 'TalksAllResult' }
+      | {
+          __typename: 'TalksByDateResult';
+          results: Array<
+            | { __typename?: 'NodeArticle' }
+            | { __typename?: 'NodeDeveloperTools' }
+            | { __typename?: 'NodeFoundationPage' }
+            | { __typename?: 'NodePage' }
+            | { __typename?: 'NodePeople' }
+            | { __typename?: 'NodeSpeaker' }
+            | {
+                __typename: 'NodeTalk';
+                id: string;
+                title: string;
+                path: string;
+                startsAt?: { __typename?: 'DateTime'; time: any } | null;
+                endsAt?: { __typename?: 'DateTime'; time: any } | null;
+                speakers?: Array<{
+                  __typename?: 'NodeSpeaker';
+                  title: string;
+                  squareImage: {
+                    __typename: 'MediaImage';
+                    id: string;
+                    mediaImage: {
+                      __typename?: 'Image';
+                      alt?: string | null;
+                      responsive?: {
+                        __typename: 'ResponsiveImageStyleDerivative';
+                        height?: number | null;
+                        path?: string | null;
+                        srcSetPath?: string | null;
+                        width?: number | null;
+                      } | null;
+                    };
+                  };
+                }> | null;
+              }
+          >;
+        }
+      | { __typename: 'TalksResult' };
+  }>;
+};
+
+type ParagraphsFragment_ParagraphScheduleDay_ = {
+  __typename?: 'ParagraphScheduleDay';
+};
+
+type ParagraphsFragment_ParagraphScrollingLogoCarousel_ = {
+  __typename: 'ParagraphScrollingLogoCarousel';
+  id: string;
+  images: Array<{
+    __typename: 'MediaImage';
+    id: string;
+    mediaImage: {
+      __typename?: 'Image';
+      alt?: string | null;
+      responsive?: {
+        __typename: 'ResponsiveImageStyleDerivative';
+        height?: number | null;
+        path?: string | null;
+        srcSetPath?: string | null;
+        width?: number | null;
+      } | null;
+    };
+  }>;
+};
+
+type ParagraphsFragment_ParagraphSocialMedia_ = {
+  __typename?: 'ParagraphSocialMedia';
+};
+
+type ParagraphsFragment_ParagraphSocialMediaLink_ = {
+  __typename?: 'ParagraphSocialMediaLink';
+};
+
+type ParagraphsFragment_ParagraphSpacer_ = {
+  __typename: 'ParagraphSpacer';
+  id: string;
+  spacerSize: string;
+  spacerLine?: boolean | null;
+};
+
+type ParagraphsFragment_ParagraphSpeakersGrid_ = {
+  __typename: 'ParagraphSpeakersGrid';
+  id: string;
+  speakersView?:
+    | { __typename: 'ContactTopicsResult' }
+    | { __typename: 'NewsLatestResult' }
+    | { __typename: 'NewsResult' }
+    | { __typename: 'NodePathsResult' }
+    | { __typename: 'PeopleResult' }
+    | {
+        __typename: 'SpeakersResult';
+        id: string;
+        results: Array<
+          | { __typename?: 'NodeArticle' }
+          | { __typename?: 'NodeDeveloperTools' }
+          | { __typename?: 'NodeFoundationPage' }
+          | { __typename?: 'NodePage' }
+          | { __typename?: 'NodePeople' }
+          | {
+              __typename: 'NodeSpeaker';
+              id: string;
+              title: string;
+              path: string;
+              tagLine?: string | null;
+              squareImage: {
+                __typename: 'MediaImage';
+                id: string;
+                mediaImage: {
+                  __typename?: 'Image';
+                  alt?: string | null;
+                  responsive?: {
+                    __typename: 'ResponsiveImageStyleDerivative';
+                    height?: number | null;
+                    path?: string | null;
+                    srcSetPath?: string | null;
+                    width?: number | null;
+                  } | null;
+                };
+              };
+            }
+          | { __typename?: 'NodeTalk' }
+        >;
+      }
+    | { __typename: 'TalksAllResult' }
+    | { __typename: 'TalksByDateResult' }
+    | { __typename: 'TalksResult' }
+    | null;
+};
+
+type ParagraphsFragment_ParagraphTalkHeader_ = {
+  __typename?: 'ParagraphTalkHeader';
+};
+
+type ParagraphsFragment_ParagraphTalksGrid_ = {
+  __typename: 'ParagraphTalksGrid';
+  id: string;
+  talksView:
+    | { __typename: 'ContactTopicsResult' }
+    | { __typename: 'NewsLatestResult' }
+    | { __typename: 'NewsResult' }
+    | { __typename: 'NodePathsResult' }
+    | { __typename: 'PeopleResult' }
+    | { __typename: 'SpeakersResult' }
+    | {
+        __typename: 'TalksAllResult';
+        id: string;
+        results: Array<
+          | { __typename?: 'NodeArticle' }
+          | { __typename?: 'NodeDeveloperTools' }
+          | { __typename?: 'NodeFoundationPage' }
+          | { __typename?: 'NodePage' }
+          | { __typename?: 'NodePeople' }
+          | { __typename?: 'NodeSpeaker' }
+          | {
+              __typename: 'NodeTalk';
+              id: string;
+              title: string;
+              path: string;
+              startsAt?: { __typename?: 'DateTime'; time: any } | null;
+              endsAt?: { __typename?: 'DateTime'; time: any } | null;
+              speakers?: Array<{
+                __typename?: 'NodeSpeaker';
+                title: string;
+                squareImage: {
+                  __typename: 'MediaImage';
+                  id: string;
+                  mediaImage: {
+                    __typename?: 'Image';
+                    alt?: string | null;
+                    responsive?: {
+                      __typename: 'ResponsiveImageStyleDerivative';
+                      height?: number | null;
+                      path?: string | null;
+                      srcSetPath?: string | null;
+                      width?: number | null;
+                    } | null;
+                  };
+                };
+              }> | null;
+            }
+        >;
+      }
+    | { __typename: 'TalksByDateResult' }
+    | { __typename: 'TalksResult' };
+};
+
+type ParagraphsFragment_ParagraphTeaser_ = { __typename?: 'ParagraphTeaser' };
+
+type ParagraphsFragment_ParagraphText_ = {
+  __typename: 'ParagraphText';
+  id: string;
+  text: { __typename?: 'Text'; processed?: any | null };
+};
+
+type ParagraphsFragment_ParagraphTwoColumnContent_ = {
+  __typename: 'ParagraphTwoColumnContent';
+  id: string;
+  firstColumn?: Array<
+    | {
+        __typename: 'ParagraphButton';
+        id: string;
+        link: {
+          __typename?: 'Link';
+          url?: string | null;
+          title?: string | null;
+        };
+      }
+    | { __typename: 'ParagraphContentTitle'; id: string; title: string }
+    | {
+        __typename: 'ParagraphImage';
+        id: string;
+        landscapeImage: {
+          __typename: 'MediaImage';
+          id: string;
+          mediaImage: {
+            __typename?: 'Image';
+            alt?: string | null;
+            responsive?: {
+              __typename: 'ResponsiveImageStyleDerivative';
+              height?: number | null;
+              path?: string | null;
+              srcSetPath?: string | null;
+              width?: number | null;
+            } | null;
+          };
+        };
+        squareIamge: {
+          __typename: 'MediaImage';
+          id: string;
+          mediaImage: {
+            __typename?: 'Image';
+            alt?: string | null;
+            responsive?: {
+              __typename: 'ResponsiveImageStyleDerivative';
+              height?: number | null;
+              path?: string | null;
+              srcSetPath?: string | null;
+              width?: number | null;
+            } | null;
+          };
+        };
+      }
+    | {
+        __typename: 'ParagraphSpacer';
+        id: string;
+        spacerSize: string;
+        spacerLine?: boolean | null;
+      }
+    | {
+        __typename: 'ParagraphText';
+        id: string;
+        text: { __typename?: 'Text'; processed?: any | null };
+      }
+    | {
+        __typename: 'ParagraphVideo';
+        id: string;
+        video: {
+          __typename: 'MediaVideo';
+          id: string;
+          mediaVideoFile: { __typename?: 'File'; url: string };
+        };
+        image: {
+          __typename: 'MediaImage';
+          id: string;
+          mediaImage: {
+            __typename?: 'Image';
+            alt?: string | null;
+            responsive?: {
+              __typename: 'ResponsiveImageStyleDerivative';
+              height?: number | null;
+              path?: string | null;
+              srcSetPath?: string | null;
+              width?: number | null;
+            } | null;
+          };
+        };
+      }
+  > | null;
+  secondColumn?: Array<
+    | {
+        __typename: 'ParagraphButton';
+        id: string;
+        link: {
+          __typename?: 'Link';
+          url?: string | null;
+          title?: string | null;
+        };
+      }
+    | { __typename: 'ParagraphContentTitle'; id: string; title: string }
+    | {
+        __typename: 'ParagraphImage';
+        id: string;
+        landscapeImage: {
+          __typename: 'MediaImage';
+          id: string;
+          mediaImage: {
+            __typename?: 'Image';
+            alt?: string | null;
+            responsive?: {
+              __typename: 'ResponsiveImageStyleDerivative';
+              height?: number | null;
+              path?: string | null;
+              srcSetPath?: string | null;
+              width?: number | null;
+            } | null;
+          };
+        };
+        squareIamge: {
+          __typename: 'MediaImage';
+          id: string;
+          mediaImage: {
+            __typename?: 'Image';
+            alt?: string | null;
+            responsive?: {
+              __typename: 'ResponsiveImageStyleDerivative';
+              height?: number | null;
+              path?: string | null;
+              srcSetPath?: string | null;
+              width?: number | null;
+            } | null;
+          };
+        };
+      }
+    | {
+        __typename: 'ParagraphSpacer';
+        id: string;
+        spacerSize: string;
+        spacerLine?: boolean | null;
+      }
+    | {
+        __typename: 'ParagraphText';
+        id: string;
+        text: { __typename?: 'Text'; processed?: any | null };
+      }
+    | {
+        __typename: 'ParagraphVideo';
+        id: string;
+        video: {
+          __typename: 'MediaVideo';
+          id: string;
+          mediaVideoFile: { __typename?: 'File'; url: string };
+        };
+        image: {
+          __typename: 'MediaImage';
+          id: string;
+          mediaImage: {
+            __typename?: 'Image';
+            alt?: string | null;
+            responsive?: {
+              __typename: 'ResponsiveImageStyleDerivative';
+              height?: number | null;
+              path?: string | null;
+              srcSetPath?: string | null;
+              width?: number | null;
+            } | null;
+          };
+        };
+      }
+  > | null;
+};
+
+type ParagraphsFragment_ParagraphVideo_ = {
+  __typename: 'ParagraphVideo';
+  id: string;
+  video: {
+    __typename: 'MediaVideo';
+    id: string;
+    mediaVideoFile: { __typename?: 'File'; url: string };
+  };
+  image: {
+    __typename: 'MediaImage';
+    id: string;
+    mediaImage: {
+      __typename?: 'Image';
+      alt?: string | null;
+      responsive?: {
+        __typename: 'ResponsiveImageStyleDerivative';
+        height?: number | null;
+        path?: string | null;
+        srcSetPath?: string | null;
+        width?: number | null;
+      } | null;
+    };
+  };
+};
+
+export type ParagraphsFragment =
+  | ParagraphsFragment_ParagraphAnchor_
+  | ParagraphsFragment_ParagraphButton_
+  | ParagraphsFragment_ParagraphCarouselItem_
+  | ParagraphsFragment_ParagraphColumnCard_
+  | ParagraphsFragment_ParagraphContactForm_
+  | ParagraphsFragment_ParagraphContentCarousel_
+  | ParagraphsFragment_ParagraphContentColumnCards_
+  | ParagraphsFragment_ParagraphContentTitle_
+  | ParagraphsFragment_ParagraphDivider_
+  | ParagraphsFragment_ParagraphFaq_
+  | ParagraphsFragment_ParagraphFaqs_
+  | ParagraphsFragment_ParagraphHeroHeader_
+  | ParagraphsFragment_ParagraphHighlightedList_
+  | ParagraphsFragment_ParagraphHighlightedSpeakers_
+  | ParagraphsFragment_ParagraphImage_
+  | ParagraphsFragment_ParagraphImageCarousel_
+  | ParagraphsFragment_ParagraphImageFullWidth_
+  | ParagraphsFragment_ParagraphImageGallery_
+  | ParagraphsFragment_ParagraphLargeCalloutText_
+  | ParagraphsFragment_ParagraphMediaHeader_
+  | ParagraphsFragment_ParagraphNewsListings_
+  | ParagraphsFragment_ParagraphPeopleGrid_
+  | ParagraphsFragment_ParagraphPrice_
+  | ParagraphsFragment_ParagraphPriceList_
+  | ParagraphsFragment_ParagraphPriceOption_
+  | ParagraphsFragment_ParagraphSchedule_
+  | ParagraphsFragment_ParagraphScheduleDay_
+  | ParagraphsFragment_ParagraphScrollingLogoCarousel_
+  | ParagraphsFragment_ParagraphSocialMedia_
+  | ParagraphsFragment_ParagraphSocialMediaLink_
+  | ParagraphsFragment_ParagraphSpacer_
+  | ParagraphsFragment_ParagraphSpeakersGrid_
+  | ParagraphsFragment_ParagraphTalkHeader_
+  | ParagraphsFragment_ParagraphTalksGrid_
+  | ParagraphsFragment_ParagraphTeaser_
+  | ParagraphsFragment_ParagraphText_
+  | ParagraphsFragment_ParagraphTwoColumnContent_
+  | ParagraphsFragment_ParagraphVideo_;
+
 export type ImageStyleFragment = {
   __typename: 'ImageStylePathDerivative';
   height?: number | null;
@@ -1185,6 +2318,25 @@ export type NodeFoundationPageFragment = {
               }
           > | null;
         } | null;
+      }
+    | {
+        __typename: 'ParagraphScrollingLogoCarousel';
+        id: string;
+        images: Array<{
+          __typename: 'MediaImage';
+          id: string;
+          mediaImage: {
+            __typename?: 'Image';
+            alt?: string | null;
+            responsive?: {
+              __typename: 'ResponsiveImageStyleDerivative';
+              height?: number | null;
+              path?: string | null;
+              srcSetPath?: string | null;
+              width?: number | null;
+            } | null;
+          };
+        }>;
       }
     | {
         __typename: 'ParagraphSpacer';
@@ -2530,6 +3682,10 @@ type ContentCarouselItemFragment_ParagraphScheduleDay_ = {
   __typename?: 'ParagraphScheduleDay';
 };
 
+type ContentCarouselItemFragment_ParagraphScrollingLogoCarousel_ = {
+  __typename?: 'ParagraphScrollingLogoCarousel';
+};
+
 type ContentCarouselItemFragment_ParagraphSocialMedia_ = {
   __typename?: 'ParagraphSocialMedia';
 };
@@ -2761,6 +3917,7 @@ export type ContentCarouselItemFragment =
   | ContentCarouselItemFragment_ParagraphPriceOption_
   | ContentCarouselItemFragment_ParagraphSchedule_
   | ContentCarouselItemFragment_ParagraphScheduleDay_
+  | ContentCarouselItemFragment_ParagraphScrollingLogoCarousel_
   | ContentCarouselItemFragment_ParagraphSocialMedia_
   | ContentCarouselItemFragment_ParagraphSocialMediaLink_
   | ContentCarouselItemFragment_ParagraphSpacer_
@@ -3777,6 +4934,26 @@ export type ParagraphScheduleDayFragment = {
     | { __typename: 'TalksResult' };
 };
 
+export type ParagraphScrollingLogoCarouselFragment = {
+  __typename: 'ParagraphScrollingLogoCarousel';
+  id: string;
+  images: Array<{
+    __typename: 'MediaImage';
+    id: string;
+    mediaImage: {
+      __typename?: 'Image';
+      alt?: string | null;
+      responsive?: {
+        __typename: 'ResponsiveImageStyleDerivative';
+        height?: number | null;
+        path?: string | null;
+        srcSetPath?: string | null;
+        width?: number | null;
+      } | null;
+    };
+  }>;
+};
+
 export type ParagraphSpacerFragment = {
   __typename: 'ParagraphSpacer';
   id: string;
@@ -4081,6 +5258,10 @@ type TwoColumnContentFragment_ParagraphScheduleDay_ = {
   __typename?: 'ParagraphScheduleDay';
 };
 
+type TwoColumnContentFragment_ParagraphScrollingLogoCarousel_ = {
+  __typename?: 'ParagraphScrollingLogoCarousel';
+};
+
 type TwoColumnContentFragment_ParagraphSocialMedia_ = {
   __typename?: 'ParagraphSocialMedia';
 };
@@ -4175,6 +5356,7 @@ export type TwoColumnContentFragment =
   | TwoColumnContentFragment_ParagraphPriceOption_
   | TwoColumnContentFragment_ParagraphSchedule_
   | TwoColumnContentFragment_ParagraphScheduleDay_
+  | TwoColumnContentFragment_ParagraphScrollingLogoCarousel_
   | TwoColumnContentFragment_ParagraphSocialMedia_
   | TwoColumnContentFragment_ParagraphSocialMediaLink_
   | TwoColumnContentFragment_ParagraphSpacer_
@@ -4418,1118 +5600,6 @@ export type LinkFragment = {
   url?: string | null;
   title?: string | null;
 };
-
-type ParagraphsFragment_ParagraphAnchor_ = {
-  __typename: 'ParagraphAnchor';
-  id: string;
-  title: string;
-};
-
-type ParagraphsFragment_ParagraphButton_ = {
-  __typename: 'ParagraphButton';
-  id: string;
-  link: { __typename?: 'Link'; url?: string | null; title?: string | null };
-};
-
-type ParagraphsFragment_ParagraphCarouselItem_ = {
-  __typename?: 'ParagraphCarouselItem';
-};
-
-type ParagraphsFragment_ParagraphColumnCard_ = {
-  __typename?: 'ParagraphColumnCard';
-};
-
-type ParagraphsFragment_ParagraphContactForm_ = {
-  __typename: 'ParagraphContactForm';
-  id: string;
-  contactTopicsView:
-    | {
-        __typename: 'ContactTopicsResult';
-        results: Array<{
-          __typename?: 'TermContactTopics';
-          id: string;
-          name: string;
-        }>;
-      }
-    | { __typename: 'NewsLatestResult' }
-    | { __typename: 'NewsResult' }
-    | { __typename: 'NodePathsResult' }
-    | { __typename: 'PeopleResult' }
-    | { __typename: 'SpeakersResult' }
-    | { __typename: 'TalksAllResult' }
-    | { __typename: 'TalksByDateResult' }
-    | { __typename: 'TalksResult' };
-  contactTopic?: {
-    __typename?: 'TermContactTopics';
-    name: string;
-    id: string;
-  } | null;
-};
-
-type ParagraphsFragment_ParagraphContentCarousel_ = {
-  __typename: 'ParagraphContentCarousel';
-  id: string;
-  carouselItem?: Array<{
-    __typename: 'ParagraphTwoColumnContent';
-    id: string;
-    firstColumn?: Array<
-      | {
-          __typename: 'ParagraphButton';
-          id: string;
-          link: {
-            __typename?: 'Link';
-            url?: string | null;
-            title?: string | null;
-          };
-        }
-      | { __typename: 'ParagraphContentTitle'; id: string; title: string }
-      | {
-          __typename: 'ParagraphImage';
-          id: string;
-          landscapeImage: {
-            __typename: 'MediaImage';
-            id: string;
-            mediaImage: {
-              __typename?: 'Image';
-              alt?: string | null;
-              responsive?: {
-                __typename: 'ResponsiveImageStyleDerivative';
-                height?: number | null;
-                path?: string | null;
-                srcSetPath?: string | null;
-                width?: number | null;
-              } | null;
-            };
-          };
-          squareIamge: {
-            __typename: 'MediaImage';
-            id: string;
-            mediaImage: {
-              __typename?: 'Image';
-              alt?: string | null;
-              responsive?: {
-                __typename: 'ResponsiveImageStyleDerivative';
-                height?: number | null;
-                path?: string | null;
-                srcSetPath?: string | null;
-                width?: number | null;
-              } | null;
-            };
-          };
-        }
-      | {
-          __typename: 'ParagraphSpacer';
-          id: string;
-          spacerSize: string;
-          spacerLine?: boolean | null;
-        }
-      | {
-          __typename: 'ParagraphText';
-          id: string;
-          text: { __typename?: 'Text'; processed?: any | null };
-        }
-      | {
-          __typename: 'ParagraphVideo';
-          id: string;
-          video: {
-            __typename: 'MediaVideo';
-            id: string;
-            mediaVideoFile: { __typename?: 'File'; url: string };
-          };
-          image: {
-            __typename: 'MediaImage';
-            id: string;
-            mediaImage: {
-              __typename?: 'Image';
-              alt?: string | null;
-              responsive?: {
-                __typename: 'ResponsiveImageStyleDerivative';
-                height?: number | null;
-                path?: string | null;
-                srcSetPath?: string | null;
-                width?: number | null;
-              } | null;
-            };
-          };
-        }
-    > | null;
-    secondColumn?: Array<
-      | {
-          __typename: 'ParagraphButton';
-          id: string;
-          link: {
-            __typename?: 'Link';
-            url?: string | null;
-            title?: string | null;
-          };
-        }
-      | { __typename: 'ParagraphContentTitle'; id: string; title: string }
-      | {
-          __typename: 'ParagraphImage';
-          id: string;
-          landscapeImage: {
-            __typename: 'MediaImage';
-            id: string;
-            mediaImage: {
-              __typename?: 'Image';
-              alt?: string | null;
-              responsive?: {
-                __typename: 'ResponsiveImageStyleDerivative';
-                height?: number | null;
-                path?: string | null;
-                srcSetPath?: string | null;
-                width?: number | null;
-              } | null;
-            };
-          };
-          squareIamge: {
-            __typename: 'MediaImage';
-            id: string;
-            mediaImage: {
-              __typename?: 'Image';
-              alt?: string | null;
-              responsive?: {
-                __typename: 'ResponsiveImageStyleDerivative';
-                height?: number | null;
-                path?: string | null;
-                srcSetPath?: string | null;
-                width?: number | null;
-              } | null;
-            };
-          };
-        }
-      | {
-          __typename: 'ParagraphSpacer';
-          id: string;
-          spacerSize: string;
-          spacerLine?: boolean | null;
-        }
-      | {
-          __typename: 'ParagraphText';
-          id: string;
-          text: { __typename?: 'Text'; processed?: any | null };
-        }
-      | {
-          __typename: 'ParagraphVideo';
-          id: string;
-          video: {
-            __typename: 'MediaVideo';
-            id: string;
-            mediaVideoFile: { __typename?: 'File'; url: string };
-          };
-          image: {
-            __typename: 'MediaImage';
-            id: string;
-            mediaImage: {
-              __typename?: 'Image';
-              alt?: string | null;
-              responsive?: {
-                __typename: 'ResponsiveImageStyleDerivative';
-                height?: number | null;
-                path?: string | null;
-                srcSetPath?: string | null;
-                width?: number | null;
-              } | null;
-            };
-          };
-        }
-    > | null;
-  }> | null;
-};
-
-type ParagraphsFragment_ParagraphContentColumnCards_ = {
-  __typename: 'ParagraphContentColumnCards';
-  id: string;
-  imageStyle: string;
-  content?: Array<{
-    __typename: 'ParagraphColumnCard';
-    id: string;
-    squareImage: {
-      __typename: 'MediaImage';
-      id: string;
-      mediaImage: {
-        __typename?: 'Image';
-        alt?: string | null;
-        responsive?: {
-          __typename: 'ResponsiveImageStyleDerivative';
-          height?: number | null;
-          path?: string | null;
-          srcSetPath?: string | null;
-          width?: number | null;
-        } | null;
-      };
-    };
-    landscapeImage: {
-      __typename: 'MediaImage';
-      id: string;
-      mediaImage: {
-        __typename?: 'Image';
-        alt?: string | null;
-        responsive?: {
-          __typename: 'ResponsiveImageStyleDerivative';
-          height?: number | null;
-          path?: string | null;
-          srcSetPath?: string | null;
-          width?: number | null;
-        } | null;
-      };
-    };
-    text: { __typename?: 'Text'; processed?: any | null };
-    link: { __typename?: 'Link'; title?: string | null; url?: string | null };
-  }> | null;
-};
-
-type ParagraphsFragment_ParagraphContentTitle_ = {
-  __typename: 'ParagraphContentTitle';
-  id: string;
-  title: string;
-};
-
-type ParagraphsFragment_ParagraphDivider_ = { __typename?: 'ParagraphDivider' };
-
-type ParagraphsFragment_ParagraphFaq_ = { __typename?: 'ParagraphFaq' };
-
-type ParagraphsFragment_ParagraphFaqs_ = {
-  __typename: 'ParagraphFaqs';
-  id: string;
-  faqs?: Array<{
-    __typename?: 'ParagraphFaq';
-    id: string;
-    question: string;
-    answer: { __typename?: 'Text'; processed?: any | null };
-  }> | null;
-};
-
-type ParagraphsFragment_ParagraphHeroHeader_ = {
-  __typename?: 'ParagraphHeroHeader';
-};
-
-type ParagraphsFragment_ParagraphHighlightedList_ = {
-  __typename: 'ParagraphHighlightedList';
-  id: string;
-  listItem?: Array<string> | null;
-};
-
-type ParagraphsFragment_ParagraphHighlightedSpeakers_ = {
-  __typename: 'ParagraphHighlightedSpeakers';
-  id: string;
-  speakers?: Array<{
-    __typename?: 'NodeSpeaker';
-    id: string;
-    title: string;
-    squareImage: {
-      __typename: 'MediaImage';
-      id: string;
-      mediaImage: {
-        __typename?: 'Image';
-        alt?: string | null;
-        responsive?: {
-          __typename: 'ResponsiveImageStyleDerivative';
-          height?: number | null;
-          path?: string | null;
-          srcSetPath?: string | null;
-          width?: number | null;
-        } | null;
-      };
-    };
-  }> | null;
-};
-
-type ParagraphsFragment_ParagraphImage_ = {
-  __typename: 'ParagraphImage';
-  id: string;
-  landscapeImage: {
-    __typename: 'MediaImage';
-    id: string;
-    mediaImage: {
-      __typename?: 'Image';
-      alt?: string | null;
-      responsive?: {
-        __typename: 'ResponsiveImageStyleDerivative';
-        height?: number | null;
-        path?: string | null;
-        srcSetPath?: string | null;
-        width?: number | null;
-      } | null;
-    };
-  };
-  squareIamge: {
-    __typename: 'MediaImage';
-    id: string;
-    mediaImage: {
-      __typename?: 'Image';
-      alt?: string | null;
-      responsive?: {
-        __typename: 'ResponsiveImageStyleDerivative';
-        height?: number | null;
-        path?: string | null;
-        srcSetPath?: string | null;
-        width?: number | null;
-      } | null;
-    };
-  };
-};
-
-type ParagraphsFragment_ParagraphImageCarousel_ = {
-  __typename: 'ParagraphImageCarousel';
-  id: string;
-  carouselItem?: Array<{
-    __typename?: 'ParagraphCarouselItem';
-    id: string;
-    image: {
-      __typename: 'MediaImage';
-      id: string;
-      mediaImage: {
-        __typename?: 'Image';
-        alt?: string | null;
-        responsive?: {
-          __typename: 'ResponsiveImageStyleDerivative';
-          height?: number | null;
-          path?: string | null;
-          srcSetPath?: string | null;
-          width?: number | null;
-        } | null;
-      };
-    };
-  }> | null;
-};
-
-type ParagraphsFragment_ParagraphImageFullWidth_ = {
-  __typename: 'ParagraphImageFullWidth';
-  id: string;
-  landscapeImage: {
-    __typename: 'MediaImage';
-    id: string;
-    mediaImage: {
-      __typename?: 'Image';
-      alt?: string | null;
-      responsive?: {
-        __typename: 'ResponsiveImageStyleDerivative';
-        height?: number | null;
-        path?: string | null;
-        srcSetPath?: string | null;
-        width?: number | null;
-      } | null;
-    };
-  };
-  squareIamge: {
-    __typename: 'MediaImage';
-    id: string;
-    mediaImage: {
-      __typename?: 'Image';
-      alt?: string | null;
-      responsive?: {
-        __typename: 'ResponsiveImageStyleDerivative';
-        height?: number | null;
-        path?: string | null;
-        srcSetPath?: string | null;
-        width?: number | null;
-      } | null;
-    };
-  };
-};
-
-type ParagraphsFragment_ParagraphImageGallery_ = {
-  __typename: 'ParagraphImageGallery';
-  id: string;
-  multipleImages: Array<{
-    __typename: 'MediaImage';
-    id: string;
-    mediaImage: {
-      __typename?: 'Image';
-      alt?: string | null;
-      responsive?: {
-        __typename: 'ResponsiveImageStyleDerivative';
-        height?: number | null;
-        path?: string | null;
-        srcSetPath?: string | null;
-        width?: number | null;
-      } | null;
-    };
-  }>;
-};
-
-type ParagraphsFragment_ParagraphLargeCalloutText_ = {
-  __typename: 'ParagraphLargeCalloutText';
-  id: string;
-  largeCalloutText?: string | null;
-};
-
-type ParagraphsFragment_ParagraphMediaHeader_ = {
-  __typename?: 'ParagraphMediaHeader';
-};
-
-type ParagraphsFragment_ParagraphNewsListings_ = {
-  __typename: 'ParagraphNewsListings';
-  id: string;
-  newsLatestView:
-    | { __typename?: 'ContactTopicsResult' }
-    | {
-        __typename: 'NewsLatestResult';
-        results: Array<
-          | {
-              __typename: 'NodeArticle';
-              id: string;
-              title: string;
-              path: string;
-              summary?: { __typename?: 'Text'; processed?: any | null } | null;
-              created: { __typename?: 'DateTime'; time: any };
-              teaser: {
-                __typename: 'ParagraphTeaser';
-                id: string;
-                squareImage: {
-                  __typename: 'MediaImage';
-                  id: string;
-                  mediaImage: {
-                    __typename?: 'Image';
-                    alt?: string | null;
-                    responsive?: {
-                      __typename: 'ResponsiveImageStyleDerivative';
-                      height?: number | null;
-                      path?: string | null;
-                      srcSetPath?: string | null;
-                      width?: number | null;
-                    } | null;
-                  };
-                };
-                landscapeImage: {
-                  __typename: 'MediaImage';
-                  id: string;
-                  mediaImage: {
-                    __typename?: 'Image';
-                    alt?: string | null;
-                    responsive?: {
-                      __typename: 'ResponsiveImageStyleDerivative';
-                      height?: number | null;
-                      path?: string | null;
-                      srcSetPath?: string | null;
-                      width?: number | null;
-                    } | null;
-                  };
-                };
-              };
-            }
-          | { __typename?: 'NodeDeveloperTools' }
-          | { __typename?: 'NodeFoundationPage' }
-          | { __typename?: 'NodePage' }
-          | { __typename?: 'NodePeople' }
-          | { __typename?: 'NodeSpeaker' }
-          | { __typename?: 'NodeTalk' }
-        >;
-      }
-    | { __typename?: 'NewsResult' }
-    | { __typename?: 'NodePathsResult' }
-    | { __typename?: 'PeopleResult' }
-    | { __typename?: 'SpeakersResult' }
-    | { __typename?: 'TalksAllResult' }
-    | { __typename?: 'TalksByDateResult' }
-    | { __typename?: 'TalksResult' };
-  newsView:
-    | { __typename?: 'ContactTopicsResult' }
-    | { __typename?: 'NewsLatestResult' }
-    | {
-        __typename: 'NewsResult';
-        pageInfo: {
-          __typename?: 'ViewPageInfo';
-          offset: number;
-          page: number;
-          pageSize: number;
-          total: number;
-        };
-        results: Array<
-          | {
-              __typename: 'NodeArticle';
-              id: string;
-              title: string;
-              path: string;
-              summary?: { __typename?: 'Text'; processed?: any | null } | null;
-              created: { __typename?: 'DateTime'; time: any };
-              teaser: {
-                __typename: 'ParagraphTeaser';
-                id: string;
-                squareImage: {
-                  __typename: 'MediaImage';
-                  id: string;
-                  mediaImage: {
-                    __typename?: 'Image';
-                    alt?: string | null;
-                    responsive?: {
-                      __typename: 'ResponsiveImageStyleDerivative';
-                      height?: number | null;
-                      path?: string | null;
-                      srcSetPath?: string | null;
-                      width?: number | null;
-                    } | null;
-                  };
-                };
-                landscapeImage: {
-                  __typename: 'MediaImage';
-                  id: string;
-                  mediaImage: {
-                    __typename?: 'Image';
-                    alt?: string | null;
-                    responsive?: {
-                      __typename: 'ResponsiveImageStyleDerivative';
-                      height?: number | null;
-                      path?: string | null;
-                      srcSetPath?: string | null;
-                      width?: number | null;
-                    } | null;
-                  };
-                };
-              };
-            }
-          | { __typename?: 'NodeDeveloperTools' }
-          | { __typename?: 'NodeFoundationPage' }
-          | { __typename?: 'NodePage' }
-          | { __typename?: 'NodePeople' }
-          | { __typename?: 'NodeSpeaker' }
-          | { __typename?: 'NodeTalk' }
-        >;
-      }
-    | { __typename?: 'NodePathsResult' }
-    | { __typename?: 'PeopleResult' }
-    | { __typename?: 'SpeakersResult' }
-    | { __typename?: 'TalksAllResult' }
-    | { __typename?: 'TalksByDateResult' }
-    | { __typename?: 'TalksResult' };
-};
-
-type ParagraphsFragment_ParagraphPeopleGrid_ = {
-  __typename: 'ParagraphPeopleGrid';
-  id: string;
-  peopleView:
-    | { __typename: 'ContactTopicsResult' }
-    | { __typename: 'NewsLatestResult' }
-    | { __typename: 'NewsResult' }
-    | { __typename: 'NodePathsResult' }
-    | {
-        __typename: 'PeopleResult';
-        id: string;
-        results: Array<
-          | { __typename?: 'NodeArticle' }
-          | { __typename?: 'NodeDeveloperTools' }
-          | { __typename?: 'NodeFoundationPage' }
-          | { __typename?: 'NodePage' }
-          | {
-              __typename: 'NodePeople';
-              id: string;
-              path: string;
-              title: string;
-              position: string;
-              description?: {
-                __typename?: 'Text';
-                processed?: any | null;
-              } | null;
-              teaser: {
-                __typename: 'ParagraphTeaser';
-                id: string;
-                squareImage: {
-                  __typename: 'MediaImage';
-                  id: string;
-                  mediaImage: {
-                    __typename?: 'Image';
-                    alt?: string | null;
-                    responsive?: {
-                      __typename: 'ResponsiveImageStyleDerivative';
-                      height?: number | null;
-                      path?: string | null;
-                      srcSetPath?: string | null;
-                      width?: number | null;
-                    } | null;
-                  };
-                };
-                landscapeImage: {
-                  __typename: 'MediaImage';
-                  id: string;
-                  mediaImage: {
-                    __typename?: 'Image';
-                    alt?: string | null;
-                    responsive?: {
-                      __typename: 'ResponsiveImageStyleDerivative';
-                      height?: number | null;
-                      path?: string | null;
-                      srcSetPath?: string | null;
-                      width?: number | null;
-                    } | null;
-                  };
-                };
-              };
-            }
-          | { __typename?: 'NodeSpeaker' }
-          | { __typename?: 'NodeTalk' }
-        >;
-      }
-    | { __typename: 'SpeakersResult' }
-    | { __typename: 'TalksAllResult' }
-    | { __typename: 'TalksByDateResult' }
-    | { __typename: 'TalksResult' };
-};
-
-type ParagraphsFragment_ParagraphPrice_ = { __typename?: 'ParagraphPrice' };
-
-type ParagraphsFragment_ParagraphPriceList_ = {
-  __typename: 'ParagraphPriceList';
-  id: string;
-  pricesMain?: Array<{
-    __typename: 'ParagraphPrice';
-    id: string;
-    title: string;
-    menuTitle?: string | null;
-    pricing: string;
-    options?: Array<
-      | { __typename: 'ParagraphDivider'; id: string }
-      | {
-          __typename: 'ParagraphPriceOption';
-          id: string;
-          title: string;
-          subtitle?: string | null;
-        }
-    > | null;
-  }> | null;
-  pricesFooter?: {
-    __typename: 'ParagraphPrice';
-    id: string;
-    title: string;
-    menuTitle?: string | null;
-    pricing: string;
-    options?: Array<
-      | { __typename: 'ParagraphDivider'; id: string }
-      | {
-          __typename: 'ParagraphPriceOption';
-          id: string;
-          title: string;
-          subtitle?: string | null;
-        }
-    > | null;
-  } | null;
-};
-
-type ParagraphsFragment_ParagraphPriceOption_ = {
-  __typename?: 'ParagraphPriceOption';
-};
-
-type ParagraphsFragment_ParagraphSchedule_ = {
-  __typename: 'ParagraphSchedule';
-  id: string;
-  title: string;
-  days: Array<{
-    __typename: 'ParagraphScheduleDay';
-    id: string;
-    date: { __typename?: 'DateTime'; time: any };
-    talksView:
-      | { __typename: 'ContactTopicsResult' }
-      | { __typename: 'NewsLatestResult' }
-      | { __typename: 'NewsResult' }
-      | { __typename: 'NodePathsResult' }
-      | { __typename: 'PeopleResult' }
-      | { __typename: 'SpeakersResult' }
-      | { __typename: 'TalksAllResult' }
-      | {
-          __typename: 'TalksByDateResult';
-          results: Array<
-            | { __typename?: 'NodeArticle' }
-            | { __typename?: 'NodeDeveloperTools' }
-            | { __typename?: 'NodeFoundationPage' }
-            | { __typename?: 'NodePage' }
-            | { __typename?: 'NodePeople' }
-            | { __typename?: 'NodeSpeaker' }
-            | {
-                __typename: 'NodeTalk';
-                id: string;
-                title: string;
-                path: string;
-                startsAt?: { __typename?: 'DateTime'; time: any } | null;
-                endsAt?: { __typename?: 'DateTime'; time: any } | null;
-                speakers?: Array<{
-                  __typename?: 'NodeSpeaker';
-                  title: string;
-                  squareImage: {
-                    __typename: 'MediaImage';
-                    id: string;
-                    mediaImage: {
-                      __typename?: 'Image';
-                      alt?: string | null;
-                      responsive?: {
-                        __typename: 'ResponsiveImageStyleDerivative';
-                        height?: number | null;
-                        path?: string | null;
-                        srcSetPath?: string | null;
-                        width?: number | null;
-                      } | null;
-                    };
-                  };
-                }> | null;
-              }
-          >;
-        }
-      | { __typename: 'TalksResult' };
-  }>;
-};
-
-type ParagraphsFragment_ParagraphScheduleDay_ = {
-  __typename?: 'ParagraphScheduleDay';
-};
-
-type ParagraphsFragment_ParagraphSocialMedia_ = {
-  __typename?: 'ParagraphSocialMedia';
-};
-
-type ParagraphsFragment_ParagraphSocialMediaLink_ = {
-  __typename?: 'ParagraphSocialMediaLink';
-};
-
-type ParagraphsFragment_ParagraphSpacer_ = {
-  __typename: 'ParagraphSpacer';
-  id: string;
-  spacerSize: string;
-  spacerLine?: boolean | null;
-};
-
-type ParagraphsFragment_ParagraphSpeakersGrid_ = {
-  __typename: 'ParagraphSpeakersGrid';
-  id: string;
-  speakersView?:
-    | { __typename: 'ContactTopicsResult' }
-    | { __typename: 'NewsLatestResult' }
-    | { __typename: 'NewsResult' }
-    | { __typename: 'NodePathsResult' }
-    | { __typename: 'PeopleResult' }
-    | {
-        __typename: 'SpeakersResult';
-        id: string;
-        results: Array<
-          | { __typename?: 'NodeArticle' }
-          | { __typename?: 'NodeDeveloperTools' }
-          | { __typename?: 'NodeFoundationPage' }
-          | { __typename?: 'NodePage' }
-          | { __typename?: 'NodePeople' }
-          | {
-              __typename: 'NodeSpeaker';
-              id: string;
-              title: string;
-              path: string;
-              tagLine?: string | null;
-              squareImage: {
-                __typename: 'MediaImage';
-                id: string;
-                mediaImage: {
-                  __typename?: 'Image';
-                  alt?: string | null;
-                  responsive?: {
-                    __typename: 'ResponsiveImageStyleDerivative';
-                    height?: number | null;
-                    path?: string | null;
-                    srcSetPath?: string | null;
-                    width?: number | null;
-                  } | null;
-                };
-              };
-            }
-          | { __typename?: 'NodeTalk' }
-        >;
-      }
-    | { __typename: 'TalksAllResult' }
-    | { __typename: 'TalksByDateResult' }
-    | { __typename: 'TalksResult' }
-    | null;
-};
-
-type ParagraphsFragment_ParagraphTalkHeader_ = {
-  __typename?: 'ParagraphTalkHeader';
-};
-
-type ParagraphsFragment_ParagraphTalksGrid_ = {
-  __typename: 'ParagraphTalksGrid';
-  id: string;
-  talksView:
-    | { __typename: 'ContactTopicsResult' }
-    | { __typename: 'NewsLatestResult' }
-    | { __typename: 'NewsResult' }
-    | { __typename: 'NodePathsResult' }
-    | { __typename: 'PeopleResult' }
-    | { __typename: 'SpeakersResult' }
-    | {
-        __typename: 'TalksAllResult';
-        id: string;
-        results: Array<
-          | { __typename?: 'NodeArticle' }
-          | { __typename?: 'NodeDeveloperTools' }
-          | { __typename?: 'NodeFoundationPage' }
-          | { __typename?: 'NodePage' }
-          | { __typename?: 'NodePeople' }
-          | { __typename?: 'NodeSpeaker' }
-          | {
-              __typename: 'NodeTalk';
-              id: string;
-              title: string;
-              path: string;
-              startsAt?: { __typename?: 'DateTime'; time: any } | null;
-              endsAt?: { __typename?: 'DateTime'; time: any } | null;
-              speakers?: Array<{
-                __typename?: 'NodeSpeaker';
-                title: string;
-                squareImage: {
-                  __typename: 'MediaImage';
-                  id: string;
-                  mediaImage: {
-                    __typename?: 'Image';
-                    alt?: string | null;
-                    responsive?: {
-                      __typename: 'ResponsiveImageStyleDerivative';
-                      height?: number | null;
-                      path?: string | null;
-                      srcSetPath?: string | null;
-                      width?: number | null;
-                    } | null;
-                  };
-                };
-              }> | null;
-            }
-        >;
-      }
-    | { __typename: 'TalksByDateResult' }
-    | { __typename: 'TalksResult' };
-};
-
-type ParagraphsFragment_ParagraphTeaser_ = { __typename?: 'ParagraphTeaser' };
-
-type ParagraphsFragment_ParagraphText_ = {
-  __typename: 'ParagraphText';
-  id: string;
-  text: { __typename?: 'Text'; processed?: any | null };
-};
-
-type ParagraphsFragment_ParagraphTwoColumnContent_ = {
-  __typename: 'ParagraphTwoColumnContent';
-  id: string;
-  firstColumn?: Array<
-    | {
-        __typename: 'ParagraphButton';
-        id: string;
-        link: {
-          __typename?: 'Link';
-          url?: string | null;
-          title?: string | null;
-        };
-      }
-    | { __typename: 'ParagraphContentTitle'; id: string; title: string }
-    | {
-        __typename: 'ParagraphImage';
-        id: string;
-        landscapeImage: {
-          __typename: 'MediaImage';
-          id: string;
-          mediaImage: {
-            __typename?: 'Image';
-            alt?: string | null;
-            responsive?: {
-              __typename: 'ResponsiveImageStyleDerivative';
-              height?: number | null;
-              path?: string | null;
-              srcSetPath?: string | null;
-              width?: number | null;
-            } | null;
-          };
-        };
-        squareIamge: {
-          __typename: 'MediaImage';
-          id: string;
-          mediaImage: {
-            __typename?: 'Image';
-            alt?: string | null;
-            responsive?: {
-              __typename: 'ResponsiveImageStyleDerivative';
-              height?: number | null;
-              path?: string | null;
-              srcSetPath?: string | null;
-              width?: number | null;
-            } | null;
-          };
-        };
-      }
-    | {
-        __typename: 'ParagraphSpacer';
-        id: string;
-        spacerSize: string;
-        spacerLine?: boolean | null;
-      }
-    | {
-        __typename: 'ParagraphText';
-        id: string;
-        text: { __typename?: 'Text'; processed?: any | null };
-      }
-    | {
-        __typename: 'ParagraphVideo';
-        id: string;
-        video: {
-          __typename: 'MediaVideo';
-          id: string;
-          mediaVideoFile: { __typename?: 'File'; url: string };
-        };
-        image: {
-          __typename: 'MediaImage';
-          id: string;
-          mediaImage: {
-            __typename?: 'Image';
-            alt?: string | null;
-            responsive?: {
-              __typename: 'ResponsiveImageStyleDerivative';
-              height?: number | null;
-              path?: string | null;
-              srcSetPath?: string | null;
-              width?: number | null;
-            } | null;
-          };
-        };
-      }
-  > | null;
-  secondColumn?: Array<
-    | {
-        __typename: 'ParagraphButton';
-        id: string;
-        link: {
-          __typename?: 'Link';
-          url?: string | null;
-          title?: string | null;
-        };
-      }
-    | { __typename: 'ParagraphContentTitle'; id: string; title: string }
-    | {
-        __typename: 'ParagraphImage';
-        id: string;
-        landscapeImage: {
-          __typename: 'MediaImage';
-          id: string;
-          mediaImage: {
-            __typename?: 'Image';
-            alt?: string | null;
-            responsive?: {
-              __typename: 'ResponsiveImageStyleDerivative';
-              height?: number | null;
-              path?: string | null;
-              srcSetPath?: string | null;
-              width?: number | null;
-            } | null;
-          };
-        };
-        squareIamge: {
-          __typename: 'MediaImage';
-          id: string;
-          mediaImage: {
-            __typename?: 'Image';
-            alt?: string | null;
-            responsive?: {
-              __typename: 'ResponsiveImageStyleDerivative';
-              height?: number | null;
-              path?: string | null;
-              srcSetPath?: string | null;
-              width?: number | null;
-            } | null;
-          };
-        };
-      }
-    | {
-        __typename: 'ParagraphSpacer';
-        id: string;
-        spacerSize: string;
-        spacerLine?: boolean | null;
-      }
-    | {
-        __typename: 'ParagraphText';
-        id: string;
-        text: { __typename?: 'Text'; processed?: any | null };
-      }
-    | {
-        __typename: 'ParagraphVideo';
-        id: string;
-        video: {
-          __typename: 'MediaVideo';
-          id: string;
-          mediaVideoFile: { __typename?: 'File'; url: string };
-        };
-        image: {
-          __typename: 'MediaImage';
-          id: string;
-          mediaImage: {
-            __typename?: 'Image';
-            alt?: string | null;
-            responsive?: {
-              __typename: 'ResponsiveImageStyleDerivative';
-              height?: number | null;
-              path?: string | null;
-              srcSetPath?: string | null;
-              width?: number | null;
-            } | null;
-          };
-        };
-      }
-  > | null;
-};
-
-type ParagraphsFragment_ParagraphVideo_ = {
-  __typename: 'ParagraphVideo';
-  id: string;
-  video: {
-    __typename: 'MediaVideo';
-    id: string;
-    mediaVideoFile: { __typename?: 'File'; url: string };
-  };
-  image: {
-    __typename: 'MediaImage';
-    id: string;
-    mediaImage: {
-      __typename?: 'Image';
-      alt?: string | null;
-      responsive?: {
-        __typename: 'ResponsiveImageStyleDerivative';
-        height?: number | null;
-        path?: string | null;
-        srcSetPath?: string | null;
-        width?: number | null;
-      } | null;
-    };
-  };
-};
-
-export type ParagraphsFragment =
-  | ParagraphsFragment_ParagraphAnchor_
-  | ParagraphsFragment_ParagraphButton_
-  | ParagraphsFragment_ParagraphCarouselItem_
-  | ParagraphsFragment_ParagraphColumnCard_
-  | ParagraphsFragment_ParagraphContactForm_
-  | ParagraphsFragment_ParagraphContentCarousel_
-  | ParagraphsFragment_ParagraphContentColumnCards_
-  | ParagraphsFragment_ParagraphContentTitle_
-  | ParagraphsFragment_ParagraphDivider_
-  | ParagraphsFragment_ParagraphFaq_
-  | ParagraphsFragment_ParagraphFaqs_
-  | ParagraphsFragment_ParagraphHeroHeader_
-  | ParagraphsFragment_ParagraphHighlightedList_
-  | ParagraphsFragment_ParagraphHighlightedSpeakers_
-  | ParagraphsFragment_ParagraphImage_
-  | ParagraphsFragment_ParagraphImageCarousel_
-  | ParagraphsFragment_ParagraphImageFullWidth_
-  | ParagraphsFragment_ParagraphImageGallery_
-  | ParagraphsFragment_ParagraphLargeCalloutText_
-  | ParagraphsFragment_ParagraphMediaHeader_
-  | ParagraphsFragment_ParagraphNewsListings_
-  | ParagraphsFragment_ParagraphPeopleGrid_
-  | ParagraphsFragment_ParagraphPrice_
-  | ParagraphsFragment_ParagraphPriceList_
-  | ParagraphsFragment_ParagraphPriceOption_
-  | ParagraphsFragment_ParagraphSchedule_
-  | ParagraphsFragment_ParagraphScheduleDay_
-  | ParagraphsFragment_ParagraphSocialMedia_
-  | ParagraphsFragment_ParagraphSocialMediaLink_
-  | ParagraphsFragment_ParagraphSpacer_
-  | ParagraphsFragment_ParagraphSpeakersGrid_
-  | ParagraphsFragment_ParagraphTalkHeader_
-  | ParagraphsFragment_ParagraphTalksGrid_
-  | ParagraphsFragment_ParagraphTeaser_
-  | ParagraphsFragment_ParagraphText_
-  | ParagraphsFragment_ParagraphTwoColumnContent_
-  | ParagraphsFragment_ParagraphVideo_;
 
 type RouteUnionFragment_RouteExternal_ = {
   __typename: 'RouteExternal';
@@ -6665,6 +6735,25 @@ export type GetNodeByPathQuery = {
                           }
                       > | null;
                     } | null;
+                  }
+                | {
+                    __typename: 'ParagraphScrollingLogoCarousel';
+                    id: string;
+                    images: Array<{
+                      __typename: 'MediaImage';
+                      id: string;
+                      mediaImage: {
+                        __typename?: 'Image';
+                        alt?: string | null;
+                        responsive?: {
+                          __typename: 'ResponsiveImageStyleDerivative';
+                          height?: number | null;
+                          path?: string | null;
+                          srcSetPath?: string | null;
+                          width?: number | null;
+                        } | null;
+                      };
+                    }>;
                   }
                 | {
                     __typename: 'ParagraphSpacer';

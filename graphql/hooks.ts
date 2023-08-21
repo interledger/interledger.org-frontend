@@ -21,32 +21,20 @@ function fetcher<TData, TVariables>(query: string, variables?: TVariables) {
     return json.data;
   };
 }
+export const ImageStyleFragment = /*#__PURE__*/ `
+    fragment ImageStyleFragment on ImageStylePathDerivative {
+  __typename
+  height
+  path
+  width
+}
+    `;
 export const ResponsiveImageStyleFragment = /*#__PURE__*/ `
     fragment ResponsiveImageStyleFragment on ResponsiveImageStyleDerivative {
   __typename
   height
   path
   srcSetPath
-  width
-}
-    `;
-export const MediaImageWidthFragment = /*#__PURE__*/ `
-    fragment MediaImageWidthFragment on MediaImage {
-  __typename
-  id
-  mediaImage {
-    alt
-    responsive(name: WIDTH) {
-      ...ResponsiveImageStyleFragment
-    }
-  }
-}
-    `;
-export const ImageStyleFragment = /*#__PURE__*/ `
-    fragment ImageStyleFragment on ImageStylePathDerivative {
-  __typename
-  height
-  path
   width
 }
     `;
@@ -634,6 +622,27 @@ export const ParagraphContentColumnCardsFragment = /*#__PURE__*/ `
   }
 }
     `;
+export const MediaImageWidthFragment = /*#__PURE__*/ `
+    fragment MediaImageWidthFragment on MediaImage {
+  __typename
+  id
+  mediaImage {
+    alt
+    responsive(name: WIDTH) {
+      ...ResponsiveImageStyleFragment
+    }
+  }
+}
+    `;
+export const ParagraphScrollingLogoCarouselFragment = /*#__PURE__*/ `
+    fragment ParagraphScrollingLogoCarouselFragment on ParagraphScrollingLogoCarousel {
+  __typename
+  id
+  images {
+    ...MediaImageWidthFragment
+  }
+}
+    `;
 export const ParagraphsFragment = /*#__PURE__*/ `
     fragment ParagraphsFragment on ParagraphInterface {
   ... on ParagraphButton {
@@ -707,6 +716,9 @@ export const ParagraphsFragment = /*#__PURE__*/ `
   }
   ... on ParagraphContentColumnCards {
     ...ParagraphContentColumnCardsFragment
+  }
+  ... on ParagraphScrollingLogoCarousel {
+    ...ParagraphScrollingLogoCarouselFragment
   }
 }
     `;
@@ -1144,6 +1156,8 @@ ${NodePeopleCardFragment}
 ${ParagraphContactFormFragment}
 ${ParagraphContentColumnCardsFragment}
 ${ParagraphColumnCardFragment}
+${ParagraphScrollingLogoCarouselFragment}
+${MediaImageWidthFragment}
 ${MetaTagFragment}
 ${NodePageFragment}
 ${ParagraphHeroHeaderFragment}

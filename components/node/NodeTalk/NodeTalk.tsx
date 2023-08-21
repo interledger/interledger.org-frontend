@@ -8,6 +8,7 @@ import { RichText } from '@components/util/RichText/RichText';
 import { NodeTalkFragment } from '@models/operations';
 import cn from 'classnames';
 import styles from './NodeTalk.module.scss';
+import { DateFormat } from '@components/util/DateFormat/DateFormat';
 
 export interface NodeTalkProps {
   /** Optional className for NodeTalk, pass in a sass module class to override component default */
@@ -34,9 +35,21 @@ export const NodeTalk = ({ className, node }: NodeTalkProps) => {
           {node.title}
         </Text>
       ) : null}
-      {/* <Text variant="body2">
-        <Duration duration={node.duration} />
-      </Text> */}
+      {node.startsAt && node.endsAt ? (
+        <Text variant="body2">
+          <>
+            <DateFormat
+              date={new Date(node.startsAt.time)}
+              dateFormat={'dd.MM.yy h:mmaaa '}
+            />
+            -{' '}
+            <Duration
+              startsAt={new Date(node.startsAt.time)}
+              endsAt={new Date(node.endsAt.time)}
+            />
+          </>
+        </Text>
+      ) : null}
       <TwoColumn className={styles.content}>
         <TwoColumn.Content>
           {node.description?.processed ? (
