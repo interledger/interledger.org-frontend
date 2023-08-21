@@ -634,12 +634,24 @@ export const MediaImageWidthFragment = /*#__PURE__*/ `
   }
 }
     `;
+export const ParagraphLogoLinkFragment = /*#__PURE__*/ `
+    fragment ParagraphLogoLinkFragment on ParagraphLogoLink {
+  __typename
+  id
+  singleImage {
+    ...MediaImageWidthFragment
+  }
+  link {
+    ...LinkFragment
+  }
+}
+    `;
 export const ParagraphScrollingLogoCarouselFragment = /*#__PURE__*/ `
     fragment ParagraphScrollingLogoCarouselFragment on ParagraphScrollingLogoCarousel {
   __typename
   id
-  images {
-    ...MediaImageWidthFragment
+  logos {
+    ...ParagraphLogoLinkFragment
   }
 }
     `;
@@ -1157,6 +1169,7 @@ ${ParagraphContactFormFragment}
 ${ParagraphContentColumnCardsFragment}
 ${ParagraphColumnCardFragment}
 ${ParagraphScrollingLogoCarouselFragment}
+${ParagraphLogoLinkFragment}
 ${MediaImageWidthFragment}
 ${MetaTagFragment}
 ${NodePageFragment}

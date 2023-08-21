@@ -6,10 +6,15 @@
 
 .root {
   background-color: var(--color-white);
-  padding: to.rem(30px) 0;
+  padding-top: to.rem(30px);
+  padding-bottom: to.rem(30px);
+
+  img {
+    height: to.rem(42px);
+  }
 }
 
 .logo {
-  height: to.rem(42px);
   margin: 0 to.rem(100px);
+  display: block;
 }

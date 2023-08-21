@@ -1105,6 +1105,21 @@ export type ParagraphLargeCalloutText = ParagraphInterface & {
 };
 
 /** Entity type paragraph. */
+export type ParagraphLogoLink = ParagraphInterface & {
+  __typename?: 'ParagraphLogoLink';
+  /** The time that the Paragraph was created. */
+  created: DateTime;
+  /** The Universally Unique IDentifier (UUID). */
+  id: Scalars['ID'];
+  /** The paragraphs entity language code. */
+  langcode: Language;
+  /** Link */
+  link: Link;
+  /** Image */
+  singleImage: MediaImage;
+};
+
+/** Entity type paragraph. */
 export type ParagraphMediaHeader = ParagraphInterface & {
   __typename?: 'ParagraphMediaHeader';
   /** The time that the Paragraph was created. */
@@ -1290,10 +1305,10 @@ export type ParagraphScrollingLogoCarousel = ParagraphInterface & {
   created: DateTime;
   /** The Universally Unique IDentifier (UUID). */
   id: Scalars['ID'];
-  /** Images */
-  images: Array<MediaImage>;
   /** The paragraphs entity language code. */
   langcode: Language;
+  /** Logos */
+  logos: Array<ParagraphLogoLink>;
 };
 
 /** Entity type paragraph. */
@@ -1486,6 +1501,7 @@ export type ParagraphUnion =
   | ParagraphImageFullWidth
   | ParagraphImageGallery
   | ParagraphLargeCalloutText
+  | ParagraphLogoLink
   | ParagraphMediaHeader
   | ParagraphNewsListings
   | ParagraphPeopleGrid

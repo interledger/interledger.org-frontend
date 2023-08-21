@@ -436,6 +436,10 @@ type ParagraphsFragment_ParagraphLargeCalloutText_ = {
   largeCalloutText?: string | null;
 };
 
+type ParagraphsFragment_ParagraphLogoLink_ = {
+  __typename?: 'ParagraphLogoLink';
+};
+
 type ParagraphsFragment_ParagraphMediaHeader_ = {
   __typename?: 'ParagraphMediaHeader';
 };
@@ -755,20 +759,25 @@ type ParagraphsFragment_ParagraphScheduleDay_ = {
 type ParagraphsFragment_ParagraphScrollingLogoCarousel_ = {
   __typename: 'ParagraphScrollingLogoCarousel';
   id: string;
-  images: Array<{
-    __typename: 'MediaImage';
+  logos: Array<{
+    __typename: 'ParagraphLogoLink';
     id: string;
-    mediaImage: {
-      __typename?: 'Image';
-      alt?: string | null;
-      responsive?: {
-        __typename: 'ResponsiveImageStyleDerivative';
-        height?: number | null;
-        path?: string | null;
-        srcSetPath?: string | null;
-        width?: number | null;
-      } | null;
+    singleImage: {
+      __typename: 'MediaImage';
+      id: string;
+      mediaImage: {
+        __typename?: 'Image';
+        alt?: string | null;
+        responsive?: {
+          __typename: 'ResponsiveImageStyleDerivative';
+          height?: number | null;
+          path?: string | null;
+          srcSetPath?: string | null;
+          width?: number | null;
+        } | null;
+      };
     };
+    link: { __typename?: 'Link'; url?: string | null; title?: string | null };
   }>;
 };
 
@@ -1113,6 +1122,7 @@ export type ParagraphsFragment =
   | ParagraphsFragment_ParagraphImageFullWidth_
   | ParagraphsFragment_ParagraphImageGallery_
   | ParagraphsFragment_ParagraphLargeCalloutText_
+  | ParagraphsFragment_ParagraphLogoLink_
   | ParagraphsFragment_ParagraphMediaHeader_
   | ParagraphsFragment_ParagraphNewsListings_
   | ParagraphsFragment_ParagraphPeopleGrid_
@@ -2322,19 +2332,28 @@ export type NodeFoundationPageFragment = {
     | {
         __typename: 'ParagraphScrollingLogoCarousel';
         id: string;
-        images: Array<{
-          __typename: 'MediaImage';
+        logos: Array<{
+          __typename: 'ParagraphLogoLink';
           id: string;
-          mediaImage: {
-            __typename?: 'Image';
-            alt?: string | null;
-            responsive?: {
-              __typename: 'ResponsiveImageStyleDerivative';
-              height?: number | null;
-              path?: string | null;
-              srcSetPath?: string | null;
-              width?: number | null;
-            } | null;
+          singleImage: {
+            __typename: 'MediaImage';
+            id: string;
+            mediaImage: {
+              __typename?: 'Image';
+              alt?: string | null;
+              responsive?: {
+                __typename: 'ResponsiveImageStyleDerivative';
+                height?: number | null;
+                path?: string | null;
+                srcSetPath?: string | null;
+                width?: number | null;
+              } | null;
+            };
+          };
+          link: {
+            __typename?: 'Link';
+            url?: string | null;
+            title?: string | null;
           };
         }>;
       }
@@ -3650,6 +3669,10 @@ type ContentCarouselItemFragment_ParagraphLargeCalloutText_ = {
   __typename?: 'ParagraphLargeCalloutText';
 };
 
+type ContentCarouselItemFragment_ParagraphLogoLink_ = {
+  __typename?: 'ParagraphLogoLink';
+};
+
 type ContentCarouselItemFragment_ParagraphMediaHeader_ = {
   __typename?: 'ParagraphMediaHeader';
 };
@@ -3909,6 +3932,7 @@ export type ContentCarouselItemFragment =
   | ContentCarouselItemFragment_ParagraphImageFullWidth_
   | ContentCarouselItemFragment_ParagraphImageGallery_
   | ContentCarouselItemFragment_ParagraphLargeCalloutText_
+  | ContentCarouselItemFragment_ParagraphLogoLink_
   | ContentCarouselItemFragment_ParagraphMediaHeader_
   | ContentCarouselItemFragment_ParagraphNewsListings_
   | ContentCarouselItemFragment_ParagraphPeopleGrid_
@@ -4934,10 +4958,10 @@ export type ParagraphScheduleDayFragment = {
     | { __typename: 'TalksResult' };
 };
 
-export type ParagraphScrollingLogoCarouselFragment = {
-  __typename: 'ParagraphScrollingLogoCarousel';
+export type ParagraphLogoLinkFragment = {
+  __typename: 'ParagraphLogoLink';
   id: string;
-  images: Array<{
+  singleImage: {
     __typename: 'MediaImage';
     id: string;
     mediaImage: {
@@ -4951,6 +4975,32 @@ export type ParagraphScrollingLogoCarouselFragment = {
         width?: number | null;
       } | null;
     };
+  };
+  link: { __typename?: 'Link'; url?: string | null; title?: string | null };
+};
+
+export type ParagraphScrollingLogoCarouselFragment = {
+  __typename: 'ParagraphScrollingLogoCarousel';
+  id: string;
+  logos: Array<{
+    __typename: 'ParagraphLogoLink';
+    id: string;
+    singleImage: {
+      __typename: 'MediaImage';
+      id: string;
+      mediaImage: {
+        __typename?: 'Image';
+        alt?: string | null;
+        responsive?: {
+          __typename: 'ResponsiveImageStyleDerivative';
+          height?: number | null;
+          path?: string | null;
+          srcSetPath?: string | null;
+          width?: number | null;
+        } | null;
+      };
+    };
+    link: { __typename?: 'Link'; url?: string | null; title?: string | null };
   }>;
 };
 
@@ -5226,6 +5276,10 @@ type TwoColumnContentFragment_ParagraphLargeCalloutText_ = {
   __typename?: 'ParagraphLargeCalloutText';
 };
 
+type TwoColumnContentFragment_ParagraphLogoLink_ = {
+  __typename?: 'ParagraphLogoLink';
+};
+
 type TwoColumnContentFragment_ParagraphMediaHeader_ = {
   __typename?: 'ParagraphMediaHeader';
 };
@@ -5348,6 +5402,7 @@ export type TwoColumnContentFragment =
   | TwoColumnContentFragment_ParagraphImageFullWidth_
   | TwoColumnContentFragment_ParagraphImageGallery_
   | TwoColumnContentFragment_ParagraphLargeCalloutText_
+  | TwoColumnContentFragment_ParagraphLogoLink_
   | TwoColumnContentFragment_ParagraphMediaHeader_
   | TwoColumnContentFragment_ParagraphNewsListings_
   | TwoColumnContentFragment_ParagraphPeopleGrid_
@@ -6739,19 +6794,28 @@ export type GetNodeByPathQuery = {
                 | {
                     __typename: 'ParagraphScrollingLogoCarousel';
                     id: string;
-                    images: Array<{
-                      __typename: 'MediaImage';
+                    logos: Array<{
+                      __typename: 'ParagraphLogoLink';
                       id: string;
-                      mediaImage: {
-                        __typename?: 'Image';
-                        alt?: string | null;
-                        responsive?: {
-                          __typename: 'ResponsiveImageStyleDerivative';
-                          height?: number | null;
-                          path?: string | null;
-                          srcSetPath?: string | null;
-                          width?: number | null;
-                        } | null;
+                      singleImage: {
+                        __typename: 'MediaImage';
+                        id: string;
+                        mediaImage: {
+                          __typename?: 'Image';
+                          alt?: string | null;
+                          responsive?: {
+                            __typename: 'ResponsiveImageStyleDerivative';
+                            height?: number | null;
+                            path?: string | null;
+                            srcSetPath?: string | null;
+                            width?: number | null;
+                          } | null;
+                        };
+                      };
+                      link: {
+                        __typename?: 'Link';
+                        url?: string | null;
+                        title?: string | null;
                       };
                     }>;
                   }
