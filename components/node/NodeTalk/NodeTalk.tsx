@@ -1,14 +1,14 @@
 import { CardSpeaker } from '@components/layout/CardSpeaker/CardSpeaker';
 import { Container } from '@components/layout/Container/Container';
 import { TwoColumn } from '@components/layout/TwoColumn/TwoColumn';
-import { ParagraphTalkHeader } from '@components/paragraph/ParagraphTalkHeader/ParagraphTalkHeader';
 import { Duration } from '@components/ui/Duration/Duration';
 import { Text } from '@components/ui/Text/Text';
+import { DateFormat } from '@components/util/DateFormat/DateFormat';
 import { RichText } from '@components/util/RichText/RichText';
 import { NodeTalkFragment } from '@models/operations';
 import cn from 'classnames';
 import styles from './NodeTalk.module.scss';
-import { DateFormat } from '@components/util/DateFormat/DateFormat';
+import { Video, VideoPlayer } from '@components/ui/VideoPlayer/VideoPlayer';
 
 export interface NodeTalkProps {
   /** Optional className for NodeTalk, pass in a sass module class to override component default */
@@ -24,12 +24,15 @@ export const NodeTalk = ({ className, node }: NodeTalkProps) => {
   const rootClassName = cn(styles.root, className);
   return (
     <Container as="article" className={rootClassName}>
-      {/* {node.header && (
-        <ParagraphTalkHeader
-          className={styles.header}
-          paragraph={node.header}
-        />
-      )} */}
+      {node.recordingVideo ? (
+        <div className={styles.video}>
+          <Video url={node.recordingVideo.mediaOembedVideo} controls />
+        </div>
+      ) : node.liveVideo ? (
+        <div className={styles.video}>
+          <Video url={node.liveVideo.mediaOembedVideo} controls />
+        </div>
+      ) : null}
       {node.title ? (
         <Text variant="h1" className={styles.title}>
           {node.title}

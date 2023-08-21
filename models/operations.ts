@@ -436,6 +436,10 @@ type ParagraphsFragment_ParagraphLargeCalloutText_ = {
   largeCalloutText?: string | null;
 };
 
+type ParagraphsFragment_ParagraphLogoLink_ = {
+  __typename?: 'ParagraphLogoLink';
+};
+
 type ParagraphsFragment_ParagraphMediaHeader_ = {
   __typename?: 'ParagraphMediaHeader';
 };
@@ -755,20 +759,25 @@ type ParagraphsFragment_ParagraphScheduleDay_ = {
 type ParagraphsFragment_ParagraphScrollingLogoCarousel_ = {
   __typename: 'ParagraphScrollingLogoCarousel';
   id: string;
-  images: Array<{
-    __typename: 'MediaImage';
+  logos: Array<{
+    __typename: 'ParagraphLogoLink';
     id: string;
-    mediaImage: {
-      __typename?: 'Image';
-      alt?: string | null;
-      responsive?: {
-        __typename: 'ResponsiveImageStyleDerivative';
-        height?: number | null;
-        path?: string | null;
-        srcSetPath?: string | null;
-        width?: number | null;
-      } | null;
+    singleImage: {
+      __typename: 'MediaImage';
+      id: string;
+      mediaImage: {
+        __typename?: 'Image';
+        alt?: string | null;
+        responsive?: {
+          __typename: 'ResponsiveImageStyleDerivative';
+          height?: number | null;
+          path?: string | null;
+          srcSetPath?: string | null;
+          width?: number | null;
+        } | null;
+      };
     };
+    link: { __typename?: 'Link'; url?: string | null; title?: string | null };
   }>;
 };
 
@@ -834,10 +843,6 @@ type ParagraphsFragment_ParagraphSpeakersGrid_ = {
     | { __typename: 'TalksByDateResult' }
     | { __typename: 'TalksResult' }
     | null;
-};
-
-type ParagraphsFragment_ParagraphTalkHeader_ = {
-  __typename?: 'ParagraphTalkHeader';
 };
 
 type ParagraphsFragment_ParagraphTalksGrid_ = {
@@ -1113,6 +1118,7 @@ export type ParagraphsFragment =
   | ParagraphsFragment_ParagraphImageFullWidth_
   | ParagraphsFragment_ParagraphImageGallery_
   | ParagraphsFragment_ParagraphLargeCalloutText_
+  | ParagraphsFragment_ParagraphLogoLink_
   | ParagraphsFragment_ParagraphMediaHeader_
   | ParagraphsFragment_ParagraphNewsListings_
   | ParagraphsFragment_ParagraphPeopleGrid_
@@ -1126,7 +1132,6 @@ export type ParagraphsFragment =
   | ParagraphsFragment_ParagraphSocialMediaLink_
   | ParagraphsFragment_ParagraphSpacer_
   | ParagraphsFragment_ParagraphSpeakersGrid_
-  | ParagraphsFragment_ParagraphTalkHeader_
   | ParagraphsFragment_ParagraphTalksGrid_
   | ParagraphsFragment_ParagraphTeaser_
   | ParagraphsFragment_ParagraphText_
@@ -2322,19 +2327,28 @@ export type NodeFoundationPageFragment = {
     | {
         __typename: 'ParagraphScrollingLogoCarousel';
         id: string;
-        images: Array<{
-          __typename: 'MediaImage';
+        logos: Array<{
+          __typename: 'ParagraphLogoLink';
           id: string;
-          mediaImage: {
-            __typename?: 'Image';
-            alt?: string | null;
-            responsive?: {
-              __typename: 'ResponsiveImageStyleDerivative';
-              height?: number | null;
-              path?: string | null;
-              srcSetPath?: string | null;
-              width?: number | null;
-            } | null;
+          singleImage: {
+            __typename: 'MediaImage';
+            id: string;
+            mediaImage: {
+              __typename?: 'Image';
+              alt?: string | null;
+              responsive?: {
+                __typename: 'ResponsiveImageStyleDerivative';
+                height?: number | null;
+                path?: string | null;
+                srcSetPath?: string | null;
+                width?: number | null;
+              } | null;
+            };
+          };
+          link: {
+            __typename?: 'Link';
+            url?: string | null;
+            title?: string | null;
           };
         }>;
       }
@@ -3505,6 +3519,16 @@ export type NodeTalkFragment = {
       };
     };
   }> | null;
+  liveVideo?: {
+    __typename: 'MediaRemoteVideo';
+    id: string;
+    mediaOembedVideo: string;
+  } | null;
+  recordingVideo?: {
+    __typename: 'MediaRemoteVideo';
+    id: string;
+    mediaOembedVideo: string;
+  } | null;
 };
 
 export type NodeTalkCardFragment = {
@@ -3650,6 +3674,10 @@ type ContentCarouselItemFragment_ParagraphLargeCalloutText_ = {
   __typename?: 'ParagraphLargeCalloutText';
 };
 
+type ContentCarouselItemFragment_ParagraphLogoLink_ = {
+  __typename?: 'ParagraphLogoLink';
+};
+
 type ContentCarouselItemFragment_ParagraphMediaHeader_ = {
   __typename?: 'ParagraphMediaHeader';
 };
@@ -3700,10 +3728,6 @@ type ContentCarouselItemFragment_ParagraphSpacer_ = {
 
 type ContentCarouselItemFragment_ParagraphSpeakersGrid_ = {
   __typename?: 'ParagraphSpeakersGrid';
-};
-
-type ContentCarouselItemFragment_ParagraphTalkHeader_ = {
-  __typename?: 'ParagraphTalkHeader';
 };
 
 type ContentCarouselItemFragment_ParagraphTalksGrid_ = {
@@ -3909,6 +3933,7 @@ export type ContentCarouselItemFragment =
   | ContentCarouselItemFragment_ParagraphImageFullWidth_
   | ContentCarouselItemFragment_ParagraphImageGallery_
   | ContentCarouselItemFragment_ParagraphLargeCalloutText_
+  | ContentCarouselItemFragment_ParagraphLogoLink_
   | ContentCarouselItemFragment_ParagraphMediaHeader_
   | ContentCarouselItemFragment_ParagraphNewsListings_
   | ContentCarouselItemFragment_ParagraphPeopleGrid_
@@ -3922,7 +3947,6 @@ export type ContentCarouselItemFragment =
   | ContentCarouselItemFragment_ParagraphSocialMediaLink_
   | ContentCarouselItemFragment_ParagraphSpacer_
   | ContentCarouselItemFragment_ParagraphSpeakersGrid_
-  | ContentCarouselItemFragment_ParagraphTalkHeader_
   | ContentCarouselItemFragment_ParagraphTalksGrid_
   | ContentCarouselItemFragment_ParagraphTeaser_
   | ContentCarouselItemFragment_ParagraphText_
@@ -4934,10 +4958,10 @@ export type ParagraphScheduleDayFragment = {
     | { __typename: 'TalksResult' };
 };
 
-export type ParagraphScrollingLogoCarouselFragment = {
-  __typename: 'ParagraphScrollingLogoCarousel';
+export type ParagraphLogoLinkFragment = {
+  __typename: 'ParagraphLogoLink';
   id: string;
-  images: Array<{
+  singleImage: {
     __typename: 'MediaImage';
     id: string;
     mediaImage: {
@@ -4951,6 +4975,32 @@ export type ParagraphScrollingLogoCarouselFragment = {
         width?: number | null;
       } | null;
     };
+  };
+  link: { __typename?: 'Link'; url?: string | null; title?: string | null };
+};
+
+export type ParagraphScrollingLogoCarouselFragment = {
+  __typename: 'ParagraphScrollingLogoCarousel';
+  id: string;
+  logos: Array<{
+    __typename: 'ParagraphLogoLink';
+    id: string;
+    singleImage: {
+      __typename: 'MediaImage';
+      id: string;
+      mediaImage: {
+        __typename?: 'Image';
+        alt?: string | null;
+        responsive?: {
+          __typename: 'ResponsiveImageStyleDerivative';
+          height?: number | null;
+          path?: string | null;
+          srcSetPath?: string | null;
+          width?: number | null;
+        } | null;
+      };
+    };
+    link: { __typename?: 'Link'; url?: string | null; title?: string | null };
   }>;
 };
 
@@ -5008,21 +5058,6 @@ export type ParagraphSpeakersGridFragment = {
     | { __typename: 'TalksByDateResult' }
     | { __typename: 'TalksResult' }
     | null;
-};
-
-export type ParagraphTalkHeaderFragment = {
-  __typename: 'ParagraphTalkHeader';
-  id: string;
-  liveVideo?: {
-    __typename: 'MediaRemoteVideo';
-    id: string;
-    mediaOembedVideo: string;
-  } | null;
-  recordingVideo?: {
-    __typename: 'MediaRemoteVideo';
-    id: string;
-    mediaOembedVideo: string;
-  } | null;
 };
 
 export type ParagraphTalksGridFragment = {
@@ -5226,6 +5261,10 @@ type TwoColumnContentFragment_ParagraphLargeCalloutText_ = {
   __typename?: 'ParagraphLargeCalloutText';
 };
 
+type TwoColumnContentFragment_ParagraphLogoLink_ = {
+  __typename?: 'ParagraphLogoLink';
+};
+
 type TwoColumnContentFragment_ParagraphMediaHeader_ = {
   __typename?: 'ParagraphMediaHeader';
 };
@@ -5279,10 +5318,6 @@ type TwoColumnContentFragment_ParagraphSpacer_ = {
 
 type TwoColumnContentFragment_ParagraphSpeakersGrid_ = {
   __typename?: 'ParagraphSpeakersGrid';
-};
-
-type TwoColumnContentFragment_ParagraphTalkHeader_ = {
-  __typename?: 'ParagraphTalkHeader';
 };
 
 type TwoColumnContentFragment_ParagraphTalksGrid_ = {
@@ -5348,6 +5383,7 @@ export type TwoColumnContentFragment =
   | TwoColumnContentFragment_ParagraphImageFullWidth_
   | TwoColumnContentFragment_ParagraphImageGallery_
   | TwoColumnContentFragment_ParagraphLargeCalloutText_
+  | TwoColumnContentFragment_ParagraphLogoLink_
   | TwoColumnContentFragment_ParagraphMediaHeader_
   | TwoColumnContentFragment_ParagraphNewsListings_
   | TwoColumnContentFragment_ParagraphPeopleGrid_
@@ -5361,7 +5397,6 @@ export type TwoColumnContentFragment =
   | TwoColumnContentFragment_ParagraphSocialMediaLink_
   | TwoColumnContentFragment_ParagraphSpacer_
   | TwoColumnContentFragment_ParagraphSpeakersGrid_
-  | TwoColumnContentFragment_ParagraphTalkHeader_
   | TwoColumnContentFragment_ParagraphTalksGrid_
   | TwoColumnContentFragment_ParagraphTeaser_
   | TwoColumnContentFragment_ParagraphText_
@@ -6739,19 +6774,28 @@ export type GetNodeByPathQuery = {
                 | {
                     __typename: 'ParagraphScrollingLogoCarousel';
                     id: string;
-                    images: Array<{
-                      __typename: 'MediaImage';
+                    logos: Array<{
+                      __typename: 'ParagraphLogoLink';
                       id: string;
-                      mediaImage: {
-                        __typename?: 'Image';
-                        alt?: string | null;
-                        responsive?: {
-                          __typename: 'ResponsiveImageStyleDerivative';
-                          height?: number | null;
-                          path?: string | null;
-                          srcSetPath?: string | null;
-                          width?: number | null;
-                        } | null;
+                      singleImage: {
+                        __typename: 'MediaImage';
+                        id: string;
+                        mediaImage: {
+                          __typename?: 'Image';
+                          alt?: string | null;
+                          responsive?: {
+                            __typename: 'ResponsiveImageStyleDerivative';
+                            height?: number | null;
+                            path?: string | null;
+                            srcSetPath?: string | null;
+                            width?: number | null;
+                          } | null;
+                        };
+                      };
+                      link: {
+                        __typename?: 'Link';
+                        url?: string | null;
+                        title?: string | null;
                       };
                     }>;
                   }
@@ -7829,6 +7873,16 @@ export type GetNodeByPathQuery = {
                   };
                 };
               }> | null;
+              liveVideo?: {
+                __typename: 'MediaRemoteVideo';
+                id: string;
+                mediaOembedVideo: string;
+              } | null;
+              recordingVideo?: {
+                __typename: 'MediaRemoteVideo';
+                id: string;
+                mediaOembedVideo: string;
+              } | null;
             }
           | null;
       }

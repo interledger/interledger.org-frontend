@@ -1,7 +1,18 @@
+fragment ParagraphLogoLinkFragment on ParagraphLogoLink {
+  __typename
+  id
+  singleImage {
+    ...MediaImageWidthFragment
+  }
+  link {
+    ...LinkFragment
+  }
+}
+
 fragment ParagraphScrollingLogoCarouselFragment on ParagraphScrollingLogoCarousel {
   __typename
   id
-  images {
-    ...MediaImageWidthFragment
+  logos {
+    ...ParagraphLogoLinkFragment
   }
 }

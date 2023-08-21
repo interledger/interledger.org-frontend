@@ -784,18 +784,20 @@ export type NodeTalk = MetaTagInterface &
     description?: Maybe<Text>;
     /** Ends At */
     endsAt?: Maybe<DateTime>;
-    /** Header */
-    header?: Maybe<ParagraphTalkHeader>;
     /** The Universally Unique IDentifier (UUID). */
     id: Scalars['ID'];
     /** Language */
     langcode: Language;
+    /** Live Video */
+    liveVideo?: Maybe<MediaRemoteVideo>;
     /** The computed meta tags for the entity. */
     metatag: Array<MetaTagUnion>;
     /** URL alias */
     path: Scalars['String'];
     /** Promoted to front page */
     promote: Scalars['Boolean'];
+    /** Recording Video */
+    recordingVideo?: Maybe<MediaRemoteVideo>;
     /** Speakers */
     speakers?: Maybe<Array<NodeSpeaker>>;
     /** Starts At */
@@ -1105,6 +1107,21 @@ export type ParagraphLargeCalloutText = ParagraphInterface & {
 };
 
 /** Entity type paragraph. */
+export type ParagraphLogoLink = ParagraphInterface & {
+  __typename?: 'ParagraphLogoLink';
+  /** The time that the Paragraph was created. */
+  created: DateTime;
+  /** The Universally Unique IDentifier (UUID). */
+  id: Scalars['ID'];
+  /** The paragraphs entity language code. */
+  langcode: Language;
+  /** Link */
+  link: Link;
+  /** Image */
+  singleImage: MediaImage;
+};
+
+/** Entity type paragraph. */
 export type ParagraphMediaHeader = ParagraphInterface & {
   __typename?: 'ParagraphMediaHeader';
   /** The time that the Paragraph was created. */
@@ -1290,10 +1307,10 @@ export type ParagraphScrollingLogoCarousel = ParagraphInterface & {
   created: DateTime;
   /** The Universally Unique IDentifier (UUID). */
   id: Scalars['ID'];
-  /** Images */
-  images: Array<MediaImage>;
   /** The paragraphs entity language code. */
   langcode: Language;
+  /** Logos */
+  logos: Array<ParagraphLogoLink>;
 };
 
 /** Entity type paragraph. */
@@ -1363,21 +1380,6 @@ export type ParagraphSpeakersGridSpeakersViewArgs = {
   page?: InputMaybe<Scalars['Int']>;
   sortDir?: InputMaybe<SortDirection>;
   sortKey?: InputMaybe<Scalars['String']>;
-};
-
-/** Entity type paragraph. */
-export type ParagraphTalkHeader = ParagraphInterface & {
-  __typename?: 'ParagraphTalkHeader';
-  /** The time that the Paragraph was created. */
-  created: DateTime;
-  /** The Universally Unique IDentifier (UUID). */
-  id: Scalars['ID'];
-  /** The paragraphs entity language code. */
-  langcode: Language;
-  /** Live Video */
-  liveVideo?: Maybe<MediaRemoteVideo>;
-  /** Recording Video */
-  recordingVideo?: Maybe<MediaRemoteVideo>;
 };
 
 /** Entity type paragraph. */
@@ -1486,6 +1488,7 @@ export type ParagraphUnion =
   | ParagraphImageFullWidth
   | ParagraphImageGallery
   | ParagraphLargeCalloutText
+  | ParagraphLogoLink
   | ParagraphMediaHeader
   | ParagraphNewsListings
   | ParagraphPeopleGrid
@@ -1499,7 +1502,6 @@ export type ParagraphUnion =
   | ParagraphSocialMediaLink
   | ParagraphSpacer
   | ParagraphSpeakersGrid
-  | ParagraphTalkHeader
   | ParagraphTalksGrid
   | ParagraphTeaser
   | ParagraphText

@@ -634,12 +634,24 @@ export const MediaImageWidthFragment = /*#__PURE__*/ `
   }
 }
     `;
+export const ParagraphLogoLinkFragment = /*#__PURE__*/ `
+    fragment ParagraphLogoLinkFragment on ParagraphLogoLink {
+  __typename
+  id
+  singleImage {
+    ...MediaImageWidthFragment
+  }
+  link {
+    ...LinkFragment
+  }
+}
+    `;
 export const ParagraphScrollingLogoCarouselFragment = /*#__PURE__*/ `
     fragment ParagraphScrollingLogoCarouselFragment on ParagraphScrollingLogoCarousel {
   __typename
   id
-  images {
-    ...MediaImageWidthFragment
+  logos {
+    ...ParagraphLogoLinkFragment
   }
 }
     `;
@@ -912,6 +924,13 @@ export const NodeSpeakerFragment = /*#__PURE__*/ `
   }
 }
     `;
+export const MediaRemoteVideoFragment = /*#__PURE__*/ `
+    fragment MediaRemoteVideoFragment on MediaRemoteVideo {
+  __typename
+  id
+  mediaOembedVideo
+}
+    `;
 export const NodeTalkFragment = /*#__PURE__*/ `
     fragment NodeTalkFragment on NodeTalk {
   __typename
@@ -933,13 +952,12 @@ export const NodeTalkFragment = /*#__PURE__*/ `
   speakers {
     ...NodeSpeakerCardFragment
   }
-}
-    `;
-export const MediaRemoteVideoFragment = /*#__PURE__*/ `
-    fragment MediaRemoteVideoFragment on MediaRemoteVideo {
-  __typename
-  id
-  mediaOembedVideo
+  liveVideo {
+    ...MediaRemoteVideoFragment
+  }
+  recordingVideo {
+    ...MediaRemoteVideoFragment
+  }
 }
     `;
 export const ParagraphMediaHeaderFragment = /*#__PURE__*/ `
@@ -952,18 +970,6 @@ export const ParagraphMediaHeaderFragment = /*#__PURE__*/ `
     }
   }
   video {
-    ...MediaRemoteVideoFragment
-  }
-}
-    `;
-export const ParagraphTalkHeaderFragment = /*#__PURE__*/ `
-    fragment ParagraphTalkHeaderFragment on ParagraphTalkHeader {
-  __typename
-  id
-  liveVideo {
-    ...MediaRemoteVideoFragment
-  }
-  recordingVideo {
     ...MediaRemoteVideoFragment
   }
 }
@@ -1157,6 +1163,7 @@ ${ParagraphContactFormFragment}
 ${ParagraphContentColumnCardsFragment}
 ${ParagraphColumnCardFragment}
 ${ParagraphScrollingLogoCarouselFragment}
+${ParagraphLogoLinkFragment}
 ${MediaImageWidthFragment}
 ${MetaTagFragment}
 ${NodePageFragment}
@@ -1164,6 +1171,7 @@ ${ParagraphHeroHeaderFragment}
 ${NodeFoundationPageFragment}
 ${NodeSpeakerFragment}
 ${NodeTalkFragment}
+${MediaRemoteVideoFragment}
 ${NodeDeveloperToolsFragment}
 ${NodePeopleFragment}`;
 export const useGetNodeByPathQuery = <
