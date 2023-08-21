@@ -784,18 +784,20 @@ export type NodeTalk = MetaTagInterface &
     description?: Maybe<Text>;
     /** Ends At */
     endsAt?: Maybe<DateTime>;
-    /** Header */
-    header?: Maybe<ParagraphTalkHeader>;
     /** The Universally Unique IDentifier (UUID). */
     id: Scalars['ID'];
     /** Language */
     langcode: Language;
+    /** Live Video */
+    liveVideo?: Maybe<MediaRemoteVideo>;
     /** The computed meta tags for the entity. */
     metatag: Array<MetaTagUnion>;
     /** URL alias */
     path: Scalars['String'];
     /** Promoted to front page */
     promote: Scalars['Boolean'];
+    /** Recording Video */
+    recordingVideo?: Maybe<MediaRemoteVideo>;
     /** Speakers */
     speakers?: Maybe<Array<NodeSpeaker>>;
     /** Starts At */
@@ -1381,21 +1383,6 @@ export type ParagraphSpeakersGridSpeakersViewArgs = {
 };
 
 /** Entity type paragraph. */
-export type ParagraphTalkHeader = ParagraphInterface & {
-  __typename?: 'ParagraphTalkHeader';
-  /** The time that the Paragraph was created. */
-  created: DateTime;
-  /** The Universally Unique IDentifier (UUID). */
-  id: Scalars['ID'];
-  /** The paragraphs entity language code. */
-  langcode: Language;
-  /** Live Video */
-  liveVideo?: Maybe<MediaRemoteVideo>;
-  /** Recording Video */
-  recordingVideo?: Maybe<MediaRemoteVideo>;
-};
-
-/** Entity type paragraph. */
 export type ParagraphTalksGrid = ParagraphInterface & {
   __typename?: 'ParagraphTalksGrid';
   /** The time that the Paragraph was created. */
@@ -1515,7 +1502,6 @@ export type ParagraphUnion =
   | ParagraphSocialMediaLink
   | ParagraphSpacer
   | ParagraphSpeakersGrid
-  | ParagraphTalkHeader
   | ParagraphTalksGrid
   | ParagraphTeaser
   | ParagraphText

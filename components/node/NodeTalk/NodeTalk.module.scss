@@ -18,3 +18,7 @@
     margin-bottom: to.rem(20px);
   }
 }
+
+.video {
+  @include breakContainer;
+}

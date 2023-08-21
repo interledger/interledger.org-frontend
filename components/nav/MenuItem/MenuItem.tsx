@@ -50,7 +50,14 @@ export const MenuItem = ({
           {menuItem.title}
         </Link>
       ) : (
-        <span className={rootClassName}>{menuItem.title}</span>
+        <span
+          className={cn(styles.link, {
+            [styles.active]: menuItem.url === currentRoute,
+            [styles.main]: type === 'main',
+          })}
+        >
+          {menuItem.title}
+        </span>
       )}
       {children}
     </m.li>

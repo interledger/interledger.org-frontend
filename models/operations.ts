@@ -845,10 +845,6 @@ type ParagraphsFragment_ParagraphSpeakersGrid_ = {
     | null;
 };
 
-type ParagraphsFragment_ParagraphTalkHeader_ = {
-  __typename?: 'ParagraphTalkHeader';
-};
-
 type ParagraphsFragment_ParagraphTalksGrid_ = {
   __typename: 'ParagraphTalksGrid';
   id: string;
@@ -1136,7 +1132,6 @@ export type ParagraphsFragment =
   | ParagraphsFragment_ParagraphSocialMediaLink_
   | ParagraphsFragment_ParagraphSpacer_
   | ParagraphsFragment_ParagraphSpeakersGrid_
-  | ParagraphsFragment_ParagraphTalkHeader_
   | ParagraphsFragment_ParagraphTalksGrid_
   | ParagraphsFragment_ParagraphTeaser_
   | ParagraphsFragment_ParagraphText_
@@ -3524,6 +3519,16 @@ export type NodeTalkFragment = {
       };
     };
   }> | null;
+  liveVideo?: {
+    __typename: 'MediaRemoteVideo';
+    id: string;
+    mediaOembedVideo: string;
+  } | null;
+  recordingVideo?: {
+    __typename: 'MediaRemoteVideo';
+    id: string;
+    mediaOembedVideo: string;
+  } | null;
 };
 
 export type NodeTalkCardFragment = {
@@ -3723,10 +3728,6 @@ type ContentCarouselItemFragment_ParagraphSpacer_ = {
 
 type ContentCarouselItemFragment_ParagraphSpeakersGrid_ = {
   __typename?: 'ParagraphSpeakersGrid';
-};
-
-type ContentCarouselItemFragment_ParagraphTalkHeader_ = {
-  __typename?: 'ParagraphTalkHeader';
 };
 
 type ContentCarouselItemFragment_ParagraphTalksGrid_ = {
@@ -3946,7 +3947,6 @@ export type ContentCarouselItemFragment =
   | ContentCarouselItemFragment_ParagraphSocialMediaLink_
   | ContentCarouselItemFragment_ParagraphSpacer_
   | ContentCarouselItemFragment_ParagraphSpeakersGrid_
-  | ContentCarouselItemFragment_ParagraphTalkHeader_
   | ContentCarouselItemFragment_ParagraphTalksGrid_
   | ContentCarouselItemFragment_ParagraphTeaser_
   | ContentCarouselItemFragment_ParagraphText_
@@ -5060,21 +5060,6 @@ export type ParagraphSpeakersGridFragment = {
     | null;
 };
 
-export type ParagraphTalkHeaderFragment = {
-  __typename: 'ParagraphTalkHeader';
-  id: string;
-  liveVideo?: {
-    __typename: 'MediaRemoteVideo';
-    id: string;
-    mediaOembedVideo: string;
-  } | null;
-  recordingVideo?: {
-    __typename: 'MediaRemoteVideo';
-    id: string;
-    mediaOembedVideo: string;
-  } | null;
-};
-
 export type ParagraphTalksGridFragment = {
   __typename: 'ParagraphTalksGrid';
   id: string;
@@ -5335,10 +5320,6 @@ type TwoColumnContentFragment_ParagraphSpeakersGrid_ = {
   __typename?: 'ParagraphSpeakersGrid';
 };
 
-type TwoColumnContentFragment_ParagraphTalkHeader_ = {
-  __typename?: 'ParagraphTalkHeader';
-};
-
 type TwoColumnContentFragment_ParagraphTalksGrid_ = {
   __typename?: 'ParagraphTalksGrid';
 };
@@ -5416,7 +5397,6 @@ export type TwoColumnContentFragment =
   | TwoColumnContentFragment_ParagraphSocialMediaLink_
   | TwoColumnContentFragment_ParagraphSpacer_
   | TwoColumnContentFragment_ParagraphSpeakersGrid_
-  | TwoColumnContentFragment_ParagraphTalkHeader_
   | TwoColumnContentFragment_ParagraphTalksGrid_
   | TwoColumnContentFragment_ParagraphTeaser_
   | TwoColumnContentFragment_ParagraphText_
@@ -7893,6 +7873,16 @@ export type GetNodeByPathQuery = {
                   };
                 };
               }> | null;
+              liveVideo?: {
+                __typename: 'MediaRemoteVideo';
+                id: string;
+                mediaOembedVideo: string;
+              } | null;
+              recordingVideo?: {
+                __typename: 'MediaRemoteVideo';
+                id: string;
+                mediaOembedVideo: string;
+              } | null;
             }
           | null;
       }

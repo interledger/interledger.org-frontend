@@ -18,6 +18,12 @@ fragment NodeTalkFragment on NodeTalk {
   speakers {
     ...NodeSpeakerCardFragment
   }
+  liveVideo {
+    ...MediaRemoteVideoFragment
+  }
+  recordingVideo {
+    ...MediaRemoteVideoFragment
+  }
 }
 
 fragment NodeTalkCardFragment on NodeTalk {

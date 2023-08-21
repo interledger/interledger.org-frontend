@@ -924,6 +924,13 @@ export const NodeSpeakerFragment = /*#__PURE__*/ `
   }
 }
     `;
+export const MediaRemoteVideoFragment = /*#__PURE__*/ `
+    fragment MediaRemoteVideoFragment on MediaRemoteVideo {
+  __typename
+  id
+  mediaOembedVideo
+}
+    `;
 export const NodeTalkFragment = /*#__PURE__*/ `
     fragment NodeTalkFragment on NodeTalk {
   __typename
@@ -945,13 +952,12 @@ export const NodeTalkFragment = /*#__PURE__*/ `
   speakers {
     ...NodeSpeakerCardFragment
   }
-}
-    `;
-export const MediaRemoteVideoFragment = /*#__PURE__*/ `
-    fragment MediaRemoteVideoFragment on MediaRemoteVideo {
-  __typename
-  id
-  mediaOembedVideo
+  liveVideo {
+    ...MediaRemoteVideoFragment
+  }
+  recordingVideo {
+    ...MediaRemoteVideoFragment
+  }
 }
     `;
 export const ParagraphMediaHeaderFragment = /*#__PURE__*/ `
@@ -964,18 +970,6 @@ export const ParagraphMediaHeaderFragment = /*#__PURE__*/ `
     }
   }
   video {
-    ...MediaRemoteVideoFragment
-  }
-}
-    `;
-export const ParagraphTalkHeaderFragment = /*#__PURE__*/ `
-    fragment ParagraphTalkHeaderFragment on ParagraphTalkHeader {
-  __typename
-  id
-  liveVideo {
-    ...MediaRemoteVideoFragment
-  }
-  recordingVideo {
     ...MediaRemoteVideoFragment
   }
 }
@@ -1177,6 +1171,7 @@ ${ParagraphHeroHeaderFragment}
 ${NodeFoundationPageFragment}
 ${NodeSpeakerFragment}
 ${NodeTalkFragment}
+${MediaRemoteVideoFragment}
 ${NodeDeveloperToolsFragment}
 ${NodePeopleFragment}`;
 export const useGetNodeByPathQuery = <
