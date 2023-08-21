@@ -5,9 +5,11 @@
 @use '@styles/base/helpers' as *;
 
 .root {
+  background-color: var(--color-white);
+  padding: to.rem(30px) 0;
 }
 
 .logo {
-  height: to.rem(100px);
-  margin: 0 to.rem(40px);
+  height: to.rem(42px);
+  margin: 0 to.rem(100px);
 }
