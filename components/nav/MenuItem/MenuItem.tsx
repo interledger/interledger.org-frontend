@@ -34,11 +34,15 @@ export const MenuItem = ({
   }
 
   return (
-    <m.li variants={item} transition={{ type: 'spring' }}>
+    <m.li
+      className={rootClassName}
+      variants={item}
+      transition={{ type: 'spring' }}
+    >
       {menuItem.url ? (
         <Link
           href={menuItem.url}
-          className={cn(rootClassName, {
+          className={cn(styles.link, {
             [styles.active]: menuItem.url === currentRoute,
             [styles.main]: type === 'main',
           })}

@@ -2,5 +2,8 @@ fragment MainMenuFragment on Menu {
   __typename
   items {
     ...MenuItemFragment
+    children {
+      ...MenuItemFragment
+    }
   }
 }

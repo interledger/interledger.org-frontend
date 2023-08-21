@@ -62,13 +62,24 @@ export const ParagraphSchedule = ({
                         {!!t.speakers?.length ? (
                           <h3>{t.speakers[0].title}</h3>
                         ) : null}
-                        {/* <div className={styles.talkTime}>
-                          <DateFormat
-                            date={new Date(t.dateTime.time)}
-                            dateFormat={'h:mmaaa '}
-                          />
-                          - <Duration duration={t.duration} />
-                        </div> */}
+                        <div className={styles.talkTime}>
+                          {t.startsAt ? (
+                            <DateFormat
+                              date={new Date(t.startsAt.time)}
+                              dateFormat={'h:mmaaa '}
+                            />
+                          ) : null}
+                          {t.startsAt && t.endsAt ? (
+                            <>
+                              {' '}
+                              -{' '}
+                              <Duration
+                                startsAt={new Date(t.startsAt.time)}
+                                endsAt={new Date(t.endsAt.time)}
+                              />
+                            </>
+                          ) : null}
+                        </div>
                       </div>
                     ) : null
                   )

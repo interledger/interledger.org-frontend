@@ -7,6 +7,7 @@
 .root {
   padding-left: var(--page-gutter-left);
   padding-right: var(--page-gutter-right);
+  height: 100%;
 
   @include mq($from: tablet) {
     padding: 0;
@@ -19,6 +20,7 @@
 
     @include mq($from: tablet) {
       display: flex;
+      height: 100%;
     }
 
     li {
@@ -32,6 +34,10 @@
         margin: 0 to.rem(10px);
         font-size: to.rem(16px);
         font-weight: 400;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
       }
 
       &:first-child {
@@ -40,6 +46,42 @@
 
       &:last-child {
         margin-right: 0;
+      }
+    }
+  }
+
+  .dropdown {
+    position: relative;
+
+    &:hover {
+      .dropdownMenu {
+        display: block;
+      }
+    }
+  }
+
+  .dropdownMenu {
+    position: absolute;
+    background-color: var(--color-white);
+    padding: to.rem(20px);
+    text-align: center;
+    border-top: to.rem(1px) solid var(--color-primary);
+    min-width: to.rem(150px);
+    display: none;
+    top: to.rem(96px);
+    z-index: 1;
+
+    left: calc(-50% - 10px);
+
+    ul {
+      display: block;
+
+      li {
+        margin: 0;
+
+        &:not(:last-child) {
+          margin: 0 0 to.rem(10px);
+        }
       }
     }
   }

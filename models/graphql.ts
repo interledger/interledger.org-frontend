@@ -594,6 +594,7 @@ export type NodeFoundationPageSectionsUnion =
   | ParagraphNewsListings
   | ParagraphPeopleGrid
   | ParagraphPriceList
+  | ParagraphScrollingLogoCarousel
   | ParagraphSpacer
   | ParagraphText
   | ParagraphTwoColumnContent
@@ -1283,6 +1284,19 @@ export type ParagraphScheduleDayTalksViewArgs = {
 };
 
 /** Entity type paragraph. */
+export type ParagraphScrollingLogoCarousel = ParagraphInterface & {
+  __typename?: 'ParagraphScrollingLogoCarousel';
+  /** The time that the Paragraph was created. */
+  created: DateTime;
+  /** The Universally Unique IDentifier (UUID). */
+  id: Scalars['ID'];
+  /** Images */
+  images: Array<MediaImage>;
+  /** The paragraphs entity language code. */
+  langcode: Language;
+};
+
+/** Entity type paragraph. */
 export type ParagraphSocialMedia = ParagraphInterface & {
   __typename?: 'ParagraphSocialMedia';
   /** The time that the Paragraph was created. */
@@ -1480,6 +1494,7 @@ export type ParagraphUnion =
   | ParagraphPriceOption
   | ParagraphSchedule
   | ParagraphScheduleDay
+  | ParagraphScrollingLogoCarousel
   | ParagraphSocialMedia
   | ParagraphSocialMediaLink
   | ParagraphSpacer

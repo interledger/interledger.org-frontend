@@ -6,8 +6,7 @@
 
 .root {
   position: relative;
-  padding: to.rem(30px) var(--page-gutter-right) to.rem(30px)
-    var(--page-gutter-left);
+  padding: 0 var(--page-gutter-right) 0 var(--page-gutter-left);
   background-color: transparent;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -61,7 +60,7 @@
   @include mq($from: tablet) {
     justify-self: center;
     grid-area: menu;
-    align-self: center;
+    align-self: stretch;
   }
 
   nav {
