@@ -6,6 +6,7 @@ import styles from './MenuItem.module.scss';
 import { Children, MouseEventHandler, ReactNode } from 'react';
 import { m } from 'framer-motion';
 import { Arrow } from '@components/icon/Arrow/Arrow';
+import { WrapLastWordInSpan } from '@components/util/WrapLastWordInSpan/WrapLastWordInSpan';
 
 export interface MenuItemProps {
   /** Optional className for MenuItem, pass in a sass module class to override component default */
@@ -64,16 +65,20 @@ export const MenuItem = ({
           })}
           onClick={onClick}
         >
-          {menuItem.title}
-          {hasChildren ? (
-            <m.span
-              className={styles.arrow}
-              initial={{ opacity: 0, x: 5 }}
-              animate={{ opacity: 1, x: 0 }}
-            >
-              <Arrow />
-            </m.span>
-          ) : null}
+          <WrapLastWordInSpan
+            className={styles.titleSpan}
+            text={menuItem.title}
+          >
+            {hasChildren ? (
+              <m.span
+                className={styles.arrow}
+                initial={{ opacity: 0, x: 5 }}
+                animate={{ opacity: 1, x: 0 }}
+              >
+                <Arrow />
+              </m.span>
+            ) : null}
+          </WrapLastWordInSpan>
         </button>
       )}
       {children}

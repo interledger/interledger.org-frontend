@@ -25,10 +25,12 @@
 .submain {
   border-left: 2px solid transparent;
   padding-left: to.rem(19px);
-  display: flex;
-  align-items: center;
-  line-height: 0.75;
+  line-height: 1;
   font-weight: 700;
+  text-align: left;
+  span {
+    min-width: 0;
+  }
 
   &.active {
     border-left: 2px solid var(--color-primary);
@@ -49,6 +51,8 @@
     line-height: 1;
     font-weight: 400;
     display: block;
+    text-align: center;
+    white-space: nowrap;
 
     &.active {
       border: 0;
@@ -75,8 +79,6 @@
   }
 }
 
-.arrow {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.titleSpan {
+  display: inline-block;
 }

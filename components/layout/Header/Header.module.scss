@@ -110,6 +110,7 @@
     z-index: 11;
     height: calc(100% - #{to.rem(96px)});
     width: 100%;
+    overflow-y: auto;
   }
 }
 
