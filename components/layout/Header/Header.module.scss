@@ -52,6 +52,15 @@
   width: to.rem(150px);
 }
 
+.visitLogo {
+  width: to.rem(100px);
+}
+
+.visitLable {
+  display: block;
+  margin-bottom: to.rem(5px);
+}
+
 .menuWrapper {
   justify-self: left;
   grid-area: menu;
@@ -69,7 +78,6 @@
 }
 
 .siteWrapper {
-  justify-self: center;
   grid-area: site;
   padding: var(--page-gutter);
 
@@ -89,10 +97,10 @@
 
   @include mq($from: tablet) {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr;
-    grid-template-areas: 'menu site';
-    grid-area: nav;
+    grid-template-areas: '. menu site';
+    grid-area: 1 / 1 / 2 / 4;
     position: relative;
   }
 
