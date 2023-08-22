@@ -71,6 +71,7 @@
     .link {
       @include mq($from: tablet) {
         position: relative;
+
         &::after {
           content: '';
           width: to.rem(6px);

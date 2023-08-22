@@ -39,6 +39,7 @@ export const MainMenu = ({ className, mainMenu }: MainMenuProps) => {
   const [menuOpen] = useAtom(menuAtom);
   const isTablet = useMediaQuery('(min-width: 980px)');
   const rootClassName = cn(styles.root, className);
+  console.log({ isTablet });
 
   const handleAnimationComplete = (state: string) => {
     setStaggerComplete(state === 'show');
@@ -74,10 +75,9 @@ export const MainMenu = ({ className, mainMenu }: MainMenuProps) => {
                   <m.div
                     className={styles.dropdownMenu}
                     variants={submenu}
-                    initial={!isTablet ? { x: '100%' } : undefined}
                     animate={
                       isTablet
-                        ? 'tablet'
+                        ? undefined
                         : !isTablet && currentMenu === menu.id
                         ? 'slideIn'
                         : 'slideOut'
