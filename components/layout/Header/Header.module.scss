@@ -97,7 +97,7 @@
   }
 
   &.menuOpen {
-    background-color: var(--color-white);
+    background-color: var(--main-menu-mobile-bg-color);
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr auto;
@@ -110,18 +110,6 @@
     z-index: 11;
     height: calc(100% - #{to.rem(96px)});
     width: 100%;
-
-    @include mq($from: tablet) {
-      background-color: transparent;
-    }
-  }
-
-  &.dark {
-    background-color: var(--color-black);
-
-    @include mq($from: tablet) {
-      background-color: transparent;
-    }
   }
 }
 

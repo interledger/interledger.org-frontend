@@ -3,15 +3,17 @@ import cn from 'classnames';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import styles from './MenuItem.module.scss';
-import { ReactNode } from 'react';
+import { Children, MouseEventHandler, ReactNode } from 'react';
 import { m } from 'framer-motion';
+import { Arrow } from '@components/icon/Arrow/Arrow';
 
 export interface MenuItemProps {
   /** Optional className for MenuItem, pass in a sass module class to override component default */
   className?: string;
   menuItem: MenuItemFragment | null;
-  type?: 'default' | 'main';
+  type?: 'default' | 'main' | 'submain';
   children?: ReactNode;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
 const item = {
@@ -24,6 +26,7 @@ export const MenuItem = ({
   menuItem,
   type = 'default',
   children,
+  onClick,
 }: MenuItemProps) => {
   const router = useRouter();
   const currentRoute = router.asPath;
@@ -32,6 +35,8 @@ export const MenuItem = ({
   if (!menuItem) {
     return null;
   }
+
+  const hasChildren = !!Children.toArray(children).length;
 
   return (
     <m.li
@@ -45,19 +50,31 @@ export const MenuItem = ({
           className={cn(styles.link, {
             [styles.active]: menuItem.url === currentRoute,
             [styles.main]: type === 'main',
+            [styles.submain]: type === 'submain',
           })}
         >
           {menuItem.title}
         </Link>
       ) : (
-        <span
+        <button
           className={cn(styles.link, {
             [styles.active]: menuItem.url === currentRoute,
             [styles.main]: type === 'main',
+            [styles.submain]: type === 'submain',
           })}
+          onClick={onClick}
         >
           {menuItem.title}
-        </span>
+          {hasChildren ? (
+            <m.span
+              className={styles.arrow}
+              initial={{ opacity: 0, x: 5 }}
+              animate={{ opacity: 1, x: 0 }}
+            >
+              <Arrow />
+            </m.span>
+          ) : null}
+        </button>
       )}
       {children}
     </m.li>
