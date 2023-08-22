@@ -28,6 +28,10 @@
 .submain {
   &.active {
     border-left: 2px solid var(--color-primary);
+
+    @include mq($from: mainMenu) {
+      border: 0;
+    }
   }
 
   .link {
@@ -58,18 +62,15 @@
       display: block;
       text-align: center;
       white-space: nowrap;
-
-      &.active {
-        border: 0;
-      }
     }
   }
 }
 
 .main {
-  .link {
-    @include mq($from: tablet) {
-      &.active {
+  &.active {
+    .link {
+      @include mq($from: tablet) {
+        position: relative;
         &::after {
           content: '';
           width: to.rem(6px);
