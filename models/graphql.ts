@@ -598,7 +598,8 @@ export type NodeFoundationPageSectionsUnion =
   | ParagraphSpacer
   | ParagraphText
   | ParagraphTwoColumnContent
-  | ParagraphVideo;
+  | ParagraphVideo
+  | ParagraphVideoEmbed;
 
 /** Entity type node. */
 export type NodeInterface = {
@@ -659,20 +660,25 @@ export type NodePage = MetaTagInterface &
 /** Sections */
 export type NodePageSectionsUnion =
   | ParagraphButton
+  | ParagraphContentCarousel
   | ParagraphContentTitle
+  | ParagraphFaqs
   | ParagraphHighlightedList
   | ParagraphHighlightedSpeakers
   | ParagraphImageCarousel
   | ParagraphImageFullWidth
   | ParagraphImageGallery
   | ParagraphLargeCalloutText
+  | ParagraphPriceList
   | ParagraphSchedule
+  | ParagraphScrollingLogoCarousel
   | ParagraphSpacer
   | ParagraphSpeakersGrid
   | ParagraphTalksGrid
   | ParagraphText
   | ParagraphTwoColumnContent
-  | ParagraphVideo;
+  | ParagraphVideo
+  | ParagraphVideoEmbed;
 
 /** Result for view node_paths_graphql display graphql_1. */
 export type NodePathsResult = View & {
@@ -1506,7 +1512,8 @@ export type ParagraphUnion =
   | ParagraphTeaser
   | ParagraphText
   | ParagraphTwoColumnContent
-  | ParagraphVideo;
+  | ParagraphVideo
+  | ParagraphVideoEmbed;
 
 /** Entity type paragraph. */
 export type ParagraphVideo = ParagraphInterface & {
@@ -1521,6 +1528,19 @@ export type ParagraphVideo = ParagraphInterface & {
   singleImage: MediaImage;
   /** Video */
   video: MediaVideo;
+};
+
+/** Entity type paragraph. */
+export type ParagraphVideoEmbed = ParagraphInterface & {
+  __typename?: 'ParagraphVideoEmbed';
+  /** The time that the Paragraph was created. */
+  created: DateTime;
+  /** The Universally Unique IDentifier (UUID). */
+  id: Scalars['ID'];
+  /** The paragraphs entity language code. */
+  langcode: Language;
+  /** Video */
+  remoteVideo?: Maybe<MediaRemoteVideo>;
 };
 
 /** Result for view people display graphql_1. */
