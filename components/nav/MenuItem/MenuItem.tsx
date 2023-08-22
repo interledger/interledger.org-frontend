@@ -31,11 +31,21 @@ export const MenuItem = ({
 }: MenuItemProps) => {
   const router = useRouter();
   const currentRoute = router.asPath;
-  const rootClassName = cn(styles.root, className);
 
   if (!menuItem) {
     return null;
   }
+
+  const rootClassName = cn(
+    styles.root,
+    {
+      [styles.active]: menuItem.url === currentRoute,
+      [styles.main]: type === 'main',
+      [styles.submain]: type === 'submain',
+    },
+
+    className
+  );
 
   const hasChildren = !!Children.toArray(children).length;
 
@@ -46,25 +56,11 @@ export const MenuItem = ({
       transition={{ type: 'spring' }}
     >
       {menuItem.url ? (
-        <Link
-          href={menuItem.url}
-          className={cn(styles.link, {
-            [styles.active]: menuItem.url === currentRoute,
-            [styles.main]: type === 'main',
-            [styles.submain]: type === 'submain',
-          })}
-        >
+        <Link href={menuItem.url} className={cn(styles.link)}>
           {menuItem.title}
         </Link>
       ) : (
-        <button
-          className={cn(styles.link, {
-            [styles.active]: menuItem.url === currentRoute,
-            [styles.main]: type === 'main',
-            [styles.submain]: type === 'submain',
-          })}
-          onClick={onClick}
-        >
+        <button className={cn(styles.link)} onClick={onClick}>
           <WrapLastWordInSpan
             className={styles.titleSpan}
             text={menuItem.title}

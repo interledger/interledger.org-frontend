@@ -17,63 +17,71 @@
 }
 
 .active {
-  color: var(--color-primary);
   position: relative;
+
+  .link {
+    color: var(--color-primary);
+  }
 }
 
 .main,
 .submain {
-  border-left: 2px solid transparent;
-  padding-left: to.rem(19px);
-  line-height: 1;
-  font-weight: 700;
-  text-align: left;
-  span {
-    min-width: 0;
-  }
-
   &.active {
     border-left: 2px solid var(--color-primary);
   }
 
-  svg {
-    --color-primary: var(--main-menu-mobile-text-color);
-    width: to.rem(50px);
-    margin-left: to.rem(10px);
-    @include mq($from: mainMenu) {
-      display: none;
-    }
-  }
-
-  @include mq($from: mainMenu) {
-    border: 0;
-    padding: 0;
+  .link {
+    border-left: 2px solid transparent;
+    padding-left: to.rem(19px);
     line-height: 1;
-    font-weight: 400;
-    display: block;
-    text-align: center;
-    white-space: nowrap;
+    font-weight: 700;
+    text-align: left;
 
-    &.active {
+    span {
+      min-width: 0;
+    }
+
+    svg {
+      --color-primary: var(--main-menu-mobile-text-color);
+      width: to.rem(50px);
+      margin-left: to.rem(10px);
+      @include mq($from: mainMenu) {
+        display: none;
+      }
+    }
+
+    @include mq($from: mainMenu) {
       border: 0;
+      padding: 0;
+      line-height: 1;
+      font-weight: 400;
+      display: block;
+      text-align: center;
+      white-space: nowrap;
+
+      &.active {
+        border: 0;
+      }
     }
   }
 }
 
 .main {
-  @include mq($from: mainMenu) {
-    &.active {
-      &::after {
-        content: '';
-        width: to.rem(6px);
-        height: to.rem(6px);
-        border-radius: 50%;
-        background-color: var(--color-primary);
-        display: block;
-        position: absolute;
-        bottom: -#{to.rem(10px)};
-        left: 50%;
-        transform: translateX(-50%);
+  .link {
+    @include mq($from: tablet) {
+      &.active {
+        &::after {
+          content: '';
+          width: to.rem(6px);
+          height: to.rem(6px);
+          border-radius: 50%;
+          background-color: var(--color-primary);
+          display: block;
+          position: absolute;
+          bottom: -#{to.rem(10px)};
+          left: 50%;
+          transform: translateX(-50%);
+        }
       }
     }
   }
