@@ -13,6 +13,7 @@ export const Default: Story = {
   args: {
     mainMenu: {
       __typename: 'Menu' as const,
+      id: '234325423',
       items: [
         {
           __typename: 'MenuItem' as const,
