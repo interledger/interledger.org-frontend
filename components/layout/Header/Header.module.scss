@@ -15,7 +15,7 @@
   grid-template-areas: 'logo menu';
   height: to.rem(96px);
 
-  @include mq($from: tablet) {
+  @include mq($from: mainMenu) {
     gap: 0px 0px;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
@@ -28,7 +28,7 @@
   align-self: center;
   grid-area: menu;
 
-  @include mq($from: tablet) {
+  @include mq($from: mainMenu) {
     display: none;
   }
 }
@@ -66,7 +66,7 @@
   grid-area: menu;
   align-self: center;
 
-  @include mq($from: tablet) {
+  @include mq($from: mainMenu) {
     justify-self: center;
     grid-area: menu;
     align-self: stretch;
@@ -81,7 +81,7 @@
   grid-area: site;
   padding: var(--page-gutter);
 
-  @include mq($from: tablet) {
+  @include mq($from: mainMenu) {
     justify-self: end;
     align-self: center;
     padding: 0;
@@ -95,7 +95,7 @@
   display: none;
   gap: 0px 0px;
 
-  @include mq($from: tablet) {
+  @include mq($from: mainMenu) {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr;
@@ -127,7 +127,7 @@
   top: to.rem(20px);
   right: to.rem(20px);
 
-  @include mq($from: tablet) {
+  @include mq($from: mainMenu) {
     display: none;
   }
 }

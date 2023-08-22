@@ -40,12 +40,12 @@
     --color-primary: var(--main-menu-mobile-text-color);
     width: to.rem(50px);
     margin-left: to.rem(10px);
-    @include mq($from: tablet) {
+    @include mq($from: mainMenu) {
       display: none;
     }
   }
 
-  @include mq($from: tablet) {
+  @include mq($from: mainMenu) {
     border: 0;
     padding: 0;
     line-height: 1;
@@ -61,7 +61,7 @@
 }
 
 .main {
-  @include mq($from: tablet) {
+  @include mq($from: mainMenu) {
     &.active {
       &::after {
         content: '';
