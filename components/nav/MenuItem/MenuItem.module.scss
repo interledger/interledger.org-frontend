@@ -8,6 +8,8 @@
   text-decoration: none;
   color: var(--color-text-reverse);
   cursor: pointer;
+  background-color: transparent;
+  border: 0;
 
   &:hover {
     color: var(--color-primary);
@@ -19,24 +21,44 @@
   position: relative;
 }
 
-.main {
+.main,
+.submain {
   border-left: 2px solid transparent;
   padding-left: to.rem(19px);
-  display: block;
+  display: flex;
+  align-items: center;
   line-height: 0.75;
+  font-weight: 700;
 
   &.active {
     border-left: 2px solid var(--color-primary);
+  }
+
+  svg {
+    --color-primary: var(--main-menu-mobile-text-color);
+    width: to.rem(50px);
+    margin-left: to.rem(10px);
+    @include mq($from: tablet) {
+      display: none;
+    }
   }
 
   @include mq($from: tablet) {
     border: 0;
     padding: 0;
     line-height: 1;
+    font-weight: 400;
+    display: block;
 
     &.active {
       border: 0;
+    }
+  }
+}
 
+.main {
+  @include mq($from: tablet) {
+    &.active {
       &::after {
         content: '';
         width: to.rem(6px);
@@ -51,4 +73,10 @@
       }
     }
   }
+}
+
+.arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

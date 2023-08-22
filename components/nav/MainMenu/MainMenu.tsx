@@ -2,11 +2,13 @@ import { MainMenuFragment } from '@models/operations';
 import cn from 'classnames';
 import { MenuList } from '../MenuList/MenuList';
 import styles from './MainMenu.module.scss';
-import { m } from 'framer-motion';
+import { Variants, m } from 'framer-motion';
 import { menuAtom } from '@store/site';
 import { useAtom } from 'jotai';
 import { useMediaQuery } from '@hooks/useMediaQuery/useMediaQuery';
 import { MenuItem } from '../MenuItem/MenuItem';
+import { useEffect, useState } from 'react';
+import { Arrow } from '@components/icon/Arrow/Arrow';
 
 export interface MainMenuProps {
   /** Optional className for MainMenu, pass in a sass module class to override component default */
@@ -14,7 +16,7 @@ export interface MainMenuProps {
   mainMenu: MainMenuFragment;
 }
 
-const container = {
+const container: Variants = {
   hide: {},
   show: {
     transition: {
@@ -23,14 +25,37 @@ const container = {
   },
 };
 
+const submenu: Variants = {
+  slideOut: {
+    x: '100%',
+  },
+  slideIn: {
+    x: 0,
+  },
+};
+
 export const MainMenu = ({ className, mainMenu }: MainMenuProps) => {
+  const [currentMenu, setCurrentMenu] = useState<string | null>(null);
+  const [staggerComplete, setStaggerComplete] = useState(false);
   const [menuOpen] = useAtom(menuAtom);
   const isTablet = useMediaQuery('(min-width: 910px)');
   const rootClassName = cn(styles.root, className);
+
+  const handleAnimationComplete = (state: string) => {
+    setStaggerComplete(state === 'show');
+  };
+
+  useEffect(() => {
+    if (!menuOpen) {
+      setCurrentMenu(null);
+    }
+  }, [menuOpen]);
+
   return (
     <m.nav
       className={rootClassName}
       animate={isTablet ? 'show' : !isTablet && menuOpen ? 'show' : 'hide'}
+      onAnimationComplete={handleAnimationComplete}
     >
       {mainMenu?.items && (
         <m.ul role="list" variants={container}>
@@ -43,17 +68,39 @@ export const MainMenu = ({ className, mainMenu }: MainMenuProps) => {
                 key={menu.url}
                 menuItem={menu}
                 type={'main'}
+                onClick={() => setCurrentMenu(menu.id)}
               >
-                {!!menu.children?.length ? (
-                  <div className={styles.dropdownMenu}>
+                {staggerComplete && !!menu.children?.length ? (
+                  <m.div
+                    className={styles.dropdownMenu}
+                    variants={submenu}
+                    initial={!isTablet ? { x: '100%' } : undefined}
+                    animate={
+                      isTablet
+                        ? 'tablet'
+                        : !isTablet && currentMenu === menu.id
+                        ? 'slideIn'
+                        : 'slideOut'
+                    }
+                  >
+                    <button
+                      className={styles.backButton}
+                      onClick={() => setCurrentMenu(null)}
+                    >
+                      <Arrow />
+                    </button>
                     <m.ul role="list" variants={container}>
                       {menu.children.map((menu) =>
                         menu ? (
-                          <MenuItem key={menu.url} menuItem={menu} />
+                          <MenuItem
+                            key={menu.url}
+                            menuItem={menu}
+                            type={'submain'}
+                          />
                         ) : null
                       )}
                     </m.ul>
-                  </div>
+                  </m.div>
                 ) : null}
               </MenuItem>
             ) : null

@@ -27,7 +27,13 @@
   --color-swiper-pagination: var(--color-white);
   --color-link: var(--color-secondary);
   --color-text-reverse: var(--color-white);
+  --main-menu-mobile-bg-color: var(--color-black);
+  --main-menu-mobile-text-color: var(--color-white);
 
   color: var(--color-white);
   background-color: var(--color-black);
+
+  @include mq($from: tablet) {
+    --main-menu-mobile-bg-color: transparent;
+  }
 }

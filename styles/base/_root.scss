@@ -28,6 +28,10 @@
   --color-link: var(--color-primary);
   --color-swiper-pagination: var(--color-black);
 
+  // Components
+  --main-menu-mobile-bg-color: var(--color-white);
+  --main-menu-mobile-text-color: var(--color-black);
+
   @include mq($from: tablet) {
     --page-gutter: #{to.rem(40px)};
     --page-gutter-left: calc(var(--page-gutter) + env(safe-area-inset-left));
