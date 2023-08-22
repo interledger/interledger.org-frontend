@@ -15,7 +15,7 @@
   grid-template-areas: 'logo menu';
   height: to.rem(96px);
 
-  @include mq($from: tablet) {
+  @include mq($from: mainMenu) {
     gap: 0px 0px;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
@@ -28,7 +28,7 @@
   align-self: center;
   grid-area: menu;
 
-  @include mq($from: tablet) {
+  @include mq($from: mainMenu) {
     display: none;
   }
 }
@@ -52,12 +52,21 @@
   width: to.rem(150px);
 }
 
+.visitLogo {
+  width: to.rem(100px);
+}
+
+.visitLable {
+  display: block;
+  margin-bottom: to.rem(5px);
+}
+
 .menuWrapper {
   justify-self: left;
   grid-area: menu;
   align-self: center;
 
-  @include mq($from: tablet) {
+  @include mq($from: mainMenu) {
     justify-self: center;
     grid-area: menu;
     align-self: stretch;
@@ -69,11 +78,10 @@
 }
 
 .siteWrapper {
-  justify-self: center;
   grid-area: site;
   padding: var(--page-gutter);
 
-  @include mq($from: tablet) {
+  @include mq($from: mainMenu) {
     justify-self: end;
     align-self: center;
     padding: 0;
@@ -87,12 +95,12 @@
   display: none;
   gap: 0px 0px;
 
-  @include mq($from: tablet) {
+  @include mq($from: mainMenu) {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr;
-    grid-template-areas: 'menu site';
-    grid-area: nav;
+    grid-template-areas: '. menu site';
+    grid-area: 1 / 1 / 2 / 4;
     position: relative;
   }
 
@@ -110,6 +118,7 @@
     z-index: 11;
     height: calc(100% - #{to.rem(96px)});
     width: 100%;
+    overflow-y: auto;
   }
 }
 
@@ -118,7 +127,7 @@
   top: to.rem(20px);
   right: to.rem(20px);
 
-  @include mq($from: tablet) {
+  @include mq($from: mainMenu) {
     display: none;
   }
 }

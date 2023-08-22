@@ -6,6 +6,7 @@ import styles from './MenuItem.module.scss';
 import { Children, MouseEventHandler, ReactNode } from 'react';
 import { m } from 'framer-motion';
 import { Arrow } from '@components/icon/Arrow/Arrow';
+import { WrapLastWordInSpan } from '@components/util/WrapLastWordInSpan/WrapLastWordInSpan';
 
 export interface MenuItemProps {
   /** Optional className for MenuItem, pass in a sass module class to override component default */
@@ -30,11 +31,21 @@ export const MenuItem = ({
 }: MenuItemProps) => {
   const router = useRouter();
   const currentRoute = router.asPath;
-  const rootClassName = cn(styles.root, className);
 
   if (!menuItem) {
     return null;
   }
+
+  const rootClassName = cn(
+    styles.root,
+    {
+      [styles.active]: menuItem.url === currentRoute,
+      [styles.main]: type === 'main',
+      [styles.submain]: type === 'submain',
+    },
+
+    className
+  );
 
   const hasChildren = !!Children.toArray(children).length;
 
@@ -45,35 +56,25 @@ export const MenuItem = ({
       transition={{ type: 'spring' }}
     >
       {menuItem.url ? (
-        <Link
-          href={menuItem.url}
-          className={cn(styles.link, {
-            [styles.active]: menuItem.url === currentRoute,
-            [styles.main]: type === 'main',
-            [styles.submain]: type === 'submain',
-          })}
-        >
+        <Link href={menuItem.url} className={cn(styles.link)}>
           {menuItem.title}
         </Link>
       ) : (
-        <button
-          className={cn(styles.link, {
-            [styles.active]: menuItem.url === currentRoute,
-            [styles.main]: type === 'main',
-            [styles.submain]: type === 'submain',
-          })}
-          onClick={onClick}
-        >
-          {menuItem.title}
-          {hasChildren ? (
-            <m.span
-              className={styles.arrow}
-              initial={{ opacity: 0, x: 5 }}
-              animate={{ opacity: 1, x: 0 }}
-            >
-              <Arrow />
-            </m.span>
-          ) : null}
+        <button className={cn(styles.link)} onClick={onClick}>
+          <WrapLastWordInSpan
+            className={styles.titleSpan}
+            text={menuItem.title}
+          >
+            {hasChildren ? (
+              <m.span
+                className={styles.arrow}
+                initial={{ opacity: 0, x: 5 }}
+                animate={{ opacity: 1, x: 0 }}
+              >
+                <Arrow />
+              </m.span>
+            ) : null}
+          </WrapLastWordInSpan>
         </button>
       )}
       {children}
