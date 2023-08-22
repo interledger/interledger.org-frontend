@@ -52,6 +52,7 @@ export const MainMenu = ({ className, mainMenu }: MainMenuProps) => {
 
   return (
     <m.nav
+      key={mainMenu.id}
       className={rootClassName}
       animate={isTablet ? 'show' : !isTablet && menuOpen ? 'show' : 'hide'}
       onAnimationComplete={handleAnimationComplete}

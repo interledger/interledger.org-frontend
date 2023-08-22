@@ -86,6 +86,7 @@ export const FooterMenuFragment = /*#__PURE__*/ `
 export const MainMenuFragment = /*#__PURE__*/ `
     fragment MainMenuFragment on Menu {
   __typename
+  id
   items {
     ...MenuItemFragment
     children {

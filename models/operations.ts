@@ -1266,6 +1266,7 @@ export type FooterMenuFragment = {
 
 export type MainMenuFragment = {
   __typename: 'Menu';
+  id: string;
   items: Array<{
     __typename: 'MenuItem';
     title: string;
@@ -5660,6 +5661,7 @@ export type GetInitDataQuery = {
   __typename?: 'Query';
   mainMenu?: {
     __typename: 'Menu';
+    id: string;
     items: Array<{
       __typename: 'MenuItem';
       title: string;
@@ -5675,6 +5677,7 @@ export type GetInitDataQuery = {
   } | null;
   summitMenu?: {
     __typename: 'Menu';
+    id: string;
     items: Array<{
       __typename: 'MenuItem';
       title: string;
