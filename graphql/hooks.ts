@@ -656,6 +656,22 @@ export const ParagraphScrollingLogoCarouselFragment = /*#__PURE__*/ `
   }
 }
     `;
+export const MediaRemoteVideoFragment = /*#__PURE__*/ `
+    fragment MediaRemoteVideoFragment on MediaRemoteVideo {
+  __typename
+  id
+  mediaOembedVideo
+}
+    `;
+export const ParagraphVideoEmbedFragment = /*#__PURE__*/ `
+    fragment ParagraphVideoEmbedFragment on ParagraphVideoEmbed {
+  __typename
+  id
+  remoteVideo {
+    ...MediaRemoteVideoFragment
+  }
+}
+    `;
 export const ParagraphsFragment = /*#__PURE__*/ `
     fragment ParagraphsFragment on ParagraphInterface {
   ... on ParagraphButton {
@@ -732,6 +748,9 @@ export const ParagraphsFragment = /*#__PURE__*/ `
   }
   ... on ParagraphScrollingLogoCarousel {
     ...ParagraphScrollingLogoCarouselFragment
+  }
+  ... on ParagraphVideoEmbed {
+    ...ParagraphVideoEmbedFragment
   }
 }
     `;
@@ -923,13 +942,6 @@ export const NodeSpeakerFragment = /*#__PURE__*/ `
       }
     }
   }
-}
-    `;
-export const MediaRemoteVideoFragment = /*#__PURE__*/ `
-    fragment MediaRemoteVideoFragment on MediaRemoteVideo {
-  __typename
-  id
-  mediaOembedVideo
 }
     `;
 export const NodeTalkFragment = /*#__PURE__*/ `
@@ -1166,13 +1178,14 @@ ${ParagraphColumnCardFragment}
 ${ParagraphScrollingLogoCarouselFragment}
 ${ParagraphLogoLinkFragment}
 ${MediaImageWidthFragment}
+${ParagraphVideoEmbedFragment}
+${MediaRemoteVideoFragment}
 ${MetaTagFragment}
 ${NodePageFragment}
 ${ParagraphHeroHeaderFragment}
 ${NodeFoundationPageFragment}
 ${NodeSpeakerFragment}
 ${NodeTalkFragment}
-${MediaRemoteVideoFragment}
 ${NodeDeveloperToolsFragment}
 ${NodePeopleFragment}`;
 export const useGetNodeByPathQuery = <

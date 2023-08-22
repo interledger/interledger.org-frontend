@@ -1,0 +1,7 @@
+fragment ParagraphVideoEmbedFragment on ParagraphVideoEmbed {
+  __typename
+  id
+  remoteVideo {
+    ...MediaRemoteVideoFragment
+  }
+}
