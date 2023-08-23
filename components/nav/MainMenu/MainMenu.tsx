@@ -39,7 +39,6 @@ export const MainMenu = ({ className, mainMenu }: MainMenuProps) => {
   const [menuOpen] = useAtom(menuAtom);
   const isTablet = useMediaQuery('(min-width: 980px)');
   const rootClassName = cn(styles.root, className);
-  console.log({ isTablet });
 
   const handleAnimationComplete = (state: string) => {
     setStaggerComplete(state === 'show');

@@ -10,6 +10,7 @@
   cursor: pointer;
   background-color: transparent;
   border: 0;
+  padding: 0;
 
   &:hover {
     color: var(--color-primary);
@@ -26,17 +27,7 @@
 
 .main,
 .submain {
-  &.active {
-    border-left: 2px solid var(--color-primary);
-
-    @include mq($from: mainMenu) {
-      border: 0;
-    }
-  }
-
   .link {
-    border-left: 2px solid transparent;
-    padding-left: to.rem(19px);
     line-height: 1;
     font-weight: 700;
     text-align: left;
