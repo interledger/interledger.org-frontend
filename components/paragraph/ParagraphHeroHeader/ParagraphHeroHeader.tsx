@@ -58,22 +58,26 @@ export const ParagraphHeroHeader = ({
             </Text>
           </div>
           <div className={styles.infoContainer}>
-            <div className={styles.when}>
-              <Text className={styles.infoTitle} variant="body1">
-                When
-              </Text>
-              <Text className={styles.infoText} variant="body1">
-                {paragraph.whenText}
-              </Text>
-            </div>
-            <div className={styles.where}>
-              <Text className={styles.infoTitle} variant="body1">
-                Where
-              </Text>
-              <Text className={styles.infoText} variant="body1">
-                {paragraph.whereText}
-              </Text>
-            </div>
+            {paragraph.whenText ? (
+              <div className={styles.when}>
+                <Text className={styles.infoTitle} variant="body1">
+                  When
+                </Text>
+                <Text className={styles.infoText} variant="body1">
+                  {paragraph.whenText}
+                </Text>
+              </div>
+            ) : null}
+            {paragraph.whereText ? (
+              <div className={styles.where}>
+                <Text className={styles.infoTitle} variant="body1">
+                  Where
+                </Text>
+                <Text className={styles.infoText} variant="body1">
+                  {paragraph.whereText}
+                </Text>
+              </div>
+            ) : null}
           </div>
         </div>
         <div className={styles.scrollChevron}>
