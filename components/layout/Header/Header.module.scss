@@ -46,6 +46,7 @@
 .logoWrapper {
   grid-area: logo;
   align-self: center;
+  z-index: 2;
 }
 
 .logo {
@@ -102,6 +103,7 @@
     grid-template-areas: '. menu site';
     grid-area: 1 / 1 / 2 / 4;
     position: relative;
+    z-index: 1;
   }
 
   &.menuOpen {
