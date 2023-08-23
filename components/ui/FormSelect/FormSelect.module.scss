@@ -23,6 +23,7 @@
     border: to.rem(2px) solid var(--color-primary);
     width: 100%;
     appearance: none;
+    background-color: vat(--color-white);
 
     &:disabled {
       border-color: lightgrey;
