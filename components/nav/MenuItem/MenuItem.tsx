@@ -14,6 +14,7 @@ export interface MenuItemProps {
   menuItem: MenuItemFragment | null;
   type?: 'default' | 'main' | 'submain';
   children?: ReactNode;
+  parentSelected?: boolean;
   onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
@@ -27,6 +28,7 @@ export const MenuItem = ({
   menuItem,
   type = 'default',
   children,
+  parentSelected,
   onClick,
 }: MenuItemProps) => {
   const router = useRouter();
@@ -61,20 +63,25 @@ export const MenuItem = ({
         </Link>
       ) : (
         <button className={cn(styles.link)} onClick={onClick}>
-          <WrapLastWordInSpan
-            className={styles.titleSpan}
-            text={menuItem.title}
-          >
-            {hasChildren ? (
-              <m.span
-                className={styles.arrow}
-                initial={{ opacity: 0, x: 5 }}
-                animate={{ opacity: 1, x: 0 }}
+          {menuItem.title}
+          {hasChildren ? (
+            <span className={styles.arrow}>
+              <m.svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 14.045 25.829"
+                animate={{ rotate: parentSelected ? 90 : 0 }}
               >
-                <Arrow />
-              </m.span>
-            ) : null}
-          </WrapLastWordInSpan>
+                <path
+                  fill="none"
+                  stroke="var(--color-primary)"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="m1.414 24.414 11.631-11.5-11.631-11.5"
+                />
+              </m.svg>
+            </span>
+          ) : null}
         </button>
       )}
       {children}

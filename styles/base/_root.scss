@@ -29,6 +29,8 @@
   --color-swiper-pagination: var(--color-black);
 
   // Components
+  --header-height: #{to.rem(96px)};
+  --header-menu-height: var(--header-height);
   --main-menu-mobile-bg-color: var(--color-white);
   --main-menu-mobile-text-color: var(--color-black);
 

@@ -25,7 +25,7 @@
 
     li {
       margin: 0 0 to.rem(20px);
-      font-size: to.rem(30px);
+      font-size: to.rem(40px);
       font-weight: 700;
       line-height: 1;
       padding: 0;
@@ -51,8 +51,6 @@
   }
 
   .dropdown {
-    position: relative;
-
     &:hover {
       .dropdownMenu {
         @include mq($from: mainMenu) {
@@ -63,62 +61,52 @@
   }
 
   .dropdownMenu {
-    position: fixed;
-    top: to.rem(96px);
-    left: 0;
-    z-index: 11;
-    height: calc(100% - #{to.rem(96px)});
-    width: 100%;
-    padding-left: var(--page-gutter-left);
-    padding-right: var(--page-gutter-right);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: var(--main-menu-mobile-bg-color);
-    transform: translateX(100%);
+    padding-left: to.rem(20px);
+    overflow: hidden;
 
     @include mq($from: mainMenu) {
       position: absolute;
       padding: to.rem(20px);
+      top: var(--header-height);
+      left: 0;
+      width: 100%;
       text-align: center;
-      border-top: to.rem(1px) solid var(--color-primary);
-      min-width: to.rem(150px);
       display: none;
-      top: to.rem(96px);
+
       z-index: 1;
-      left: calc(-50% - 10px);
       transform: none;
       height: auto;
+      border-top: to.rem(1px) solid var(--color-primary);
     }
 
     ul {
       display: block;
+      margin-top: to.rem(30px);
+
+      @include mq($from: mainMenu) {
+        display: flex;
+        justify-content: center;
+        margin-top: 0;
+      }
 
       li {
         margin: 0;
+        font-size: to.rem(30px);
+        font-weight: 400;
 
         &:not(:last-child) {
           margin: 0 0 to.rem(10px);
+
+          @include mq($from: mainMenu) {
+            margin: 0 to.rem(25px) 0;
+          }
+        }
+
+        @include mq($from: mainMenu) {
+          font-size: to.rem(16px);
+          margin: 0 to.rem(25px) 0;
         }
       }
     }
-  }
-}
-
-.backButton {
-  position: absolute;
-  top: 0;
-  background-color: transparent;
-  border: 0;
-  padding: 0;
-
-  svg {
-    --color-primary: var(--main-menu-mobile-text-color);
-    width: to.rem(50px);
-    transform: scaleX(-1);
-  }
-
-  @include mq($from: mainMenu) {
-    display: none;
   }
 }

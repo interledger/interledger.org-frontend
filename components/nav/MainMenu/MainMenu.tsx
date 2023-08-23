@@ -25,11 +25,11 @@ const container: Variants = {
 };
 
 const submenu: Variants = {
-  slideOut: {
-    x: '100%',
+  slideUp: {
+    height: 0,
   },
-  slideIn: {
-    x: 0,
+  slideDown: {
+    height: 'auto',
   },
 };
 
@@ -69,6 +69,7 @@ export const MainMenu = ({ className, mainMenu }: MainMenuProps) => {
                 menuItem={menu}
                 type={'main'}
                 onClick={() => setCurrentMenu(menu.id)}
+                parentSelected={currentMenu === menu.id}
               >
                 {!!menu.children?.length ? (
                   <m.div
@@ -78,18 +79,12 @@ export const MainMenu = ({ className, mainMenu }: MainMenuProps) => {
                       isTablet
                         ? undefined
                         : !isTablet && currentMenu === menu.id
-                        ? 'slideIn'
-                        : 'slideOut'
+                        ? 'slideDown'
+                        : 'slideUp'
                     }
                   >
                     {staggerComplete ? (
                       <>
-                        <button
-                          className={styles.backButton}
-                          onClick={() => setCurrentMenu(null)}
-                        >
-                          <Arrow />
-                        </button>
                         <m.ul role="list" variants={container}>
                           {menu.children.map((menu) =>
                             menu ? (

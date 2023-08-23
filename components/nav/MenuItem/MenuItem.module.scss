@@ -11,6 +11,7 @@
   background-color: transparent;
   border: 0;
   padding: 0;
+  font-weight: inherit;
 
   &:hover {
     color: var(--color-primary);
@@ -29,17 +30,26 @@
 .submain {
   .link {
     line-height: 1;
-    font-weight: 700;
     text-align: left;
+    display: flex;
+    align-items: center;
+    width: 100%;
 
     span {
       min-width: 0;
     }
 
-    svg {
-      --color-primary: var(--main-menu-mobile-text-color);
-      width: to.rem(50px);
-      margin-left: to.rem(10px);
+    .arrow {
+      width: to.rem(25px);
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      svg {
+        width: to.rem(11px);
+      }
+
       @include mq($from: mainMenu) {
         display: none;
       }
@@ -53,6 +63,7 @@
       display: block;
       text-align: center;
       white-space: nowrap;
+      width: auto;
     }
   }
 }
