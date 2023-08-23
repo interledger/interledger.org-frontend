@@ -5,7 +5,7 @@ import styles from './FormFieldError.module.scss';
 export interface FormFieldErrorProps {
   /** Optional className for FormFieldError, pass in a sass module class to override component default */
   className?: string;
-  message: string;
+  message?: string;
 }
 
 /**
@@ -14,9 +14,9 @@ export interface FormFieldErrorProps {
 
 export const FormFieldError = ({ className, message }: FormFieldErrorProps) => {
   const rootClassName = cn(styles.root, className);
-  return (
+  return message ? (
     <span className={rootClassName} role="alert">
       {message}
     </span>
-  );
+  ) : null;
 };

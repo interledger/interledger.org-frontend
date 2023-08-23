@@ -11,6 +11,8 @@ import { FormInput } from '@components/ui/FormInput/FormInput';
 import { FormSelect } from '@components/ui/FormSelect/FormSelect';
 import { FormFieldError } from '@components/ui/FormFieldError/FormFieldError';
 import { Text } from '@components/ui/Text/Text';
+import { FormLabel } from '@components/ui/FormLabel/FormLabel';
+import { FormHasRequired } from '@components/ui/FormHasRequired/FormHasRequired';
 
 export interface ParagraphContactFormProps {
   /** Optional className for ParagraphContactForm, pass in a sass module class to override component default */
@@ -64,9 +66,12 @@ export const ParagraphContactForm = ({
   return (
     <section className={rootClassName}>
       <form onSubmit={handleSubmit(onSubmit)}>
+        <FormHasRequired />
         <div className={styles.formFields}>
           <FormInput>
-            <label htmlFor="first_name">First Name</label>
+            <FormLabel htmlFor="first_name" required>
+              First Name
+            </FormLabel>
             <input
               id="first_name"
               type="text"
@@ -75,11 +80,11 @@ export const ParagraphContactForm = ({
               autoComplete="given-name"
             />
             {errors.first_name && errors.first_name.type === 'required' ? (
-              <FormFieldError message={'This is required'} />
+              <FormFieldError message={errors.first_name.message} />
             ) : null}
           </FormInput>
           <FormInput>
-            <label htmlFor="last_name">Last Name</label>
+            <FormLabel htmlFor="last_name">Last Name</FormLabel>
             <input
               id="last_name"
               type="text"
@@ -89,7 +94,9 @@ export const ParagraphContactForm = ({
             />
           </FormInput>
           <FormInput>
-            <label htmlFor="email">Email</label>
+            <FormLabel htmlFor="email" required>
+              Email
+            </FormLabel>
             <input
               id="email"
               type="email"
@@ -97,11 +104,13 @@ export const ParagraphContactForm = ({
               disabled={isSubmitting}
             />
             {errors.email && errors.email.type === 'required' ? (
-              <FormFieldError message={'This is required'} />
+              <FormFieldError message={errors.email.message} />
             ) : null}
           </FormInput>
           <FormInput>
-            <label htmlFor="subject">Topic</label>
+            <FormLabel htmlFor="subject" required>
+              Topic
+            </FormLabel>
             <FormSelect>
               <select
                 disabled={isSubmitting}
@@ -120,18 +129,20 @@ export const ParagraphContactForm = ({
               </select>
             </FormSelect>
             {errors.subject && errors.subject.type === 'required' ? (
-              <FormFieldError message={'This is required'} />
+              <FormFieldError message={errors.subject.message} />
             ) : null}
           </FormInput>
           <FormInput>
-            <label htmlFor="message">Message</label>
+            <FormLabel htmlFor="message" required>
+              Message
+            </FormLabel>
             <textarea
               id="message"
               {...register('message')}
               disabled={isSubmitting}
             ></textarea>
             {errors.message && errors.message.type === 'required' ? (
-              <FormFieldError message={'This is required'} />
+              <FormFieldError message={errors.message.message} />
             ) : null}
           </FormInput>
         </div>

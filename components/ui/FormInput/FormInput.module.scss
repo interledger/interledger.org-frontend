@@ -5,12 +5,6 @@
 @use '@styles/base/helpers' as *;
 
 .root {
-  label {
-    font-size: fluid(20px, 30px);
-    display: block;
-    margin-bottom: to.rem(10px);
-  }
-
   input,
   textarea {
     font-size: fluid(20px, 30px);
