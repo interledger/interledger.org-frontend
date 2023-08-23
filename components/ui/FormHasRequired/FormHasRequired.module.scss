@@ -1,0 +1,14 @@
+@use '@styles/base/mq-settings';
+@use '~sass-mq/mq' as *;
+@use '~sass-rem' as to;
+@use '@styles/base/variables' as *;
+@use '@styles/base/helpers' as *;
+
+.root {
+  font-size: fluid(20px, 25px);
+  margin-bottom: to.rem(30px);
+
+  span {
+    color: var(--color-red);
+  }
+}

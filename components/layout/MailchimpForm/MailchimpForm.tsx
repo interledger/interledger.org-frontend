@@ -13,6 +13,8 @@ import styles from './MailchimpForm.module.scss';
 import { MailchimpFormSchema } from './MailchimpFormSchema';
 import fetchJsonp from 'fetch-jsonp';
 import queryString from 'query-string';
+import { FormLabel } from '@components/ui/FormLabel/FormLabel';
+import { FormHasRequired } from '@components/ui/FormHasRequired/FormHasRequired';
 
 interface Response {
   result: string;
@@ -91,9 +93,10 @@ export const MailchimpForm = ({ className }: MailchimpFormProps) => {
         Subscribe to our mailing list
       </Text>
       <form onSubmit={handleSubmit(onSubmit)}>
+        <FormHasRequired />
         <div className={styles.formFields}>
           <FormInput>
-            <label htmlFor="mce-FNAME">First Name</label>
+            <FormLabel htmlFor="mce-FNAME">First Name</FormLabel>
             <input
               id="mce-FNAME"
               type="text"
@@ -103,7 +106,7 @@ export const MailchimpForm = ({ className }: MailchimpFormProps) => {
             />
           </FormInput>
           <FormInput>
-            <label htmlFor="mce-LNAME">Last Name</label>
+            <FormLabel htmlFor="mce-LNAME">Last Name</FormLabel>
             <input
               id="mce-LNAME"
               type="text"
@@ -113,7 +116,9 @@ export const MailchimpForm = ({ className }: MailchimpFormProps) => {
             />
           </FormInput>
           <FormInput>
-            <label htmlFor="mce-EMAIL">Email</label>
+            <FormLabel htmlFor="mce-EMAIL" required>
+              Email
+            </FormLabel>
             <input
               id="mce-EMAIL"
               type="email"
@@ -121,9 +126,9 @@ export const MailchimpForm = ({ className }: MailchimpFormProps) => {
               {...register('EMAIL')}
             />
             {errors.EMAIL && errors.EMAIL.type === 'required' ? (
-              <FormFieldError message={'This is required'} />
+              <FormFieldError message={errors.EMAIL.message} />
             ) : null}
-            {errorMessage ? <FormFieldError message={errorMessage} /> : null}
+            <FormFieldError message={errorMessage} />
           </FormInput>
         </div>
         <Button type="submit" disabled={isSubmitting}>
