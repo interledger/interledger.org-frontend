@@ -101,6 +101,7 @@ export const MailchimpForm = ({ className }: MailchimpFormProps) => {
               id="mce-FNAME"
               type="text"
               autoComplete="given-name"
+              autoFocus
               {...register('FNAME')}
               disabled={isSubmitting}
             />

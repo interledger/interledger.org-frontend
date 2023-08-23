@@ -54,18 +54,17 @@ export const Modal = ({
 
   return show && mounted && ref.current
     ? createPortal(
-        <div className={rootClassName}>
+        <div className={rootClassName} role="dialog" aria-modal="true">
           <m.div
-            role="dialog"
             className={styles.content}
             initial={{ y: 50 }}
             animate={{ y: 0 }}
             transition={{ type: 'spring' }}
-            aria-modal="true"
             ref={modalRef}
           >
             <button
               className={styles.closeButton}
+              type="button"
               aria-label={closeAriaLabel}
               onClick={onClose}
             >
