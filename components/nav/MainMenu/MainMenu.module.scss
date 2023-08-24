@@ -51,6 +51,8 @@
   }
 
   .dropdown {
+    position: relative;
+
     &:hover {
       .dropdownMenu {
         @include mq($from: mainMenu) {
@@ -66,17 +68,27 @@
 
     @include mq($from: mainMenu) {
       position: absolute;
-      padding: to.rem(20px);
+      padding: to.rem(24px) 0;
       top: var(--header-height);
-      left: 0;
-      width: 100%;
-      text-align: center;
+      left: 50%;
       display: none;
-
       z-index: 1;
-      transform: none;
+      transform: translateX(-50%);
       height: auto;
-      border-top: to.rem(1px) solid var(--color-primary);
+      overflow: visible;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: -14px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 31.414 16.207'%3E%3Cpath fill='none' stroke='%236d00cc' stroke-linecap='round' stroke-linejoin='round' d='m30.707 15.5-15-15-15 15'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        width: to.rem(30px);
+        height: to.rem(15px);
+        display: block;
+      }
     }
 
     ul {
@@ -84,8 +96,7 @@
       margin-top: to.rem(30px);
 
       @include mq($from: mainMenu) {
-        display: flex;
-        justify-content: center;
+        display: inline-flex;
         margin-top: 0;
       }
 

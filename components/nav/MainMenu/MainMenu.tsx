@@ -1,4 +1,3 @@
-import { Arrow } from '@components/icon/Arrow/Arrow';
 import { useMediaQuery } from '@hooks/useMediaQuery/useMediaQuery';
 import { MainMenuFragment } from '@models/operations';
 import { menuAtom } from '@store/site';
@@ -85,7 +84,7 @@ export const MainMenu = ({ className, mainMenu }: MainMenuProps) => {
                   >
                     {staggerComplete ? (
                       <>
-                        <m.ul role="list" variants={container}>
+                        <ul role="list">
                           {menu.children.map((menu) =>
                             menu ? (
                               <MenuItem
@@ -95,7 +94,7 @@ export const MainMenu = ({ className, mainMenu }: MainMenuProps) => {
                               />
                             ) : null
                           )}
-                        </m.ul>
+                        </ul>
                       </>
                     ) : null}
                   </m.div>

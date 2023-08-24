@@ -10,14 +10,27 @@
   background-color: transparent;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: minmax(var(--header-menu-height), auto);
+  grid-template-rows: var(--header-menu-height);
   gap: 0px 0px;
   grid-template-areas: 'logo menu';
 
   @include mq($from: mainMenu) {
     gap: 0px 0px;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: auto 1fr 1fr;
     grid-template-areas: 'logo nav nav';
+
+    &.subMenuOpen {
+      grid-template-areas: 'logo nav nav' 'dropdown dropdown dropdown';
+      grid-template-rows: var(--header-menu-height) + #{to.rem(64px)};
+      transition: all 5s;
+
+      &::after {
+        content: '';
+        display: block;
+        grid-area: dropdown;
+        border-top: to.rem(1px) solid var(--color-primary);
+      }
+    }
   }
 }
 

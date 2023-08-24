@@ -1,12 +1,12 @@
 import { MenuItemFragment } from '@models/operations';
 import cn from 'classnames';
+import { m } from 'framer-motion';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import styles from './MenuItem.module.scss';
 import { Children, MouseEventHandler, ReactNode } from 'react';
-import { m } from 'framer-motion';
-import { Arrow } from '@components/icon/Arrow/Arrow';
-import { WrapLastWordInSpan } from '@components/util/WrapLastWordInSpan/WrapLastWordInSpan';
+import styles from './MenuItem.module.scss';
+import { subMenuOpenAtom } from '@store/site';
+import { useAtom } from 'jotai';
 
 export interface MenuItemProps {
   /** Optional className for MenuItem, pass in a sass module class to override component default */
@@ -33,6 +33,7 @@ export const MenuItem = ({
 }: MenuItemProps) => {
   const router = useRouter();
   const currentRoute = router.asPath;
+  const [, setSubMenuOpen] = useAtom(subMenuOpenAtom);
 
   if (!menuItem) {
     return null;
@@ -56,6 +57,8 @@ export const MenuItem = ({
       className={rootClassName}
       variants={item}
       transition={{ type: 'spring' }}
+      onMouseOver={() => setSubMenuOpen(true)}
+      onMouseLeave={() => setSubMenuOpen(false)}
     >
       {menuItem.url ? (
         <Link href={menuItem.url} className={cn(styles.link)}>
