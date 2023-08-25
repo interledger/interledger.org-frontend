@@ -1,4 +1,3 @@
-import { Arrow } from '@components/icon/Arrow/Arrow';
 import { useMediaQuery } from '@hooks/useMediaQuery/useMediaQuery';
 import { MainMenuFragment } from '@models/operations';
 import { menuAtom } from '@store/site';
@@ -25,11 +24,11 @@ const container: Variants = {
 };
 
 const submenu: Variants = {
-  slideOut: {
-    x: '100%',
+  slideUp: {
+    height: 0,
   },
-  slideIn: {
-    x: 0,
+  slideDown: {
+    height: 'auto',
   },
 };
 
@@ -69,6 +68,7 @@ export const MainMenu = ({ className, mainMenu }: MainMenuProps) => {
                 menuItem={menu}
                 type={'main'}
                 onClick={() => setCurrentMenu(menu.id)}
+                parentSelected={currentMenu === menu.id}
               >
                 {!!menu.children?.length ? (
                   <m.div
@@ -78,19 +78,13 @@ export const MainMenu = ({ className, mainMenu }: MainMenuProps) => {
                       isTablet
                         ? undefined
                         : !isTablet && currentMenu === menu.id
-                        ? 'slideIn'
-                        : 'slideOut'
+                        ? 'slideDown'
+                        : 'slideUp'
                     }
                   >
                     {staggerComplete ? (
                       <>
-                        <button
-                          className={styles.backButton}
-                          onClick={() => setCurrentMenu(null)}
-                        >
-                          <Arrow />
-                        </button>
-                        <m.ul role="list" variants={container}>
+                        <ul role="list">
                           {menu.children.map((menu) =>
                             menu ? (
                               <MenuItem
@@ -100,7 +94,7 @@ export const MainMenu = ({ className, mainMenu }: MainMenuProps) => {
                               />
                             ) : null
                           )}
-                        </m.ul>
+                        </ul>
                       </>
                     ) : null}
                   </m.div>

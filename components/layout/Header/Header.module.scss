@@ -10,15 +10,13 @@
   background-color: transparent;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto;
+  grid-template-rows: var(--header-menu-height);
   gap: 0px 0px;
   grid-template-areas: 'logo menu';
-  height: to.rem(96px);
 
   @include mq($from: mainMenu) {
     gap: 0px 0px;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto;
+    grid-template-columns: auto 1fr 1fr;
     grid-template-areas: 'logo nav nav';
   }
 }
@@ -54,23 +52,27 @@
 }
 
 .visitLogo {
-  width: to.rem(100px);
+  width: to.rem(150px);
 }
 
 .visitLable {
   display: block;
-  margin-bottom: to.rem(5px);
+  margin-right: to.rem(17px);
+  font-size: to.rem(18px);
+  color: var(--color-text-reverse);
 }
 
 .menuWrapper {
   justify-self: left;
   grid-area: menu;
   align-self: center;
+  width: 100%;
 
   @include mq($from: mainMenu) {
     justify-self: center;
     grid-area: menu;
     align-self: stretch;
+    width: auto;
   }
 
   nav {
@@ -87,8 +89,11 @@
     align-self: center;
     padding: 0;
   }
+
   a {
     text-decoration: none;
+    display: flex;
+    align-items: center;
   }
 }
 
@@ -110,15 +115,16 @@
     background-color: var(--main-menu-mobile-bg-color);
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr auto;
+    grid-template-rows: var(--header-height) 1fr auto;
     grid-template-areas:
+      '.'
       'menu'
       'site';
     position: fixed;
-    top: to.rem(96px);
+    top: var(--header-height);
     left: 0;
     z-index: 11;
-    height: calc(100% - #{to.rem(96px)});
+    height: calc(100% - var(--header-height));
     width: 100%;
     overflow-y: auto;
   }

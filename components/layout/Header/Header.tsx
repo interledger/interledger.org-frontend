@@ -27,11 +27,13 @@ export interface HeaderProps {
  */
 
 export const Header = ({ className, mainMenu, isSummit }: HeaderProps) => {
-  const rootClassName = cn(styles.root, className);
   const [menuOpen] = useAtom(menuAtom);
+
   const [, setMenuOpen] = useAtom(menuOpenAtom);
   const [menuRef, setLock] = useScrollLock();
   const router = useRouter();
+
+  const rootClassName = cn(styles.root, className);
 
   useEffect(() => {
     setLock(menuOpen);
