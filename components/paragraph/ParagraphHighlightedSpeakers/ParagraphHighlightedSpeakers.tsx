@@ -1,8 +1,8 @@
-import { useRef } from 'react';
-import cn from 'classnames';
+import { CardSpeaker } from '@components/layout/CardSpeaker/CardSpeaker';
 import { ParagraphHighlightedSpeakersFragment } from '@models/operations';
-import { MediaImage } from '@components/media/MediaImage/MediaImage';
-import { m, useTransform, useScroll, MotionValue } from 'framer-motion';
+import cn from 'classnames';
+import { MotionValue, m, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
 import styles from './ParagraphHighlightedSpeakers.module.scss';
 
 export interface ParagraphHighlightedSpeakersProps {
@@ -82,9 +82,7 @@ const Speaker = ({ className, speaker }: SpeakerProps) => {
   return (
     <div className={className}>
       <m.div className={styles.speaker} ref={speakerRef} style={{ y }}>
-        <MediaImage media={speaker.teaser.squareImage} />
-        <h2>{speaker.title}</h2>
-        <p>CEO, Coil</p>
+        <CardSpeaker speaker={speaker} />
       </m.div>
     </div>
   );

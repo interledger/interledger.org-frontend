@@ -8,10 +8,7 @@
   margin-bottom: var(--component-spacing);
 }
 
-.header {
-  margin-bottom: var(--component-spacing);
-}
-
+.title,
 .content {
   margin-top: var(--component-spacing);
 }
@@ -20,4 +17,8 @@
   article {
     margin-bottom: to.rem(20px);
   }
+}
+
+.video {
+  @include breakContainer;
 }

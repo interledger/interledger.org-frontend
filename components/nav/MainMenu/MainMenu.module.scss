@@ -7,8 +7,9 @@
 .root {
   padding-left: var(--page-gutter-left);
   padding-right: var(--page-gutter-right);
+  height: 100%;
 
-  @include mq($from: tablet) {
+  @include mq($from: mainMenu) {
     padding: 0;
   }
 
@@ -17,21 +18,26 @@
     padding: 0;
     margin: 0;
 
-    @include mq($from: tablet) {
+    @include mq($from: mainMenu) {
       display: flex;
+      height: 100%;
     }
 
     li {
-      margin: 0 0 to.rem(30px);
-      font-size: to.rem(50px);
+      margin: 0 0 to.rem(20px);
+      font-size: to.rem(40px);
       font-weight: 700;
       line-height: 1;
       padding: 0;
 
-      @include mq($from: tablet) {
+      @include mq($from: mainMenu) {
         margin: 0 to.rem(10px);
         font-size: to.rem(16px);
         font-weight: 400;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
       }
 
       &:first-child {
@@ -40,6 +46,68 @@
 
       &:last-child {
         margin-right: 0;
+      }
+    }
+  }
+
+  .dropdown {
+    &:hover {
+      .dropdownMenu {
+        @include mq($from: mainMenu) {
+          display: block;
+          background-color: var(--main-menu-dropdown-bg-color);
+        }
+      }
+    }
+  }
+
+  .dropdownMenu {
+    padding-left: to.rem(20px);
+    overflow: hidden;
+
+    @include mq($from: mainMenu) {
+      position: absolute;
+      padding: to.rem(24px) 0;
+      top: var(--header-height);
+      left: calc(-1 * var(--page-gutter-left));
+      right: calc(-1 * var(--page-gutter-right));
+      display: none;
+      z-index: 1;
+      height: auto;
+      overflow: visible;
+      text-align: center;
+    }
+
+    ul {
+      display: block;
+      margin-top: to.rem(30px);
+
+      @include mq($from: mainMenu) {
+        display: inline-flex;
+        margin-top: 0;
+      }
+
+      li {
+        margin: 0;
+        font-size: to.rem(30px);
+        font-weight: 400;
+
+        &:not(:last-child) {
+          margin: 0 0 to.rem(10px);
+
+          @include mq($from: mainMenu) {
+            margin: 0 to.rem(25px) 0;
+          }
+        }
+
+        @include mq($from: mainMenu) {
+          font-size: to.rem(16px);
+          margin: 0 to.rem(25px) 0;
+
+          a {
+            color: var(--main-menu-dropdown-text-color);
+          }
+        }
       }
     }
   }

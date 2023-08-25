@@ -1,5 +1,8 @@
+import { differenceInMinutes } from 'date-fns';
+
 export interface DurationProps {
-  duration: number;
+  startsAt: Date;
+  endsAt: Date;
 }
 
 function toHoursAndMinutes(totalMinutes: number) {
@@ -13,7 +16,9 @@ function toHoursAndMinutes(totalMinutes: number) {
  * Duration description
  */
 
-export const Duration = ({ duration }: DurationProps) => {
+export const Duration = ({ startsAt, endsAt }: DurationProps) => {
+  const duration = differenceInMinutes(endsAt, startsAt);
+
   if (duration < 60) {
     return (
       <>

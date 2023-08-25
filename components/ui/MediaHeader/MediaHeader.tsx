@@ -18,7 +18,7 @@ export interface MediaHeaderProps {
   /** Optional className for MediaHeader, pass in a sass module class to override component default */
   className?: string;
   video?: Maybe<MediaVideoFragment | MediaRemoteVideoFragment>;
-  image: MediaImageFragment;
+  image?: MediaImageFragment;
 }
 
 /**
@@ -35,8 +35,10 @@ export const MediaHeader = ({ className, image, video }: MediaHeaderProps) => {
 
   return (
     <div className={rootClassName}>
-      {!playing ? <MediaImage className={styles.media} media={image} /> : null}
-      {!playing && video ? (
+      {!playing && image ? (
+        <MediaImage className={styles.media} media={image} />
+      ) : null}
+      {!playing && image && video ? (
         <button className={styles.playButton} onClick={playVideo}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -50,7 +52,7 @@ export const MediaHeader = ({ className, image, video }: MediaHeaderProps) => {
         </button>
       ) : null}
 
-      {playing && video ? (
+      {(playing && video) || (!image && video) ? (
         <>
           {video.__typename === 'MediaVideo' && (
             <MediaVideo media={video}>

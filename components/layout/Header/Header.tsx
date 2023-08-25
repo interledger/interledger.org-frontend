@@ -8,12 +8,12 @@ import cn from 'classnames';
 import Link from 'next/link';
 import styles from './Header.module.scss';
 
+import { CloseIcon } from '@components/icon/CloseIcon/CloseIcon';
+import { useScrollLock } from '@hooks/useScrollLock';
+import { m } from 'framer-motion';
 import { useAtom } from 'jotai';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
-import { useScrollLock } from '@hooks/useScrollLock';
-import { CloseIcon } from '@components/icon/CloseIcon/CloseIcon';
-import { m } from 'framer-motion';
 
 export interface HeaderProps {
   /** Optional className for Header, pass in a sass module class to override component default */
@@ -27,11 +27,13 @@ export interface HeaderProps {
  */
 
 export const Header = ({ className, mainMenu, isSummit }: HeaderProps) => {
-  const rootClassName = cn(styles.root, className);
   const [menuOpen] = useAtom(menuAtom);
+
   const [, setMenuOpen] = useAtom(menuOpenAtom);
   const [menuRef, setLock] = useScrollLock();
   const router = useRouter();
+
+  const rootClassName = cn(styles.root, className);
 
   useEffect(() => {
     setLock(menuOpen);
@@ -66,7 +68,7 @@ export const Header = ({ className, mainMenu, isSummit }: HeaderProps) => {
           key={menuOpen ? 'open' : 'close'}
           className={styles.menuButton}
           onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Open Menu"
+          aria-label={menuOpen ? 'Close Menu' : 'Open Menu'}
           initial={{ scale: 0 }}
           animate={{ scale: 1.2 }}
         >
@@ -86,11 +88,14 @@ export const Header = ({ className, mainMenu, isSummit }: HeaderProps) => {
           </div>
         )}
         <div className={styles.siteWrapper}>
-          {isSummit ? (
-            <Link href="/">Interledger Foundation Website</Link>
-          ) : (
-            <Link href="/summit">Interledger Summit Website</Link>
-          )}
+          <Link href={isSummit ? '/' : '/summit'} aria-label="Home">
+            <span className={styles.visitLable}>Visit</span>
+            {isSummit ? (
+              <Logo className={styles.visitLogo} />
+            ) : (
+              <SummitLogo className={styles.visitLogo} />
+            )}
+          </Link>
         </div>
       </div>
     </header>

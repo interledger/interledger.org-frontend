@@ -1,6 +1,10 @@
 fragment MainMenuFragment on Menu {
   __typename
+  id
   items {
     ...MenuItemFragment
+    children {
+      ...MenuItemFragment
+    }
   }
 }

@@ -20,6 +20,8 @@ export const useScrollLock = (): [
   const [lock, setLock] = useState(false);
 
   useEffect(() => {
+    if (!elementRef.current) return;
+
     lock
       ? disableBodyScroll(elementRef.current)
       : enableBodyScroll(elementRef.current);

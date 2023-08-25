@@ -1,0 +1,20 @@
+@use '@styles/base/mq-settings';
+@use '~sass-mq/mq' as *;
+@use '~sass-rem' as to;
+@use '@styles/base/variables' as *;
+@use '@styles/base/helpers' as *;
+
+.root {
+  background-color: var(--color-white);
+  padding-top: to.rem(30px);
+  padding-bottom: to.rem(30px);
+
+  img {
+    height: to.rem(42px);
+  }
+}
+
+.logo {
+  margin: 0 to.rem(100px);
+  display: block;
+}

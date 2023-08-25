@@ -4,9 +4,14 @@
 @use '@styles/base/variables' as *;
 @use '@styles/base/helpers' as *;
 
-.root {
+.link {
   text-decoration: none;
   color: var(--color-text-reverse);
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  font-weight: inherit;
 
   &:hover {
     color: var(--color-primary);
@@ -14,40 +19,78 @@
 }
 
 .active {
-  color: var(--color-primary);
   position: relative;
+
+  .link {
+    color: var(--color-primary);
+  }
+}
+
+.main,
+.submain {
+  .link {
+    line-height: 1;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    span {
+      min-width: 0;
+    }
+
+    .arrow {
+      width: to.rem(25px);
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      svg {
+        width: to.rem(11px);
+      }
+
+      @include mq($from: mainMenu) {
+        display: none;
+      }
+    }
+
+    @include mq($from: mainMenu) {
+      border: 0;
+      padding: 0;
+      line-height: 1;
+      font-weight: 400;
+      display: block;
+      text-align: center;
+      white-space: nowrap;
+      width: auto;
+    }
+  }
 }
 
 .main {
-  border-left: 2px solid transparent;
-  padding-left: to.rem(19px);
-  display: block;
-  line-height: 0.75;
-
   &.active {
-    border-left: 2px solid var(--color-primary);
-  }
+    .link {
+      @include mq($from: tablet) {
+        position: relative;
 
-  @include mq($from: tablet) {
-    border: 0;
-    padding: 0;
-    line-height: 1;
-
-    &.active {
-      border: 0;
-
-      &::after {
-        content: '';
-        width: to.rem(6px);
-        height: to.rem(6px);
-        border-radius: 50%;
-        background-color: var(--color-primary);
-        display: block;
-        position: absolute;
-        bottom: -#{to.rem(10px)};
-        left: 50%;
-        transform: translateX(-50%);
+        &::after {
+          content: '';
+          width: to.rem(6px);
+          height: to.rem(6px);
+          border-radius: 50%;
+          background-color: var(--color-primary);
+          display: block;
+          position: absolute;
+          bottom: -#{to.rem(10px)};
+          left: 50%;
+          transform: translateX(-50%);
+        }
       }
     }
   }
+}
+
+.titleSpan {
+  display: inline-block;
 }

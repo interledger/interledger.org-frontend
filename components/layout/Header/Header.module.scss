@@ -6,20 +6,17 @@
 
 .root {
   position: relative;
-  padding: to.rem(30px) var(--page-gutter-right) to.rem(30px)
-    var(--page-gutter-left);
+  padding: 0 var(--page-gutter-right) 0 var(--page-gutter-left);
   background-color: transparent;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto;
+  grid-template-rows: var(--header-menu-height);
   gap: 0px 0px;
   grid-template-areas: 'logo menu';
-  height: to.rem(96px);
 
-  @include mq($from: tablet) {
+  @include mq($from: mainMenu) {
     gap: 0px 0px;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto;
+    grid-template-columns: auto 1fr 1fr;
     grid-template-areas: 'logo nav nav';
   }
 }
@@ -29,7 +26,7 @@
   align-self: center;
   grid-area: menu;
 
-  @include mq($from: tablet) {
+  @include mq($from: mainMenu) {
     display: none;
   }
 }
@@ -47,21 +44,35 @@
 .logoWrapper {
   grid-area: logo;
   align-self: center;
+  z-index: 2;
 }
 
 .logo {
   width: to.rem(150px);
 }
 
+.visitLogo {
+  width: to.rem(150px);
+}
+
+.visitLable {
+  display: block;
+  margin-right: to.rem(17px);
+  font-size: to.rem(18px);
+  color: var(--color-text-reverse);
+}
+
 .menuWrapper {
   justify-self: left;
   grid-area: menu;
   align-self: center;
+  width: 100%;
 
-  @include mq($from: tablet) {
+  @include mq($from: mainMenu) {
     justify-self: center;
     grid-area: menu;
-    align-self: center;
+    align-self: stretch;
+    width: auto;
   }
 
   nav {
@@ -70,17 +81,19 @@
 }
 
 .siteWrapper {
-  justify-self: center;
   grid-area: site;
   padding: var(--page-gutter);
 
-  @include mq($from: tablet) {
+  @include mq($from: mainMenu) {
     justify-self: end;
     align-self: center;
     padding: 0;
   }
+
   a {
     text-decoration: none;
+    display: flex;
+    align-items: center;
   }
 }
 
@@ -88,41 +101,32 @@
   display: none;
   gap: 0px 0px;
 
-  @include mq($from: tablet) {
+  @include mq($from: mainMenu) {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr;
-    grid-template-areas: 'menu site';
-    grid-area: nav;
+    grid-template-areas: '. menu site';
+    grid-area: 1 / 1 / 2 / 4;
     position: relative;
+    z-index: 1;
   }
 
   &.menuOpen {
-    background-color: var(--color-white);
+    background-color: var(--main-menu-mobile-bg-color);
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr auto;
+    grid-template-rows: var(--header-height) 1fr auto;
     grid-template-areas:
+      '.'
       'menu'
       'site';
     position: fixed;
-    top: to.rem(96px);
+    top: var(--header-height);
     left: 0;
     z-index: 11;
-    height: calc(100% - #{to.rem(96px)});
+    height: calc(100% - var(--header-height));
     width: 100%;
-
-    @include mq($from: tablet) {
-      background-color: transparent;
-    }
-  }
-
-  &.dark {
-    background-color: var(--color-black);
-
-    @include mq($from: tablet) {
-      background-color: transparent;
-    }
+    overflow-y: auto;
   }
 }
 
@@ -131,7 +135,7 @@
   top: to.rem(20px);
   right: to.rem(20px);
 
-  @include mq($from: tablet) {
+  @include mq($from: mainMenu) {
     display: none;
   }
 }

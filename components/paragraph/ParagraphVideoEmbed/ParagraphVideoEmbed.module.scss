@@ -4,6 +4,4 @@
 @use '@styles/base/variables' as *;
 @use '@styles/base/helpers' as *;
 
-.root {
-  @include breakContainer;
-}
+.root {}

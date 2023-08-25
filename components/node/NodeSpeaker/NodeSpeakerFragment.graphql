@@ -5,8 +5,7 @@ fragment NodeSpeakerFragment on NodeSpeaker {
   biography {
     processed
   }
-  company
-  role
+  tagLine
   summary {
     value
   }
@@ -20,8 +19,8 @@ fragment NodeSpeakerFragment on NodeSpeaker {
       socialMediaType
     }
   }
-  image {
-    ...MediaImageLandscapeFragment
+  squareImage: image {
+    ...MediaImageSquareFragment
   }
   talks {
     __typename
@@ -40,9 +39,8 @@ fragment NodeSpeakerCardFragment on NodeSpeaker {
   id
   title
   path
-  company
-  role
-  teaser {
-    ...ParagraphTeaserFragment
+  tagLine
+  squareImage: image {
+    ...MediaImageSquareFragment
   }
 }

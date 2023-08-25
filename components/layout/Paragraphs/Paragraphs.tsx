@@ -23,6 +23,8 @@ import {
   ParagraphPeopleGridFragment,
   ParagraphContactFormFragment,
   ParagraphContentColumnCardsFragment,
+  ParagraphScrollingLogoCarouselFragment,
+  ParagraphVideoEmbedFragment,
 } from '@models/operations';
 import dynamic from 'next/dynamic';
 
@@ -170,6 +172,18 @@ const ParagraphContentColumnCards = dynamic(() =>
   ).then((paragraph) => paragraph.ParagraphContentColumnCards)
 );
 
+const ParagraphScrollingLogoCarousel = dynamic(() =>
+  import(
+    '@components/paragraph/ParagraphScrollingLogoCarousel/ParagraphScrollingLogoCarousel'
+  ).then((paragraph) => paragraph.ParagraphScrollingLogoCarousel)
+);
+
+const ParagraphVideoEmbed = dynamic(() =>
+  import('@components/paragraph/ParagraphVideoEmbed/ParagraphVideoEmbed').then(
+    (paragraph) => paragraph.ParagraphVideoEmbed
+  )
+);
+
 export type ParagraphTypes =
   | ParagraphLargeCalloutTextFragment
   | ParagraphButtonFragment
@@ -195,6 +209,8 @@ export type ParagraphTypes =
   | ParagraphPeopleGridFragment
   | ParagraphContactFormFragment
   | ParagraphContentColumnCardsFragment
+  | ParagraphScrollingLogoCarouselFragment
+  | ParagraphVideoEmbedFragment
   | null;
 
 export interface ParagraphsProps {
@@ -286,6 +302,15 @@ const Paragraph = ({ paragraph, className }: ParagraphProps) => {
       return (
         <ParagraphContentColumnCards key={paragraph.id} paragraph={paragraph} />
       );
+    case 'ParagraphScrollingLogoCarousel':
+      return (
+        <ParagraphScrollingLogoCarousel
+          key={paragraph.id}
+          paragraph={paragraph}
+        />
+      );
+    case 'ParagraphVideoEmbed':
+      return <ParagraphVideoEmbed key={paragraph.id} paragraph={paragraph} />;
     default:
       return null;
   }

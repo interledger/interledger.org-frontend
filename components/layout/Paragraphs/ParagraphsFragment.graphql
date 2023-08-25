@@ -71,4 +71,10 @@ fragment ParagraphsFragment on ParagraphInterface {
   ... on ParagraphContentColumnCards {
     ...ParagraphContentColumnCardsFragment
   }
+  ... on ParagraphScrollingLogoCarousel {
+    ...ParagraphScrollingLogoCarouselFragment
+  }
+  ... on ParagraphVideoEmbed {
+    ...ParagraphVideoEmbedFragment
+  }
 }

@@ -3,18 +3,26 @@ fragment NodeTalkFragment on NodeTalk {
   id
   title
   path
+  startsAt {
+    time
+  }
+  endsAt {
+    time
+  }
   metatag {
     ...MetaTagFragment
-  }
-  header {
-    ...ParagraphTalkHeaderFragment
   }
   description {
     processed
   }
-  duration
   speakers {
     ...NodeSpeakerCardFragment
+  }
+  liveVideo {
+    ...MediaRemoteVideoFragment
+  }
+  recordingVideo {
+    ...MediaRemoteVideoFragment
   }
 }
 
@@ -23,14 +31,16 @@ fragment NodeTalkCardFragment on NodeTalk {
   id
   title
   path
-  dateTime {
+  startsAt {
     time
   }
-  duration
-  teaser {
-    ...ParagraphTeaserFragment
+  endsAt {
+    time
   }
   speakers {
     title
+    squareImage: image {
+      ...MediaImageSquareFragment
+    }
   }
 }

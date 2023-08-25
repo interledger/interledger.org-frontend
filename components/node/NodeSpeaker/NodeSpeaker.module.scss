@@ -9,23 +9,58 @@
 }
 
 .header {
-  aspect-ratio: 16/9;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  position: relative;
-  color: var(--color-white);
+  display: grid;
+  gap: 0px 0px;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr auto;
   margin-bottom: var(--component-spacing);
+
+  @include breakContainer;
+
+  @include mq($from: tablet) {
+    aspect-ratio: 16/7;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+  }
+
+  &::after {
+    content: '';
+    grid-area: 2 / 1 / 3 / 2;
+    background-color: var(--color-primary);
+    opacity: 6%;
+    mix-blend-mode: color-dodge;
+
+    @include mq($from: tablet) {
+      grid-area: 1 / 1 / 2 / 3;
+    }
+  }
 }
 
 .headerImage {
-  position: absolute;
-  top: 0;
   height: 100%;
-  z-index: 0;
+  grid-area: 1 / 1 / 2 / 2;
+  @include mq($from: tablet) {
+    grid-area: 1 / 3 / 2 / 5;
+  }
+
+  img {
+    object-fit: cover;
+  }
 }
 
 .headerText {
+  grid-area: 2 / 1 / 3 / 2;
+  align-self: self-end;
   position: relative;
   margin-bottom: var(--component-spacing);
+  margin-top: var(--component-spacing);
+  @include mq($from: tablet) {
+    grid-area: 1 / 1 / 2 / 5;
+  }
+}
+
+.headerContent {
+  @include mq($from: tablet) {
+    width: calc(50% - #{to.rem(60px)});
+  }
 }

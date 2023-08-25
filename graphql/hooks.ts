@@ -21,32 +21,20 @@ function fetcher<TData, TVariables>(query: string, variables?: TVariables) {
     return json.data;
   };
 }
+export const ImageStyleFragment = /*#__PURE__*/ `
+    fragment ImageStyleFragment on ImageStylePathDerivative {
+  __typename
+  height
+  path
+  width
+}
+    `;
 export const ResponsiveImageStyleFragment = /*#__PURE__*/ `
     fragment ResponsiveImageStyleFragment on ResponsiveImageStyleDerivative {
   __typename
   height
   path
   srcSetPath
-  width
-}
-    `;
-export const MediaImageWidthFragment = /*#__PURE__*/ `
-    fragment MediaImageWidthFragment on MediaImage {
-  __typename
-  id
-  mediaImage {
-    alt
-    responsive(name: WIDTH) {
-      ...ResponsiveImageStyleFragment
-    }
-  }
-}
-    `;
-export const ImageStyleFragment = /*#__PURE__*/ `
-    fragment ImageStyleFragment on ImageStylePathDerivative {
-  __typename
-  height
-  path
   width
 }
     `;
@@ -98,8 +86,12 @@ export const FooterMenuFragment = /*#__PURE__*/ `
 export const MainMenuFragment = /*#__PURE__*/ `
     fragment MainMenuFragment on Menu {
   __typename
+  id
   items {
     ...MenuItemFragment
+    children {
+      ...MenuItemFragment
+    }
   }
 }
     `;
@@ -290,18 +282,6 @@ export const ParagraphImageCarouselFragment = /*#__PURE__*/ `
   }
 }
     `;
-export const ParagraphTeaserFragment = /*#__PURE__*/ `
-    fragment ParagraphTeaserFragment on ParagraphTeaser {
-  __typename
-  id
-  squareImage: singleImage {
-    ...MediaImageSquareFragment
-  }
-  landscapeImage: singleImage {
-    ...MediaImageLandscapeFragment
-  }
-}
-    `;
 export const ParagraphHighlightedSpeakersFragment = /*#__PURE__*/ `
     fragment ParagraphHighlightedSpeakersFragment on ParagraphHighlightedSpeakers {
   __typename
@@ -309,8 +289,8 @@ export const ParagraphHighlightedSpeakersFragment = /*#__PURE__*/ `
   speakers {
     id
     title
-    teaser {
-      ...ParagraphTeaserFragment
+    squareImage: image {
+      ...MediaImageSquareFragment
     }
   }
 }
@@ -332,10 +312,9 @@ export const NodeSpeakerCardFragment = /*#__PURE__*/ `
   id
   title
   path
-  company
-  role
-  teaser {
-    ...ParagraphTeaserFragment
+  tagLine
+  squareImage: image {
+    ...MediaImageSquareFragment
   }
 }
     `;
@@ -362,15 +341,17 @@ export const NodeTalkCardFragment = /*#__PURE__*/ `
   id
   title
   path
-  dateTime {
+  startsAt {
     time
   }
-  duration
-  teaser {
-    ...ParagraphTeaserFragment
+  endsAt {
+    time
   }
   speakers {
     title
+    squareImage: image {
+      ...MediaImageSquareFragment
+    }
   }
 }
     `;
@@ -433,6 +414,18 @@ export const ParagraphContentCarouselFragment = /*#__PURE__*/ `
   id
   carouselItem {
     ...ContentCarouselItemFragment
+  }
+}
+    `;
+export const ParagraphTeaserFragment = /*#__PURE__*/ `
+    fragment ParagraphTeaserFragment on ParagraphTeaser {
+  __typename
+  id
+  squareImage: singleImage {
+    ...MediaImageSquareFragment
+  }
+  landscapeImage: singleImage {
+    ...MediaImageLandscapeFragment
   }
 }
     `;
@@ -630,6 +623,55 @@ export const ParagraphContentColumnCardsFragment = /*#__PURE__*/ `
   }
 }
     `;
+export const MediaImageWidthFragment = /*#__PURE__*/ `
+    fragment MediaImageWidthFragment on MediaImage {
+  __typename
+  id
+  mediaImage {
+    alt
+    responsive(name: WIDTH) {
+      ...ResponsiveImageStyleFragment
+    }
+  }
+}
+    `;
+export const ParagraphLogoLinkFragment = /*#__PURE__*/ `
+    fragment ParagraphLogoLinkFragment on ParagraphLogoLink {
+  __typename
+  id
+  singleImage {
+    ...MediaImageWidthFragment
+  }
+  link {
+    ...LinkFragment
+  }
+}
+    `;
+export const ParagraphScrollingLogoCarouselFragment = /*#__PURE__*/ `
+    fragment ParagraphScrollingLogoCarouselFragment on ParagraphScrollingLogoCarousel {
+  __typename
+  id
+  logos {
+    ...ParagraphLogoLinkFragment
+  }
+}
+    `;
+export const MediaRemoteVideoFragment = /*#__PURE__*/ `
+    fragment MediaRemoteVideoFragment on MediaRemoteVideo {
+  __typename
+  id
+  mediaOembedVideo
+}
+    `;
+export const ParagraphVideoEmbedFragment = /*#__PURE__*/ `
+    fragment ParagraphVideoEmbedFragment on ParagraphVideoEmbed {
+  __typename
+  id
+  remoteVideo {
+    ...MediaRemoteVideoFragment
+  }
+}
+    `;
 export const ParagraphsFragment = /*#__PURE__*/ `
     fragment ParagraphsFragment on ParagraphInterface {
   ... on ParagraphButton {
@@ -703,6 +745,12 @@ export const ParagraphsFragment = /*#__PURE__*/ `
   }
   ... on ParagraphContentColumnCards {
     ...ParagraphContentColumnCardsFragment
+  }
+  ... on ParagraphScrollingLogoCarousel {
+    ...ParagraphScrollingLogoCarouselFragment
+  }
+  ... on ParagraphVideoEmbed {
+    ...ParagraphVideoEmbedFragment
   }
 }
     `;
@@ -867,8 +915,7 @@ export const NodeSpeakerFragment = /*#__PURE__*/ `
   biography {
     processed
   }
-  company
-  role
+  tagLine
   summary {
     value
   }
@@ -882,8 +929,8 @@ export const NodeSpeakerFragment = /*#__PURE__*/ `
       socialMediaType
     }
   }
-  image {
-    ...MediaImageLandscapeFragment
+  squareImage: image {
+    ...MediaImageSquareFragment
   }
   talks {
     __typename
@@ -897,11 +944,33 @@ export const NodeSpeakerFragment = /*#__PURE__*/ `
   }
 }
     `;
-export const MediaRemoteVideoFragment = /*#__PURE__*/ `
-    fragment MediaRemoteVideoFragment on MediaRemoteVideo {
+export const NodeTalkFragment = /*#__PURE__*/ `
+    fragment NodeTalkFragment on NodeTalk {
   __typename
   id
-  mediaOembedVideo
+  title
+  path
+  startsAt {
+    time
+  }
+  endsAt {
+    time
+  }
+  metatag {
+    ...MetaTagFragment
+  }
+  description {
+    processed
+  }
+  speakers {
+    ...NodeSpeakerCardFragment
+  }
+  liveVideo {
+    ...MediaRemoteVideoFragment
+  }
+  recordingVideo {
+    ...MediaRemoteVideoFragment
+  }
 }
     `;
 export const ParagraphMediaHeaderFragment = /*#__PURE__*/ `
@@ -915,42 +984,6 @@ export const ParagraphMediaHeaderFragment = /*#__PURE__*/ `
   }
   video {
     ...MediaRemoteVideoFragment
-  }
-}
-    `;
-export const ParagraphTalkHeaderFragment = /*#__PURE__*/ `
-    fragment ParagraphTalkHeaderFragment on ParagraphTalkHeader {
-  __typename
-  id
-  headerBefore {
-    ...ParagraphMediaHeaderFragment
-  }
-  headerDuring {
-    ...ParagraphMediaHeaderFragment
-  }
-  headerAfter {
-    ...ParagraphMediaHeaderFragment
-  }
-}
-    `;
-export const NodeTalkFragment = /*#__PURE__*/ `
-    fragment NodeTalkFragment on NodeTalk {
-  __typename
-  id
-  title
-  path
-  metatag {
-    ...MetaTagFragment
-  }
-  header {
-    ...ParagraphTalkHeaderFragment
-  }
-  description {
-    processed
-  }
-  duration
-  speakers {
-    ...NodeSpeakerCardFragment
   }
 }
     `;
@@ -1018,10 +1051,7 @@ export const GetInitDataQueryDocument = /*#__PURE__*/ `
   summitMenu: menu(name: SUMMIT) {
     ...MainMenuFragment
   }
-  foundationFooterMenu: menu(name: INTERLEDGER_FOUNDATION_FOOTER) {
-    ...FooterMenuFragment
-  }
-  summitFooterMenu: menu(name: INTERLEDGER_SUMMIT_FOOTER) {
+  footerMenu: menu(name: FOOTER) {
     ...FooterMenuFragment
   }
   developerToolsMenu: menu(name: DEVELOPER_TOOLS) {
@@ -1122,7 +1152,6 @@ ${ParagraphHighlightedListFragment}
 ${ParagraphImageFullWidthFragment}
 ${ParagraphImageCarouselFragment}
 ${ParagraphHighlightedSpeakersFragment}
-${ParagraphTeaserFragment}
 ${ParagraphImageGalleryFragment}
 ${ParagraphSpeakersGridFragment}
 ${NodeSpeakerCardFragment}
@@ -1134,6 +1163,7 @@ ${ParagraphContentCarouselFragment}
 ${ContentCarouselItemFragment}
 ${ParagraphNewsListingsFragment}
 ${NodeArticleCardFragment}
+${ParagraphTeaserFragment}
 ${ParagraphFaqsFragment}
 ${ParagraphPriceListFragment}
 ${ParagraphPriceFragment}
@@ -1145,15 +1175,17 @@ ${NodePeopleCardFragment}
 ${ParagraphContactFormFragment}
 ${ParagraphContentColumnCardsFragment}
 ${ParagraphColumnCardFragment}
+${ParagraphScrollingLogoCarouselFragment}
+${ParagraphLogoLinkFragment}
+${MediaImageWidthFragment}
+${ParagraphVideoEmbedFragment}
+${MediaRemoteVideoFragment}
 ${MetaTagFragment}
 ${NodePageFragment}
 ${ParagraphHeroHeaderFragment}
 ${NodeFoundationPageFragment}
 ${NodeSpeakerFragment}
 ${NodeTalkFragment}
-${ParagraphTalkHeaderFragment}
-${ParagraphMediaHeaderFragment}
-${MediaRemoteVideoFragment}
 ${NodeDeveloperToolsFragment}
 ${NodePeopleFragment}`;
 export const useGetNodeByPathQuery = <

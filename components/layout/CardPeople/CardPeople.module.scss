@@ -1,7 +1,40 @@
 @use '@styles/base/mq-settings';
 @use '~sass-mq/mq' as *;
-@use '~sass-rem' as *;
+@use '~sass-rem' as to;
 @use '@styles/base/variables' as *;
 @use '@styles/base/helpers' as *;
 
-.root {}
+.root {
+}
+
+.peopleModal {
+  display: flex;
+  flex-direction: column;
+
+  @include mq($from: tablet) {
+    flex-direction: row;
+  }
+
+  .image {
+    width: 100%;
+    margin-bottom: to.rem(40px);
+
+    @include mq($from: tablet) {
+      width: 33%;
+      margin-right: 4%;
+      margin-bottom: 0;
+    }
+  }
+
+  .content {
+    width: 100%;
+
+    @include mq($from: tablet) {
+      width: 63%;
+    }
+
+    p {
+      font-size: to.rem(18px);
+    }
+  }
+}

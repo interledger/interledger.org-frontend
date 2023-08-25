@@ -5,17 +5,16 @@
 @use '@styles/base/helpers' as *;
 
 .root {
-  label {
-    font-size: to.rem(30px);
-    display: block;
-    margin-bottom: to.rem(10px);
-  }
-
   input,
   textarea {
-    font-size: to.rem(30px);
+    font-size: fluid(20px, 30px);
     padding: to.rem(10px) to.rem(15px);
     border: to.rem(2px) solid var(--color-primary);
     width: 100%;
+    border-radius: 0;
+
+    &:disabled {
+      border-color: lightgrey;
+    }
   }
 }

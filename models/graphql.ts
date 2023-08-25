@@ -314,12 +314,8 @@ export type Menu = MenuInterface & {
 export enum MenuAvailable {
   /** Developer Tools */
   DeveloperTools = 'DEVELOPER_TOOLS',
-  /** Footer */
+  /** Information */
   Footer = 'FOOTER',
-  /** Interledger Foundation */
-  InterledgerFoundationFooter = 'INTERLEDGER_FOUNDATION_FOOTER',
-  /** Interledger Summit */
-  InterledgerSummitFooter = 'INTERLEDGER_SUMMIT_FOOTER',
   /** Main navigation */
   Main = 'MAIN',
   /** Summit */
@@ -598,10 +594,12 @@ export type NodeFoundationPageSectionsUnion =
   | ParagraphNewsListings
   | ParagraphPeopleGrid
   | ParagraphPriceList
+  | ParagraphScrollingLogoCarousel
   | ParagraphSpacer
   | ParagraphText
   | ParagraphTwoColumnContent
-  | ParagraphVideo;
+  | ParagraphVideo
+  | ParagraphVideoEmbed;
 
 /** Entity type node. */
 export type NodeInterface = {
@@ -662,20 +660,25 @@ export type NodePage = MetaTagInterface &
 /** Sections */
 export type NodePageSectionsUnion =
   | ParagraphButton
+  | ParagraphContentCarousel
   | ParagraphContentTitle
+  | ParagraphFaqs
   | ParagraphHighlightedList
   | ParagraphHighlightedSpeakers
   | ParagraphImageCarousel
   | ParagraphImageFullWidth
   | ParagraphImageGallery
   | ParagraphLargeCalloutText
+  | ParagraphPriceList
   | ParagraphSchedule
+  | ParagraphScrollingLogoCarousel
   | ParagraphSpacer
   | ParagraphSpeakersGrid
   | ParagraphTalksGrid
   | ParagraphText
   | ParagraphTwoColumnContent
-  | ParagraphVideo;
+  | ParagraphVideo
+  | ParagraphVideoEmbed;
 
 /** Result for view node_paths_graphql display graphql_1. */
 export type NodePathsResult = View & {
@@ -730,8 +733,6 @@ export type NodeSpeaker = MetaTagInterface &
     biography?: Maybe<Text>;
     /** The time that the node was last edited. */
     changed: DateTime;
-    /** Company */
-    company?: Maybe<Scalars['String']>;
     /** The time that the node was created. */
     created: DateTime;
     /** Email */
@@ -748,8 +749,6 @@ export type NodeSpeaker = MetaTagInterface &
     path: Scalars['String'];
     /** Promoted to front page */
     promote: Scalars['Boolean'];
-    /** Role */
-    role?: Maybe<Scalars['String']>;
     /** Social Media */
     socialMedia?: Maybe<ParagraphSocialMedia>;
     /** Published */
@@ -758,14 +757,14 @@ export type NodeSpeaker = MetaTagInterface &
     sticky: Scalars['Boolean'];
     /** Summary */
     summary?: Maybe<Text>;
+    /** Tag Line */
+    tagLine?: Maybe<Scalars['String']>;
     /**
      * This is a viewfield query proxy. Page size and contextual filters are applied
      * within the CMS. See the actual view base query for more documentation on
      * filters and options available. Speaker Talks
      */
     talks: ViewResultUnion;
-    /** Teaser */
-    teaser: ParagraphTeaser;
     /** Title */
     title: Scalars['String'];
   };
@@ -787,32 +786,32 @@ export type NodeTalk = MetaTagInterface &
     changed: DateTime;
     /** The time that the node was created. */
     created: DateTime;
-    /** Date & Time */
-    dateTime: DateTime;
     /** Description */
     description?: Maybe<Text>;
-    /** Enter talk duration in minutes */
-    duration: Scalars['Int'];
-    /** Header */
-    header?: Maybe<ParagraphTalkHeader>;
+    /** Ends At */
+    endsAt?: Maybe<DateTime>;
     /** The Universally Unique IDentifier (UUID). */
     id: Scalars['ID'];
     /** Language */
     langcode: Language;
+    /** Live Video */
+    liveVideo?: Maybe<MediaRemoteVideo>;
     /** The computed meta tags for the entity. */
     metatag: Array<MetaTagUnion>;
     /** URL alias */
     path: Scalars['String'];
     /** Promoted to front page */
     promote: Scalars['Boolean'];
+    /** Recording Video */
+    recordingVideo?: Maybe<MediaRemoteVideo>;
     /** Speakers */
     speakers?: Maybe<Array<NodeSpeaker>>;
+    /** Starts At */
+    startsAt?: Maybe<DateTime>;
     /** Published */
     status: Scalars['Boolean'];
     /** Sticky at top of lists */
     sticky: Scalars['Boolean'];
-    /** Preview image pulled in when post displayed in listings */
-    teaser: ParagraphTeaser;
     /** Title */
     title: Scalars['String'];
   };
@@ -1114,6 +1113,21 @@ export type ParagraphLargeCalloutText = ParagraphInterface & {
 };
 
 /** Entity type paragraph. */
+export type ParagraphLogoLink = ParagraphInterface & {
+  __typename?: 'ParagraphLogoLink';
+  /** The time that the Paragraph was created. */
+  created: DateTime;
+  /** The Universally Unique IDentifier (UUID). */
+  id: Scalars['ID'];
+  /** The paragraphs entity language code. */
+  langcode: Language;
+  /** Link */
+  link: Link;
+  /** Image */
+  singleImage: MediaImage;
+};
+
+/** Entity type paragraph. */
 export type ParagraphMediaHeader = ParagraphInterface & {
   __typename?: 'ParagraphMediaHeader';
   /** The time that the Paragraph was created. */
@@ -1293,6 +1307,19 @@ export type ParagraphScheduleDayTalksViewArgs = {
 };
 
 /** Entity type paragraph. */
+export type ParagraphScrollingLogoCarousel = ParagraphInterface & {
+  __typename?: 'ParagraphScrollingLogoCarousel';
+  /** The time that the Paragraph was created. */
+  created: DateTime;
+  /** The Universally Unique IDentifier (UUID). */
+  id: Scalars['ID'];
+  /** The paragraphs entity language code. */
+  langcode: Language;
+  /** Logos */
+  logos: Array<ParagraphLogoLink>;
+};
+
+/** Entity type paragraph. */
 export type ParagraphSocialMedia = ParagraphInterface & {
   __typename?: 'ParagraphSocialMedia';
   /** The time that the Paragraph was created. */
@@ -1359,23 +1386,6 @@ export type ParagraphSpeakersGridSpeakersViewArgs = {
   page?: InputMaybe<Scalars['Int']>;
   sortDir?: InputMaybe<SortDirection>;
   sortKey?: InputMaybe<Scalars['String']>;
-};
-
-/** Entity type paragraph. */
-export type ParagraphTalkHeader = ParagraphInterface & {
-  __typename?: 'ParagraphTalkHeader';
-  /** The time that the Paragraph was created. */
-  created: DateTime;
-  /** Header After */
-  headerAfter: ParagraphMediaHeader;
-  /** Header Before */
-  headerBefore: ParagraphMediaHeader;
-  /** Header During */
-  headerDuring: ParagraphMediaHeader;
-  /** The Universally Unique IDentifier (UUID). */
-  id: Scalars['ID'];
-  /** The paragraphs entity language code. */
-  langcode: Language;
 };
 
 /** Entity type paragraph. */
@@ -1484,6 +1494,7 @@ export type ParagraphUnion =
   | ParagraphImageFullWidth
   | ParagraphImageGallery
   | ParagraphLargeCalloutText
+  | ParagraphLogoLink
   | ParagraphMediaHeader
   | ParagraphNewsListings
   | ParagraphPeopleGrid
@@ -1492,16 +1503,17 @@ export type ParagraphUnion =
   | ParagraphPriceOption
   | ParagraphSchedule
   | ParagraphScheduleDay
+  | ParagraphScrollingLogoCarousel
   | ParagraphSocialMedia
   | ParagraphSocialMediaLink
   | ParagraphSpacer
   | ParagraphSpeakersGrid
-  | ParagraphTalkHeader
   | ParagraphTalksGrid
   | ParagraphTeaser
   | ParagraphText
   | ParagraphTwoColumnContent
-  | ParagraphVideo;
+  | ParagraphVideo
+  | ParagraphVideoEmbed;
 
 /** Entity type paragraph. */
 export type ParagraphVideo = ParagraphInterface & {
@@ -1516,6 +1528,19 @@ export type ParagraphVideo = ParagraphInterface & {
   singleImage: MediaImage;
   /** Video */
   video: MediaVideo;
+};
+
+/** Entity type paragraph. */
+export type ParagraphVideoEmbed = ParagraphInterface & {
+  __typename?: 'ParagraphVideoEmbed';
+  /** The time that the Paragraph was created. */
+  created: DateTime;
+  /** The Universally Unique IDentifier (UUID). */
+  id: Scalars['ID'];
+  /** The paragraphs entity language code. */
+  langcode: Language;
+  /** Video */
+  remoteVideo?: Maybe<MediaRemoteVideo>;
 };
 
 /** Result for view people display graphql_1. */

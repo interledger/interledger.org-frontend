@@ -1,9 +1,10 @@
 @use '~sass-mq/mq' as *;
 @use '~sass-rem' as to;
 @use '@styles/base/helpers' as *;
+@use '@styles/base/variables' as *;
 
 :root {
-  --page-width: #{to.rem(1118px)};
+  --page-width: #{to.rem($default-max-bp)};
   --page-gutter: #{to.rem(20px)};
   --page-gutter-left: calc(var(--page-gutter) + env(safe-area-inset-left));
   --page-gutter-right: calc(var(--page-gutter) + env(safe-area-inset-right));
@@ -18,12 +19,22 @@
   --color-white: #fff;
   --color-primary: #6d00cc;
   --color-secondary: #01ffff;
+  --color-red: #fe2f2c;
+  --color-green: #49a239;
   --color-divider: lightgrey;
   --color-text: var(--color-black);
   --color-text-reverse: var(--color-black);
   --color-bullets: var(--color-text);
   --color-link: var(--color-primary);
   --color-swiper-pagination: var(--color-black);
+
+  // Components
+  --header-height: #{to.rem(96px)};
+  --header-menu-height: var(--header-height);
+  --main-menu-mobile-bg-color: var(--color-white);
+  --main-menu-mobile-text-color: var(--color-black);
+  --main-menu-dropdown-bg-color: var(--color-black);
+  --main-menu-dropdown-text-color: var(--color-white);
 
   @include mq($from: tablet) {
     --page-gutter: #{to.rem(40px)};
