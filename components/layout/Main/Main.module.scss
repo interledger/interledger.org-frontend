@@ -18,6 +18,13 @@
     padding: 0;
     min-width: 0; // Fixes swiper layout issues
     position: relative;
+    transition: all 0.2s ease-in-out;
+  }
+}
+
+.subMenuOpen {
+  main {
+    filter: blur(15px);
   }
 }
 
@@ -29,6 +36,8 @@
   --color-text-reverse: var(--color-white);
   --main-menu-mobile-bg-color: var(--color-black);
   --main-menu-mobile-text-color: var(--color-white);
+  --main-menu-dropdown-bg-color: var(--color-white);
+  --main-menu-dropdown-text-color: var(--color-black);
 
   color: var(--color-white);
   background-color: var(--color-black);

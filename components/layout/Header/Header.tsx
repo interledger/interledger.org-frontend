@@ -3,7 +3,7 @@ import { Logo } from '@components/icon/Logo/Logo';
 import { SummitLogo } from '@components/icon/SummitLogo/SummitLogo';
 import { MainMenu } from '@components/nav/MainMenu/MainMenu';
 import { MainMenuFragment } from '@models/operations';
-import { menuAtom, menuOpenAtom, subMenuAtom } from '@store/site';
+import { menuAtom, menuOpenAtom } from '@store/site';
 import cn from 'classnames';
 import Link from 'next/link';
 import styles from './Header.module.scss';
@@ -28,16 +28,12 @@ export interface HeaderProps {
 
 export const Header = ({ className, mainMenu, isSummit }: HeaderProps) => {
   const [menuOpen] = useAtom(menuAtom);
-  const [subMenuOpen] = useAtom(subMenuAtom);
+
   const [, setMenuOpen] = useAtom(menuOpenAtom);
   const [menuRef, setLock] = useScrollLock();
   const router = useRouter();
 
-  const rootClassName = cn(
-    styles.root,
-    { [styles.subMenuOpen]: subMenuOpen },
-    className
-  );
+  const rootClassName = cn(styles.root, className);
 
   useEffect(() => {
     setLock(menuOpen);
