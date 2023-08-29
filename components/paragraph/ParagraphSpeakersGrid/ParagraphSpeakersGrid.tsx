@@ -25,7 +25,11 @@ export const ParagraphSpeakersGrid = ({
         {paragraph.speakersView?.__typename === 'SpeakersResult' &&
           paragraph.speakersView?.results.map((s) =>
             s.__typename === 'NodeSpeaker' ? (
-              <CardSpeaker key={s.id} speaker={s} />
+              <CardSpeaker
+                key={s.id}
+                speaker={s}
+                sizes="(min-width: 1280px) 315px, (min-width: 980px) 25.71vw, (min-width: 780px) calc(50vw - 5.1875rem), calc(100vw - 2.5rem)"
+              />
             ) : null
           )}
       </Grid>

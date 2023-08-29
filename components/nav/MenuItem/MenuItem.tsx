@@ -46,7 +46,6 @@ export const MenuItem = ({
       [styles.main]: type === 'main',
       [styles.submain]: type === 'submain',
     },
-
     className
   );
 
