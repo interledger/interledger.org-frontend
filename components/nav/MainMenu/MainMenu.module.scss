@@ -51,7 +51,8 @@
   }
 
   .dropdown {
-    &:hover {
+    &:hover,
+    &:focus-within {
       .dropdownMenu {
         @include mq($from: mainMenu) {
           display: block;
