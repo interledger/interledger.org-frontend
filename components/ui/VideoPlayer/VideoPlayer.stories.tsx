@@ -23,13 +23,16 @@ export const Local: Story = {
       id: 'gdsfgdfgdsfg',
       mediaImage: {
         __typename: 'Image' as const,
-        responsive: {
-          __typename: 'ResponsiveImageStyleDerivative' as const,
-          srcSetPath: 'https://via.placeholder.com/1600x900 325w',
-          path: 'https://via.placeholder.com/1600x900',
-          height: 900,
-          width: 1600,
-        },
+        responsiveVariations: [
+          {
+            __typename: 'ResponsiveImageStyleDerivative' as const,
+            srcSet: 'https://via.placeholder.com/1600x900 325w',
+            url: 'https://via.placeholder.com/1600x900',
+            height: 900,
+            width: 1600,
+            name: '',
+          },
+        ],
       },
     },
   },
@@ -47,13 +50,16 @@ export const Remote: Story = {
       id: 'gdsfgdfgdsfg',
       mediaImage: {
         __typename: 'Image' as const,
-        responsive: {
-          __typename: 'ResponsiveImageStyleDerivative' as const,
-          srcSetPath: 'https://via.placeholder.com/1600x900 325w',
-          path: 'https://via.placeholder.com/1600x900',
-          height: 900,
-          width: 1600,
-        },
+        responsiveVariations: [
+          {
+            __typename: 'ResponsiveImageStyleDerivative' as const,
+            srcSet: 'https://via.placeholder.com/1600x900 325w',
+            url: 'https://via.placeholder.com/1600x900',
+            height: 900,
+            width: 1600,
+            name: '',
+          },
+        ],
       },
     },
   },

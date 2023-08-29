@@ -22,7 +22,7 @@ export const Source = ({
 
   return (
     <source
-      srcSet={responsiveImageStyle.srcSetPath ?? undefined}
+      srcSet={responsiveImageStyle.srcSet ?? undefined}
       sizes={sizes}
       {...rest}
     />

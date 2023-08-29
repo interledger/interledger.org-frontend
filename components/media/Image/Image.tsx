@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import { Img } from '@components/media/Img/Img';
 import { Maybe } from '@models/graphql';
 import {
   ImageStyleFragment,
@@ -7,13 +8,11 @@ import {
 import cn from 'classnames';
 import Head from 'next/head';
 import styles from './Image.module.scss';
-import { Img } from '@components/media/Img/Img';
 
 export interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   /** Optional className for Image, pass in a sass module class to override component default */
   className?: string;
-  imageStyle?: Maybe<ImageStyleFragment>;
-  responsiveImageStyle?: Maybe<ResponsiveImageStyleFragment>;
+  imageStyle?: Maybe<ImageStyleFragment> | Maybe<ResponsiveImageStyleFragment>;
   alt?: string;
   sizes?: string;
   priority?: boolean;
@@ -23,14 +22,14 @@ export interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
 export const Image = ({
   className,
   imageStyle,
-  responsiveImageStyle,
+  // responsiveImageStyle,
   sizes = '100vw',
   priority,
   fit,
   alt = '',
   ...rest
 }: ImageProps) => {
-  if (!imageStyle && !responsiveImageStyle) {
+  if (!imageStyle) {
     return null;
   }
 
@@ -44,18 +43,16 @@ export const Image = ({
   if (imageStyle) {
     aspectRatio = Number(imageStyle.width) / Number(imageStyle.height);
   }
-  if (responsiveImageStyle) {
-    aspectRatio =
-      Number(responsiveImageStyle.width) / Number(responsiveImageStyle.height);
-  }
 
   const linkProps: React.DetailedHTMLProps<
     React.LinkHTMLAttributes<HTMLLinkElement>,
     HTMLLinkElement
   > = {
-    imageSrcSet: responsiveImageStyle?.srcSetPath
-      ? responsiveImageStyle.srcSetPath
-      : undefined,
+    imageSrcSet:
+      imageStyle.__typename === 'ResponsiveImageStyleDerivative' &&
+      imageStyle.srcSet
+        ? imageStyle.srcSet
+        : undefined,
     imageSizes: sizes,
     crossOrigin: rest.crossOrigin,
   };
@@ -67,7 +64,6 @@ export const Image = ({
         style={!fit ? { aspectRatio: aspectRatio } : undefined}
       >
         <Img
-          responsiveImageStyle={responsiveImageStyle}
           imageStyle={imageStyle}
           priority={priority}
           sizes={sizes}
@@ -86,10 +82,10 @@ export const Image = ({
             rel="preload"
             as="image"
             href={
-              responsiveImageStyle?.srcSetPath
+              imageStyle.__typename === 'ResponsiveImageStyleDerivative'
                 ? undefined
-                : imageStyle?.path
-                ? imageStyle.path
+                : imageStyle?.url
+                ? imageStyle.url
                 : undefined
             }
             {...linkProps}
