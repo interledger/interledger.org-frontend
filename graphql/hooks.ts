@@ -22,20 +22,22 @@ function fetcher<TData, TVariables>(query: string, variables?: TVariables) {
   };
 }
 export const ImageStyleFragment = /*#__PURE__*/ `
-    fragment ImageStyleFragment on ImageStylePathDerivative {
+    fragment ImageStyleFragment on ImageStyleDerivative {
   __typename
-  height
-  path
+  name
   width
+  height
+  url
 }
     `;
 export const ResponsiveImageStyleFragment = /*#__PURE__*/ `
     fragment ResponsiveImageStyleFragment on ResponsiveImageStyleDerivative {
   __typename
-  height
-  path
-  srcSetPath
+  name
   width
+  height
+  url
+  srcSet
 }
     `;
 export const MediaImageFragment = /*#__PURE__*/ `
@@ -44,10 +46,10 @@ export const MediaImageFragment = /*#__PURE__*/ `
   id
   mediaImage {
     alt
-    style(name: MEDIUM) {
+    variations(styles: MEDIUM) {
       ...ImageStyleFragment
     }
-    responsive(name: ASPECT_RATIO_LANDSCAPE_16_9) {
+    responsiveVariations(styles: ASPECT_RATIO_LANDSCAPE_16_9) {
       ...ResponsiveImageStyleFragment
     }
   }
@@ -113,7 +115,7 @@ export const MediaImageSquareFragment = /*#__PURE__*/ `
   id
   mediaImage {
     alt
-    responsive(name: ASPECT_RATIO_SQUARE_1_1) {
+    responsiveVariations(styles: ASPECT_RATIO_SQUARE_1_1) {
       ...ResponsiveImageStyleFragment
     }
   }
@@ -125,7 +127,7 @@ export const MediaImageLandscapeFragment = /*#__PURE__*/ `
   id
   mediaImage {
     alt
-    responsive(name: ASPECT_RATIO_LANDSCAPE_16_9) {
+    responsiveVariations(styles: ASPECT_RATIO_LANDSCAPE_16_9) {
       ...ResponsiveImageStyleFragment
     }
   }
@@ -629,7 +631,7 @@ export const MediaImageWidthFragment = /*#__PURE__*/ `
   id
   mediaImage {
     alt
-    responsive(name: WIDTH) {
+    responsiveVariations(styles: WIDTH) {
       ...ResponsiveImageStyleFragment
     }
   }

@@ -1,14 +1,16 @@
-fragment ImageStyleFragment on ImageStylePathDerivative {
+fragment ImageStyleFragment on ImageStyleDerivative {
   __typename
-  height
-  path
+  name
   width
+  height
+  url
 }
 
 fragment ResponsiveImageStyleFragment on ResponsiveImageStyleDerivative {
   __typename
-  height
-  path
-  srcSetPath
+  name
   width
+  height
+  url
+  srcSet
 }

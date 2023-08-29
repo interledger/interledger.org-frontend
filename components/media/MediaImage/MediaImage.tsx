@@ -23,17 +23,17 @@ export const MediaImage = ({
   const rootClassName = cn(styles.root, className);
   return (
     <>
-      {media?.mediaImage?.responsive ? (
+      {!!media.mediaImage.responsiveVariations?.length ? (
         <Image
           className={rootClassName}
-          responsiveImageStyle={media.mediaImage.responsive}
+          imageStyle={media.mediaImage.responsiveVariations[0]}
           alt={media.mediaImage.alt ?? ''}
           {...rest}
         />
-      ) : media?.mediaImage?.style ? (
+      ) : !!media.mediaImage.variations?.length ? (
         <Image
           className={rootClassName}
-          imageStyle={media.mediaImage.style}
+          imageStyle={media.mediaImage.variations[0]}
           alt={media.mediaImage.alt ?? ''}
           {...rest}
         />

@@ -1,18 +1,17 @@
 /* eslint-disable @next/next/no-img-element */
 import cn from 'classnames';
 
-import styles from './Img.module.scss';
+import { Maybe } from '@models/graphql';
 import {
   ImageStyleFragment,
   ResponsiveImageStyleFragment,
 } from '@models/operations';
-import { Maybe } from '@models/graphql';
+import styles from './Img.module.scss';
 
 export interface ImgProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   /** Optional className for Img, pass in a sass module class to override component default */
   className?: string;
-  imageStyle?: Maybe<ImageStyleFragment>;
-  responsiveImageStyle?: Maybe<ResponsiveImageStyleFragment>;
+  imageStyle?: Maybe<ImageStyleFragment> | Maybe<ResponsiveImageStyleFragment>;
   alt?: string;
   sizes?: string;
   priority?: boolean;
@@ -26,7 +25,6 @@ export interface ImgProps extends React.ImgHTMLAttributes<HTMLImageElement> {
 export const Img = ({
   className,
   imageStyle,
-  responsiveImageStyle,
   sizes = '100vw',
   priority,
   alt = '',
@@ -38,21 +36,15 @@ export const Img = ({
 
   return (
     <>
-      {responsiveImageStyle ? (
+      {imageStyle?.__typename === 'ResponsiveImageStyleDerivative' ? (
         <img
           className={rootClassName}
-          src={responsiveImageStyle.path ?? undefined}
-          srcSet={responsiveImageStyle.srcSetPath ?? undefined}
+          src={imageStyle.url ?? undefined}
+          srcSet={imageStyle.srcSet ?? undefined}
           loading={loading}
-          width={
-            dimensions && responsiveImageStyle.width
-              ? responsiveImageStyle.width
-              : undefined
-          }
+          width={dimensions && imageStyle.width ? imageStyle.width : undefined}
           height={
-            dimensions && responsiveImageStyle.height
-              ? responsiveImageStyle.height
-              : undefined
+            dimensions && imageStyle.height ? imageStyle.height : undefined
           }
           sizes={sizes}
           alt={alt}
@@ -61,7 +53,7 @@ export const Img = ({
       ) : imageStyle ? (
         <img
           className={rootClassName}
-          src={imageStyle.path ?? undefined}
+          src={imageStyle.url ?? undefined}
           loading={loading}
           width={dimensions && imageStyle.width ? imageStyle.width : undefined}
           height={
