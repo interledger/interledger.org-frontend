@@ -55,8 +55,9 @@
     &:focus-within {
       .dropdownMenu {
         @include mq($from: mainMenu) {
-          display: block;
+          visibility: visible;
           background-color: var(--main-menu-dropdown-bg-color);
+          transition-delay: 0s;
         }
       }
     }
@@ -72,7 +73,8 @@
       top: var(--header-height);
       left: calc(-1 * var(--page-gutter-left));
       right: calc(-1 * var(--page-gutter-right));
-      display: none;
+      visibility: hidden;
+      transition: 0.2s 1s;
       z-index: 1;
       height: auto;
       overflow: visible;
@@ -84,7 +86,11 @@
       margin-top: to.rem(30px);
 
       @include mq($from: mainMenu) {
-        display: inline-flex;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(auto, calc(100% / 5)));
+        grid-auto-rows: auto;
+        grid-auto-flow: column;
+        justify-content: center;
         margin-top: 0;
       }
 
