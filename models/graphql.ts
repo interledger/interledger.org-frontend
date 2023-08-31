@@ -92,14 +92,16 @@ export type Image = {
   height: Scalars['Int'];
   /** The mime type of the image. */
   mime?: Maybe<Scalars['String']>;
-  /** Fetch an responsive image style. */
-  responsive?: Maybe<ResponsiveImageStyleDerivative>;
-  /** Fetch an image style. */
-  style?: Maybe<ImageStylePathDerivative>;
+  /** Fetch an responsive image style. (Deprecated) */
+  responsive?: Maybe<ResponsiveImageStyleDerivativeDeprecated>;
+  /** Responsive Image variations control different sizes and formats for images. */
+  responsiveVariations?: Maybe<Array<ResponsiveImageStyleDerivative>>;
   /** The title text of the image. */
   title?: Maybe<Scalars['String']>;
   /** The URL of the image. */
   url: Scalars['String'];
+  /** Image variations control different sizes and formats for images. */
+  variations?: Maybe<Array<ImageStyleDerivative>>;
   /** The width of the image. */
   width: Scalars['Int'];
 };
@@ -110,8 +112,13 @@ export type ImageResponsiveArgs = {
 };
 
 /** A image object to represent an managed file. */
-export type ImageStyleArgs = {
-  name?: InputMaybe<ImageStylePathAvailable>;
+export type ImageResponsiveVariationsArgs = {
+  styles?: InputMaybe<Array<InputMaybe<ResponsiveImageStyleAvailable>>>;
+};
+
+/** A image object to represent an managed file. */
+export type ImageVariationsArgs = {
+  styles?: InputMaybe<Array<InputMaybe<ImageStyleAvailable>>>;
 };
 
 /** Entity type image_style. */
@@ -122,27 +129,26 @@ export type ImageStyle = ImageStyleInterface & {
   name: Scalars['String'];
 };
 
+/** List of image styles available to use. */
+export enum ImageStyleAvailable {
+  /** Medium (220×220) */
+  Medium = 'MEDIUM',
+}
+
+/** ImageStyle derivatives for an Image. */
+export type ImageStyleDerivative = {
+  __typename?: 'ImageStyleDerivative';
+  height: Scalars['Int'];
+  name: Scalars['String'];
+  url: Scalars['String'];
+  width: Scalars['Int'];
+};
+
 /** Entity type image_style. */
 export type ImageStyleInterface = {
   /** The Universally Unique IDentifier (UUID). */
   id: Scalars['ID'];
   name: Scalars['String'];
-};
-
-/** List of image styles available to use. */
-export enum ImageStylePathAvailable {
-  /** Medium (220×220) */
-  Medium = 'MEDIUM',
-}
-
-/** ImageStylePath derivative for an Image. */
-export type ImageStylePathDerivative = {
-  __typename?: 'ImageStylePathDerivative';
-  height?: Maybe<Scalars['Int']>;
-  path?: Maybe<Scalars['String']>;
-  style?: Maybe<ImageStyle>;
-  url?: Maybe<Scalars['String']>;
-  width?: Maybe<Scalars['Int']>;
 };
 
 /** Entity type image_style. */
@@ -1637,6 +1643,16 @@ export enum ResponsiveImageStyleAvailable {
 /** ResponsiveImageStyle derivative for an Image. */
 export type ResponsiveImageStyleDerivative = {
   __typename?: 'ResponsiveImageStyleDerivative';
+  height: Scalars['Int'];
+  name: Scalars['String'];
+  srcSet: Scalars['String'];
+  url: Scalars['String'];
+  width: Scalars['Int'];
+};
+
+/** ResponsiveImageStyle derivative for an Image (Deprecated). */
+export type ResponsiveImageStyleDerivativeDeprecated = {
+  __typename?: 'ResponsiveImageStyleDerivativeDeprecated';
   height?: Maybe<Scalars['Int']>;
   path?: Maybe<Scalars['String']>;
   responsive?: Maybe<ResponsiveImageStyle>;
@@ -1713,10 +1729,11 @@ export type RouteUnion = RouteExternal | RouteInternal;
 /** A file object to represent an managed file. */
 export type Svg = {
   __typename?: 'SVG';
-  description?: Maybe<Scalars['String']>;
+  /** The mime type of the image. */
   mime?: Maybe<Scalars['String']>;
-  name?: Maybe<Scalars['String']>;
-  size: Scalars['Int'];
+  /** The title text of the image. */
+  title?: Maybe<Scalars['String']>;
+  /** The URL of the svg. */
   url: Scalars['String'];
 };
 

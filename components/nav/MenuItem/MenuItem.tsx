@@ -16,6 +16,7 @@ export interface MenuItemProps {
   children?: ReactNode;
   parentSelected?: boolean;
   onClick?: MouseEventHandler<HTMLButtonElement>;
+  hasSubmenu?: boolean;
 }
 
 const item = {
@@ -30,6 +31,7 @@ export const MenuItem = ({
   children,
   parentSelected,
   onClick,
+  hasSubmenu,
 }: MenuItemProps) => {
   const router = useRouter();
   const currentRoute = router.asPath;
@@ -46,7 +48,6 @@ export const MenuItem = ({
       [styles.main]: type === 'main',
       [styles.submain]: type === 'submain',
     },
-
     className
   );
 
@@ -57,8 +58,8 @@ export const MenuItem = ({
       className={rootClassName}
       variants={item}
       transition={{ type: 'spring' }}
-      onMouseOver={() => setSubMenuOpen(true)}
-      onMouseLeave={() => setSubMenuOpen(false)}
+      onMouseOver={() => (hasSubmenu ? setSubMenuOpen(true) : null)}
+      onMouseLeave={() => (hasSubmenu ? setSubMenuOpen(false) : null)}
     >
       {menuItem.url ? (
         <Link href={menuItem.url} className={cn(styles.link)}>

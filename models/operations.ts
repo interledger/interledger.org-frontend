@@ -73,13 +73,14 @@ type ParagraphsFragment_ParagraphContentCarousel_ = {
             mediaImage: {
               __typename?: 'Image';
               alt?: string | null;
-              responsive?: {
+              responsiveVariations?: Array<{
                 __typename: 'ResponsiveImageStyleDerivative';
-                height?: number | null;
-                path?: string | null;
-                srcSetPath?: string | null;
-                width?: number | null;
-              } | null;
+                name: string;
+                width: number;
+                height: number;
+                url: string;
+                srcSet: string;
+              }> | null;
             };
           };
           squareIamge: {
@@ -88,13 +89,14 @@ type ParagraphsFragment_ParagraphContentCarousel_ = {
             mediaImage: {
               __typename?: 'Image';
               alt?: string | null;
-              responsive?: {
+              responsiveVariations?: Array<{
                 __typename: 'ResponsiveImageStyleDerivative';
-                height?: number | null;
-                path?: string | null;
-                srcSetPath?: string | null;
-                width?: number | null;
-              } | null;
+                name: string;
+                width: number;
+                height: number;
+                url: string;
+                srcSet: string;
+              }> | null;
             };
           };
         }
@@ -123,13 +125,14 @@ type ParagraphsFragment_ParagraphContentCarousel_ = {
             mediaImage: {
               __typename?: 'Image';
               alt?: string | null;
-              responsive?: {
+              responsiveVariations?: Array<{
                 __typename: 'ResponsiveImageStyleDerivative';
-                height?: number | null;
-                path?: string | null;
-                srcSetPath?: string | null;
-                width?: number | null;
-              } | null;
+                name: string;
+                width: number;
+                height: number;
+                url: string;
+                srcSet: string;
+              }> | null;
             };
           };
         }
@@ -154,13 +157,14 @@ type ParagraphsFragment_ParagraphContentCarousel_ = {
             mediaImage: {
               __typename?: 'Image';
               alt?: string | null;
-              responsive?: {
+              responsiveVariations?: Array<{
                 __typename: 'ResponsiveImageStyleDerivative';
-                height?: number | null;
-                path?: string | null;
-                srcSetPath?: string | null;
-                width?: number | null;
-              } | null;
+                name: string;
+                width: number;
+                height: number;
+                url: string;
+                srcSet: string;
+              }> | null;
             };
           };
           squareIamge: {
@@ -169,13 +173,14 @@ type ParagraphsFragment_ParagraphContentCarousel_ = {
             mediaImage: {
               __typename?: 'Image';
               alt?: string | null;
-              responsive?: {
+              responsiveVariations?: Array<{
                 __typename: 'ResponsiveImageStyleDerivative';
-                height?: number | null;
-                path?: string | null;
-                srcSetPath?: string | null;
-                width?: number | null;
-              } | null;
+                name: string;
+                width: number;
+                height: number;
+                url: string;
+                srcSet: string;
+              }> | null;
             };
           };
         }
@@ -204,13 +209,14 @@ type ParagraphsFragment_ParagraphContentCarousel_ = {
             mediaImage: {
               __typename?: 'Image';
               alt?: string | null;
-              responsive?: {
+              responsiveVariations?: Array<{
                 __typename: 'ResponsiveImageStyleDerivative';
-                height?: number | null;
-                path?: string | null;
-                srcSetPath?: string | null;
-                width?: number | null;
-              } | null;
+                name: string;
+                width: number;
+                height: number;
+                url: string;
+                srcSet: string;
+              }> | null;
             };
           };
         }
@@ -231,13 +237,14 @@ type ParagraphsFragment_ParagraphContentColumnCards_ = {
       mediaImage: {
         __typename?: 'Image';
         alt?: string | null;
-        responsive?: {
+        responsiveVariations?: Array<{
           __typename: 'ResponsiveImageStyleDerivative';
-          height?: number | null;
-          path?: string | null;
-          srcSetPath?: string | null;
-          width?: number | null;
-        } | null;
+          name: string;
+          width: number;
+          height: number;
+          url: string;
+          srcSet: string;
+        }> | null;
       };
     };
     landscapeImage: {
@@ -246,13 +253,14 @@ type ParagraphsFragment_ParagraphContentColumnCards_ = {
       mediaImage: {
         __typename?: 'Image';
         alt?: string | null;
-        responsive?: {
+        responsiveVariations?: Array<{
           __typename: 'ResponsiveImageStyleDerivative';
-          height?: number | null;
-          path?: string | null;
-          srcSetPath?: string | null;
-          width?: number | null;
-        } | null;
+          name: string;
+          width: number;
+          height: number;
+          url: string;
+          srcSet: string;
+        }> | null;
       };
     };
     text: { __typename?: 'Text'; processed?: any | null };
@@ -304,13 +312,14 @@ type ParagraphsFragment_ParagraphHighlightedSpeakers_ = {
       mediaImage: {
         __typename?: 'Image';
         alt?: string | null;
-        responsive?: {
+        responsiveVariations?: Array<{
           __typename: 'ResponsiveImageStyleDerivative';
-          height?: number | null;
-          path?: string | null;
-          srcSetPath?: string | null;
-          width?: number | null;
-        } | null;
+          name: string;
+          width: number;
+          height: number;
+          url: string;
+          srcSet: string;
+        }> | null;
       };
     };
   }> | null;
@@ -325,13 +334,14 @@ type ParagraphsFragment_ParagraphImage_ = {
     mediaImage: {
       __typename?: 'Image';
       alt?: string | null;
-      responsive?: {
+      responsiveVariations?: Array<{
         __typename: 'ResponsiveImageStyleDerivative';
-        height?: number | null;
-        path?: string | null;
-        srcSetPath?: string | null;
-        width?: number | null;
-      } | null;
+        name: string;
+        width: number;
+        height: number;
+        url: string;
+        srcSet: string;
+      }> | null;
     };
   };
   squareIamge: {
@@ -340,13 +350,14 @@ type ParagraphsFragment_ParagraphImage_ = {
     mediaImage: {
       __typename?: 'Image';
       alt?: string | null;
-      responsive?: {
+      responsiveVariations?: Array<{
         __typename: 'ResponsiveImageStyleDerivative';
-        height?: number | null;
-        path?: string | null;
-        srcSetPath?: string | null;
-        width?: number | null;
-      } | null;
+        name: string;
+        width: number;
+        height: number;
+        url: string;
+        srcSet: string;
+      }> | null;
     };
   };
 };
@@ -363,13 +374,14 @@ type ParagraphsFragment_ParagraphImageCarousel_ = {
       mediaImage: {
         __typename?: 'Image';
         alt?: string | null;
-        responsive?: {
+        responsiveVariations?: Array<{
           __typename: 'ResponsiveImageStyleDerivative';
-          height?: number | null;
-          path?: string | null;
-          srcSetPath?: string | null;
-          width?: number | null;
-        } | null;
+          name: string;
+          width: number;
+          height: number;
+          url: string;
+          srcSet: string;
+        }> | null;
       };
     };
   }> | null;
@@ -384,13 +396,14 @@ type ParagraphsFragment_ParagraphImageFullWidth_ = {
     mediaImage: {
       __typename?: 'Image';
       alt?: string | null;
-      responsive?: {
+      responsiveVariations?: Array<{
         __typename: 'ResponsiveImageStyleDerivative';
-        height?: number | null;
-        path?: string | null;
-        srcSetPath?: string | null;
-        width?: number | null;
-      } | null;
+        name: string;
+        width: number;
+        height: number;
+        url: string;
+        srcSet: string;
+      }> | null;
     };
   };
   squareIamge: {
@@ -399,13 +412,14 @@ type ParagraphsFragment_ParagraphImageFullWidth_ = {
     mediaImage: {
       __typename?: 'Image';
       alt?: string | null;
-      responsive?: {
+      responsiveVariations?: Array<{
         __typename: 'ResponsiveImageStyleDerivative';
-        height?: number | null;
-        path?: string | null;
-        srcSetPath?: string | null;
-        width?: number | null;
-      } | null;
+        name: string;
+        width: number;
+        height: number;
+        url: string;
+        srcSet: string;
+      }> | null;
     };
   };
 };
@@ -419,13 +433,14 @@ type ParagraphsFragment_ParagraphImageGallery_ = {
     mediaImage: {
       __typename?: 'Image';
       alt?: string | null;
-      responsive?: {
+      responsiveVariations?: Array<{
         __typename: 'ResponsiveImageStyleDerivative';
-        height?: number | null;
-        path?: string | null;
-        srcSetPath?: string | null;
-        width?: number | null;
-      } | null;
+        name: string;
+        width: number;
+        height: number;
+        url: string;
+        srcSet: string;
+      }> | null;
     };
   }>;
 };
@@ -468,13 +483,14 @@ type ParagraphsFragment_ParagraphNewsListings_ = {
                   mediaImage: {
                     __typename?: 'Image';
                     alt?: string | null;
-                    responsive?: {
+                    responsiveVariations?: Array<{
                       __typename: 'ResponsiveImageStyleDerivative';
-                      height?: number | null;
-                      path?: string | null;
-                      srcSetPath?: string | null;
-                      width?: number | null;
-                    } | null;
+                      name: string;
+                      width: number;
+                      height: number;
+                      url: string;
+                      srcSet: string;
+                    }> | null;
                   };
                 };
                 landscapeImage: {
@@ -483,13 +499,14 @@ type ParagraphsFragment_ParagraphNewsListings_ = {
                   mediaImage: {
                     __typename?: 'Image';
                     alt?: string | null;
-                    responsive?: {
+                    responsiveVariations?: Array<{
                       __typename: 'ResponsiveImageStyleDerivative';
-                      height?: number | null;
-                      path?: string | null;
-                      srcSetPath?: string | null;
-                      width?: number | null;
-                    } | null;
+                      name: string;
+                      width: number;
+                      height: number;
+                      url: string;
+                      srcSet: string;
+                    }> | null;
                   };
                 };
               };
@@ -538,13 +555,14 @@ type ParagraphsFragment_ParagraphNewsListings_ = {
                   mediaImage: {
                     __typename?: 'Image';
                     alt?: string | null;
-                    responsive?: {
+                    responsiveVariations?: Array<{
                       __typename: 'ResponsiveImageStyleDerivative';
-                      height?: number | null;
-                      path?: string | null;
-                      srcSetPath?: string | null;
-                      width?: number | null;
-                    } | null;
+                      name: string;
+                      width: number;
+                      height: number;
+                      url: string;
+                      srcSet: string;
+                    }> | null;
                   };
                 };
                 landscapeImage: {
@@ -553,13 +571,14 @@ type ParagraphsFragment_ParagraphNewsListings_ = {
                   mediaImage: {
                     __typename?: 'Image';
                     alt?: string | null;
-                    responsive?: {
+                    responsiveVariations?: Array<{
                       __typename: 'ResponsiveImageStyleDerivative';
-                      height?: number | null;
-                      path?: string | null;
-                      srcSetPath?: string | null;
-                      width?: number | null;
-                    } | null;
+                      name: string;
+                      width: number;
+                      height: number;
+                      url: string;
+                      srcSet: string;
+                    }> | null;
                   };
                 };
               };
@@ -615,13 +634,14 @@ type ParagraphsFragment_ParagraphPeopleGrid_ = {
                   mediaImage: {
                     __typename?: 'Image';
                     alt?: string | null;
-                    responsive?: {
+                    responsiveVariations?: Array<{
                       __typename: 'ResponsiveImageStyleDerivative';
-                      height?: number | null;
-                      path?: string | null;
-                      srcSetPath?: string | null;
-                      width?: number | null;
-                    } | null;
+                      name: string;
+                      width: number;
+                      height: number;
+                      url: string;
+                      srcSet: string;
+                    }> | null;
                   };
                 };
                 landscapeImage: {
@@ -630,13 +650,14 @@ type ParagraphsFragment_ParagraphPeopleGrid_ = {
                   mediaImage: {
                     __typename?: 'Image';
                     alt?: string | null;
-                    responsive?: {
+                    responsiveVariations?: Array<{
                       __typename: 'ResponsiveImageStyleDerivative';
-                      height?: number | null;
-                      path?: string | null;
-                      srcSetPath?: string | null;
-                      width?: number | null;
-                    } | null;
+                      name: string;
+                      width: number;
+                      height: number;
+                      url: string;
+                      srcSet: string;
+                    }> | null;
                   };
                 };
               };
@@ -735,13 +756,14 @@ type ParagraphsFragment_ParagraphSchedule_ = {
                     mediaImage: {
                       __typename?: 'Image';
                       alt?: string | null;
-                      responsive?: {
+                      responsiveVariations?: Array<{
                         __typename: 'ResponsiveImageStyleDerivative';
-                        height?: number | null;
-                        path?: string | null;
-                        srcSetPath?: string | null;
-                        width?: number | null;
-                      } | null;
+                        name: string;
+                        width: number;
+                        height: number;
+                        url: string;
+                        srcSet: string;
+                      }> | null;
                     };
                   };
                 }> | null;
@@ -768,13 +790,14 @@ type ParagraphsFragment_ParagraphScrollingLogoCarousel_ = {
       mediaImage: {
         __typename?: 'Image';
         alt?: string | null;
-        responsive?: {
+        responsiveVariations?: Array<{
           __typename: 'ResponsiveImageStyleDerivative';
-          height?: number | null;
-          path?: string | null;
-          srcSetPath?: string | null;
-          width?: number | null;
-        } | null;
+          name: string;
+          width: number;
+          height: number;
+          url: string;
+          srcSet: string;
+        }> | null;
       };
     };
     link: { __typename?: 'Link'; url?: string | null; title?: string | null };
@@ -826,13 +849,14 @@ type ParagraphsFragment_ParagraphSpeakersGrid_ = {
                 mediaImage: {
                   __typename?: 'Image';
                   alt?: string | null;
-                  responsive?: {
+                  responsiveVariations?: Array<{
                     __typename: 'ResponsiveImageStyleDerivative';
-                    height?: number | null;
-                    path?: string | null;
-                    srcSetPath?: string | null;
-                    width?: number | null;
-                  } | null;
+                    name: string;
+                    width: number;
+                    height: number;
+                    url: string;
+                    srcSet: string;
+                  }> | null;
                 };
               };
             }
@@ -881,13 +905,14 @@ type ParagraphsFragment_ParagraphTalksGrid_ = {
                   mediaImage: {
                     __typename?: 'Image';
                     alt?: string | null;
-                    responsive?: {
+                    responsiveVariations?: Array<{
                       __typename: 'ResponsiveImageStyleDerivative';
-                      height?: number | null;
-                      path?: string | null;
-                      srcSetPath?: string | null;
-                      width?: number | null;
-                    } | null;
+                      name: string;
+                      width: number;
+                      height: number;
+                      url: string;
+                      srcSet: string;
+                    }> | null;
                   };
                 };
               }> | null;
@@ -929,13 +954,14 @@ type ParagraphsFragment_ParagraphTwoColumnContent_ = {
           mediaImage: {
             __typename?: 'Image';
             alt?: string | null;
-            responsive?: {
+            responsiveVariations?: Array<{
               __typename: 'ResponsiveImageStyleDerivative';
-              height?: number | null;
-              path?: string | null;
-              srcSetPath?: string | null;
-              width?: number | null;
-            } | null;
+              name: string;
+              width: number;
+              height: number;
+              url: string;
+              srcSet: string;
+            }> | null;
           };
         };
         squareIamge: {
@@ -944,13 +970,14 @@ type ParagraphsFragment_ParagraphTwoColumnContent_ = {
           mediaImage: {
             __typename?: 'Image';
             alt?: string | null;
-            responsive?: {
+            responsiveVariations?: Array<{
               __typename: 'ResponsiveImageStyleDerivative';
-              height?: number | null;
-              path?: string | null;
-              srcSetPath?: string | null;
-              width?: number | null;
-            } | null;
+              name: string;
+              width: number;
+              height: number;
+              url: string;
+              srcSet: string;
+            }> | null;
           };
         };
       }
@@ -979,13 +1006,14 @@ type ParagraphsFragment_ParagraphTwoColumnContent_ = {
           mediaImage: {
             __typename?: 'Image';
             alt?: string | null;
-            responsive?: {
+            responsiveVariations?: Array<{
               __typename: 'ResponsiveImageStyleDerivative';
-              height?: number | null;
-              path?: string | null;
-              srcSetPath?: string | null;
-              width?: number | null;
-            } | null;
+              name: string;
+              width: number;
+              height: number;
+              url: string;
+              srcSet: string;
+            }> | null;
           };
         };
       }
@@ -1010,13 +1038,14 @@ type ParagraphsFragment_ParagraphTwoColumnContent_ = {
           mediaImage: {
             __typename?: 'Image';
             alt?: string | null;
-            responsive?: {
+            responsiveVariations?: Array<{
               __typename: 'ResponsiveImageStyleDerivative';
-              height?: number | null;
-              path?: string | null;
-              srcSetPath?: string | null;
-              width?: number | null;
-            } | null;
+              name: string;
+              width: number;
+              height: number;
+              url: string;
+              srcSet: string;
+            }> | null;
           };
         };
         squareIamge: {
@@ -1025,13 +1054,14 @@ type ParagraphsFragment_ParagraphTwoColumnContent_ = {
           mediaImage: {
             __typename?: 'Image';
             alt?: string | null;
-            responsive?: {
+            responsiveVariations?: Array<{
               __typename: 'ResponsiveImageStyleDerivative';
-              height?: number | null;
-              path?: string | null;
-              srcSetPath?: string | null;
-              width?: number | null;
-            } | null;
+              name: string;
+              width: number;
+              height: number;
+              url: string;
+              srcSet: string;
+            }> | null;
           };
         };
       }
@@ -1060,13 +1090,14 @@ type ParagraphsFragment_ParagraphTwoColumnContent_ = {
           mediaImage: {
             __typename?: 'Image';
             alt?: string | null;
-            responsive?: {
+            responsiveVariations?: Array<{
               __typename: 'ResponsiveImageStyleDerivative';
-              height?: number | null;
-              path?: string | null;
-              srcSetPath?: string | null;
-              width?: number | null;
-            } | null;
+              name: string;
+              width: number;
+              height: number;
+              url: string;
+              srcSet: string;
+            }> | null;
           };
         };
       }
@@ -1087,13 +1118,14 @@ type ParagraphsFragment_ParagraphVideo_ = {
     mediaImage: {
       __typename?: 'Image';
       alt?: string | null;
-      responsive?: {
+      responsiveVariations?: Array<{
         __typename: 'ResponsiveImageStyleDerivative';
-        height?: number | null;
-        path?: string | null;
-        srcSetPath?: string | null;
-        width?: number | null;
-      } | null;
+        name: string;
+        width: number;
+        height: number;
+        url: string;
+        srcSet: string;
+      }> | null;
     };
   };
 };
@@ -1150,18 +1182,20 @@ export type ParagraphsFragment =
   | ParagraphsFragment_ParagraphVideoEmbed_;
 
 export type ImageStyleFragment = {
-  __typename: 'ImageStylePathDerivative';
-  height?: number | null;
-  path?: string | null;
-  width?: number | null;
+  __typename: 'ImageStyleDerivative';
+  name: string;
+  width: number;
+  height: number;
+  url: string;
 };
 
 export type ResponsiveImageStyleFragment = {
   __typename: 'ResponsiveImageStyleDerivative';
-  height?: number | null;
-  path?: string | null;
-  srcSetPath?: string | null;
-  width?: number | null;
+  name: string;
+  width: number;
+  height: number;
+  url: string;
+  srcSet: string;
 };
 
 export type MediaImageWidthFragment = {
@@ -1170,13 +1204,14 @@ export type MediaImageWidthFragment = {
   mediaImage: {
     __typename?: 'Image';
     alt?: string | null;
-    responsive?: {
+    responsiveVariations?: Array<{
       __typename: 'ResponsiveImageStyleDerivative';
-      height?: number | null;
-      path?: string | null;
-      srcSetPath?: string | null;
-      width?: number | null;
-    } | null;
+      name: string;
+      width: number;
+      height: number;
+      url: string;
+      srcSet: string;
+    }> | null;
   };
 };
 
@@ -1186,13 +1221,14 @@ export type MediaImageSquareFragment = {
   mediaImage: {
     __typename?: 'Image';
     alt?: string | null;
-    responsive?: {
+    responsiveVariations?: Array<{
       __typename: 'ResponsiveImageStyleDerivative';
-      height?: number | null;
-      path?: string | null;
-      srcSetPath?: string | null;
-      width?: number | null;
-    } | null;
+      name: string;
+      width: number;
+      height: number;
+      url: string;
+      srcSet: string;
+    }> | null;
   };
 };
 
@@ -1202,13 +1238,14 @@ export type MediaImageLandscapeFragment = {
   mediaImage: {
     __typename?: 'Image';
     alt?: string | null;
-    responsive?: {
+    responsiveVariations?: Array<{
       __typename: 'ResponsiveImageStyleDerivative';
-      height?: number | null;
-      path?: string | null;
-      srcSetPath?: string | null;
-      width?: number | null;
-    } | null;
+      name: string;
+      width: number;
+      height: number;
+      url: string;
+      srcSet: string;
+    }> | null;
   };
 };
 
@@ -1218,19 +1255,21 @@ export type MediaImageFragment = {
   mediaImage: {
     __typename?: 'Image';
     alt?: string | null;
-    style?: {
-      __typename: 'ImageStylePathDerivative';
-      height?: number | null;
-      path?: string | null;
-      width?: number | null;
-    } | null;
-    responsive?: {
+    variations?: Array<{
+      __typename: 'ImageStyleDerivative';
+      name: string;
+      width: number;
+      height: number;
+      url: string;
+    }> | null;
+    responsiveVariations?: Array<{
       __typename: 'ResponsiveImageStyleDerivative';
-      height?: number | null;
-      path?: string | null;
-      srcSetPath?: string | null;
-      width?: number | null;
-    } | null;
+      name: string;
+      width: number;
+      height: number;
+      url: string;
+      srcSet: string;
+    }> | null;
   };
 };
 
@@ -1320,13 +1359,14 @@ export type NodeArticleFragment = {
     mediaImage: {
       __typename?: 'Image';
       alt?: string | null;
-      responsive?: {
+      responsiveVariations?: Array<{
         __typename: 'ResponsiveImageStyleDerivative';
-        height?: number | null;
-        path?: string | null;
-        srcSetPath?: string | null;
-        width?: number | null;
-      } | null;
+        name: string;
+        width: number;
+        height: number;
+        url: string;
+        srcSet: string;
+      }> | null;
     };
   };
   landscapeImage: {
@@ -1335,13 +1375,14 @@ export type NodeArticleFragment = {
     mediaImage: {
       __typename?: 'Image';
       alt?: string | null;
-      responsive?: {
+      responsiveVariations?: Array<{
         __typename: 'ResponsiveImageStyleDerivative';
-        height?: number | null;
-        path?: string | null;
-        srcSetPath?: string | null;
-        width?: number | null;
-      } | null;
+        name: string;
+        width: number;
+        height: number;
+        url: string;
+        srcSet: string;
+      }> | null;
     };
   };
   sections?: Array<
@@ -1364,13 +1405,14 @@ export type NodeArticleFragment = {
           mediaImage: {
             __typename?: 'Image';
             alt?: string | null;
-            responsive?: {
+            responsiveVariations?: Array<{
               __typename: 'ResponsiveImageStyleDerivative';
-              height?: number | null;
-              path?: string | null;
-              srcSetPath?: string | null;
-              width?: number | null;
-            } | null;
+              name: string;
+              width: number;
+              height: number;
+              url: string;
+              srcSet: string;
+            }> | null;
           };
         };
         squareIamge: {
@@ -1379,13 +1421,14 @@ export type NodeArticleFragment = {
           mediaImage: {
             __typename?: 'Image';
             alt?: string | null;
-            responsive?: {
+            responsiveVariations?: Array<{
               __typename: 'ResponsiveImageStyleDerivative';
-              height?: number | null;
-              path?: string | null;
-              srcSetPath?: string | null;
-              width?: number | null;
-            } | null;
+              name: string;
+              width: number;
+              height: number;
+              url: string;
+              srcSet: string;
+            }> | null;
           };
         };
       }
@@ -1423,13 +1466,14 @@ export type NodeArticleFragment = {
                 mediaImage: {
                   __typename?: 'Image';
                   alt?: string | null;
-                  responsive?: {
+                  responsiveVariations?: Array<{
                     __typename: 'ResponsiveImageStyleDerivative';
-                    height?: number | null;
-                    path?: string | null;
-                    srcSetPath?: string | null;
-                    width?: number | null;
-                  } | null;
+                    name: string;
+                    width: number;
+                    height: number;
+                    url: string;
+                    srcSet: string;
+                  }> | null;
                 };
               };
               squareIamge: {
@@ -1438,13 +1482,14 @@ export type NodeArticleFragment = {
                 mediaImage: {
                   __typename?: 'Image';
                   alt?: string | null;
-                  responsive?: {
+                  responsiveVariations?: Array<{
                     __typename: 'ResponsiveImageStyleDerivative';
-                    height?: number | null;
-                    path?: string | null;
-                    srcSetPath?: string | null;
-                    width?: number | null;
-                  } | null;
+                    name: string;
+                    width: number;
+                    height: number;
+                    url: string;
+                    srcSet: string;
+                  }> | null;
                 };
               };
             }
@@ -1473,13 +1518,14 @@ export type NodeArticleFragment = {
                 mediaImage: {
                   __typename?: 'Image';
                   alt?: string | null;
-                  responsive?: {
+                  responsiveVariations?: Array<{
                     __typename: 'ResponsiveImageStyleDerivative';
-                    height?: number | null;
-                    path?: string | null;
-                    srcSetPath?: string | null;
-                    width?: number | null;
-                  } | null;
+                    name: string;
+                    width: number;
+                    height: number;
+                    url: string;
+                    srcSet: string;
+                  }> | null;
                 };
               };
             }
@@ -1504,13 +1550,14 @@ export type NodeArticleFragment = {
                 mediaImage: {
                   __typename?: 'Image';
                   alt?: string | null;
-                  responsive?: {
+                  responsiveVariations?: Array<{
                     __typename: 'ResponsiveImageStyleDerivative';
-                    height?: number | null;
-                    path?: string | null;
-                    srcSetPath?: string | null;
-                    width?: number | null;
-                  } | null;
+                    name: string;
+                    width: number;
+                    height: number;
+                    url: string;
+                    srcSet: string;
+                  }> | null;
                 };
               };
               squareIamge: {
@@ -1519,13 +1566,14 @@ export type NodeArticleFragment = {
                 mediaImage: {
                   __typename?: 'Image';
                   alt?: string | null;
-                  responsive?: {
+                  responsiveVariations?: Array<{
                     __typename: 'ResponsiveImageStyleDerivative';
-                    height?: number | null;
-                    path?: string | null;
-                    srcSetPath?: string | null;
-                    width?: number | null;
-                  } | null;
+                    name: string;
+                    width: number;
+                    height: number;
+                    url: string;
+                    srcSet: string;
+                  }> | null;
                 };
               };
             }
@@ -1554,13 +1602,14 @@ export type NodeArticleFragment = {
                 mediaImage: {
                   __typename?: 'Image';
                   alt?: string | null;
-                  responsive?: {
+                  responsiveVariations?: Array<{
                     __typename: 'ResponsiveImageStyleDerivative';
-                    height?: number | null;
-                    path?: string | null;
-                    srcSetPath?: string | null;
-                    width?: number | null;
-                  } | null;
+                    name: string;
+                    width: number;
+                    height: number;
+                    url: string;
+                    srcSet: string;
+                  }> | null;
                 };
               };
             }
@@ -1615,13 +1664,14 @@ export type NodeArticleCardFragment = {
       mediaImage: {
         __typename?: 'Image';
         alt?: string | null;
-        responsive?: {
+        responsiveVariations?: Array<{
           __typename: 'ResponsiveImageStyleDerivative';
-          height?: number | null;
-          path?: string | null;
-          srcSetPath?: string | null;
-          width?: number | null;
-        } | null;
+          name: string;
+          width: number;
+          height: number;
+          url: string;
+          srcSet: string;
+        }> | null;
       };
     };
     landscapeImage: {
@@ -1630,13 +1680,14 @@ export type NodeArticleCardFragment = {
       mediaImage: {
         __typename?: 'Image';
         alt?: string | null;
-        responsive?: {
+        responsiveVariations?: Array<{
           __typename: 'ResponsiveImageStyleDerivative';
-          height?: number | null;
-          path?: string | null;
-          srcSetPath?: string | null;
-          width?: number | null;
-        } | null;
+          name: string;
+          width: number;
+          height: number;
+          url: string;
+          srcSet: string;
+        }> | null;
       };
     };
   };
@@ -1668,13 +1719,14 @@ export type NodeDeveloperToolsFragment = {
           mediaImage: {
             __typename?: 'Image';
             alt?: string | null;
-            responsive?: {
+            responsiveVariations?: Array<{
               __typename: 'ResponsiveImageStyleDerivative';
-              height?: number | null;
-              path?: string | null;
-              srcSetPath?: string | null;
-              width?: number | null;
-            } | null;
+              name: string;
+              width: number;
+              height: number;
+              url: string;
+              srcSet: string;
+            }> | null;
           };
         };
         squareIamge: {
@@ -1683,13 +1735,14 @@ export type NodeDeveloperToolsFragment = {
           mediaImage: {
             __typename?: 'Image';
             alt?: string | null;
-            responsive?: {
+            responsiveVariations?: Array<{
               __typename: 'ResponsiveImageStyleDerivative';
-              height?: number | null;
-              path?: string | null;
-              srcSetPath?: string | null;
-              width?: number | null;
-            } | null;
+              name: string;
+              width: number;
+              height: number;
+              url: string;
+              srcSet: string;
+            }> | null;
           };
         };
       }
@@ -1803,13 +1856,14 @@ export type NodeFoundationPageFragment = {
                   mediaImage: {
                     __typename?: 'Image';
                     alt?: string | null;
-                    responsive?: {
+                    responsiveVariations?: Array<{
                       __typename: 'ResponsiveImageStyleDerivative';
-                      height?: number | null;
-                      path?: string | null;
-                      srcSetPath?: string | null;
-                      width?: number | null;
-                    } | null;
+                      name: string;
+                      width: number;
+                      height: number;
+                      url: string;
+                      srcSet: string;
+                    }> | null;
                   };
                 };
                 squareIamge: {
@@ -1818,13 +1872,14 @@ export type NodeFoundationPageFragment = {
                   mediaImage: {
                     __typename?: 'Image';
                     alt?: string | null;
-                    responsive?: {
+                    responsiveVariations?: Array<{
                       __typename: 'ResponsiveImageStyleDerivative';
-                      height?: number | null;
-                      path?: string | null;
-                      srcSetPath?: string | null;
-                      width?: number | null;
-                    } | null;
+                      name: string;
+                      width: number;
+                      height: number;
+                      url: string;
+                      srcSet: string;
+                    }> | null;
                   };
                 };
               }
@@ -1853,13 +1908,14 @@ export type NodeFoundationPageFragment = {
                   mediaImage: {
                     __typename?: 'Image';
                     alt?: string | null;
-                    responsive?: {
+                    responsiveVariations?: Array<{
                       __typename: 'ResponsiveImageStyleDerivative';
-                      height?: number | null;
-                      path?: string | null;
-                      srcSetPath?: string | null;
-                      width?: number | null;
-                    } | null;
+                      name: string;
+                      width: number;
+                      height: number;
+                      url: string;
+                      srcSet: string;
+                    }> | null;
                   };
                 };
               }
@@ -1884,13 +1940,14 @@ export type NodeFoundationPageFragment = {
                   mediaImage: {
                     __typename?: 'Image';
                     alt?: string | null;
-                    responsive?: {
+                    responsiveVariations?: Array<{
                       __typename: 'ResponsiveImageStyleDerivative';
-                      height?: number | null;
-                      path?: string | null;
-                      srcSetPath?: string | null;
-                      width?: number | null;
-                    } | null;
+                      name: string;
+                      width: number;
+                      height: number;
+                      url: string;
+                      srcSet: string;
+                    }> | null;
                   };
                 };
                 squareIamge: {
@@ -1899,13 +1956,14 @@ export type NodeFoundationPageFragment = {
                   mediaImage: {
                     __typename?: 'Image';
                     alt?: string | null;
-                    responsive?: {
+                    responsiveVariations?: Array<{
                       __typename: 'ResponsiveImageStyleDerivative';
-                      height?: number | null;
-                      path?: string | null;
-                      srcSetPath?: string | null;
-                      width?: number | null;
-                    } | null;
+                      name: string;
+                      width: number;
+                      height: number;
+                      url: string;
+                      srcSet: string;
+                    }> | null;
                   };
                 };
               }
@@ -1934,13 +1992,14 @@ export type NodeFoundationPageFragment = {
                   mediaImage: {
                     __typename?: 'Image';
                     alt?: string | null;
-                    responsive?: {
+                    responsiveVariations?: Array<{
                       __typename: 'ResponsiveImageStyleDerivative';
-                      height?: number | null;
-                      path?: string | null;
-                      srcSetPath?: string | null;
-                      width?: number | null;
-                    } | null;
+                      name: string;
+                      width: number;
+                      height: number;
+                      url: string;
+                      srcSet: string;
+                    }> | null;
                   };
                 };
               }
@@ -1960,13 +2019,14 @@ export type NodeFoundationPageFragment = {
             mediaImage: {
               __typename?: 'Image';
               alt?: string | null;
-              responsive?: {
+              responsiveVariations?: Array<{
                 __typename: 'ResponsiveImageStyleDerivative';
-                height?: number | null;
-                path?: string | null;
-                srcSetPath?: string | null;
-                width?: number | null;
-              } | null;
+                name: string;
+                width: number;
+                height: number;
+                url: string;
+                srcSet: string;
+              }> | null;
             };
           };
           landscapeImage: {
@@ -1975,13 +2035,14 @@ export type NodeFoundationPageFragment = {
             mediaImage: {
               __typename?: 'Image';
               alt?: string | null;
-              responsive?: {
+              responsiveVariations?: Array<{
                 __typename: 'ResponsiveImageStyleDerivative';
-                height?: number | null;
-                path?: string | null;
-                srcSetPath?: string | null;
-                width?: number | null;
-              } | null;
+                name: string;
+                width: number;
+                height: number;
+                url: string;
+                srcSet: string;
+              }> | null;
             };
           };
           text: { __typename?: 'Text'; processed?: any | null };
@@ -2020,13 +2081,14 @@ export type NodeFoundationPageFragment = {
             mediaImage: {
               __typename?: 'Image';
               alt?: string | null;
-              responsive?: {
+              responsiveVariations?: Array<{
                 __typename: 'ResponsiveImageStyleDerivative';
-                height?: number | null;
-                path?: string | null;
-                srcSetPath?: string | null;
-                width?: number | null;
-              } | null;
+                name: string;
+                width: number;
+                height: number;
+                url: string;
+                srcSet: string;
+              }> | null;
             };
           };
         }> | null;
@@ -2040,13 +2102,14 @@ export type NodeFoundationPageFragment = {
           mediaImage: {
             __typename?: 'Image';
             alt?: string | null;
-            responsive?: {
+            responsiveVariations?: Array<{
               __typename: 'ResponsiveImageStyleDerivative';
-              height?: number | null;
-              path?: string | null;
-              srcSetPath?: string | null;
-              width?: number | null;
-            } | null;
+              name: string;
+              width: number;
+              height: number;
+              url: string;
+              srcSet: string;
+            }> | null;
           };
         };
         squareIamge: {
@@ -2055,13 +2118,14 @@ export type NodeFoundationPageFragment = {
           mediaImage: {
             __typename?: 'Image';
             alt?: string | null;
-            responsive?: {
+            responsiveVariations?: Array<{
               __typename: 'ResponsiveImageStyleDerivative';
-              height?: number | null;
-              path?: string | null;
-              srcSetPath?: string | null;
-              width?: number | null;
-            } | null;
+              name: string;
+              width: number;
+              height: number;
+              url: string;
+              srcSet: string;
+            }> | null;
           };
         };
       }
@@ -2074,13 +2138,14 @@ export type NodeFoundationPageFragment = {
           mediaImage: {
             __typename?: 'Image';
             alt?: string | null;
-            responsive?: {
+            responsiveVariations?: Array<{
               __typename: 'ResponsiveImageStyleDerivative';
-              height?: number | null;
-              path?: string | null;
-              srcSetPath?: string | null;
-              width?: number | null;
-            } | null;
+              name: string;
+              width: number;
+              height: number;
+              url: string;
+              srcSet: string;
+            }> | null;
           };
         }>;
       }
@@ -2116,13 +2181,14 @@ export type NodeFoundationPageFragment = {
                         mediaImage: {
                           __typename?: 'Image';
                           alt?: string | null;
-                          responsive?: {
+                          responsiveVariations?: Array<{
                             __typename: 'ResponsiveImageStyleDerivative';
-                            height?: number | null;
-                            path?: string | null;
-                            srcSetPath?: string | null;
-                            width?: number | null;
-                          } | null;
+                            name: string;
+                            width: number;
+                            height: number;
+                            url: string;
+                            srcSet: string;
+                          }> | null;
                         };
                       };
                       landscapeImage: {
@@ -2131,13 +2197,14 @@ export type NodeFoundationPageFragment = {
                         mediaImage: {
                           __typename?: 'Image';
                           alt?: string | null;
-                          responsive?: {
+                          responsiveVariations?: Array<{
                             __typename: 'ResponsiveImageStyleDerivative';
-                            height?: number | null;
-                            path?: string | null;
-                            srcSetPath?: string | null;
-                            width?: number | null;
-                          } | null;
+                            name: string;
+                            width: number;
+                            height: number;
+                            url: string;
+                            srcSet: string;
+                          }> | null;
                         };
                       };
                     };
@@ -2189,13 +2256,14 @@ export type NodeFoundationPageFragment = {
                         mediaImage: {
                           __typename?: 'Image';
                           alt?: string | null;
-                          responsive?: {
+                          responsiveVariations?: Array<{
                             __typename: 'ResponsiveImageStyleDerivative';
-                            height?: number | null;
-                            path?: string | null;
-                            srcSetPath?: string | null;
-                            width?: number | null;
-                          } | null;
+                            name: string;
+                            width: number;
+                            height: number;
+                            url: string;
+                            srcSet: string;
+                          }> | null;
                         };
                       };
                       landscapeImage: {
@@ -2204,13 +2272,14 @@ export type NodeFoundationPageFragment = {
                         mediaImage: {
                           __typename?: 'Image';
                           alt?: string | null;
-                          responsive?: {
+                          responsiveVariations?: Array<{
                             __typename: 'ResponsiveImageStyleDerivative';
-                            height?: number | null;
-                            path?: string | null;
-                            srcSetPath?: string | null;
-                            width?: number | null;
-                          } | null;
+                            name: string;
+                            width: number;
+                            height: number;
+                            url: string;
+                            srcSet: string;
+                          }> | null;
                         };
                       };
                     };
@@ -2265,13 +2334,14 @@ export type NodeFoundationPageFragment = {
                         mediaImage: {
                           __typename?: 'Image';
                           alt?: string | null;
-                          responsive?: {
+                          responsiveVariations?: Array<{
                             __typename: 'ResponsiveImageStyleDerivative';
-                            height?: number | null;
-                            path?: string | null;
-                            srcSetPath?: string | null;
-                            width?: number | null;
-                          } | null;
+                            name: string;
+                            width: number;
+                            height: number;
+                            url: string;
+                            srcSet: string;
+                          }> | null;
                         };
                       };
                       landscapeImage: {
@@ -2280,13 +2350,14 @@ export type NodeFoundationPageFragment = {
                         mediaImage: {
                           __typename?: 'Image';
                           alt?: string | null;
-                          responsive?: {
+                          responsiveVariations?: Array<{
                             __typename: 'ResponsiveImageStyleDerivative';
-                            height?: number | null;
-                            path?: string | null;
-                            srcSetPath?: string | null;
-                            width?: number | null;
-                          } | null;
+                            name: string;
+                            width: number;
+                            height: number;
+                            url: string;
+                            srcSet: string;
+                          }> | null;
                         };
                       };
                     };
@@ -2348,13 +2419,14 @@ export type NodeFoundationPageFragment = {
             mediaImage: {
               __typename?: 'Image';
               alt?: string | null;
-              responsive?: {
+              responsiveVariations?: Array<{
                 __typename: 'ResponsiveImageStyleDerivative';
-                height?: number | null;
-                path?: string | null;
-                srcSetPath?: string | null;
-                width?: number | null;
-              } | null;
+                name: string;
+                width: number;
+                height: number;
+                url: string;
+                srcSet: string;
+              }> | null;
             };
           };
           link: {
@@ -2398,13 +2470,14 @@ export type NodeFoundationPageFragment = {
                 mediaImage: {
                   __typename?: 'Image';
                   alt?: string | null;
-                  responsive?: {
+                  responsiveVariations?: Array<{
                     __typename: 'ResponsiveImageStyleDerivative';
-                    height?: number | null;
-                    path?: string | null;
-                    srcSetPath?: string | null;
-                    width?: number | null;
-                  } | null;
+                    name: string;
+                    width: number;
+                    height: number;
+                    url: string;
+                    srcSet: string;
+                  }> | null;
                 };
               };
               squareIamge: {
@@ -2413,13 +2486,14 @@ export type NodeFoundationPageFragment = {
                 mediaImage: {
                   __typename?: 'Image';
                   alt?: string | null;
-                  responsive?: {
+                  responsiveVariations?: Array<{
                     __typename: 'ResponsiveImageStyleDerivative';
-                    height?: number | null;
-                    path?: string | null;
-                    srcSetPath?: string | null;
-                    width?: number | null;
-                  } | null;
+                    name: string;
+                    width: number;
+                    height: number;
+                    url: string;
+                    srcSet: string;
+                  }> | null;
                 };
               };
             }
@@ -2448,13 +2522,14 @@ export type NodeFoundationPageFragment = {
                 mediaImage: {
                   __typename?: 'Image';
                   alt?: string | null;
-                  responsive?: {
+                  responsiveVariations?: Array<{
                     __typename: 'ResponsiveImageStyleDerivative';
-                    height?: number | null;
-                    path?: string | null;
-                    srcSetPath?: string | null;
-                    width?: number | null;
-                  } | null;
+                    name: string;
+                    width: number;
+                    height: number;
+                    url: string;
+                    srcSet: string;
+                  }> | null;
                 };
               };
             }
@@ -2479,13 +2554,14 @@ export type NodeFoundationPageFragment = {
                 mediaImage: {
                   __typename?: 'Image';
                   alt?: string | null;
-                  responsive?: {
+                  responsiveVariations?: Array<{
                     __typename: 'ResponsiveImageStyleDerivative';
-                    height?: number | null;
-                    path?: string | null;
-                    srcSetPath?: string | null;
-                    width?: number | null;
-                  } | null;
+                    name: string;
+                    width: number;
+                    height: number;
+                    url: string;
+                    srcSet: string;
+                  }> | null;
                 };
               };
               squareIamge: {
@@ -2494,13 +2570,14 @@ export type NodeFoundationPageFragment = {
                 mediaImage: {
                   __typename?: 'Image';
                   alt?: string | null;
-                  responsive?: {
+                  responsiveVariations?: Array<{
                     __typename: 'ResponsiveImageStyleDerivative';
-                    height?: number | null;
-                    path?: string | null;
-                    srcSetPath?: string | null;
-                    width?: number | null;
-                  } | null;
+                    name: string;
+                    width: number;
+                    height: number;
+                    url: string;
+                    srcSet: string;
+                  }> | null;
                 };
               };
             }
@@ -2529,13 +2606,14 @@ export type NodeFoundationPageFragment = {
                 mediaImage: {
                   __typename?: 'Image';
                   alt?: string | null;
-                  responsive?: {
+                  responsiveVariations?: Array<{
                     __typename: 'ResponsiveImageStyleDerivative';
-                    height?: number | null;
-                    path?: string | null;
-                    srcSetPath?: string | null;
-                    width?: number | null;
-                  } | null;
+                    name: string;
+                    width: number;
+                    height: number;
+                    url: string;
+                    srcSet: string;
+                  }> | null;
                 };
               };
             }
@@ -2555,13 +2633,14 @@ export type NodeFoundationPageFragment = {
           mediaImage: {
             __typename?: 'Image';
             alt?: string | null;
-            responsive?: {
+            responsiveVariations?: Array<{
               __typename: 'ResponsiveImageStyleDerivative';
-              height?: number | null;
-              path?: string | null;
-              srcSetPath?: string | null;
-              width?: number | null;
-            } | null;
+              name: string;
+              width: number;
+              height: number;
+              url: string;
+              srcSet: string;
+            }> | null;
           };
         };
       }
@@ -2613,13 +2692,14 @@ export type NodeFoundationPageFragment = {
       mediaImage: {
         __typename?: 'Image';
         alt?: string | null;
-        responsive?: {
+        responsiveVariations?: Array<{
           __typename: 'ResponsiveImageStyleDerivative';
-          height?: number | null;
-          path?: string | null;
-          srcSetPath?: string | null;
-          width?: number | null;
-        } | null;
+          name: string;
+          width: number;
+          height: number;
+          url: string;
+          srcSet: string;
+        }> | null;
       };
     };
     landscapeImage: {
@@ -2628,13 +2708,14 @@ export type NodeFoundationPageFragment = {
       mediaImage: {
         __typename?: 'Image';
         alt?: string | null;
-        responsive?: {
+        responsiveVariations?: Array<{
           __typename: 'ResponsiveImageStyleDerivative';
-          height?: number | null;
-          path?: string | null;
-          srcSetPath?: string | null;
-          width?: number | null;
-        } | null;
+          name: string;
+          width: number;
+          height: number;
+          url: string;
+          srcSet: string;
+        }> | null;
       };
     };
   };
@@ -2650,13 +2731,14 @@ export type NodeFoundationPageFragment = {
       mediaImage: {
         __typename?: 'Image';
         alt?: string | null;
-        responsive?: {
+        responsiveVariations?: Array<{
           __typename: 'ResponsiveImageStyleDerivative';
-          height?: number | null;
-          path?: string | null;
-          srcSetPath?: string | null;
-          width?: number | null;
-        } | null;
+          name: string;
+          width: number;
+          height: number;
+          url: string;
+          srcSet: string;
+        }> | null;
       };
     };
     video?: {
@@ -2681,13 +2763,14 @@ export type NodeFoundationPageCardFragment = {
       mediaImage: {
         __typename?: 'Image';
         alt?: string | null;
-        responsive?: {
+        responsiveVariations?: Array<{
           __typename: 'ResponsiveImageStyleDerivative';
-          height?: number | null;
-          path?: string | null;
-          srcSetPath?: string | null;
-          width?: number | null;
-        } | null;
+          name: string;
+          width: number;
+          height: number;
+          url: string;
+          srcSet: string;
+        }> | null;
       };
     };
     landscapeImage: {
@@ -2696,13 +2779,14 @@ export type NodeFoundationPageCardFragment = {
       mediaImage: {
         __typename?: 'Image';
         alt?: string | null;
-        responsive?: {
+        responsiveVariations?: Array<{
           __typename: 'ResponsiveImageStyleDerivative';
-          height?: number | null;
-          path?: string | null;
-          srcSetPath?: string | null;
-          width?: number | null;
-        } | null;
+          name: string;
+          width: number;
+          height: number;
+          url: string;
+          srcSet: string;
+        }> | null;
       };
     };
   };
@@ -2749,13 +2833,14 @@ export type NodePageFragment = {
                   mediaImage: {
                     __typename?: 'Image';
                     alt?: string | null;
-                    responsive?: {
+                    responsiveVariations?: Array<{
                       __typename: 'ResponsiveImageStyleDerivative';
-                      height?: number | null;
-                      path?: string | null;
-                      srcSetPath?: string | null;
-                      width?: number | null;
-                    } | null;
+                      name: string;
+                      width: number;
+                      height: number;
+                      url: string;
+                      srcSet: string;
+                    }> | null;
                   };
                 };
                 squareIamge: {
@@ -2764,13 +2849,14 @@ export type NodePageFragment = {
                   mediaImage: {
                     __typename?: 'Image';
                     alt?: string | null;
-                    responsive?: {
+                    responsiveVariations?: Array<{
                       __typename: 'ResponsiveImageStyleDerivative';
-                      height?: number | null;
-                      path?: string | null;
-                      srcSetPath?: string | null;
-                      width?: number | null;
-                    } | null;
+                      name: string;
+                      width: number;
+                      height: number;
+                      url: string;
+                      srcSet: string;
+                    }> | null;
                   };
                 };
               }
@@ -2799,13 +2885,14 @@ export type NodePageFragment = {
                   mediaImage: {
                     __typename?: 'Image';
                     alt?: string | null;
-                    responsive?: {
+                    responsiveVariations?: Array<{
                       __typename: 'ResponsiveImageStyleDerivative';
-                      height?: number | null;
-                      path?: string | null;
-                      srcSetPath?: string | null;
-                      width?: number | null;
-                    } | null;
+                      name: string;
+                      width: number;
+                      height: number;
+                      url: string;
+                      srcSet: string;
+                    }> | null;
                   };
                 };
               }
@@ -2830,13 +2917,14 @@ export type NodePageFragment = {
                   mediaImage: {
                     __typename?: 'Image';
                     alt?: string | null;
-                    responsive?: {
+                    responsiveVariations?: Array<{
                       __typename: 'ResponsiveImageStyleDerivative';
-                      height?: number | null;
-                      path?: string | null;
-                      srcSetPath?: string | null;
-                      width?: number | null;
-                    } | null;
+                      name: string;
+                      width: number;
+                      height: number;
+                      url: string;
+                      srcSet: string;
+                    }> | null;
                   };
                 };
                 squareIamge: {
@@ -2845,13 +2933,14 @@ export type NodePageFragment = {
                   mediaImage: {
                     __typename?: 'Image';
                     alt?: string | null;
-                    responsive?: {
+                    responsiveVariations?: Array<{
                       __typename: 'ResponsiveImageStyleDerivative';
-                      height?: number | null;
-                      path?: string | null;
-                      srcSetPath?: string | null;
-                      width?: number | null;
-                    } | null;
+                      name: string;
+                      width: number;
+                      height: number;
+                      url: string;
+                      srcSet: string;
+                    }> | null;
                   };
                 };
               }
@@ -2880,13 +2969,14 @@ export type NodePageFragment = {
                   mediaImage: {
                     __typename?: 'Image';
                     alt?: string | null;
-                    responsive?: {
+                    responsiveVariations?: Array<{
                       __typename: 'ResponsiveImageStyleDerivative';
-                      height?: number | null;
-                      path?: string | null;
-                      srcSetPath?: string | null;
-                      width?: number | null;
-                    } | null;
+                      name: string;
+                      width: number;
+                      height: number;
+                      url: string;
+                      srcSet: string;
+                    }> | null;
                   };
                 };
               }
@@ -2922,13 +3012,14 @@ export type NodePageFragment = {
             mediaImage: {
               __typename?: 'Image';
               alt?: string | null;
-              responsive?: {
+              responsiveVariations?: Array<{
                 __typename: 'ResponsiveImageStyleDerivative';
-                height?: number | null;
-                path?: string | null;
-                srcSetPath?: string | null;
-                width?: number | null;
-              } | null;
+                name: string;
+                width: number;
+                height: number;
+                url: string;
+                srcSet: string;
+              }> | null;
             };
           };
         }> | null;
@@ -2945,13 +3036,14 @@ export type NodePageFragment = {
             mediaImage: {
               __typename?: 'Image';
               alt?: string | null;
-              responsive?: {
+              responsiveVariations?: Array<{
                 __typename: 'ResponsiveImageStyleDerivative';
-                height?: number | null;
-                path?: string | null;
-                srcSetPath?: string | null;
-                width?: number | null;
-              } | null;
+                name: string;
+                width: number;
+                height: number;
+                url: string;
+                srcSet: string;
+              }> | null;
             };
           };
         }> | null;
@@ -2965,13 +3057,14 @@ export type NodePageFragment = {
           mediaImage: {
             __typename?: 'Image';
             alt?: string | null;
-            responsive?: {
+            responsiveVariations?: Array<{
               __typename: 'ResponsiveImageStyleDerivative';
-              height?: number | null;
-              path?: string | null;
-              srcSetPath?: string | null;
-              width?: number | null;
-            } | null;
+              name: string;
+              width: number;
+              height: number;
+              url: string;
+              srcSet: string;
+            }> | null;
           };
         };
         squareIamge: {
@@ -2980,13 +3073,14 @@ export type NodePageFragment = {
           mediaImage: {
             __typename?: 'Image';
             alt?: string | null;
-            responsive?: {
+            responsiveVariations?: Array<{
               __typename: 'ResponsiveImageStyleDerivative';
-              height?: number | null;
-              path?: string | null;
-              srcSetPath?: string | null;
-              width?: number | null;
-            } | null;
+              name: string;
+              width: number;
+              height: number;
+              url: string;
+              srcSet: string;
+            }> | null;
           };
         };
       }
@@ -2999,13 +3093,14 @@ export type NodePageFragment = {
           mediaImage: {
             __typename?: 'Image';
             alt?: string | null;
-            responsive?: {
+            responsiveVariations?: Array<{
               __typename: 'ResponsiveImageStyleDerivative';
-              height?: number | null;
-              path?: string | null;
-              srcSetPath?: string | null;
-              width?: number | null;
-            } | null;
+              name: string;
+              width: number;
+              height: number;
+              url: string;
+              srcSet: string;
+            }> | null;
           };
         }>;
       }
@@ -3091,13 +3186,14 @@ export type NodePageFragment = {
                           mediaImage: {
                             __typename?: 'Image';
                             alt?: string | null;
-                            responsive?: {
+                            responsiveVariations?: Array<{
                               __typename: 'ResponsiveImageStyleDerivative';
-                              height?: number | null;
-                              path?: string | null;
-                              srcSetPath?: string | null;
-                              width?: number | null;
-                            } | null;
+                              name: string;
+                              width: number;
+                              height: number;
+                              url: string;
+                              srcSet: string;
+                            }> | null;
                           };
                         };
                       }> | null;
@@ -3119,13 +3215,14 @@ export type NodePageFragment = {
             mediaImage: {
               __typename?: 'Image';
               alt?: string | null;
-              responsive?: {
+              responsiveVariations?: Array<{
                 __typename: 'ResponsiveImageStyleDerivative';
-                height?: number | null;
-                path?: string | null;
-                srcSetPath?: string | null;
-                width?: number | null;
-              } | null;
+                name: string;
+                width: number;
+                height: number;
+                url: string;
+                srcSet: string;
+              }> | null;
             };
           };
           link: {
@@ -3171,13 +3268,14 @@ export type NodePageFragment = {
                       mediaImage: {
                         __typename?: 'Image';
                         alt?: string | null;
-                        responsive?: {
+                        responsiveVariations?: Array<{
                           __typename: 'ResponsiveImageStyleDerivative';
-                          height?: number | null;
-                          path?: string | null;
-                          srcSetPath?: string | null;
-                          width?: number | null;
-                        } | null;
+                          name: string;
+                          width: number;
+                          height: number;
+                          url: string;
+                          srcSet: string;
+                        }> | null;
                       };
                     };
                   }
@@ -3225,13 +3323,14 @@ export type NodePageFragment = {
                         mediaImage: {
                           __typename?: 'Image';
                           alt?: string | null;
-                          responsive?: {
+                          responsiveVariations?: Array<{
                             __typename: 'ResponsiveImageStyleDerivative';
-                            height?: number | null;
-                            path?: string | null;
-                            srcSetPath?: string | null;
-                            width?: number | null;
-                          } | null;
+                            name: string;
+                            width: number;
+                            height: number;
+                            url: string;
+                            srcSet: string;
+                          }> | null;
                         };
                       };
                     }> | null;
@@ -3269,13 +3368,14 @@ export type NodePageFragment = {
                 mediaImage: {
                   __typename?: 'Image';
                   alt?: string | null;
-                  responsive?: {
+                  responsiveVariations?: Array<{
                     __typename: 'ResponsiveImageStyleDerivative';
-                    height?: number | null;
-                    path?: string | null;
-                    srcSetPath?: string | null;
-                    width?: number | null;
-                  } | null;
+                    name: string;
+                    width: number;
+                    height: number;
+                    url: string;
+                    srcSet: string;
+                  }> | null;
                 };
               };
               squareIamge: {
@@ -3284,13 +3384,14 @@ export type NodePageFragment = {
                 mediaImage: {
                   __typename?: 'Image';
                   alt?: string | null;
-                  responsive?: {
+                  responsiveVariations?: Array<{
                     __typename: 'ResponsiveImageStyleDerivative';
-                    height?: number | null;
-                    path?: string | null;
-                    srcSetPath?: string | null;
-                    width?: number | null;
-                  } | null;
+                    name: string;
+                    width: number;
+                    height: number;
+                    url: string;
+                    srcSet: string;
+                  }> | null;
                 };
               };
             }
@@ -3319,13 +3420,14 @@ export type NodePageFragment = {
                 mediaImage: {
                   __typename?: 'Image';
                   alt?: string | null;
-                  responsive?: {
+                  responsiveVariations?: Array<{
                     __typename: 'ResponsiveImageStyleDerivative';
-                    height?: number | null;
-                    path?: string | null;
-                    srcSetPath?: string | null;
-                    width?: number | null;
-                  } | null;
+                    name: string;
+                    width: number;
+                    height: number;
+                    url: string;
+                    srcSet: string;
+                  }> | null;
                 };
               };
             }
@@ -3350,13 +3452,14 @@ export type NodePageFragment = {
                 mediaImage: {
                   __typename?: 'Image';
                   alt?: string | null;
-                  responsive?: {
+                  responsiveVariations?: Array<{
                     __typename: 'ResponsiveImageStyleDerivative';
-                    height?: number | null;
-                    path?: string | null;
-                    srcSetPath?: string | null;
-                    width?: number | null;
-                  } | null;
+                    name: string;
+                    width: number;
+                    height: number;
+                    url: string;
+                    srcSet: string;
+                  }> | null;
                 };
               };
               squareIamge: {
@@ -3365,13 +3468,14 @@ export type NodePageFragment = {
                 mediaImage: {
                   __typename?: 'Image';
                   alt?: string | null;
-                  responsive?: {
+                  responsiveVariations?: Array<{
                     __typename: 'ResponsiveImageStyleDerivative';
-                    height?: number | null;
-                    path?: string | null;
-                    srcSetPath?: string | null;
-                    width?: number | null;
-                  } | null;
+                    name: string;
+                    width: number;
+                    height: number;
+                    url: string;
+                    srcSet: string;
+                  }> | null;
                 };
               };
             }
@@ -3400,13 +3504,14 @@ export type NodePageFragment = {
                 mediaImage: {
                   __typename?: 'Image';
                   alt?: string | null;
-                  responsive?: {
+                  responsiveVariations?: Array<{
                     __typename: 'ResponsiveImageStyleDerivative';
-                    height?: number | null;
-                    path?: string | null;
-                    srcSetPath?: string | null;
-                    width?: number | null;
-                  } | null;
+                    name: string;
+                    width: number;
+                    height: number;
+                    url: string;
+                    srcSet: string;
+                  }> | null;
                 };
               };
             }
@@ -3426,13 +3531,14 @@ export type NodePageFragment = {
           mediaImage: {
             __typename?: 'Image';
             alt?: string | null;
-            responsive?: {
+            responsiveVariations?: Array<{
               __typename: 'ResponsiveImageStyleDerivative';
-              height?: number | null;
-              path?: string | null;
-              srcSetPath?: string | null;
-              width?: number | null;
-            } | null;
+              name: string;
+              width: number;
+              height: number;
+              url: string;
+              srcSet: string;
+            }> | null;
           };
         };
       }
@@ -3484,13 +3590,14 @@ export type NodePageFragment = {
       mediaImage: {
         __typename?: 'Image';
         alt?: string | null;
-        responsive?: {
+        responsiveVariations?: Array<{
           __typename: 'ResponsiveImageStyleDerivative';
-          height?: number | null;
-          path?: string | null;
-          srcSetPath?: string | null;
-          width?: number | null;
-        } | null;
+          name: string;
+          width: number;
+          height: number;
+          url: string;
+          srcSet: string;
+        }> | null;
       };
     };
     landscapeImage: {
@@ -3499,13 +3606,14 @@ export type NodePageFragment = {
       mediaImage: {
         __typename?: 'Image';
         alt?: string | null;
-        responsive?: {
+        responsiveVariations?: Array<{
           __typename: 'ResponsiveImageStyleDerivative';
-          height?: number | null;
-          path?: string | null;
-          srcSetPath?: string | null;
-          width?: number | null;
-        } | null;
+          name: string;
+          width: number;
+          height: number;
+          url: string;
+          srcSet: string;
+        }> | null;
       };
     };
   };
@@ -3521,13 +3629,14 @@ export type NodePageFragment = {
       mediaImage: {
         __typename?: 'Image';
         alt?: string | null;
-        responsive?: {
+        responsiveVariations?: Array<{
           __typename: 'ResponsiveImageStyleDerivative';
-          height?: number | null;
-          path?: string | null;
-          srcSetPath?: string | null;
-          width?: number | null;
-        } | null;
+          name: string;
+          width: number;
+          height: number;
+          url: string;
+          srcSet: string;
+        }> | null;
       };
     };
     video?: {
@@ -3552,13 +3661,14 @@ export type NodePageCardFragment = {
       mediaImage: {
         __typename?: 'Image';
         alt?: string | null;
-        responsive?: {
+        responsiveVariations?: Array<{
           __typename: 'ResponsiveImageStyleDerivative';
-          height?: number | null;
-          path?: string | null;
-          srcSetPath?: string | null;
-          width?: number | null;
-        } | null;
+          name: string;
+          width: number;
+          height: number;
+          url: string;
+          srcSet: string;
+        }> | null;
       };
     };
     landscapeImage: {
@@ -3567,13 +3677,14 @@ export type NodePageCardFragment = {
       mediaImage: {
         __typename?: 'Image';
         alt?: string | null;
-        responsive?: {
+        responsiveVariations?: Array<{
           __typename: 'ResponsiveImageStyleDerivative';
-          height?: number | null;
-          path?: string | null;
-          srcSetPath?: string | null;
-          width?: number | null;
-        } | null;
+          name: string;
+          width: number;
+          height: number;
+          url: string;
+          srcSet: string;
+        }> | null;
       };
     };
   };
@@ -3603,13 +3714,14 @@ export type NodePeopleCardFragment = {
       mediaImage: {
         __typename?: 'Image';
         alt?: string | null;
-        responsive?: {
+        responsiveVariations?: Array<{
           __typename: 'ResponsiveImageStyleDerivative';
-          height?: number | null;
-          path?: string | null;
-          srcSetPath?: string | null;
-          width?: number | null;
-        } | null;
+          name: string;
+          width: number;
+          height: number;
+          url: string;
+          srcSet: string;
+        }> | null;
       };
     };
     landscapeImage: {
@@ -3618,13 +3730,14 @@ export type NodePeopleCardFragment = {
       mediaImage: {
         __typename?: 'Image';
         alt?: string | null;
-        responsive?: {
+        responsiveVariations?: Array<{
           __typename: 'ResponsiveImageStyleDerivative';
-          height?: number | null;
-          path?: string | null;
-          srcSetPath?: string | null;
-          width?: number | null;
-        } | null;
+          name: string;
+          width: number;
+          height: number;
+          url: string;
+          srcSet: string;
+        }> | null;
       };
     };
   };
@@ -3653,13 +3766,14 @@ export type NodeSpeakerFragment = {
     mediaImage: {
       __typename?: 'Image';
       alt?: string | null;
-      responsive?: {
+      responsiveVariations?: Array<{
         __typename: 'ResponsiveImageStyleDerivative';
-        height?: number | null;
-        path?: string | null;
-        srcSetPath?: string | null;
-        width?: number | null;
-      } | null;
+        name: string;
+        width: number;
+        height: number;
+        url: string;
+        srcSet: string;
+      }> | null;
     };
   };
   talks:
@@ -3696,13 +3810,14 @@ export type NodeSpeakerFragment = {
                   mediaImage: {
                     __typename?: 'Image';
                     alt?: string | null;
-                    responsive?: {
+                    responsiveVariations?: Array<{
                       __typename: 'ResponsiveImageStyleDerivative';
-                      height?: number | null;
-                      path?: string | null;
-                      srcSetPath?: string | null;
-                      width?: number | null;
-                    } | null;
+                      name: string;
+                      width: number;
+                      height: number;
+                      url: string;
+                      srcSet: string;
+                    }> | null;
                   };
                 };
               }> | null;
@@ -3723,13 +3838,14 @@ export type NodeSpeakerCardFragment = {
     mediaImage: {
       __typename?: 'Image';
       alt?: string | null;
-      responsive?: {
+      responsiveVariations?: Array<{
         __typename: 'ResponsiveImageStyleDerivative';
-        height?: number | null;
-        path?: string | null;
-        srcSetPath?: string | null;
-        width?: number | null;
-      } | null;
+        name: string;
+        width: number;
+        height: number;
+        url: string;
+        srcSet: string;
+      }> | null;
     };
   };
 };
@@ -3783,13 +3899,14 @@ export type NodeTalkFragment = {
       mediaImage: {
         __typename?: 'Image';
         alt?: string | null;
-        responsive?: {
+        responsiveVariations?: Array<{
           __typename: 'ResponsiveImageStyleDerivative';
-          height?: number | null;
-          path?: string | null;
-          srcSetPath?: string | null;
-          width?: number | null;
-        } | null;
+          name: string;
+          width: number;
+          height: number;
+          url: string;
+          srcSet: string;
+        }> | null;
       };
     };
   }> | null;
@@ -3821,13 +3938,14 @@ export type NodeTalkCardFragment = {
       mediaImage: {
         __typename?: 'Image';
         alt?: string | null;
-        responsive?: {
+        responsiveVariations?: Array<{
           __typename: 'ResponsiveImageStyleDerivative';
-          height?: number | null;
-          path?: string | null;
-          srcSetPath?: string | null;
-          width?: number | null;
-        } | null;
+          name: string;
+          width: number;
+          height: number;
+          url: string;
+          srcSet: string;
+        }> | null;
       };
     };
   }> | null;
@@ -4039,13 +4157,14 @@ type ContentCarouselItemFragment_ParagraphTwoColumnContent_ = {
           mediaImage: {
             __typename?: 'Image';
             alt?: string | null;
-            responsive?: {
+            responsiveVariations?: Array<{
               __typename: 'ResponsiveImageStyleDerivative';
-              height?: number | null;
-              path?: string | null;
-              srcSetPath?: string | null;
-              width?: number | null;
-            } | null;
+              name: string;
+              width: number;
+              height: number;
+              url: string;
+              srcSet: string;
+            }> | null;
           };
         };
         squareIamge: {
@@ -4054,13 +4173,14 @@ type ContentCarouselItemFragment_ParagraphTwoColumnContent_ = {
           mediaImage: {
             __typename?: 'Image';
             alt?: string | null;
-            responsive?: {
+            responsiveVariations?: Array<{
               __typename: 'ResponsiveImageStyleDerivative';
-              height?: number | null;
-              path?: string | null;
-              srcSetPath?: string | null;
-              width?: number | null;
-            } | null;
+              name: string;
+              width: number;
+              height: number;
+              url: string;
+              srcSet: string;
+            }> | null;
           };
         };
       }
@@ -4089,13 +4209,14 @@ type ContentCarouselItemFragment_ParagraphTwoColumnContent_ = {
           mediaImage: {
             __typename?: 'Image';
             alt?: string | null;
-            responsive?: {
+            responsiveVariations?: Array<{
               __typename: 'ResponsiveImageStyleDerivative';
-              height?: number | null;
-              path?: string | null;
-              srcSetPath?: string | null;
-              width?: number | null;
-            } | null;
+              name: string;
+              width: number;
+              height: number;
+              url: string;
+              srcSet: string;
+            }> | null;
           };
         };
       }
@@ -4120,13 +4241,14 @@ type ContentCarouselItemFragment_ParagraphTwoColumnContent_ = {
           mediaImage: {
             __typename?: 'Image';
             alt?: string | null;
-            responsive?: {
+            responsiveVariations?: Array<{
               __typename: 'ResponsiveImageStyleDerivative';
-              height?: number | null;
-              path?: string | null;
-              srcSetPath?: string | null;
-              width?: number | null;
-            } | null;
+              name: string;
+              width: number;
+              height: number;
+              url: string;
+              srcSet: string;
+            }> | null;
           };
         };
         squareIamge: {
@@ -4135,13 +4257,14 @@ type ContentCarouselItemFragment_ParagraphTwoColumnContent_ = {
           mediaImage: {
             __typename?: 'Image';
             alt?: string | null;
-            responsive?: {
+            responsiveVariations?: Array<{
               __typename: 'ResponsiveImageStyleDerivative';
-              height?: number | null;
-              path?: string | null;
-              srcSetPath?: string | null;
-              width?: number | null;
-            } | null;
+              name: string;
+              width: number;
+              height: number;
+              url: string;
+              srcSet: string;
+            }> | null;
           };
         };
       }
@@ -4170,13 +4293,14 @@ type ContentCarouselItemFragment_ParagraphTwoColumnContent_ = {
           mediaImage: {
             __typename?: 'Image';
             alt?: string | null;
-            responsive?: {
+            responsiveVariations?: Array<{
               __typename: 'ResponsiveImageStyleDerivative';
-              height?: number | null;
-              path?: string | null;
-              srcSetPath?: string | null;
-              width?: number | null;
-            } | null;
+              name: string;
+              width: number;
+              height: number;
+              url: string;
+              srcSet: string;
+            }> | null;
           };
         };
       }
@@ -4258,13 +4382,14 @@ export type ParagraphContentCarouselFragment = {
             mediaImage: {
               __typename?: 'Image';
               alt?: string | null;
-              responsive?: {
+              responsiveVariations?: Array<{
                 __typename: 'ResponsiveImageStyleDerivative';
-                height?: number | null;
-                path?: string | null;
-                srcSetPath?: string | null;
-                width?: number | null;
-              } | null;
+                name: string;
+                width: number;
+                height: number;
+                url: string;
+                srcSet: string;
+              }> | null;
             };
           };
           squareIamge: {
@@ -4273,13 +4398,14 @@ export type ParagraphContentCarouselFragment = {
             mediaImage: {
               __typename?: 'Image';
               alt?: string | null;
-              responsive?: {
+              responsiveVariations?: Array<{
                 __typename: 'ResponsiveImageStyleDerivative';
-                height?: number | null;
-                path?: string | null;
-                srcSetPath?: string | null;
-                width?: number | null;
-              } | null;
+                name: string;
+                width: number;
+                height: number;
+                url: string;
+                srcSet: string;
+              }> | null;
             };
           };
         }
@@ -4308,13 +4434,14 @@ export type ParagraphContentCarouselFragment = {
             mediaImage: {
               __typename?: 'Image';
               alt?: string | null;
-              responsive?: {
+              responsiveVariations?: Array<{
                 __typename: 'ResponsiveImageStyleDerivative';
-                height?: number | null;
-                path?: string | null;
-                srcSetPath?: string | null;
-                width?: number | null;
-              } | null;
+                name: string;
+                width: number;
+                height: number;
+                url: string;
+                srcSet: string;
+              }> | null;
             };
           };
         }
@@ -4339,13 +4466,14 @@ export type ParagraphContentCarouselFragment = {
             mediaImage: {
               __typename?: 'Image';
               alt?: string | null;
-              responsive?: {
+              responsiveVariations?: Array<{
                 __typename: 'ResponsiveImageStyleDerivative';
-                height?: number | null;
-                path?: string | null;
-                srcSetPath?: string | null;
-                width?: number | null;
-              } | null;
+                name: string;
+                width: number;
+                height: number;
+                url: string;
+                srcSet: string;
+              }> | null;
             };
           };
           squareIamge: {
@@ -4354,13 +4482,14 @@ export type ParagraphContentCarouselFragment = {
             mediaImage: {
               __typename?: 'Image';
               alt?: string | null;
-              responsive?: {
+              responsiveVariations?: Array<{
                 __typename: 'ResponsiveImageStyleDerivative';
-                height?: number | null;
-                path?: string | null;
-                srcSetPath?: string | null;
-                width?: number | null;
-              } | null;
+                name: string;
+                width: number;
+                height: number;
+                url: string;
+                srcSet: string;
+              }> | null;
             };
           };
         }
@@ -4389,13 +4518,14 @@ export type ParagraphContentCarouselFragment = {
             mediaImage: {
               __typename?: 'Image';
               alt?: string | null;
-              responsive?: {
+              responsiveVariations?: Array<{
                 __typename: 'ResponsiveImageStyleDerivative';
-                height?: number | null;
-                path?: string | null;
-                srcSetPath?: string | null;
-                width?: number | null;
-              } | null;
+                name: string;
+                width: number;
+                height: number;
+                url: string;
+                srcSet: string;
+              }> | null;
             };
           };
         }
@@ -4412,13 +4542,14 @@ export type ParagraphColumnCardFragment = {
     mediaImage: {
       __typename?: 'Image';
       alt?: string | null;
-      responsive?: {
+      responsiveVariations?: Array<{
         __typename: 'ResponsiveImageStyleDerivative';
-        height?: number | null;
-        path?: string | null;
-        srcSetPath?: string | null;
-        width?: number | null;
-      } | null;
+        name: string;
+        width: number;
+        height: number;
+        url: string;
+        srcSet: string;
+      }> | null;
     };
   };
   landscapeImage: {
@@ -4427,13 +4558,14 @@ export type ParagraphColumnCardFragment = {
     mediaImage: {
       __typename?: 'Image';
       alt?: string | null;
-      responsive?: {
+      responsiveVariations?: Array<{
         __typename: 'ResponsiveImageStyleDerivative';
-        height?: number | null;
-        path?: string | null;
-        srcSetPath?: string | null;
-        width?: number | null;
-      } | null;
+        name: string;
+        width: number;
+        height: number;
+        url: string;
+        srcSet: string;
+      }> | null;
     };
   };
   text: { __typename?: 'Text'; processed?: any | null };
@@ -4453,13 +4585,14 @@ export type ParagraphContentColumnCardsFragment = {
       mediaImage: {
         __typename?: 'Image';
         alt?: string | null;
-        responsive?: {
+        responsiveVariations?: Array<{
           __typename: 'ResponsiveImageStyleDerivative';
-          height?: number | null;
-          path?: string | null;
-          srcSetPath?: string | null;
-          width?: number | null;
-        } | null;
+          name: string;
+          width: number;
+          height: number;
+          url: string;
+          srcSet: string;
+        }> | null;
       };
     };
     landscapeImage: {
@@ -4468,13 +4601,14 @@ export type ParagraphContentColumnCardsFragment = {
       mediaImage: {
         __typename?: 'Image';
         alt?: string | null;
-        responsive?: {
+        responsiveVariations?: Array<{
           __typename: 'ResponsiveImageStyleDerivative';
-          height?: number | null;
-          path?: string | null;
-          srcSetPath?: string | null;
-          width?: number | null;
-        } | null;
+          name: string;
+          width: number;
+          height: number;
+          url: string;
+          srcSet: string;
+        }> | null;
       };
     };
     text: { __typename?: 'Text'; processed?: any | null };
@@ -4516,13 +4650,14 @@ export type ParagraphHeroHeaderFragment = {
     mediaImage: {
       __typename?: 'Image';
       alt?: string | null;
-      responsive?: {
+      responsiveVariations?: Array<{
         __typename: 'ResponsiveImageStyleDerivative';
-        height?: number | null;
-        path?: string | null;
-        srcSetPath?: string | null;
-        width?: number | null;
-      } | null;
+        name: string;
+        width: number;
+        height: number;
+        url: string;
+        srcSet: string;
+      }> | null;
     };
   };
   video?: {
@@ -4551,13 +4686,14 @@ export type ParagraphHighlightedSpeakersFragment = {
       mediaImage: {
         __typename?: 'Image';
         alt?: string | null;
-        responsive?: {
+        responsiveVariations?: Array<{
           __typename: 'ResponsiveImageStyleDerivative';
-          height?: number | null;
-          path?: string | null;
-          srcSetPath?: string | null;
-          width?: number | null;
-        } | null;
+          name: string;
+          width: number;
+          height: number;
+          url: string;
+          srcSet: string;
+        }> | null;
       };
     };
   }> | null;
@@ -4572,13 +4708,14 @@ export type ParagraphImageFragment = {
     mediaImage: {
       __typename?: 'Image';
       alt?: string | null;
-      responsive?: {
+      responsiveVariations?: Array<{
         __typename: 'ResponsiveImageStyleDerivative';
-        height?: number | null;
-        path?: string | null;
-        srcSetPath?: string | null;
-        width?: number | null;
-      } | null;
+        name: string;
+        width: number;
+        height: number;
+        url: string;
+        srcSet: string;
+      }> | null;
     };
   };
   squareIamge: {
@@ -4587,13 +4724,14 @@ export type ParagraphImageFragment = {
     mediaImage: {
       __typename?: 'Image';
       alt?: string | null;
-      responsive?: {
+      responsiveVariations?: Array<{
         __typename: 'ResponsiveImageStyleDerivative';
-        height?: number | null;
-        path?: string | null;
-        srcSetPath?: string | null;
-        width?: number | null;
-      } | null;
+        name: string;
+        width: number;
+        height: number;
+        url: string;
+        srcSet: string;
+      }> | null;
     };
   };
 };
@@ -4610,13 +4748,14 @@ export type ParagraphImageCarouselFragment = {
       mediaImage: {
         __typename?: 'Image';
         alt?: string | null;
-        responsive?: {
+        responsiveVariations?: Array<{
           __typename: 'ResponsiveImageStyleDerivative';
-          height?: number | null;
-          path?: string | null;
-          srcSetPath?: string | null;
-          width?: number | null;
-        } | null;
+          name: string;
+          width: number;
+          height: number;
+          url: string;
+          srcSet: string;
+        }> | null;
       };
     };
   }> | null;
@@ -4631,13 +4770,14 @@ export type ParagraphImageFullWidthFragment = {
     mediaImage: {
       __typename?: 'Image';
       alt?: string | null;
-      responsive?: {
+      responsiveVariations?: Array<{
         __typename: 'ResponsiveImageStyleDerivative';
-        height?: number | null;
-        path?: string | null;
-        srcSetPath?: string | null;
-        width?: number | null;
-      } | null;
+        name: string;
+        width: number;
+        height: number;
+        url: string;
+        srcSet: string;
+      }> | null;
     };
   };
   squareIamge: {
@@ -4646,13 +4786,14 @@ export type ParagraphImageFullWidthFragment = {
     mediaImage: {
       __typename?: 'Image';
       alt?: string | null;
-      responsive?: {
+      responsiveVariations?: Array<{
         __typename: 'ResponsiveImageStyleDerivative';
-        height?: number | null;
-        path?: string | null;
-        srcSetPath?: string | null;
-        width?: number | null;
-      } | null;
+        name: string;
+        width: number;
+        height: number;
+        url: string;
+        srcSet: string;
+      }> | null;
     };
   };
 };
@@ -4666,13 +4807,14 @@ export type ParagraphImageGalleryFragment = {
     mediaImage: {
       __typename?: 'Image';
       alt?: string | null;
-      responsive?: {
+      responsiveVariations?: Array<{
         __typename: 'ResponsiveImageStyleDerivative';
-        height?: number | null;
-        path?: string | null;
-        srcSetPath?: string | null;
-        width?: number | null;
-      } | null;
+        name: string;
+        width: number;
+        height: number;
+        url: string;
+        srcSet: string;
+      }> | null;
     };
   }>;
 };
@@ -4692,13 +4834,14 @@ export type ParagraphMediaHeaderFragment = {
     mediaImage: {
       __typename?: 'Image';
       alt?: string | null;
-      responsive?: {
+      responsiveVariations?: Array<{
         __typename: 'ResponsiveImageStyleDerivative';
-        height?: number | null;
-        path?: string | null;
-        srcSetPath?: string | null;
-        width?: number | null;
-      } | null;
+        name: string;
+        width: number;
+        height: number;
+        url: string;
+        srcSet: string;
+      }> | null;
     };
   };
   video?: {
@@ -4732,13 +4875,14 @@ export type ParagraphNewsListingsFragment = {
                   mediaImage: {
                     __typename?: 'Image';
                     alt?: string | null;
-                    responsive?: {
+                    responsiveVariations?: Array<{
                       __typename: 'ResponsiveImageStyleDerivative';
-                      height?: number | null;
-                      path?: string | null;
-                      srcSetPath?: string | null;
-                      width?: number | null;
-                    } | null;
+                      name: string;
+                      width: number;
+                      height: number;
+                      url: string;
+                      srcSet: string;
+                    }> | null;
                   };
                 };
                 landscapeImage: {
@@ -4747,13 +4891,14 @@ export type ParagraphNewsListingsFragment = {
                   mediaImage: {
                     __typename?: 'Image';
                     alt?: string | null;
-                    responsive?: {
+                    responsiveVariations?: Array<{
                       __typename: 'ResponsiveImageStyleDerivative';
-                      height?: number | null;
-                      path?: string | null;
-                      srcSetPath?: string | null;
-                      width?: number | null;
-                    } | null;
+                      name: string;
+                      width: number;
+                      height: number;
+                      url: string;
+                      srcSet: string;
+                    }> | null;
                   };
                 };
               };
@@ -4802,13 +4947,14 @@ export type ParagraphNewsListingsFragment = {
                   mediaImage: {
                     __typename?: 'Image';
                     alt?: string | null;
-                    responsive?: {
+                    responsiveVariations?: Array<{
                       __typename: 'ResponsiveImageStyleDerivative';
-                      height?: number | null;
-                      path?: string | null;
-                      srcSetPath?: string | null;
-                      width?: number | null;
-                    } | null;
+                      name: string;
+                      width: number;
+                      height: number;
+                      url: string;
+                      srcSet: string;
+                    }> | null;
                   };
                 };
                 landscapeImage: {
@@ -4817,13 +4963,14 @@ export type ParagraphNewsListingsFragment = {
                   mediaImage: {
                     __typename?: 'Image';
                     alt?: string | null;
-                    responsive?: {
+                    responsiveVariations?: Array<{
                       __typename: 'ResponsiveImageStyleDerivative';
-                      height?: number | null;
-                      path?: string | null;
-                      srcSetPath?: string | null;
-                      width?: number | null;
-                    } | null;
+                      name: string;
+                      width: number;
+                      height: number;
+                      url: string;
+                      srcSet: string;
+                    }> | null;
                   };
                 };
               };
@@ -4878,13 +5025,14 @@ export type GetParagraphNewsListing = {
                     mediaImage: {
                       __typename?: 'Image';
                       alt?: string | null;
-                      responsive?: {
+                      responsiveVariations?: Array<{
                         __typename: 'ResponsiveImageStyleDerivative';
-                        height?: number | null;
-                        path?: string | null;
-                        srcSetPath?: string | null;
-                        width?: number | null;
-                      } | null;
+                        name: string;
+                        width: number;
+                        height: number;
+                        url: string;
+                        srcSet: string;
+                      }> | null;
                     };
                   };
                   landscapeImage: {
@@ -4893,13 +5041,14 @@ export type GetParagraphNewsListing = {
                     mediaImage: {
                       __typename?: 'Image';
                       alt?: string | null;
-                      responsive?: {
+                      responsiveVariations?: Array<{
                         __typename: 'ResponsiveImageStyleDerivative';
-                        height?: number | null;
-                        path?: string | null;
-                        srcSetPath?: string | null;
-                        width?: number | null;
-                      } | null;
+                        name: string;
+                        width: number;
+                        height: number;
+                        url: string;
+                        srcSet: string;
+                      }> | null;
                     };
                   };
                 };
@@ -4951,13 +5100,14 @@ export type GetParagraphNewsListing = {
                     mediaImage: {
                       __typename?: 'Image';
                       alt?: string | null;
-                      responsive?: {
+                      responsiveVariations?: Array<{
                         __typename: 'ResponsiveImageStyleDerivative';
-                        height?: number | null;
-                        path?: string | null;
-                        srcSetPath?: string | null;
-                        width?: number | null;
-                      } | null;
+                        name: string;
+                        width: number;
+                        height: number;
+                        url: string;
+                        srcSet: string;
+                      }> | null;
                     };
                   };
                   landscapeImage: {
@@ -4966,13 +5116,14 @@ export type GetParagraphNewsListing = {
                     mediaImage: {
                       __typename?: 'Image';
                       alt?: string | null;
-                      responsive?: {
+                      responsiveVariations?: Array<{
                         __typename: 'ResponsiveImageStyleDerivative';
-                        height?: number | null;
-                        path?: string | null;
-                        srcSetPath?: string | null;
-                        width?: number | null;
-                      } | null;
+                        name: string;
+                        width: number;
+                        height: number;
+                        url: string;
+                        srcSet: string;
+                      }> | null;
                     };
                   };
                 };
@@ -5029,13 +5180,14 @@ export type ParagraphPeopleGridFragment = {
                   mediaImage: {
                     __typename?: 'Image';
                     alt?: string | null;
-                    responsive?: {
+                    responsiveVariations?: Array<{
                       __typename: 'ResponsiveImageStyleDerivative';
-                      height?: number | null;
-                      path?: string | null;
-                      srcSetPath?: string | null;
-                      width?: number | null;
-                    } | null;
+                      name: string;
+                      width: number;
+                      height: number;
+                      url: string;
+                      srcSet: string;
+                    }> | null;
                   };
                 };
                 landscapeImage: {
@@ -5044,13 +5196,14 @@ export type ParagraphPeopleGridFragment = {
                   mediaImage: {
                     __typename?: 'Image';
                     alt?: string | null;
-                    responsive?: {
+                    responsiveVariations?: Array<{
                       __typename: 'ResponsiveImageStyleDerivative';
-                      height?: number | null;
-                      path?: string | null;
-                      srcSetPath?: string | null;
-                      width?: number | null;
-                    } | null;
+                      name: string;
+                      width: number;
+                      height: number;
+                      url: string;
+                      srcSet: string;
+                    }> | null;
                   };
                 };
               };
@@ -5167,13 +5320,14 @@ export type ParagraphScheduleFragment = {
                     mediaImage: {
                       __typename?: 'Image';
                       alt?: string | null;
-                      responsive?: {
+                      responsiveVariations?: Array<{
                         __typename: 'ResponsiveImageStyleDerivative';
-                        height?: number | null;
-                        path?: string | null;
-                        srcSetPath?: string | null;
-                        width?: number | null;
-                      } | null;
+                        name: string;
+                        width: number;
+                        height: number;
+                        url: string;
+                        srcSet: string;
+                      }> | null;
                     };
                   };
                 }> | null;
@@ -5221,13 +5375,14 @@ export type ParagraphScheduleDayFragment = {
                   mediaImage: {
                     __typename?: 'Image';
                     alt?: string | null;
-                    responsive?: {
+                    responsiveVariations?: Array<{
                       __typename: 'ResponsiveImageStyleDerivative';
-                      height?: number | null;
-                      path?: string | null;
-                      srcSetPath?: string | null;
-                      width?: number | null;
-                    } | null;
+                      name: string;
+                      width: number;
+                      height: number;
+                      url: string;
+                      srcSet: string;
+                    }> | null;
                   };
                 };
               }> | null;
@@ -5246,13 +5401,14 @@ export type ParagraphLogoLinkFragment = {
     mediaImage: {
       __typename?: 'Image';
       alt?: string | null;
-      responsive?: {
+      responsiveVariations?: Array<{
         __typename: 'ResponsiveImageStyleDerivative';
-        height?: number | null;
-        path?: string | null;
-        srcSetPath?: string | null;
-        width?: number | null;
-      } | null;
+        name: string;
+        width: number;
+        height: number;
+        url: string;
+        srcSet: string;
+      }> | null;
     };
   };
   link: { __typename?: 'Link'; url?: string | null; title?: string | null };
@@ -5270,13 +5426,14 @@ export type ParagraphScrollingLogoCarouselFragment = {
       mediaImage: {
         __typename?: 'Image';
         alt?: string | null;
-        responsive?: {
+        responsiveVariations?: Array<{
           __typename: 'ResponsiveImageStyleDerivative';
-          height?: number | null;
-          path?: string | null;
-          srcSetPath?: string | null;
-          width?: number | null;
-        } | null;
+          name: string;
+          width: number;
+          height: number;
+          url: string;
+          srcSet: string;
+        }> | null;
       };
     };
     link: { __typename?: 'Link'; url?: string | null; title?: string | null };
@@ -5320,13 +5477,14 @@ export type ParagraphSpeakersGridFragment = {
                 mediaImage: {
                   __typename?: 'Image';
                   alt?: string | null;
-                  responsive?: {
+                  responsiveVariations?: Array<{
                     __typename: 'ResponsiveImageStyleDerivative';
-                    height?: number | null;
-                    path?: string | null;
-                    srcSetPath?: string | null;
-                    width?: number | null;
-                  } | null;
+                    name: string;
+                    width: number;
+                    height: number;
+                    url: string;
+                    srcSet: string;
+                  }> | null;
                 };
               };
             }
@@ -5375,13 +5533,14 @@ export type ParagraphTalksGridFragment = {
                   mediaImage: {
                     __typename?: 'Image';
                     alt?: string | null;
-                    responsive?: {
+                    responsiveVariations?: Array<{
                       __typename: 'ResponsiveImageStyleDerivative';
-                      height?: number | null;
-                      path?: string | null;
-                      srcSetPath?: string | null;
-                      width?: number | null;
-                    } | null;
+                      name: string;
+                      width: number;
+                      height: number;
+                      url: string;
+                      srcSet: string;
+                    }> | null;
                   };
                 };
               }> | null;
@@ -5401,13 +5560,14 @@ export type ParagraphTeaserFragment = {
     mediaImage: {
       __typename?: 'Image';
       alt?: string | null;
-      responsive?: {
+      responsiveVariations?: Array<{
         __typename: 'ResponsiveImageStyleDerivative';
-        height?: number | null;
-        path?: string | null;
-        srcSetPath?: string | null;
-        width?: number | null;
-      } | null;
+        name: string;
+        width: number;
+        height: number;
+        url: string;
+        srcSet: string;
+      }> | null;
     };
   };
   landscapeImage: {
@@ -5416,13 +5576,14 @@ export type ParagraphTeaserFragment = {
     mediaImage: {
       __typename?: 'Image';
       alt?: string | null;
-      responsive?: {
+      responsiveVariations?: Array<{
         __typename: 'ResponsiveImageStyleDerivative';
-        height?: number | null;
-        path?: string | null;
-        srcSetPath?: string | null;
-        width?: number | null;
-      } | null;
+        name: string;
+        width: number;
+        height: number;
+        url: string;
+        srcSet: string;
+      }> | null;
     };
   };
 };
@@ -5498,13 +5659,14 @@ type TwoColumnContentFragment_ParagraphImage_ = {
     mediaImage: {
       __typename?: 'Image';
       alt?: string | null;
-      responsive?: {
+      responsiveVariations?: Array<{
         __typename: 'ResponsiveImageStyleDerivative';
-        height?: number | null;
-        path?: string | null;
-        srcSetPath?: string | null;
-        width?: number | null;
-      } | null;
+        name: string;
+        width: number;
+        height: number;
+        url: string;
+        srcSet: string;
+      }> | null;
     };
   };
   squareIamge: {
@@ -5513,13 +5675,14 @@ type TwoColumnContentFragment_ParagraphImage_ = {
     mediaImage: {
       __typename?: 'Image';
       alt?: string | null;
-      responsive?: {
+      responsiveVariations?: Array<{
         __typename: 'ResponsiveImageStyleDerivative';
-        height?: number | null;
-        path?: string | null;
-        srcSetPath?: string | null;
-        width?: number | null;
-      } | null;
+        name: string;
+        width: number;
+        height: number;
+        url: string;
+        srcSet: string;
+      }> | null;
     };
   };
 };
@@ -5631,13 +5794,14 @@ type TwoColumnContentFragment_ParagraphVideo_ = {
     mediaImage: {
       __typename?: 'Image';
       alt?: string | null;
-      responsive?: {
+      responsiveVariations?: Array<{
         __typename: 'ResponsiveImageStyleDerivative';
-        height?: number | null;
-        path?: string | null;
-        srcSetPath?: string | null;
-        width?: number | null;
-      } | null;
+        name: string;
+        width: number;
+        height: number;
+        url: string;
+        srcSet: string;
+      }> | null;
     };
   };
 };
@@ -5710,13 +5874,14 @@ export type ParagraphTwoColumnContentFragment = {
           mediaImage: {
             __typename?: 'Image';
             alt?: string | null;
-            responsive?: {
+            responsiveVariations?: Array<{
               __typename: 'ResponsiveImageStyleDerivative';
-              height?: number | null;
-              path?: string | null;
-              srcSetPath?: string | null;
-              width?: number | null;
-            } | null;
+              name: string;
+              width: number;
+              height: number;
+              url: string;
+              srcSet: string;
+            }> | null;
           };
         };
         squareIamge: {
@@ -5725,13 +5890,14 @@ export type ParagraphTwoColumnContentFragment = {
           mediaImage: {
             __typename?: 'Image';
             alt?: string | null;
-            responsive?: {
+            responsiveVariations?: Array<{
               __typename: 'ResponsiveImageStyleDerivative';
-              height?: number | null;
-              path?: string | null;
-              srcSetPath?: string | null;
-              width?: number | null;
-            } | null;
+              name: string;
+              width: number;
+              height: number;
+              url: string;
+              srcSet: string;
+            }> | null;
           };
         };
       }
@@ -5760,13 +5926,14 @@ export type ParagraphTwoColumnContentFragment = {
           mediaImage: {
             __typename?: 'Image';
             alt?: string | null;
-            responsive?: {
+            responsiveVariations?: Array<{
               __typename: 'ResponsiveImageStyleDerivative';
-              height?: number | null;
-              path?: string | null;
-              srcSetPath?: string | null;
-              width?: number | null;
-            } | null;
+              name: string;
+              width: number;
+              height: number;
+              url: string;
+              srcSet: string;
+            }> | null;
           };
         };
       }
@@ -5791,13 +5958,14 @@ export type ParagraphTwoColumnContentFragment = {
           mediaImage: {
             __typename?: 'Image';
             alt?: string | null;
-            responsive?: {
+            responsiveVariations?: Array<{
               __typename: 'ResponsiveImageStyleDerivative';
-              height?: number | null;
-              path?: string | null;
-              srcSetPath?: string | null;
-              width?: number | null;
-            } | null;
+              name: string;
+              width: number;
+              height: number;
+              url: string;
+              srcSet: string;
+            }> | null;
           };
         };
         squareIamge: {
@@ -5806,13 +5974,14 @@ export type ParagraphTwoColumnContentFragment = {
           mediaImage: {
             __typename?: 'Image';
             alt?: string | null;
-            responsive?: {
+            responsiveVariations?: Array<{
               __typename: 'ResponsiveImageStyleDerivative';
-              height?: number | null;
-              path?: string | null;
-              srcSetPath?: string | null;
-              width?: number | null;
-            } | null;
+              name: string;
+              width: number;
+              height: number;
+              url: string;
+              srcSet: string;
+            }> | null;
           };
         };
       }
@@ -5841,13 +6010,14 @@ export type ParagraphTwoColumnContentFragment = {
           mediaImage: {
             __typename?: 'Image';
             alt?: string | null;
-            responsive?: {
+            responsiveVariations?: Array<{
               __typename: 'ResponsiveImageStyleDerivative';
-              height?: number | null;
-              path?: string | null;
-              srcSetPath?: string | null;
-              width?: number | null;
-            } | null;
+              name: string;
+              width: number;
+              height: number;
+              url: string;
+              srcSet: string;
+            }> | null;
           };
         };
       }
@@ -5868,13 +6038,14 @@ export type ParagraphVideoFragment = {
     mediaImage: {
       __typename?: 'Image';
       alt?: string | null;
-      responsive?: {
+      responsiveVariations?: Array<{
         __typename: 'ResponsiveImageStyleDerivative';
-        height?: number | null;
-        path?: string | null;
-        srcSetPath?: string | null;
-        width?: number | null;
-      } | null;
+        name: string;
+        width: number;
+        height: number;
+        url: string;
+        srcSet: string;
+      }> | null;
     };
   };
 };
@@ -6050,13 +6221,14 @@ export type GetNodeByPathQuery = {
                 mediaImage: {
                   __typename?: 'Image';
                   alt?: string | null;
-                  responsive?: {
+                  responsiveVariations?: Array<{
                     __typename: 'ResponsiveImageStyleDerivative';
-                    height?: number | null;
-                    path?: string | null;
-                    srcSetPath?: string | null;
-                    width?: number | null;
-                  } | null;
+                    name: string;
+                    width: number;
+                    height: number;
+                    url: string;
+                    srcSet: string;
+                  }> | null;
                 };
               };
               landscapeImage: {
@@ -6065,13 +6237,14 @@ export type GetNodeByPathQuery = {
                 mediaImage: {
                   __typename?: 'Image';
                   alt?: string | null;
-                  responsive?: {
+                  responsiveVariations?: Array<{
                     __typename: 'ResponsiveImageStyleDerivative';
-                    height?: number | null;
-                    path?: string | null;
-                    srcSetPath?: string | null;
-                    width?: number | null;
-                  } | null;
+                    name: string;
+                    width: number;
+                    height: number;
+                    url: string;
+                    srcSet: string;
+                  }> | null;
                 };
               };
               sections?: Array<
@@ -6098,13 +6271,14 @@ export type GetNodeByPathQuery = {
                       mediaImage: {
                         __typename?: 'Image';
                         alt?: string | null;
-                        responsive?: {
+                        responsiveVariations?: Array<{
                           __typename: 'ResponsiveImageStyleDerivative';
-                          height?: number | null;
-                          path?: string | null;
-                          srcSetPath?: string | null;
-                          width?: number | null;
-                        } | null;
+                          name: string;
+                          width: number;
+                          height: number;
+                          url: string;
+                          srcSet: string;
+                        }> | null;
                       };
                     };
                     squareIamge: {
@@ -6113,13 +6287,14 @@ export type GetNodeByPathQuery = {
                       mediaImage: {
                         __typename?: 'Image';
                         alt?: string | null;
-                        responsive?: {
+                        responsiveVariations?: Array<{
                           __typename: 'ResponsiveImageStyleDerivative';
-                          height?: number | null;
-                          path?: string | null;
-                          srcSetPath?: string | null;
-                          width?: number | null;
-                        } | null;
+                          name: string;
+                          width: number;
+                          height: number;
+                          url: string;
+                          srcSet: string;
+                        }> | null;
                       };
                     };
                   }
@@ -6161,13 +6336,14 @@ export type GetNodeByPathQuery = {
                             mediaImage: {
                               __typename?: 'Image';
                               alt?: string | null;
-                              responsive?: {
+                              responsiveVariations?: Array<{
                                 __typename: 'ResponsiveImageStyleDerivative';
-                                height?: number | null;
-                                path?: string | null;
-                                srcSetPath?: string | null;
-                                width?: number | null;
-                              } | null;
+                                name: string;
+                                width: number;
+                                height: number;
+                                url: string;
+                                srcSet: string;
+                              }> | null;
                             };
                           };
                           squareIamge: {
@@ -6176,13 +6352,14 @@ export type GetNodeByPathQuery = {
                             mediaImage: {
                               __typename?: 'Image';
                               alt?: string | null;
-                              responsive?: {
+                              responsiveVariations?: Array<{
                                 __typename: 'ResponsiveImageStyleDerivative';
-                                height?: number | null;
-                                path?: string | null;
-                                srcSetPath?: string | null;
-                                width?: number | null;
-                              } | null;
+                                name: string;
+                                width: number;
+                                height: number;
+                                url: string;
+                                srcSet: string;
+                              }> | null;
                             };
                           };
                         }
@@ -6214,13 +6391,14 @@ export type GetNodeByPathQuery = {
                             mediaImage: {
                               __typename?: 'Image';
                               alt?: string | null;
-                              responsive?: {
+                              responsiveVariations?: Array<{
                                 __typename: 'ResponsiveImageStyleDerivative';
-                                height?: number | null;
-                                path?: string | null;
-                                srcSetPath?: string | null;
-                                width?: number | null;
-                              } | null;
+                                name: string;
+                                width: number;
+                                height: number;
+                                url: string;
+                                srcSet: string;
+                              }> | null;
                             };
                           };
                         }
@@ -6249,13 +6427,14 @@ export type GetNodeByPathQuery = {
                             mediaImage: {
                               __typename?: 'Image';
                               alt?: string | null;
-                              responsive?: {
+                              responsiveVariations?: Array<{
                                 __typename: 'ResponsiveImageStyleDerivative';
-                                height?: number | null;
-                                path?: string | null;
-                                srcSetPath?: string | null;
-                                width?: number | null;
-                              } | null;
+                                name: string;
+                                width: number;
+                                height: number;
+                                url: string;
+                                srcSet: string;
+                              }> | null;
                             };
                           };
                           squareIamge: {
@@ -6264,13 +6443,14 @@ export type GetNodeByPathQuery = {
                             mediaImage: {
                               __typename?: 'Image';
                               alt?: string | null;
-                              responsive?: {
+                              responsiveVariations?: Array<{
                                 __typename: 'ResponsiveImageStyleDerivative';
-                                height?: number | null;
-                                path?: string | null;
-                                srcSetPath?: string | null;
-                                width?: number | null;
-                              } | null;
+                                name: string;
+                                width: number;
+                                height: number;
+                                url: string;
+                                srcSet: string;
+                              }> | null;
                             };
                           };
                         }
@@ -6302,13 +6482,14 @@ export type GetNodeByPathQuery = {
                             mediaImage: {
                               __typename?: 'Image';
                               alt?: string | null;
-                              responsive?: {
+                              responsiveVariations?: Array<{
                                 __typename: 'ResponsiveImageStyleDerivative';
-                                height?: number | null;
-                                path?: string | null;
-                                srcSetPath?: string | null;
-                                width?: number | null;
-                              } | null;
+                                name: string;
+                                width: number;
+                                height: number;
+                                url: string;
+                                srcSet: string;
+                              }> | null;
                             };
                           };
                         }
@@ -6376,13 +6557,14 @@ export type GetNodeByPathQuery = {
                       mediaImage: {
                         __typename?: 'Image';
                         alt?: string | null;
-                        responsive?: {
+                        responsiveVariations?: Array<{
                           __typename: 'ResponsiveImageStyleDerivative';
-                          height?: number | null;
-                          path?: string | null;
-                          srcSetPath?: string | null;
-                          width?: number | null;
-                        } | null;
+                          name: string;
+                          width: number;
+                          height: number;
+                          url: string;
+                          srcSet: string;
+                        }> | null;
                       };
                     };
                     squareIamge: {
@@ -6391,13 +6573,14 @@ export type GetNodeByPathQuery = {
                       mediaImage: {
                         __typename?: 'Image';
                         alt?: string | null;
-                        responsive?: {
+                        responsiveVariations?: Array<{
                           __typename: 'ResponsiveImageStyleDerivative';
-                          height?: number | null;
-                          path?: string | null;
-                          srcSetPath?: string | null;
-                          width?: number | null;
-                        } | null;
+                          name: string;
+                          width: number;
+                          height: number;
+                          url: string;
+                          srcSet: string;
+                        }> | null;
                       };
                     };
                   }
@@ -6514,13 +6697,14 @@ export type GetNodeByPathQuery = {
                               mediaImage: {
                                 __typename?: 'Image';
                                 alt?: string | null;
-                                responsive?: {
+                                responsiveVariations?: Array<{
                                   __typename: 'ResponsiveImageStyleDerivative';
-                                  height?: number | null;
-                                  path?: string | null;
-                                  srcSetPath?: string | null;
-                                  width?: number | null;
-                                } | null;
+                                  name: string;
+                                  width: number;
+                                  height: number;
+                                  url: string;
+                                  srcSet: string;
+                                }> | null;
                               };
                             };
                             squareIamge: {
@@ -6529,13 +6713,14 @@ export type GetNodeByPathQuery = {
                               mediaImage: {
                                 __typename?: 'Image';
                                 alt?: string | null;
-                                responsive?: {
+                                responsiveVariations?: Array<{
                                   __typename: 'ResponsiveImageStyleDerivative';
-                                  height?: number | null;
-                                  path?: string | null;
-                                  srcSetPath?: string | null;
-                                  width?: number | null;
-                                } | null;
+                                  name: string;
+                                  width: number;
+                                  height: number;
+                                  url: string;
+                                  srcSet: string;
+                                }> | null;
                               };
                             };
                           }
@@ -6570,13 +6755,14 @@ export type GetNodeByPathQuery = {
                               mediaImage: {
                                 __typename?: 'Image';
                                 alt?: string | null;
-                                responsive?: {
+                                responsiveVariations?: Array<{
                                   __typename: 'ResponsiveImageStyleDerivative';
-                                  height?: number | null;
-                                  path?: string | null;
-                                  srcSetPath?: string | null;
-                                  width?: number | null;
-                                } | null;
+                                  name: string;
+                                  width: number;
+                                  height: number;
+                                  url: string;
+                                  srcSet: string;
+                                }> | null;
                               };
                             };
                           }
@@ -6605,13 +6791,14 @@ export type GetNodeByPathQuery = {
                               mediaImage: {
                                 __typename?: 'Image';
                                 alt?: string | null;
-                                responsive?: {
+                                responsiveVariations?: Array<{
                                   __typename: 'ResponsiveImageStyleDerivative';
-                                  height?: number | null;
-                                  path?: string | null;
-                                  srcSetPath?: string | null;
-                                  width?: number | null;
-                                } | null;
+                                  name: string;
+                                  width: number;
+                                  height: number;
+                                  url: string;
+                                  srcSet: string;
+                                }> | null;
                               };
                             };
                             squareIamge: {
@@ -6620,13 +6807,14 @@ export type GetNodeByPathQuery = {
                               mediaImage: {
                                 __typename?: 'Image';
                                 alt?: string | null;
-                                responsive?: {
+                                responsiveVariations?: Array<{
                                   __typename: 'ResponsiveImageStyleDerivative';
-                                  height?: number | null;
-                                  path?: string | null;
-                                  srcSetPath?: string | null;
-                                  width?: number | null;
-                                } | null;
+                                  name: string;
+                                  width: number;
+                                  height: number;
+                                  url: string;
+                                  srcSet: string;
+                                }> | null;
                               };
                             };
                           }
@@ -6661,13 +6849,14 @@ export type GetNodeByPathQuery = {
                               mediaImage: {
                                 __typename?: 'Image';
                                 alt?: string | null;
-                                responsive?: {
+                                responsiveVariations?: Array<{
                                   __typename: 'ResponsiveImageStyleDerivative';
-                                  height?: number | null;
-                                  path?: string | null;
-                                  srcSetPath?: string | null;
-                                  width?: number | null;
-                                } | null;
+                                  name: string;
+                                  width: number;
+                                  height: number;
+                                  url: string;
+                                  srcSet: string;
+                                }> | null;
                               };
                             };
                           }
@@ -6687,13 +6876,14 @@ export type GetNodeByPathQuery = {
                         mediaImage: {
                           __typename?: 'Image';
                           alt?: string | null;
-                          responsive?: {
+                          responsiveVariations?: Array<{
                             __typename: 'ResponsiveImageStyleDerivative';
-                            height?: number | null;
-                            path?: string | null;
-                            srcSetPath?: string | null;
-                            width?: number | null;
-                          } | null;
+                            name: string;
+                            width: number;
+                            height: number;
+                            url: string;
+                            srcSet: string;
+                          }> | null;
                         };
                       };
                       landscapeImage: {
@@ -6702,13 +6892,14 @@ export type GetNodeByPathQuery = {
                         mediaImage: {
                           __typename?: 'Image';
                           alt?: string | null;
-                          responsive?: {
+                          responsiveVariations?: Array<{
                             __typename: 'ResponsiveImageStyleDerivative';
-                            height?: number | null;
-                            path?: string | null;
-                            srcSetPath?: string | null;
-                            width?: number | null;
-                          } | null;
+                            name: string;
+                            width: number;
+                            height: number;
+                            url: string;
+                            srcSet: string;
+                          }> | null;
                         };
                       };
                       text: { __typename?: 'Text'; processed?: any | null };
@@ -6751,13 +6942,14 @@ export type GetNodeByPathQuery = {
                         mediaImage: {
                           __typename?: 'Image';
                           alt?: string | null;
-                          responsive?: {
+                          responsiveVariations?: Array<{
                             __typename: 'ResponsiveImageStyleDerivative';
-                            height?: number | null;
-                            path?: string | null;
-                            srcSetPath?: string | null;
-                            width?: number | null;
-                          } | null;
+                            name: string;
+                            width: number;
+                            height: number;
+                            url: string;
+                            srcSet: string;
+                          }> | null;
                         };
                       };
                     }> | null;
@@ -6771,13 +6963,14 @@ export type GetNodeByPathQuery = {
                       mediaImage: {
                         __typename?: 'Image';
                         alt?: string | null;
-                        responsive?: {
+                        responsiveVariations?: Array<{
                           __typename: 'ResponsiveImageStyleDerivative';
-                          height?: number | null;
-                          path?: string | null;
-                          srcSetPath?: string | null;
-                          width?: number | null;
-                        } | null;
+                          name: string;
+                          width: number;
+                          height: number;
+                          url: string;
+                          srcSet: string;
+                        }> | null;
                       };
                     };
                     squareIamge: {
@@ -6786,13 +6979,14 @@ export type GetNodeByPathQuery = {
                       mediaImage: {
                         __typename?: 'Image';
                         alt?: string | null;
-                        responsive?: {
+                        responsiveVariations?: Array<{
                           __typename: 'ResponsiveImageStyleDerivative';
-                          height?: number | null;
-                          path?: string | null;
-                          srcSetPath?: string | null;
-                          width?: number | null;
-                        } | null;
+                          name: string;
+                          width: number;
+                          height: number;
+                          url: string;
+                          srcSet: string;
+                        }> | null;
                       };
                     };
                   }
@@ -6805,13 +6999,14 @@ export type GetNodeByPathQuery = {
                       mediaImage: {
                         __typename?: 'Image';
                         alt?: string | null;
-                        responsive?: {
+                        responsiveVariations?: Array<{
                           __typename: 'ResponsiveImageStyleDerivative';
-                          height?: number | null;
-                          path?: string | null;
-                          srcSetPath?: string | null;
-                          width?: number | null;
-                        } | null;
+                          name: string;
+                          width: number;
+                          height: number;
+                          url: string;
+                          srcSet: string;
+                        }> | null;
                       };
                     }>;
                   }
@@ -6847,13 +7042,14 @@ export type GetNodeByPathQuery = {
                                     mediaImage: {
                                       __typename?: 'Image';
                                       alt?: string | null;
-                                      responsive?: {
+                                      responsiveVariations?: Array<{
                                         __typename: 'ResponsiveImageStyleDerivative';
-                                        height?: number | null;
-                                        path?: string | null;
-                                        srcSetPath?: string | null;
-                                        width?: number | null;
-                                      } | null;
+                                        name: string;
+                                        width: number;
+                                        height: number;
+                                        url: string;
+                                        srcSet: string;
+                                      }> | null;
                                     };
                                   };
                                   landscapeImage: {
@@ -6862,13 +7058,14 @@ export type GetNodeByPathQuery = {
                                     mediaImage: {
                                       __typename?: 'Image';
                                       alt?: string | null;
-                                      responsive?: {
+                                      responsiveVariations?: Array<{
                                         __typename: 'ResponsiveImageStyleDerivative';
-                                        height?: number | null;
-                                        path?: string | null;
-                                        srcSetPath?: string | null;
-                                        width?: number | null;
-                                      } | null;
+                                        name: string;
+                                        width: number;
+                                        height: number;
+                                        url: string;
+                                        srcSet: string;
+                                      }> | null;
                                     };
                                   };
                                 };
@@ -6920,13 +7117,14 @@ export type GetNodeByPathQuery = {
                                     mediaImage: {
                                       __typename?: 'Image';
                                       alt?: string | null;
-                                      responsive?: {
+                                      responsiveVariations?: Array<{
                                         __typename: 'ResponsiveImageStyleDerivative';
-                                        height?: number | null;
-                                        path?: string | null;
-                                        srcSetPath?: string | null;
-                                        width?: number | null;
-                                      } | null;
+                                        name: string;
+                                        width: number;
+                                        height: number;
+                                        url: string;
+                                        srcSet: string;
+                                      }> | null;
                                     };
                                   };
                                   landscapeImage: {
@@ -6935,13 +7133,14 @@ export type GetNodeByPathQuery = {
                                     mediaImage: {
                                       __typename?: 'Image';
                                       alt?: string | null;
-                                      responsive?: {
+                                      responsiveVariations?: Array<{
                                         __typename: 'ResponsiveImageStyleDerivative';
-                                        height?: number | null;
-                                        path?: string | null;
-                                        srcSetPath?: string | null;
-                                        width?: number | null;
-                                      } | null;
+                                        name: string;
+                                        width: number;
+                                        height: number;
+                                        url: string;
+                                        srcSet: string;
+                                      }> | null;
                                     };
                                   };
                                 };
@@ -6996,13 +7195,14 @@ export type GetNodeByPathQuery = {
                                     mediaImage: {
                                       __typename?: 'Image';
                                       alt?: string | null;
-                                      responsive?: {
+                                      responsiveVariations?: Array<{
                                         __typename: 'ResponsiveImageStyleDerivative';
-                                        height?: number | null;
-                                        path?: string | null;
-                                        srcSetPath?: string | null;
-                                        width?: number | null;
-                                      } | null;
+                                        name: string;
+                                        width: number;
+                                        height: number;
+                                        url: string;
+                                        srcSet: string;
+                                      }> | null;
                                     };
                                   };
                                   landscapeImage: {
@@ -7011,13 +7211,14 @@ export type GetNodeByPathQuery = {
                                     mediaImage: {
                                       __typename?: 'Image';
                                       alt?: string | null;
-                                      responsive?: {
+                                      responsiveVariations?: Array<{
                                         __typename: 'ResponsiveImageStyleDerivative';
-                                        height?: number | null;
-                                        path?: string | null;
-                                        srcSetPath?: string | null;
-                                        width?: number | null;
-                                      } | null;
+                                        name: string;
+                                        width: number;
+                                        height: number;
+                                        url: string;
+                                        srcSet: string;
+                                      }> | null;
                                     };
                                   };
                                 };
@@ -7079,13 +7280,14 @@ export type GetNodeByPathQuery = {
                         mediaImage: {
                           __typename?: 'Image';
                           alt?: string | null;
-                          responsive?: {
+                          responsiveVariations?: Array<{
                             __typename: 'ResponsiveImageStyleDerivative';
-                            height?: number | null;
-                            path?: string | null;
-                            srcSetPath?: string | null;
-                            width?: number | null;
-                          } | null;
+                            name: string;
+                            width: number;
+                            height: number;
+                            url: string;
+                            srcSet: string;
+                          }> | null;
                         };
                       };
                       link: {
@@ -7133,13 +7335,14 @@ export type GetNodeByPathQuery = {
                             mediaImage: {
                               __typename?: 'Image';
                               alt?: string | null;
-                              responsive?: {
+                              responsiveVariations?: Array<{
                                 __typename: 'ResponsiveImageStyleDerivative';
-                                height?: number | null;
-                                path?: string | null;
-                                srcSetPath?: string | null;
-                                width?: number | null;
-                              } | null;
+                                name: string;
+                                width: number;
+                                height: number;
+                                url: string;
+                                srcSet: string;
+                              }> | null;
                             };
                           };
                           squareIamge: {
@@ -7148,13 +7351,14 @@ export type GetNodeByPathQuery = {
                             mediaImage: {
                               __typename?: 'Image';
                               alt?: string | null;
-                              responsive?: {
+                              responsiveVariations?: Array<{
                                 __typename: 'ResponsiveImageStyleDerivative';
-                                height?: number | null;
-                                path?: string | null;
-                                srcSetPath?: string | null;
-                                width?: number | null;
-                              } | null;
+                                name: string;
+                                width: number;
+                                height: number;
+                                url: string;
+                                srcSet: string;
+                              }> | null;
                             };
                           };
                         }
@@ -7186,13 +7390,14 @@ export type GetNodeByPathQuery = {
                             mediaImage: {
                               __typename?: 'Image';
                               alt?: string | null;
-                              responsive?: {
+                              responsiveVariations?: Array<{
                                 __typename: 'ResponsiveImageStyleDerivative';
-                                height?: number | null;
-                                path?: string | null;
-                                srcSetPath?: string | null;
-                                width?: number | null;
-                              } | null;
+                                name: string;
+                                width: number;
+                                height: number;
+                                url: string;
+                                srcSet: string;
+                              }> | null;
                             };
                           };
                         }
@@ -7221,13 +7426,14 @@ export type GetNodeByPathQuery = {
                             mediaImage: {
                               __typename?: 'Image';
                               alt?: string | null;
-                              responsive?: {
+                              responsiveVariations?: Array<{
                                 __typename: 'ResponsiveImageStyleDerivative';
-                                height?: number | null;
-                                path?: string | null;
-                                srcSetPath?: string | null;
-                                width?: number | null;
-                              } | null;
+                                name: string;
+                                width: number;
+                                height: number;
+                                url: string;
+                                srcSet: string;
+                              }> | null;
                             };
                           };
                           squareIamge: {
@@ -7236,13 +7442,14 @@ export type GetNodeByPathQuery = {
                             mediaImage: {
                               __typename?: 'Image';
                               alt?: string | null;
-                              responsive?: {
+                              responsiveVariations?: Array<{
                                 __typename: 'ResponsiveImageStyleDerivative';
-                                height?: number | null;
-                                path?: string | null;
-                                srcSetPath?: string | null;
-                                width?: number | null;
-                              } | null;
+                                name: string;
+                                width: number;
+                                height: number;
+                                url: string;
+                                srcSet: string;
+                              }> | null;
                             };
                           };
                         }
@@ -7274,13 +7481,14 @@ export type GetNodeByPathQuery = {
                             mediaImage: {
                               __typename?: 'Image';
                               alt?: string | null;
-                              responsive?: {
+                              responsiveVariations?: Array<{
                                 __typename: 'ResponsiveImageStyleDerivative';
-                                height?: number | null;
-                                path?: string | null;
-                                srcSetPath?: string | null;
-                                width?: number | null;
-                              } | null;
+                                name: string;
+                                width: number;
+                                height: number;
+                                url: string;
+                                srcSet: string;
+                              }> | null;
                             };
                           };
                         }
@@ -7300,13 +7508,14 @@ export type GetNodeByPathQuery = {
                       mediaImage: {
                         __typename?: 'Image';
                         alt?: string | null;
-                        responsive?: {
+                        responsiveVariations?: Array<{
                           __typename: 'ResponsiveImageStyleDerivative';
-                          height?: number | null;
-                          path?: string | null;
-                          srcSetPath?: string | null;
-                          width?: number | null;
-                        } | null;
+                          name: string;
+                          width: number;
+                          height: number;
+                          url: string;
+                          srcSet: string;
+                        }> | null;
                       };
                     };
                   }
@@ -7358,13 +7567,14 @@ export type GetNodeByPathQuery = {
                   mediaImage: {
                     __typename?: 'Image';
                     alt?: string | null;
-                    responsive?: {
+                    responsiveVariations?: Array<{
                       __typename: 'ResponsiveImageStyleDerivative';
-                      height?: number | null;
-                      path?: string | null;
-                      srcSetPath?: string | null;
-                      width?: number | null;
-                    } | null;
+                      name: string;
+                      width: number;
+                      height: number;
+                      url: string;
+                      srcSet: string;
+                    }> | null;
                   };
                 };
                 landscapeImage: {
@@ -7373,13 +7583,14 @@ export type GetNodeByPathQuery = {
                   mediaImage: {
                     __typename?: 'Image';
                     alt?: string | null;
-                    responsive?: {
+                    responsiveVariations?: Array<{
                       __typename: 'ResponsiveImageStyleDerivative';
-                      height?: number | null;
-                      path?: string | null;
-                      srcSetPath?: string | null;
-                      width?: number | null;
-                    } | null;
+                      name: string;
+                      width: number;
+                      height: number;
+                      url: string;
+                      srcSet: string;
+                    }> | null;
                   };
                 };
               };
@@ -7395,13 +7606,14 @@ export type GetNodeByPathQuery = {
                   mediaImage: {
                     __typename?: 'Image';
                     alt?: string | null;
-                    responsive?: {
+                    responsiveVariations?: Array<{
                       __typename: 'ResponsiveImageStyleDerivative';
-                      height?: number | null;
-                      path?: string | null;
-                      srcSetPath?: string | null;
-                      width?: number | null;
-                    } | null;
+                      name: string;
+                      width: number;
+                      height: number;
+                      url: string;
+                      srcSet: string;
+                    }> | null;
                   };
                 };
                 video?: {
@@ -7456,13 +7668,14 @@ export type GetNodeByPathQuery = {
                               mediaImage: {
                                 __typename?: 'Image';
                                 alt?: string | null;
-                                responsive?: {
+                                responsiveVariations?: Array<{
                                   __typename: 'ResponsiveImageStyleDerivative';
-                                  height?: number | null;
-                                  path?: string | null;
-                                  srcSetPath?: string | null;
-                                  width?: number | null;
-                                } | null;
+                                  name: string;
+                                  width: number;
+                                  height: number;
+                                  url: string;
+                                  srcSet: string;
+                                }> | null;
                               };
                             };
                             squareIamge: {
@@ -7471,13 +7684,14 @@ export type GetNodeByPathQuery = {
                               mediaImage: {
                                 __typename?: 'Image';
                                 alt?: string | null;
-                                responsive?: {
+                                responsiveVariations?: Array<{
                                   __typename: 'ResponsiveImageStyleDerivative';
-                                  height?: number | null;
-                                  path?: string | null;
-                                  srcSetPath?: string | null;
-                                  width?: number | null;
-                                } | null;
+                                  name: string;
+                                  width: number;
+                                  height: number;
+                                  url: string;
+                                  srcSet: string;
+                                }> | null;
                               };
                             };
                           }
@@ -7512,13 +7726,14 @@ export type GetNodeByPathQuery = {
                               mediaImage: {
                                 __typename?: 'Image';
                                 alt?: string | null;
-                                responsive?: {
+                                responsiveVariations?: Array<{
                                   __typename: 'ResponsiveImageStyleDerivative';
-                                  height?: number | null;
-                                  path?: string | null;
-                                  srcSetPath?: string | null;
-                                  width?: number | null;
-                                } | null;
+                                  name: string;
+                                  width: number;
+                                  height: number;
+                                  url: string;
+                                  srcSet: string;
+                                }> | null;
                               };
                             };
                           }
@@ -7547,13 +7762,14 @@ export type GetNodeByPathQuery = {
                               mediaImage: {
                                 __typename?: 'Image';
                                 alt?: string | null;
-                                responsive?: {
+                                responsiveVariations?: Array<{
                                   __typename: 'ResponsiveImageStyleDerivative';
-                                  height?: number | null;
-                                  path?: string | null;
-                                  srcSetPath?: string | null;
-                                  width?: number | null;
-                                } | null;
+                                  name: string;
+                                  width: number;
+                                  height: number;
+                                  url: string;
+                                  srcSet: string;
+                                }> | null;
                               };
                             };
                             squareIamge: {
@@ -7562,13 +7778,14 @@ export type GetNodeByPathQuery = {
                               mediaImage: {
                                 __typename?: 'Image';
                                 alt?: string | null;
-                                responsive?: {
+                                responsiveVariations?: Array<{
                                   __typename: 'ResponsiveImageStyleDerivative';
-                                  height?: number | null;
-                                  path?: string | null;
-                                  srcSetPath?: string | null;
-                                  width?: number | null;
-                                } | null;
+                                  name: string;
+                                  width: number;
+                                  height: number;
+                                  url: string;
+                                  srcSet: string;
+                                }> | null;
                               };
                             };
                           }
@@ -7603,13 +7820,14 @@ export type GetNodeByPathQuery = {
                               mediaImage: {
                                 __typename?: 'Image';
                                 alt?: string | null;
-                                responsive?: {
+                                responsiveVariations?: Array<{
                                   __typename: 'ResponsiveImageStyleDerivative';
-                                  height?: number | null;
-                                  path?: string | null;
-                                  srcSetPath?: string | null;
-                                  width?: number | null;
-                                } | null;
+                                  name: string;
+                                  width: number;
+                                  height: number;
+                                  url: string;
+                                  srcSet: string;
+                                }> | null;
                               };
                             };
                           }
@@ -7649,13 +7867,14 @@ export type GetNodeByPathQuery = {
                         mediaImage: {
                           __typename?: 'Image';
                           alt?: string | null;
-                          responsive?: {
+                          responsiveVariations?: Array<{
                             __typename: 'ResponsiveImageStyleDerivative';
-                            height?: number | null;
-                            path?: string | null;
-                            srcSetPath?: string | null;
-                            width?: number | null;
-                          } | null;
+                            name: string;
+                            width: number;
+                            height: number;
+                            url: string;
+                            srcSet: string;
+                          }> | null;
                         };
                       };
                     }> | null;
@@ -7672,13 +7891,14 @@ export type GetNodeByPathQuery = {
                         mediaImage: {
                           __typename?: 'Image';
                           alt?: string | null;
-                          responsive?: {
+                          responsiveVariations?: Array<{
                             __typename: 'ResponsiveImageStyleDerivative';
-                            height?: number | null;
-                            path?: string | null;
-                            srcSetPath?: string | null;
-                            width?: number | null;
-                          } | null;
+                            name: string;
+                            width: number;
+                            height: number;
+                            url: string;
+                            srcSet: string;
+                          }> | null;
                         };
                       };
                     }> | null;
@@ -7692,13 +7912,14 @@ export type GetNodeByPathQuery = {
                       mediaImage: {
                         __typename?: 'Image';
                         alt?: string | null;
-                        responsive?: {
+                        responsiveVariations?: Array<{
                           __typename: 'ResponsiveImageStyleDerivative';
-                          height?: number | null;
-                          path?: string | null;
-                          srcSetPath?: string | null;
-                          width?: number | null;
-                        } | null;
+                          name: string;
+                          width: number;
+                          height: number;
+                          url: string;
+                          srcSet: string;
+                        }> | null;
                       };
                     };
                     squareIamge: {
@@ -7707,13 +7928,14 @@ export type GetNodeByPathQuery = {
                       mediaImage: {
                         __typename?: 'Image';
                         alt?: string | null;
-                        responsive?: {
+                        responsiveVariations?: Array<{
                           __typename: 'ResponsiveImageStyleDerivative';
-                          height?: number | null;
-                          path?: string | null;
-                          srcSetPath?: string | null;
-                          width?: number | null;
-                        } | null;
+                          name: string;
+                          width: number;
+                          height: number;
+                          url: string;
+                          srcSet: string;
+                        }> | null;
                       };
                     };
                   }
@@ -7726,13 +7948,14 @@ export type GetNodeByPathQuery = {
                       mediaImage: {
                         __typename?: 'Image';
                         alt?: string | null;
-                        responsive?: {
+                        responsiveVariations?: Array<{
                           __typename: 'ResponsiveImageStyleDerivative';
-                          height?: number | null;
-                          path?: string | null;
-                          srcSetPath?: string | null;
-                          width?: number | null;
-                        } | null;
+                          name: string;
+                          width: number;
+                          height: number;
+                          url: string;
+                          srcSet: string;
+                        }> | null;
                       };
                     }>;
                   }
@@ -7824,13 +8047,14 @@ export type GetNodeByPathQuery = {
                                       mediaImage: {
                                         __typename?: 'Image';
                                         alt?: string | null;
-                                        responsive?: {
+                                        responsiveVariations?: Array<{
                                           __typename: 'ResponsiveImageStyleDerivative';
-                                          height?: number | null;
-                                          path?: string | null;
-                                          srcSetPath?: string | null;
-                                          width?: number | null;
-                                        } | null;
+                                          name: string;
+                                          width: number;
+                                          height: number;
+                                          url: string;
+                                          srcSet: string;
+                                        }> | null;
                                       };
                                     };
                                   }> | null;
@@ -7852,13 +8076,14 @@ export type GetNodeByPathQuery = {
                         mediaImage: {
                           __typename?: 'Image';
                           alt?: string | null;
-                          responsive?: {
+                          responsiveVariations?: Array<{
                             __typename: 'ResponsiveImageStyleDerivative';
-                            height?: number | null;
-                            path?: string | null;
-                            srcSetPath?: string | null;
-                            width?: number | null;
-                          } | null;
+                            name: string;
+                            width: number;
+                            height: number;
+                            url: string;
+                            srcSet: string;
+                          }> | null;
                         };
                       };
                       link: {
@@ -7904,13 +8129,14 @@ export type GetNodeByPathQuery = {
                                   mediaImage: {
                                     __typename?: 'Image';
                                     alt?: string | null;
-                                    responsive?: {
+                                    responsiveVariations?: Array<{
                                       __typename: 'ResponsiveImageStyleDerivative';
-                                      height?: number | null;
-                                      path?: string | null;
-                                      srcSetPath?: string | null;
-                                      width?: number | null;
-                                    } | null;
+                                      name: string;
+                                      width: number;
+                                      height: number;
+                                      url: string;
+                                      srcSet: string;
+                                    }> | null;
                                   };
                                 };
                               }
@@ -7964,13 +8190,14 @@ export type GetNodeByPathQuery = {
                                     mediaImage: {
                                       __typename?: 'Image';
                                       alt?: string | null;
-                                      responsive?: {
+                                      responsiveVariations?: Array<{
                                         __typename: 'ResponsiveImageStyleDerivative';
-                                        height?: number | null;
-                                        path?: string | null;
-                                        srcSetPath?: string | null;
-                                        width?: number | null;
-                                      } | null;
+                                        name: string;
+                                        width: number;
+                                        height: number;
+                                        url: string;
+                                        srcSet: string;
+                                      }> | null;
                                     };
                                   };
                                 }> | null;
@@ -8012,13 +8239,14 @@ export type GetNodeByPathQuery = {
                             mediaImage: {
                               __typename?: 'Image';
                               alt?: string | null;
-                              responsive?: {
+                              responsiveVariations?: Array<{
                                 __typename: 'ResponsiveImageStyleDerivative';
-                                height?: number | null;
-                                path?: string | null;
-                                srcSetPath?: string | null;
-                                width?: number | null;
-                              } | null;
+                                name: string;
+                                width: number;
+                                height: number;
+                                url: string;
+                                srcSet: string;
+                              }> | null;
                             };
                           };
                           squareIamge: {
@@ -8027,13 +8255,14 @@ export type GetNodeByPathQuery = {
                             mediaImage: {
                               __typename?: 'Image';
                               alt?: string | null;
-                              responsive?: {
+                              responsiveVariations?: Array<{
                                 __typename: 'ResponsiveImageStyleDerivative';
-                                height?: number | null;
-                                path?: string | null;
-                                srcSetPath?: string | null;
-                                width?: number | null;
-                              } | null;
+                                name: string;
+                                width: number;
+                                height: number;
+                                url: string;
+                                srcSet: string;
+                              }> | null;
                             };
                           };
                         }
@@ -8065,13 +8294,14 @@ export type GetNodeByPathQuery = {
                             mediaImage: {
                               __typename?: 'Image';
                               alt?: string | null;
-                              responsive?: {
+                              responsiveVariations?: Array<{
                                 __typename: 'ResponsiveImageStyleDerivative';
-                                height?: number | null;
-                                path?: string | null;
-                                srcSetPath?: string | null;
-                                width?: number | null;
-                              } | null;
+                                name: string;
+                                width: number;
+                                height: number;
+                                url: string;
+                                srcSet: string;
+                              }> | null;
                             };
                           };
                         }
@@ -8100,13 +8330,14 @@ export type GetNodeByPathQuery = {
                             mediaImage: {
                               __typename?: 'Image';
                               alt?: string | null;
-                              responsive?: {
+                              responsiveVariations?: Array<{
                                 __typename: 'ResponsiveImageStyleDerivative';
-                                height?: number | null;
-                                path?: string | null;
-                                srcSetPath?: string | null;
-                                width?: number | null;
-                              } | null;
+                                name: string;
+                                width: number;
+                                height: number;
+                                url: string;
+                                srcSet: string;
+                              }> | null;
                             };
                           };
                           squareIamge: {
@@ -8115,13 +8346,14 @@ export type GetNodeByPathQuery = {
                             mediaImage: {
                               __typename?: 'Image';
                               alt?: string | null;
-                              responsive?: {
+                              responsiveVariations?: Array<{
                                 __typename: 'ResponsiveImageStyleDerivative';
-                                height?: number | null;
-                                path?: string | null;
-                                srcSetPath?: string | null;
-                                width?: number | null;
-                              } | null;
+                                name: string;
+                                width: number;
+                                height: number;
+                                url: string;
+                                srcSet: string;
+                              }> | null;
                             };
                           };
                         }
@@ -8153,13 +8385,14 @@ export type GetNodeByPathQuery = {
                             mediaImage: {
                               __typename?: 'Image';
                               alt?: string | null;
-                              responsive?: {
+                              responsiveVariations?: Array<{
                                 __typename: 'ResponsiveImageStyleDerivative';
-                                height?: number | null;
-                                path?: string | null;
-                                srcSetPath?: string | null;
-                                width?: number | null;
-                              } | null;
+                                name: string;
+                                width: number;
+                                height: number;
+                                url: string;
+                                srcSet: string;
+                              }> | null;
                             };
                           };
                         }
@@ -8179,13 +8412,14 @@ export type GetNodeByPathQuery = {
                       mediaImage: {
                         __typename?: 'Image';
                         alt?: string | null;
-                        responsive?: {
+                        responsiveVariations?: Array<{
                           __typename: 'ResponsiveImageStyleDerivative';
-                          height?: number | null;
-                          path?: string | null;
-                          srcSetPath?: string | null;
-                          width?: number | null;
-                        } | null;
+                          name: string;
+                          width: number;
+                          height: number;
+                          url: string;
+                          srcSet: string;
+                        }> | null;
                       };
                     };
                   }
@@ -8237,13 +8471,14 @@ export type GetNodeByPathQuery = {
                   mediaImage: {
                     __typename?: 'Image';
                     alt?: string | null;
-                    responsive?: {
+                    responsiveVariations?: Array<{
                       __typename: 'ResponsiveImageStyleDerivative';
-                      height?: number | null;
-                      path?: string | null;
-                      srcSetPath?: string | null;
-                      width?: number | null;
-                    } | null;
+                      name: string;
+                      width: number;
+                      height: number;
+                      url: string;
+                      srcSet: string;
+                    }> | null;
                   };
                 };
                 landscapeImage: {
@@ -8252,13 +8487,14 @@ export type GetNodeByPathQuery = {
                   mediaImage: {
                     __typename?: 'Image';
                     alt?: string | null;
-                    responsive?: {
+                    responsiveVariations?: Array<{
                       __typename: 'ResponsiveImageStyleDerivative';
-                      height?: number | null;
-                      path?: string | null;
-                      srcSetPath?: string | null;
-                      width?: number | null;
-                    } | null;
+                      name: string;
+                      width: number;
+                      height: number;
+                      url: string;
+                      srcSet: string;
+                    }> | null;
                   };
                 };
               };
@@ -8274,13 +8510,14 @@ export type GetNodeByPathQuery = {
                   mediaImage: {
                     __typename?: 'Image';
                     alt?: string | null;
-                    responsive?: {
+                    responsiveVariations?: Array<{
                       __typename: 'ResponsiveImageStyleDerivative';
-                      height?: number | null;
-                      path?: string | null;
-                      srcSetPath?: string | null;
-                      width?: number | null;
-                    } | null;
+                      name: string;
+                      width: number;
+                      height: number;
+                      url: string;
+                      srcSet: string;
+                    }> | null;
                   };
                 };
                 video?: {
@@ -8326,13 +8563,14 @@ export type GetNodeByPathQuery = {
                 mediaImage: {
                   __typename?: 'Image';
                   alt?: string | null;
-                  responsive?: {
+                  responsiveVariations?: Array<{
                     __typename: 'ResponsiveImageStyleDerivative';
-                    height?: number | null;
-                    path?: string | null;
-                    srcSetPath?: string | null;
-                    width?: number | null;
-                  } | null;
+                    name: string;
+                    width: number;
+                    height: number;
+                    url: string;
+                    srcSet: string;
+                  }> | null;
                 };
               };
               talks:
@@ -8375,13 +8613,14 @@ export type GetNodeByPathQuery = {
                               mediaImage: {
                                 __typename?: 'Image';
                                 alt?: string | null;
-                                responsive?: {
+                                responsiveVariations?: Array<{
                                   __typename: 'ResponsiveImageStyleDerivative';
-                                  height?: number | null;
-                                  path?: string | null;
-                                  srcSetPath?: string | null;
-                                  width?: number | null;
-                                } | null;
+                                  name: string;
+                                  width: number;
+                                  height: number;
+                                  url: string;
+                                  srcSet: string;
+                                }> | null;
                               };
                             };
                           }> | null;
@@ -8441,13 +8680,14 @@ export type GetNodeByPathQuery = {
                   mediaImage: {
                     __typename?: 'Image';
                     alt?: string | null;
-                    responsive?: {
+                    responsiveVariations?: Array<{
                       __typename: 'ResponsiveImageStyleDerivative';
-                      height?: number | null;
-                      path?: string | null;
-                      srcSetPath?: string | null;
-                      width?: number | null;
-                    } | null;
+                      name: string;
+                      width: number;
+                      height: number;
+                      url: string;
+                      srcSet: string;
+                    }> | null;
                   };
                 };
               }> | null;

@@ -1,4 +1,7 @@
-import { MediaImage } from '@components/media/MediaImage/MediaImage';
+import {
+  MediaImage,
+  MediaImageProps,
+} from '@components/media/MediaImage/MediaImage';
 import { VisuallyHidden } from '@components/util/VisuallyHidden/VisuallyHidden';
 import { externalLink } from '@lib/helpers';
 import { MediaImageFragment } from '@models/operations';
@@ -7,15 +10,15 @@ import Link from 'next/link';
 import { ButtonHTMLAttributes, ReactNode } from 'react';
 import styles from './Card.module.scss';
 
-export interface CardImageProps {
+export interface CardImageProps extends MediaImageProps {
   /** Optional className for Card, pass in a sass module class to override component default */
   className?: string;
   media: MediaImageFragment;
 }
 
-export const CardImage = ({ className, media }: CardImageProps) => {
+export const CardImage = ({ className, media, ...rest }: CardImageProps) => {
   const rootClassName = cn(styles.image, className);
-  return <MediaImage className={rootClassName} media={media} />;
+  return <MediaImage className={rootClassName} media={media} {...rest} />;
 };
 
 export interface CardContentProps {

@@ -5,15 +5,38 @@
 @use '@styles/base/helpers' as *;
 
 .root {
+  --color1: rgba(255, 122, 127, 1);
+  --color2: rgba(104, 203, 136, 1);
+  --color3: rgba(140, 82, 140, 1);
+  --color4: rgba(86, 193, 191, 1);
   position: absolute;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
   z-index: 0;
-  background-image: url(/bg-swirl.svg);
-  background-repeat: repeat;
-  background-size: 200%;
+
   filter: blur(150px) opacity(0.4);
   transform: translate3d(0, 0, 0);
+  background: linear-gradient(to top, var(--color1), transparent),
+    linear-gradient(to right, var(--color2), transparent),
+    linear-gradient(to bottom, var(--color3), transparent),
+    linear-gradient(to left, var(--color4), transparent);
+  background-size: 200% 200%;
+  animation-name: colorChange;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  animation-duration: 20s;
+}
+
+@keyframes colorChange {
+  0% {
+    background-position: 10% 0%;
+  }
+  50% {
+    background-position: 91% 100%;
+  }
+  100% {
+    background-position: 10% 0%;
+  }
 }

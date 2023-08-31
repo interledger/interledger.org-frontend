@@ -3,7 +3,7 @@ fragment MediaImageWidthFragment on MediaImage {
   id
   mediaImage {
     alt
-    responsive(name: WIDTH) {
+    responsiveVariations(styles: WIDTH) {
       ...ResponsiveImageStyleFragment
     }
   }
@@ -14,7 +14,7 @@ fragment MediaImageSquareFragment on MediaImage {
   id
   mediaImage {
     alt
-    responsive(name: ASPECT_RATIO_SQUARE_1_1) {
+    responsiveVariations(styles: ASPECT_RATIO_SQUARE_1_1) {
       ...ResponsiveImageStyleFragment
     }
   }
@@ -25,7 +25,7 @@ fragment MediaImageLandscapeFragment on MediaImage {
   id
   mediaImage {
     alt
-    responsive(name: ASPECT_RATIO_LANDSCAPE_16_9) {
+    responsiveVariations(styles: ASPECT_RATIO_LANDSCAPE_16_9) {
       ...ResponsiveImageStyleFragment
     }
   }
@@ -36,10 +36,10 @@ fragment MediaImageFragment on MediaImage {
   id
   mediaImage {
     alt
-    style(name: MEDIUM) {
+    variations(styles: MEDIUM) {
       ...ImageStyleFragment
     }
-    responsive(name: ASPECT_RATIO_LANDSCAPE_16_9) {
+    responsiveVariations(styles: ASPECT_RATIO_LANDSCAPE_16_9) {
       ...ResponsiveImageStyleFragment
     }
   }

@@ -69,6 +69,7 @@ export const MainMenu = ({ className, mainMenu }: MainMenuProps) => {
                 type={'main'}
                 onClick={() => setCurrentMenu(menu.id)}
                 parentSelected={currentMenu === menu.id}
+                hasSubmenu={!!menu.children?.length}
               >
                 {!!menu.children?.length ? (
                   <m.div
