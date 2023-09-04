@@ -3,6 +3,7 @@ image: atlassian/default-image:4
 definitions:
   caches:
     nextcache: .next/cache
+    yarn: .yarn/cache
     node: node_modules
   steps:
     - step: &build
@@ -10,6 +11,7 @@ definitions:
         image: node:18
         caches:
           - node
+          - yarn
           - nextcache
         script:
           - echo "Yarn"
