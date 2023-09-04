@@ -13,7 +13,8 @@ definitions:
           - nextcache
         script:
           - echo "Yarn"
-          - yarn set version latest
+          - corepack enable
+          - yarn set version berry
           - yarn install --frozen-lockfile
           - yarn build
         artifacts:
