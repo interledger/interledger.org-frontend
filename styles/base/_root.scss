@@ -29,12 +29,11 @@
   --color-swiper-pagination: var(--color-black);
 
   // Components
-  --header-height: #{to.rem(96px)};
+  --header-height: #{to.rem(83px)};
   --header-menu-height: var(--header-height);
+  --header-bg-color: var(--color-white);
   --main-menu-mobile-bg-color: var(--color-white);
   --main-menu-mobile-text-color: var(--color-black);
-  --main-menu-dropdown-bg-color: var(--color-black);
-  --main-menu-dropdown-text-color: var(--color-white);
 
   @include mq($from: tablet) {
     --page-gutter: #{to.rem(40px)};

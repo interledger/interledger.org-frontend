@@ -22,22 +22,15 @@
   }
 }
 
-.subMenuOpen {
-  main {
-    filter: blur(6px);
-  }
-}
-
 .dark {
   --select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 25.828 14.046'%3E%3Cpath fill='none' stroke='%2301ffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m1.414 1.414 11.5 11.631 11.5-11.631' /%3E%3C/svg%3E");
   --color-primary: var(--color-secondary);
   --color-swiper-pagination: var(--color-white);
   --color-link: var(--color-secondary);
   --color-text-reverse: var(--color-white);
+  --header-bg-color: var(--color-black);
   --main-menu-mobile-bg-color: var(--color-black);
   --main-menu-mobile-text-color: var(--color-white);
-  --main-menu-dropdown-bg-color: var(--color-white);
-  --main-menu-dropdown-text-color: var(--color-black);
 
   color: var(--color-white);
   background-color: var(--color-black);
