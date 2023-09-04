@@ -3,7 +3,7 @@ image: atlassian/default-image:4
 definitions:
   caches:
     nextcache: .next/cache
-    yarn: .yarn/cache
+    yarn: /root/.yarn/berry
     node: node_modules
   steps:
     - step: &build
@@ -17,7 +17,6 @@ definitions:
           - echo "Yarn"
           - corepack enable
           - yarn set version berry
-          - yarn config get globalFolder
           - yarn install --immutable
           - yarn build
         artifacts:
