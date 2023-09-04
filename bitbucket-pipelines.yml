@@ -16,7 +16,7 @@ definitions:
         script:
           - echo "Yarn"
           - corepack enable
-          - yarn set version berry
+          - yarn set version classic
           - yarn install --frozen-lockfile
           - yarn build
         artifacts:
