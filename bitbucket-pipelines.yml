@@ -16,8 +16,8 @@ definitions:
         script:
           - echo "Yarn"
           - corepack enable
-          - yarn set version classic
-          - yarn install --frozen-lockfile
+          - yarn set version berry
+          - yarn install --immutable
           - yarn build
         artifacts:
           - .next/**
