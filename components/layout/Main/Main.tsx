@@ -1,13 +1,11 @@
-import { useRouter } from 'next/router';
+import { BackgroundSwirl } from '@components/ui/BackgroundSwirl/BackgroundSwirl';
 import { useGetInitDataQuery } from '@graphql/hooks';
 import cn from 'classnames';
+import { useRouter } from 'next/router';
+import { ReactNode } from 'react';
 import { Footer } from '../Footer/Footer';
 import { Header } from '../Header/Header';
-import { BackgroundSwirl } from '@components/ui/BackgroundSwirl/BackgroundSwirl';
 import styles from './Main.module.scss';
-import { ReactNode } from 'react';
-import { useAtom } from 'jotai';
-import { subMenuAtom } from '@store/site';
 
 export interface MainProps {
   /** Optional className for Main, pass in a sass module class to override component default */
@@ -18,12 +16,7 @@ export interface MainProps {
 export const Main = ({ className, children }: MainProps) => {
   const { query } = useRouter();
   const isSummit = !!query.slug?.length && query.slug[0] === 'summit';
-  const [subMenuOpen] = useAtom(subMenuAtom);
-  const rootClassName = cn(
-    styles.root,
-    { [styles.dark]: isSummit, [styles.subMenuOpen]: subMenuOpen },
-    className
-  );
+  const rootClassName = cn(styles.root, { [styles.dark]: isSummit }, className);
 
   const { data: initData } = useGetInitDataQuery();
 

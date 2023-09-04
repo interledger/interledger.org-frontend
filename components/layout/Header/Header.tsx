@@ -88,14 +88,13 @@ export const Header = ({ className, mainMenu, isSummit }: HeaderProps) => {
           </div>
         )}
         <div className={styles.siteWrapper}>
-          <Link href={isSummit ? '/' : '/summit'} aria-label="Home">
-            <span className={styles.visitLable}>Visit</span>
+          <div className={styles.siteWrapper}>
             {isSummit ? (
-              <Logo className={styles.visitLogo} />
+              <Link href="/">Interledger Foundation</Link>
             ) : (
-              <SummitLogo className={styles.visitLogo} />
+              <Link href="/summit">Interledger Summit</Link>
             )}
-          </Link>
+          </div>
         </div>
       </div>
     </header>
