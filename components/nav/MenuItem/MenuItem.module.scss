@@ -27,17 +27,12 @@
 }
 
 .main {
-  > .link {
-    &:hover {
-      text-decoration: underline;
-      text-underline-offset: to.rem(11px);
-    }
-  }
-
-  &.active {
+  &.active,
+  &:hover {
     > .link {
       text-decoration: underline;
       text-underline-offset: to.rem(11px);
+      color: var(--color-primary);
     }
   }
 }
