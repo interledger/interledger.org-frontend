@@ -17,6 +17,7 @@ definitions:
           - echo "Yarn"
           - corepack enable
           - yarn set version berry
+          - yarn config get globalFolder
           - yarn install --immutable
           - yarn build
         artifacts:
