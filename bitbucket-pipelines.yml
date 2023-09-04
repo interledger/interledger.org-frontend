@@ -7,7 +7,7 @@ definitions:
   steps:
     - step: &build
         name: "Build | Yarn"
-        image: node:16
+        image: node:18
         caches:
           - node
           - nextcache
