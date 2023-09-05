@@ -54,6 +54,13 @@ export const Video = ({
         playsinline={playsInline}
         loop={loop}
         controls={controls}
+        config={{
+          youtube: {
+            embedOptions: {
+              host: 'https://www.youtube-nocookie.com',
+            },
+          },
+        }}
       />
     </div>
   );

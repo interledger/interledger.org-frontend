@@ -14,7 +14,6 @@ definitions:
           - yarn
           - nextcache
         script:
-          - echo "Yarn"
           - corepack enable
           - yarn set version berry
           - yarn install --immutable

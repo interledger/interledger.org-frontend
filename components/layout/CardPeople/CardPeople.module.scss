@@ -37,4 +37,17 @@
       font-size: to.rem(18px);
     }
   }
+
+  .social {
+    li {
+      padding: 0;
+
+      &:not(:last-child) {
+        margin-right: to.rem(10px);
+      }
+      svg {
+        height: to.rem(20px);
+      }
+    }
+  }
 }

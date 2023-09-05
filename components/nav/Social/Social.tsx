@@ -6,6 +6,7 @@ import { GitHubIcon } from '@components/icon/GitHubIcon/GitHubIcon';
 import { LinkedInIcon } from '@components/icon/LinkedInIcon/LinkedInIcon';
 import { SlackIcon } from '@components/icon/SlackIcon/SlackIcon';
 import Link from 'next/link';
+import { MastadonIcon } from '@components/icon/MastadonIcon/MastadonIcon';
 
 export interface SocialProps {
   /** Optional className for Social, pass in a sass module class to override component default */
@@ -21,6 +22,8 @@ const Icon = ({ type }: IconProps) => {
   switch (type) {
     case 'twitter':
       return <TwitterIcon />;
+    case 'mastadon':
+      return <MastadonIcon />;
     case 'github':
       return <GitHubIcon />;
     case 'linkedin':
@@ -40,7 +43,7 @@ export const Social = ({ className, social }: SocialProps) => {
   const rootClassName = cn(styles.root, className);
   return (
     <nav className={rootClassName}>
-      <ul>
+      <ul role="list">
         {social.socialMediaLinks?.map((l) =>
           l.link.url ? (
             <li key={l.socialMediaType}>

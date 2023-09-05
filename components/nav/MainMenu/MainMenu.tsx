@@ -64,7 +64,7 @@ export const MainMenu = ({ className, mainMenu }: MainMenuProps) => {
                 className={cn({
                   [styles.dropdown]: !!menu.children?.length,
                 })}
-                key={menu.url}
+                key={menu.id}
                 menuItem={menu}
                 type={'main'}
                 onClick={() => setCurrentMenu(menu.id)}
@@ -89,7 +89,7 @@ export const MainMenu = ({ className, mainMenu }: MainMenuProps) => {
                           {menu.children.map((menu) =>
                             menu ? (
                               <MenuItem
-                                key={menu.url}
+                                key={menu.id}
                                 menuItem={menu}
                                 type={'submain'}
                               />

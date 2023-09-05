@@ -625,6 +625,15 @@ type ParagraphsFragment_ParagraphPeopleGrid_ = {
                 __typename?: 'Text';
                 processed?: any | null;
               } | null;
+              social?: {
+                __typename: 'ParagraphSocialMedia';
+                id: string;
+                socialMediaLinks?: Array<{
+                  __typename?: 'ParagraphSocialMediaLink';
+                  socialMediaType: string;
+                  link: { __typename?: 'Link'; url?: string | null };
+                }> | null;
+              } | null;
               teaser: {
                 __typename: 'ParagraphTeaser';
                 id: string;
@@ -2325,6 +2334,15 @@ export type NodeFoundationPageFragment = {
                       __typename?: 'Text';
                       processed?: any | null;
                     } | null;
+                    social?: {
+                      __typename: 'ParagraphSocialMedia';
+                      id: string;
+                      socialMediaLinks?: Array<{
+                        __typename?: 'ParagraphSocialMediaLink';
+                        socialMediaType: string;
+                        link: { __typename?: 'Link'; url?: string | null };
+                      }> | null;
+                    } | null;
                     teaser: {
                       __typename: 'ParagraphTeaser';
                       id: string;
@@ -3695,6 +3713,15 @@ export type NodePeopleFragment = {
   id: string;
   path: string;
   title: string;
+  social?: {
+    __typename: 'ParagraphSocialMedia';
+    id: string;
+    socialMediaLinks?: Array<{
+      __typename?: 'ParagraphSocialMediaLink';
+      socialMediaType: string;
+      link: { __typename?: 'Link'; url?: string | null };
+    }> | null;
+  } | null;
   description?: { __typename?: 'Text'; processed?: any | null } | null;
 };
 
@@ -3705,6 +3732,15 @@ export type NodePeopleCardFragment = {
   title: string;
   position: string;
   description?: { __typename?: 'Text'; processed?: any | null } | null;
+  social?: {
+    __typename: 'ParagraphSocialMedia';
+    id: string;
+    socialMediaLinks?: Array<{
+      __typename?: 'ParagraphSocialMediaLink';
+      socialMediaType: string;
+      link: { __typename?: 'Link'; url?: string | null };
+    }> | null;
+  } | null;
   teaser: {
     __typename: 'ParagraphTeaser';
     id: string;
@@ -5170,6 +5206,15 @@ export type ParagraphPeopleGridFragment = {
               description?: {
                 __typename?: 'Text';
                 processed?: any | null;
+              } | null;
+              social?: {
+                __typename: 'ParagraphSocialMedia';
+                id: string;
+                socialMediaLinks?: Array<{
+                  __typename?: 'ParagraphSocialMediaLink';
+                  socialMediaType: string;
+                  link: { __typename?: 'Link'; url?: string | null };
+                }> | null;
               } | null;
               teaser: {
                 __typename: 'ParagraphTeaser';
@@ -7186,6 +7231,18 @@ export type GetNodeByPathQuery = {
                                   __typename?: 'Text';
                                   processed?: any | null;
                                 } | null;
+                                social?: {
+                                  __typename: 'ParagraphSocialMedia';
+                                  id: string;
+                                  socialMediaLinks?: Array<{
+                                    __typename?: 'ParagraphSocialMediaLink';
+                                    socialMediaType: string;
+                                    link: {
+                                      __typename?: 'Link';
+                                      url?: string | null;
+                                    };
+                                  }> | null;
+                                } | null;
                                 teaser: {
                                   __typename: 'ParagraphTeaser';
                                   id: string;
@@ -8532,6 +8589,15 @@ export type GetNodeByPathQuery = {
               id: string;
               path: string;
               title: string;
+              social?: {
+                __typename: 'ParagraphSocialMedia';
+                id: string;
+                socialMediaLinks?: Array<{
+                  __typename?: 'ParagraphSocialMediaLink';
+                  socialMediaType: string;
+                  link: { __typename?: 'Link'; url?: string | null };
+                }> | null;
+              } | null;
               description?: {
                 __typename?: 'Text';
                 processed?: any | null;

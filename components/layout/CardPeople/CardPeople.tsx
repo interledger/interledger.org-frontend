@@ -8,6 +8,7 @@ import { NodePeopleCardFragment } from '@models/operations';
 import { useState } from 'react';
 import { Card, CardButton, CardContent, CardImage } from '../Card/Card';
 import styles from './CardPeople.module.scss';
+import { Social } from '@components/nav/Social/Social';
 
 export interface CardPeopleProps {
   /** Optional className for CardPeople, pass in a sass module class to override component default */
@@ -49,6 +50,9 @@ export const CardPeople = ({ className, people }: CardPeopleProps) => {
               {people.title}
             </Text>
             <Text variant="body2">{people.position}</Text>
+            {people.social ? (
+              <Social className={styles.social} social={people.social} />
+            ) : null}
             <RichText html={people.description?.processed} />
           </div>
         </article>
