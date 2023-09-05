@@ -721,6 +721,8 @@ export type NodePeople = MetaTagInterface &
     position: Scalars['String'];
     /** Promoted to front page */
     promote: Scalars['Boolean'];
+    /** Social */
+    social?: Maybe<ParagraphSocialMedia>;
     /** Published */
     status: Scalars['Boolean'];
     /** Sticky at top of lists */

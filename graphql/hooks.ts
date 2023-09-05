@@ -97,18 +97,6 @@ export const MainMenuFragment = /*#__PURE__*/ `
   }
 }
     `;
-export const SocialFragment = /*#__PURE__*/ `
-    fragment SocialFragment on ParagraphSocialMedia {
-  __typename
-  id
-  socialMediaLinks {
-    socialMediaType
-    link {
-      url
-    }
-  }
-}
-    `;
 export const MediaImageSquareFragment = /*#__PURE__*/ `
     fragment MediaImageSquareFragment on MediaImage {
   __typename
@@ -543,6 +531,18 @@ export const ParagraphAnchorFragment = /*#__PURE__*/ `
   title
 }
     `;
+export const SocialFragment = /*#__PURE__*/ `
+    fragment SocialFragment on ParagraphSocialMedia {
+  __typename
+  id
+  socialMediaLinks {
+    socialMediaType
+    link {
+      url
+    }
+  }
+}
+    `;
 export const NodePeopleCardFragment = /*#__PURE__*/ `
     fragment NodePeopleCardFragment on NodePeople {
   __typename
@@ -553,6 +553,9 @@ export const NodePeopleCardFragment = /*#__PURE__*/ `
     processed
   }
   position
+  social {
+    ...SocialFragment
+  }
   teaser {
     ...ParagraphTeaserFragment
   }
@@ -904,6 +907,9 @@ export const NodePeopleFragment = /*#__PURE__*/ `
   id
   path
   title
+  social {
+    ...SocialFragment
+  }
   description {
     processed
   }
@@ -1017,14 +1023,14 @@ ${ResponsiveImageStyleFragment}
 ${MediaImageLandscapeFragment}`;
 export const useGetParagraphNewsListing = <
   TData = OperationTypes.GetParagraphNewsListing,
-  TError = unknown
+  TError = unknown,
 >(
   variables: OperationTypes.GetParagraphNewsListingVariables,
   options?: UseQueryOptions<
     OperationTypes.GetParagraphNewsListing,
     TError,
     TData
-  >
+  >,
 ) =>
   useQuery<OperationTypes.GetParagraphNewsListing, TError, TData>(
     ['GetParagraphNewsListing', variables],
@@ -1032,14 +1038,14 @@ export const useGetParagraphNewsListing = <
       OperationTypes.GetParagraphNewsListing,
       OperationTypes.GetParagraphNewsListingVariables
     >(GetParagraphNewsListingDocument, variables),
-    options
+    options,
   );
 
 useGetParagraphNewsListing.getKey = (
-  variables: OperationTypes.GetParagraphNewsListingVariables
+  variables: OperationTypes.GetParagraphNewsListingVariables,
 ) => ['GetParagraphNewsListing', variables];
 useGetParagraphNewsListing.fetcher = (
-  variables: OperationTypes.GetParagraphNewsListingVariables
+  variables: OperationTypes.GetParagraphNewsListingVariables,
 ) =>
   fetcher<
     OperationTypes.GetParagraphNewsListing,
@@ -1072,10 +1078,10 @@ ${DeveloperToolsMenuFragment}
 ${SocialFragment}`;
 export const useGetInitDataQuery = <
   TData = OperationTypes.GetInitDataQuery,
-  TError = unknown
+  TError = unknown,
 >(
   variables?: OperationTypes.GetInitDataQueryVariables,
-  options?: UseQueryOptions<OperationTypes.GetInitDataQuery, TError, TData>
+  options?: UseQueryOptions<OperationTypes.GetInitDataQuery, TError, TData>,
 ) =>
   useQuery<OperationTypes.GetInitDataQuery, TError, TData>(
     variables === undefined
@@ -1085,17 +1091,17 @@ export const useGetInitDataQuery = <
       OperationTypes.GetInitDataQuery,
       OperationTypes.GetInitDataQueryVariables
     >(GetInitDataQueryDocument, variables),
-    options
+    options,
   );
 
 useGetInitDataQuery.getKey = (
-  variables?: OperationTypes.GetInitDataQueryVariables
+  variables?: OperationTypes.GetInitDataQueryVariables,
 ) =>
   variables === undefined
     ? ['GetInitDataQuery']
     : ['GetInitDataQuery', variables];
 useGetInitDataQuery.fetcher = (
-  variables?: OperationTypes.GetInitDataQueryVariables
+  variables?: OperationTypes.GetInitDataQueryVariables,
 ) =>
   fetcher<
     OperationTypes.GetInitDataQuery,
@@ -1174,6 +1180,7 @@ ${ParagraphDividerFragment}
 ${ParagraphAnchorFragment}
 ${ParagraphPeopleGridFragment}
 ${NodePeopleCardFragment}
+${SocialFragment}
 ${ParagraphContactFormFragment}
 ${ParagraphContentColumnCardsFragment}
 ${ParagraphColumnCardFragment}
@@ -1192,10 +1199,10 @@ ${NodeDeveloperToolsFragment}
 ${NodePeopleFragment}`;
 export const useGetNodeByPathQuery = <
   TData = OperationTypes.GetNodeByPathQuery,
-  TError = unknown
+  TError = unknown,
 >(
   variables: OperationTypes.GetNodeByPathQueryVariables,
-  options?: UseQueryOptions<OperationTypes.GetNodeByPathQuery, TError, TData>
+  options?: UseQueryOptions<OperationTypes.GetNodeByPathQuery, TError, TData>,
 ) =>
   useQuery<OperationTypes.GetNodeByPathQuery, TError, TData>(
     ['GetNodeByPathQuery', variables],
@@ -1203,14 +1210,14 @@ export const useGetNodeByPathQuery = <
       OperationTypes.GetNodeByPathQuery,
       OperationTypes.GetNodeByPathQueryVariables
     >(GetNodeByPathQueryDocument, variables),
-    options
+    options,
   );
 
 useGetNodeByPathQuery.getKey = (
-  variables: OperationTypes.GetNodeByPathQueryVariables
+  variables: OperationTypes.GetNodeByPathQueryVariables,
 ) => ['GetNodeByPathQuery', variables];
 useGetNodeByPathQuery.fetcher = (
-  variables: OperationTypes.GetNodeByPathQueryVariables
+  variables: OperationTypes.GetNodeByPathQueryVariables,
 ) =>
   fetcher<
     OperationTypes.GetNodeByPathQuery,
@@ -1247,10 +1254,10 @@ export const GetNodesPathsQueryDocument = /*#__PURE__*/ `
     `;
 export const useGetNodesPathsQuery = <
   TData = OperationTypes.GetNodesPathsQuery,
-  TError = unknown
+  TError = unknown,
 >(
   variables?: OperationTypes.GetNodesPathsQueryVariables,
-  options?: UseQueryOptions<OperationTypes.GetNodesPathsQuery, TError, TData>
+  options?: UseQueryOptions<OperationTypes.GetNodesPathsQuery, TError, TData>,
 ) =>
   useQuery<OperationTypes.GetNodesPathsQuery, TError, TData>(
     variables === undefined
@@ -1260,17 +1267,17 @@ export const useGetNodesPathsQuery = <
       OperationTypes.GetNodesPathsQuery,
       OperationTypes.GetNodesPathsQueryVariables
     >(GetNodesPathsQueryDocument, variables),
-    options
+    options,
   );
 
 useGetNodesPathsQuery.getKey = (
-  variables?: OperationTypes.GetNodesPathsQueryVariables
+  variables?: OperationTypes.GetNodesPathsQueryVariables,
 ) =>
   variables === undefined
     ? ['GetNodesPathsQuery']
     : ['GetNodesPathsQuery', variables];
 useGetNodesPathsQuery.fetcher = (
-  variables?: OperationTypes.GetNodesPathsQueryVariables
+  variables?: OperationTypes.GetNodesPathsQueryVariables,
 ) =>
   fetcher<
     OperationTypes.GetNodesPathsQuery,
