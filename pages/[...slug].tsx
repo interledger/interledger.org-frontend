@@ -74,7 +74,7 @@ const NodeSelector = ({ node }: NodeSelectorProps) => {
 const BasicPage: NextPage<BasicProps> = ({ slug }) => {
   const { data: page } = useGetNodeByPathQuery(
     { slug },
-    { select: (data) => getRouteEntity(data) as NodeFragmentUnion }
+    { select: (data) => getRouteEntity(data) as NodeFragmentUnion },
   );
 
   return (
@@ -87,7 +87,7 @@ const BasicPage: NextPage<BasicProps> = ({ slug }) => {
 
 export const getStaticProps: GetStaticProps = withInitData(
   async (context, queryClient) => {
-    const { preview, params, query } = context;
+    const { preview, params } = context;
 
     const slugParts = params?.slug as string[];
     const slug = slugParts?.join('/') as string;
@@ -101,7 +101,7 @@ export const getStaticProps: GetStaticProps = withInitData(
 
     const data = await queryClient.fetchQuery(
       useGetNodeByPathQuery.getKey({ slug }),
-      useGetNodeByPathQuery.fetcher({ slug })
+      useGetNodeByPathQuery.fetcher({ slug }),
     );
 
     return {
@@ -114,7 +114,7 @@ export const getStaticProps: GetStaticProps = withInitData(
         slug,
       },
     };
-  }
+  },
 );
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -122,7 +122,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   const pages = await queryClient.fetchQuery(
     useGetNodesPathsQuery.getKey(),
-    useGetNodesPathsQuery.fetcher()
+    useGetNodesPathsQuery.fetcher(),
   );
 
   const paths =
