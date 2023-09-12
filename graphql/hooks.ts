@@ -195,6 +195,22 @@ export const ParagraphImageFragment = /*#__PURE__*/ `
   }
 }
     `;
+export const MediaRemoteVideoFragment = /*#__PURE__*/ `
+    fragment MediaRemoteVideoFragment on MediaRemoteVideo {
+  __typename
+  id
+  mediaOembedVideo
+}
+    `;
+export const ParagraphVideoEmbedFragment = /*#__PURE__*/ `
+    fragment ParagraphVideoEmbedFragment on ParagraphVideoEmbed {
+  __typename
+  id
+  remoteVideo {
+    ...MediaRemoteVideoFragment
+  }
+}
+    `;
 export const TwoColumnContentFragment = /*#__PURE__*/ `
     fragment TwoColumnContentFragment on ParagraphInterface {
   ... on ParagraphButton {
@@ -217,6 +233,9 @@ export const TwoColumnContentFragment = /*#__PURE__*/ `
   }
   ... on ParagraphImage {
     ...ParagraphImageFragment
+  }
+  ... on ParagraphVideoEmbed {
+    ...ParagraphVideoEmbedFragment
   }
 }
     `;
@@ -658,22 +677,6 @@ export const ParagraphScrollingLogoCarouselFragment = /*#__PURE__*/ `
   id
   logos {
     ...ParagraphLogoLinkFragment
-  }
-}
-    `;
-export const MediaRemoteVideoFragment = /*#__PURE__*/ `
-    fragment MediaRemoteVideoFragment on MediaRemoteVideo {
-  __typename
-  id
-  mediaOembedVideo
-}
-    `;
-export const ParagraphVideoEmbedFragment = /*#__PURE__*/ `
-    fragment ParagraphVideoEmbedFragment on ParagraphVideoEmbed {
-  __typename
-  id
-  remoteVideo {
-    ...MediaRemoteVideoFragment
   }
 }
     `;
@@ -1155,6 +1158,8 @@ ${ParagraphContentTitleFragment}
 ${ParagraphVideoFragment}
 ${MediaVideoFragment}
 ${ParagraphImageFragment}
+${ParagraphVideoEmbedFragment}
+${MediaRemoteVideoFragment}
 ${ParagraphLargeCalloutTextFragment}
 ${ParagraphHighlightedListFragment}
 ${ParagraphImageFullWidthFragment}
@@ -1187,8 +1192,6 @@ ${ParagraphColumnCardFragment}
 ${ParagraphScrollingLogoCarouselFragment}
 ${ParagraphLogoLinkFragment}
 ${MediaImageWidthFragment}
-${ParagraphVideoEmbedFragment}
-${MediaRemoteVideoFragment}
 ${MetaTagFragment}
 ${NodePageFragment}
 ${ParagraphHeroHeaderFragment}
