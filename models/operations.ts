@@ -5852,7 +5852,13 @@ type TwoColumnContentFragment_ParagraphVideo_ = {
 };
 
 type TwoColumnContentFragment_ParagraphVideoEmbed_ = {
-  __typename?: 'ParagraphVideoEmbed';
+  __typename: 'ParagraphVideoEmbed';
+  id: string;
+  remoteVideo?: {
+    __typename: 'MediaRemoteVideo';
+    id: string;
+    mediaOembedVideo: string;
+  } | null;
 };
 
 export type TwoColumnContentFragment =
