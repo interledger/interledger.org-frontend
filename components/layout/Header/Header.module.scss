@@ -7,7 +7,7 @@
 .root {
   position: relative;
   padding: 0 var(--page-gutter-right) 0 var(--page-gutter-left);
-  background-color: transparent;
+  background-color: var(--header-bg-color);
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: var(--header-menu-height);

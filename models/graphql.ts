@@ -721,6 +721,8 @@ export type NodePeople = MetaTagInterface &
     position: Scalars['String'];
     /** Promoted to front page */
     promote: Scalars['Boolean'];
+    /** Social */
+    social?: Maybe<ParagraphSocialMedia>;
     /** Published */
     status: Scalars['Boolean'];
     /** Sticky at top of lists */
@@ -1468,7 +1470,8 @@ export type ParagraphTwoColumnContentFirstColumnUnion =
   | ParagraphImage
   | ParagraphSpacer
   | ParagraphText
-  | ParagraphVideo;
+  | ParagraphVideo
+  | ParagraphVideoEmbed;
 
 /** Second Column */
 export type ParagraphTwoColumnContentSecondColumnUnion =
@@ -1477,7 +1480,8 @@ export type ParagraphTwoColumnContentSecondColumnUnion =
   | ParagraphImage
   | ParagraphSpacer
   | ParagraphText
-  | ParagraphVideo;
+  | ParagraphVideo
+  | ParagraphVideoEmbed;
 
 /** Entity type paragraph. */
 export type ParagraphUnion =

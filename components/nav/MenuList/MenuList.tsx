@@ -33,7 +33,7 @@ export const MenuList = ({
   return (
     <m.ul className={rootClassName} role="list" variants={container}>
       {menus.map((menu) =>
-        menu ? <MenuItem key={menu.url} menuItem={menu} type={type} /> : null
+        menu ? <MenuItem key={menu.id} menuItem={menu} type={type} /> : null
       )}
     </m.ul>
   );

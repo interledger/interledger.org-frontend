@@ -56,8 +56,8 @@
       .dropdownMenu {
         @include mq($from: mainMenu) {
           visibility: visible;
-          background-color: var(--main-menu-dropdown-bg-color);
-          transition-delay: 0s;
+          opacity: 1;
+          background-color: var(--header-bg-color);
         }
       }
     }
@@ -69,16 +69,15 @@
 
     @include mq($from: mainMenu) {
       position: absolute;
-      padding: to.rem(24px) 0;
+      padding: to.rem(16px) 1000em to.rem(27px);
+      margin: 0 -1000em;
       top: var(--header-height);
-      left: calc(-1 * var(--page-gutter-left));
-      right: calc(-1 * var(--page-gutter-right));
       visibility: hidden;
-      transition: 0.2s 1s;
       z-index: 1;
       height: auto;
-      overflow: visible;
-      text-align: center;
+      opacity: 0;
+      background-color: var(--header-bg-color);
+      transition: all 0.2s ease-in-out;
     }
 
     ul {
@@ -86,11 +85,7 @@
       margin-top: to.rem(30px);
 
       @include mq($from: mainMenu) {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(auto, calc(100% / 5)));
-        grid-auto-rows: auto;
-        grid-auto-flow: column;
-        justify-content: center;
+        display: block;
         margin-top: 0;
       }
 
@@ -103,13 +98,13 @@
           margin: 0 0 to.rem(10px);
 
           @include mq($from: mainMenu) {
-            margin: 0 to.rem(25px) 0;
+            margin: 0 0 to.rem(10px);
           }
         }
 
         @include mq($from: mainMenu) {
           font-size: to.rem(16px);
-          margin: 0 to.rem(25px) 0;
+          margin: 0;
 
           a {
             color: var(--main-menu-dropdown-text-color);

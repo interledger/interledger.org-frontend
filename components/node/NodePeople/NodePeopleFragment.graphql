@@ -3,6 +3,9 @@ fragment NodePeopleFragment on NodePeople {
   id
   path
   title
+  social {
+    ...SocialFragment
+  }
   description {
     processed
   }
@@ -17,6 +20,9 @@ fragment NodePeopleCardFragment on NodePeople {
     processed
   }
   position
+  social {
+    ...SocialFragment
+  }
   teaser {
     ...ParagraphTeaserFragment
   }

@@ -3,17 +3,20 @@ image: atlassian/default-image:4
 definitions:
   caches:
     nextcache: .next/cache
+    yarn: /root/.yarn/berry
     node: node_modules
   steps:
     - step: &build
         name: "Build | Yarn"
-        image: node:16
+        image: node:18
         caches:
           - node
+          - yarn
           - nextcache
         script:
-          - echo "Yarn"
-          - yarn install --frozen-lockfile
+          - corepack enable
+          - yarn set version berry
+          - yarn install --immutable
           - yarn build
         artifacts:
           - .next/**
@@ -28,7 +31,7 @@ definitions:
           - cp -R .next/static deploy/.next/
           - cd deploy && zip -r application.zip .ebextensions .next lib node_modules public package.json Procfile server.js
           - export BITBUCKET_COMMIT_SHORT=$(echo $BITBUCKET_COMMIT | cut -c1-7)
-          - pipe: atlassian/aws-elasticbeanstalk-deploy:1.1.1
+          - pipe: atlassian/aws-elasticbeanstalk-deploy:1.2.0
             variables:
               AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
               AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
@@ -43,7 +46,7 @@ definitions:
         script:
           - echo "Deployment!"
           - export BITBUCKET_COMMIT_SHORT=$(echo $BITBUCKET_COMMIT | cut -c1-7)
-          - pipe: atlassian/aws-elasticbeanstalk-deploy:1.1.1
+          - pipe: atlassian/aws-elasticbeanstalk-deploy:1.2.0
             variables:
               AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
               AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY

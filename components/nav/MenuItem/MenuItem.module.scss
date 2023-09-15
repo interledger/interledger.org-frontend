@@ -26,6 +26,29 @@
   }
 }
 
+.main {
+  &.active,
+  &:hover {
+    > .link {
+      text-decoration: underline;
+      text-underline-offset: to.rem(16px);
+    }
+  }
+  &.active {
+    > .link {
+      color: var(--color-primary);
+    }
+  }
+}
+
+.submain {
+  &.active {
+    > .link {
+      color: var(--color-primary);
+    }
+  }
+}
+
 .main,
 .submain {
   .link {
@@ -61,32 +84,8 @@
       line-height: 1;
       font-weight: 400;
       display: block;
-      text-align: center;
       white-space: nowrap;
       width: auto;
-    }
-  }
-}
-
-.main {
-  &.active {
-    .link {
-      @include mq($from: tablet) {
-        position: relative;
-
-        &::after {
-          content: '';
-          width: to.rem(6px);
-          height: to.rem(6px);
-          border-radius: 50%;
-          background-color: var(--color-primary);
-          display: block;
-          position: absolute;
-          bottom: -#{to.rem(10px)};
-          left: 50%;
-          transform: translateX(-50%);
-        }
-      }
     }
   }
 }

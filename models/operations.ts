@@ -136,6 +136,15 @@ type ParagraphsFragment_ParagraphContentCarousel_ = {
             };
           };
         }
+      | {
+          __typename: 'ParagraphVideoEmbed';
+          id: string;
+          remoteVideo?: {
+            __typename: 'MediaRemoteVideo';
+            id: string;
+            mediaOembedVideo: string;
+          } | null;
+        }
     > | null;
     secondColumn?: Array<
       | {
@@ -219,6 +228,15 @@ type ParagraphsFragment_ParagraphContentCarousel_ = {
               }> | null;
             };
           };
+        }
+      | {
+          __typename: 'ParagraphVideoEmbed';
+          id: string;
+          remoteVideo?: {
+            __typename: 'MediaRemoteVideo';
+            id: string;
+            mediaOembedVideo: string;
+          } | null;
         }
     > | null;
   }> | null;
@@ -625,6 +643,15 @@ type ParagraphsFragment_ParagraphPeopleGrid_ = {
                 __typename?: 'Text';
                 processed?: any | null;
               } | null;
+              social?: {
+                __typename: 'ParagraphSocialMedia';
+                id: string;
+                socialMediaLinks?: Array<{
+                  __typename?: 'ParagraphSocialMediaLink';
+                  socialMediaType: string;
+                  link: { __typename?: 'Link'; url?: string | null };
+                }> | null;
+              } | null;
               teaser: {
                 __typename: 'ParagraphTeaser';
                 id: string;
@@ -1017,6 +1044,15 @@ type ParagraphsFragment_ParagraphTwoColumnContent_ = {
           };
         };
       }
+    | {
+        __typename: 'ParagraphVideoEmbed';
+        id: string;
+        remoteVideo?: {
+          __typename: 'MediaRemoteVideo';
+          id: string;
+          mediaOembedVideo: string;
+        } | null;
+      }
   > | null;
   secondColumn?: Array<
     | {
@@ -1100,6 +1136,15 @@ type ParagraphsFragment_ParagraphTwoColumnContent_ = {
             }> | null;
           };
         };
+      }
+    | {
+        __typename: 'ParagraphVideoEmbed';
+        id: string;
+        remoteVideo?: {
+          __typename: 'MediaRemoteVideo';
+          id: string;
+          mediaOembedVideo: string;
+        } | null;
       }
   > | null;
 };
@@ -1529,6 +1574,15 @@ export type NodeArticleFragment = {
                 };
               };
             }
+          | {
+              __typename: 'ParagraphVideoEmbed';
+              id: string;
+              remoteVideo?: {
+                __typename: 'MediaRemoteVideo';
+                id: string;
+                mediaOembedVideo: string;
+              } | null;
+            }
         > | null;
         secondColumn?: Array<
           | {
@@ -1612,6 +1666,15 @@ export type NodeArticleFragment = {
                   }> | null;
                 };
               };
+            }
+          | {
+              __typename: 'ParagraphVideoEmbed';
+              id: string;
+              remoteVideo?: {
+                __typename: 'MediaRemoteVideo';
+                id: string;
+                mediaOembedVideo: string;
+              } | null;
             }
         > | null;
       }
@@ -1919,6 +1982,15 @@ export type NodeFoundationPageFragment = {
                   };
                 };
               }
+            | {
+                __typename: 'ParagraphVideoEmbed';
+                id: string;
+                remoteVideo?: {
+                  __typename: 'MediaRemoteVideo';
+                  id: string;
+                  mediaOembedVideo: string;
+                } | null;
+              }
           > | null;
           secondColumn?: Array<
             | {
@@ -2002,6 +2074,15 @@ export type NodeFoundationPageFragment = {
                     }> | null;
                   };
                 };
+              }
+            | {
+                __typename: 'ParagraphVideoEmbed';
+                id: string;
+                remoteVideo?: {
+                  __typename: 'MediaRemoteVideo';
+                  id: string;
+                  mediaOembedVideo: string;
+                } | null;
               }
           > | null;
         }> | null;
@@ -2325,6 +2406,15 @@ export type NodeFoundationPageFragment = {
                       __typename?: 'Text';
                       processed?: any | null;
                     } | null;
+                    social?: {
+                      __typename: 'ParagraphSocialMedia';
+                      id: string;
+                      socialMediaLinks?: Array<{
+                        __typename?: 'ParagraphSocialMediaLink';
+                        socialMediaType: string;
+                        link: { __typename?: 'Link'; url?: string | null };
+                      }> | null;
+                    } | null;
                     teaser: {
                       __typename: 'ParagraphTeaser';
                       id: string;
@@ -2533,6 +2623,15 @@ export type NodeFoundationPageFragment = {
                 };
               };
             }
+          | {
+              __typename: 'ParagraphVideoEmbed';
+              id: string;
+              remoteVideo?: {
+                __typename: 'MediaRemoteVideo';
+                id: string;
+                mediaOembedVideo: string;
+              } | null;
+            }
         > | null;
         secondColumn?: Array<
           | {
@@ -2616,6 +2715,15 @@ export type NodeFoundationPageFragment = {
                   }> | null;
                 };
               };
+            }
+          | {
+              __typename: 'ParagraphVideoEmbed';
+              id: string;
+              remoteVideo?: {
+                __typename: 'MediaRemoteVideo';
+                id: string;
+                mediaOembedVideo: string;
+              } | null;
             }
         > | null;
       }
@@ -2896,6 +3004,15 @@ export type NodePageFragment = {
                   };
                 };
               }
+            | {
+                __typename: 'ParagraphVideoEmbed';
+                id: string;
+                remoteVideo?: {
+                  __typename: 'MediaRemoteVideo';
+                  id: string;
+                  mediaOembedVideo: string;
+                } | null;
+              }
           > | null;
           secondColumn?: Array<
             | {
@@ -2979,6 +3096,15 @@ export type NodePageFragment = {
                     }> | null;
                   };
                 };
+              }
+            | {
+                __typename: 'ParagraphVideoEmbed';
+                id: string;
+                remoteVideo?: {
+                  __typename: 'MediaRemoteVideo';
+                  id: string;
+                  mediaOembedVideo: string;
+                } | null;
               }
           > | null;
         }> | null;
@@ -3431,6 +3557,15 @@ export type NodePageFragment = {
                 };
               };
             }
+          | {
+              __typename: 'ParagraphVideoEmbed';
+              id: string;
+              remoteVideo?: {
+                __typename: 'MediaRemoteVideo';
+                id: string;
+                mediaOembedVideo: string;
+              } | null;
+            }
         > | null;
         secondColumn?: Array<
           | {
@@ -3514,6 +3649,15 @@ export type NodePageFragment = {
                   }> | null;
                 };
               };
+            }
+          | {
+              __typename: 'ParagraphVideoEmbed';
+              id: string;
+              remoteVideo?: {
+                __typename: 'MediaRemoteVideo';
+                id: string;
+                mediaOembedVideo: string;
+              } | null;
             }
         > | null;
       }
@@ -3695,6 +3839,15 @@ export type NodePeopleFragment = {
   id: string;
   path: string;
   title: string;
+  social?: {
+    __typename: 'ParagraphSocialMedia';
+    id: string;
+    socialMediaLinks?: Array<{
+      __typename?: 'ParagraphSocialMediaLink';
+      socialMediaType: string;
+      link: { __typename?: 'Link'; url?: string | null };
+    }> | null;
+  } | null;
   description?: { __typename?: 'Text'; processed?: any | null } | null;
 };
 
@@ -3705,6 +3858,15 @@ export type NodePeopleCardFragment = {
   title: string;
   position: string;
   description?: { __typename?: 'Text'; processed?: any | null } | null;
+  social?: {
+    __typename: 'ParagraphSocialMedia';
+    id: string;
+    socialMediaLinks?: Array<{
+      __typename?: 'ParagraphSocialMediaLink';
+      socialMediaType: string;
+      link: { __typename?: 'Link'; url?: string | null };
+    }> | null;
+  } | null;
   teaser: {
     __typename: 'ParagraphTeaser';
     id: string;
@@ -4220,6 +4382,15 @@ type ContentCarouselItemFragment_ParagraphTwoColumnContent_ = {
           };
         };
       }
+    | {
+        __typename: 'ParagraphVideoEmbed';
+        id: string;
+        remoteVideo?: {
+          __typename: 'MediaRemoteVideo';
+          id: string;
+          mediaOembedVideo: string;
+        } | null;
+      }
   > | null;
   secondColumn?: Array<
     | {
@@ -4303,6 +4474,15 @@ type ContentCarouselItemFragment_ParagraphTwoColumnContent_ = {
             }> | null;
           };
         };
+      }
+    | {
+        __typename: 'ParagraphVideoEmbed';
+        id: string;
+        remoteVideo?: {
+          __typename: 'MediaRemoteVideo';
+          id: string;
+          mediaOembedVideo: string;
+        } | null;
       }
   > | null;
 };
@@ -4445,6 +4625,15 @@ export type ParagraphContentCarouselFragment = {
             };
           };
         }
+      | {
+          __typename: 'ParagraphVideoEmbed';
+          id: string;
+          remoteVideo?: {
+            __typename: 'MediaRemoteVideo';
+            id: string;
+            mediaOembedVideo: string;
+          } | null;
+        }
     > | null;
     secondColumn?: Array<
       | {
@@ -4528,6 +4717,15 @@ export type ParagraphContentCarouselFragment = {
               }> | null;
             };
           };
+        }
+      | {
+          __typename: 'ParagraphVideoEmbed';
+          id: string;
+          remoteVideo?: {
+            __typename: 'MediaRemoteVideo';
+            id: string;
+            mediaOembedVideo: string;
+          } | null;
         }
     > | null;
   }> | null;
@@ -5171,6 +5369,15 @@ export type ParagraphPeopleGridFragment = {
                 __typename?: 'Text';
                 processed?: any | null;
               } | null;
+              social?: {
+                __typename: 'ParagraphSocialMedia';
+                id: string;
+                socialMediaLinks?: Array<{
+                  __typename?: 'ParagraphSocialMediaLink';
+                  socialMediaType: string;
+                  link: { __typename?: 'Link'; url?: string | null };
+                }> | null;
+              } | null;
               teaser: {
                 __typename: 'ParagraphTeaser';
                 id: string;
@@ -5807,7 +6014,13 @@ type TwoColumnContentFragment_ParagraphVideo_ = {
 };
 
 type TwoColumnContentFragment_ParagraphVideoEmbed_ = {
-  __typename?: 'ParagraphVideoEmbed';
+  __typename: 'ParagraphVideoEmbed';
+  id: string;
+  remoteVideo?: {
+    __typename: 'MediaRemoteVideo';
+    id: string;
+    mediaOembedVideo: string;
+  } | null;
 };
 
 export type TwoColumnContentFragment =
@@ -5937,6 +6150,15 @@ export type ParagraphTwoColumnContentFragment = {
           };
         };
       }
+    | {
+        __typename: 'ParagraphVideoEmbed';
+        id: string;
+        remoteVideo?: {
+          __typename: 'MediaRemoteVideo';
+          id: string;
+          mediaOembedVideo: string;
+        } | null;
+      }
   > | null;
   secondColumn?: Array<
     | {
@@ -6020,6 +6242,15 @@ export type ParagraphTwoColumnContentFragment = {
             }> | null;
           };
         };
+      }
+    | {
+        __typename: 'ParagraphVideoEmbed';
+        id: string;
+        remoteVideo?: {
+          __typename: 'MediaRemoteVideo';
+          id: string;
+          mediaOembedVideo: string;
+        } | null;
       }
   > | null;
 };
@@ -6402,6 +6633,15 @@ export type GetNodeByPathQuery = {
                             };
                           };
                         }
+                      | {
+                          __typename: 'ParagraphVideoEmbed';
+                          id: string;
+                          remoteVideo?: {
+                            __typename: 'MediaRemoteVideo';
+                            id: string;
+                            mediaOembedVideo: string;
+                          } | null;
+                        }
                     > | null;
                     secondColumn?: Array<
                       | {
@@ -6492,6 +6732,15 @@ export type GetNodeByPathQuery = {
                               }> | null;
                             };
                           };
+                        }
+                      | {
+                          __typename: 'ParagraphVideoEmbed';
+                          id: string;
+                          remoteVideo?: {
+                            __typename: 'MediaRemoteVideo';
+                            id: string;
+                            mediaOembedVideo: string;
+                          } | null;
                         }
                     > | null;
                   }
@@ -6766,6 +7015,15 @@ export type GetNodeByPathQuery = {
                               };
                             };
                           }
+                        | {
+                            __typename: 'ParagraphVideoEmbed';
+                            id: string;
+                            remoteVideo?: {
+                              __typename: 'MediaRemoteVideo';
+                              id: string;
+                              mediaOembedVideo: string;
+                            } | null;
+                          }
                       > | null;
                       secondColumn?: Array<
                         | {
@@ -6859,6 +7117,15 @@ export type GetNodeByPathQuery = {
                                 }> | null;
                               };
                             };
+                          }
+                        | {
+                            __typename: 'ParagraphVideoEmbed';
+                            id: string;
+                            remoteVideo?: {
+                              __typename: 'MediaRemoteVideo';
+                              id: string;
+                              mediaOembedVideo: string;
+                            } | null;
                           }
                       > | null;
                     }> | null;
@@ -7186,6 +7453,18 @@ export type GetNodeByPathQuery = {
                                   __typename?: 'Text';
                                   processed?: any | null;
                                 } | null;
+                                social?: {
+                                  __typename: 'ParagraphSocialMedia';
+                                  id: string;
+                                  socialMediaLinks?: Array<{
+                                    __typename?: 'ParagraphSocialMediaLink';
+                                    socialMediaType: string;
+                                    link: {
+                                      __typename?: 'Link';
+                                      url?: string | null;
+                                    };
+                                  }> | null;
+                                } | null;
                                 teaser: {
                                   __typename: 'ParagraphTeaser';
                                   id: string;
@@ -7401,6 +7680,15 @@ export type GetNodeByPathQuery = {
                             };
                           };
                         }
+                      | {
+                          __typename: 'ParagraphVideoEmbed';
+                          id: string;
+                          remoteVideo?: {
+                            __typename: 'MediaRemoteVideo';
+                            id: string;
+                            mediaOembedVideo: string;
+                          } | null;
+                        }
                     > | null;
                     secondColumn?: Array<
                       | {
@@ -7491,6 +7779,15 @@ export type GetNodeByPathQuery = {
                               }> | null;
                             };
                           };
+                        }
+                      | {
+                          __typename: 'ParagraphVideoEmbed';
+                          id: string;
+                          remoteVideo?: {
+                            __typename: 'MediaRemoteVideo';
+                            id: string;
+                            mediaOembedVideo: string;
+                          } | null;
                         }
                     > | null;
                   }
@@ -7737,6 +8034,15 @@ export type GetNodeByPathQuery = {
                               };
                             };
                           }
+                        | {
+                            __typename: 'ParagraphVideoEmbed';
+                            id: string;
+                            remoteVideo?: {
+                              __typename: 'MediaRemoteVideo';
+                              id: string;
+                              mediaOembedVideo: string;
+                            } | null;
+                          }
                       > | null;
                       secondColumn?: Array<
                         | {
@@ -7830,6 +8136,15 @@ export type GetNodeByPathQuery = {
                                 }> | null;
                               };
                             };
+                          }
+                        | {
+                            __typename: 'ParagraphVideoEmbed';
+                            id: string;
+                            remoteVideo?: {
+                              __typename: 'MediaRemoteVideo';
+                              id: string;
+                              mediaOembedVideo: string;
+                            } | null;
                           }
                       > | null;
                     }> | null;
@@ -8305,6 +8620,15 @@ export type GetNodeByPathQuery = {
                             };
                           };
                         }
+                      | {
+                          __typename: 'ParagraphVideoEmbed';
+                          id: string;
+                          remoteVideo?: {
+                            __typename: 'MediaRemoteVideo';
+                            id: string;
+                            mediaOembedVideo: string;
+                          } | null;
+                        }
                     > | null;
                     secondColumn?: Array<
                       | {
@@ -8395,6 +8719,15 @@ export type GetNodeByPathQuery = {
                               }> | null;
                             };
                           };
+                        }
+                      | {
+                          __typename: 'ParagraphVideoEmbed';
+                          id: string;
+                          remoteVideo?: {
+                            __typename: 'MediaRemoteVideo';
+                            id: string;
+                            mediaOembedVideo: string;
+                          } | null;
                         }
                     > | null;
                   }
@@ -8532,6 +8865,15 @@ export type GetNodeByPathQuery = {
               id: string;
               path: string;
               title: string;
+              social?: {
+                __typename: 'ParagraphSocialMedia';
+                id: string;
+                socialMediaLinks?: Array<{
+                  __typename?: 'ParagraphSocialMediaLink';
+                  socialMediaType: string;
+                  link: { __typename?: 'Link'; url?: string | null };
+                }> | null;
+              } | null;
               description?: {
                 __typename?: 'Text';
                 processed?: any | null;
