@@ -31,7 +31,11 @@
   &:hover {
     > .link {
       text-decoration: underline;
-      text-underline-offset: to.rem(11px);
+      text-underline-offset: to.rem(16px);
+    }
+  }
+  &.active {
+    > .link {
       color: var(--color-primary);
     }
   }

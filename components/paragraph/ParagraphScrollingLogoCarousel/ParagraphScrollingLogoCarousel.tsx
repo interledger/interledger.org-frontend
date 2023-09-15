@@ -9,6 +9,8 @@ import { MediaImage } from '@components/media/MediaImage/MediaImage';
 import { ContainerEdge } from '@components/layout/ContainerEdge/ContainerEdge';
 import Link from 'next/link';
 import { VisuallyHidden } from '@components/util/VisuallyHidden/VisuallyHidden';
+import { Grid } from '@components/layout/Grid/Grid';
+import { Container } from '@components/layout/Container/Container';
 
 export interface ParagraphLogoLinkProps {
   /** Optional className for ParagraphScrollingLogoCarousel, pass in a sass module class to override component default */
@@ -27,7 +29,7 @@ export const ParagraphLogoLink = ({
   const rootClassName = cn(styles.logo, className);
   return paragraph.link.url ? (
     <Link className={rootClassName} href={paragraph.link.url} target="_blank">
-      <MediaImage media={paragraph.singleImage} />
+      <MediaImage media={paragraph.singleImage} fit />
       {paragraph.link.title ? (
         <VisuallyHidden>{paragraph.link.title}</VisuallyHidden>
       ) : null}
@@ -53,12 +55,12 @@ export const ParagraphScrollingLogoCarousel = ({
 }: ParagraphScrollingLogoCarouselProps) => {
   const rootClassName = cn(styles.root, className);
   return !!paragraph.logos.length ? (
-    <ContainerEdge className={rootClassName}>
-      <Marquee pauseOnHover>
+    <section className={rootClassName}>
+      <Grid cols={1} colsTablet={2} colsDesktop={3}>
         {paragraph.logos.map((logo) => (
           <ParagraphLogoLink key={logo.id} paragraph={logo} />
         ))}
-      </Marquee>
-    </ContainerEdge>
+      </Grid>
+    </section>
   ) : null;
 };
