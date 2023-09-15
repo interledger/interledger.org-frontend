@@ -5,16 +5,29 @@
 @use '@styles/base/helpers' as *;
 
 .root {
-  background-color: var(--color-white);
-  padding-top: to.rem(30px);
-  padding-bottom: to.rem(30px);
+  --grid-vertical-spacing: #{to.rem(40px)};
+  --grid-horizontal-spacing: #{to.rem(40px)};
 
-  img {
-    height: to.rem(42px);
+  @include mq($from: tablet) {
+    --grid-vertical-spacing: #{to.rem(100px)};
+    --grid-horizontal-spacing: #{to.rem(100px)};
   }
 }
 
 .logo {
   margin: 0 to.rem(100px);
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    max-height: to.rem(120px);
+    max-width: 50%;
+    margin: 0 auto;
+    display: block;
+
+    @include mq($from: tablet) {
+      max-width: none;
+    }
+  }
 }
