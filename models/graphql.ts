@@ -1470,7 +1470,8 @@ export type ParagraphTwoColumnContentFirstColumnUnion =
   | ParagraphImage
   | ParagraphSpacer
   | ParagraphText
-  | ParagraphVideo;
+  | ParagraphVideo
+  | ParagraphVideoEmbed;
 
 /** Second Column */
 export type ParagraphTwoColumnContentSecondColumnUnion =
@@ -1479,7 +1480,8 @@ export type ParagraphTwoColumnContentSecondColumnUnion =
   | ParagraphImage
   | ParagraphSpacer
   | ParagraphText
-  | ParagraphVideo;
+  | ParagraphVideo
+  | ParagraphVideoEmbed;
 
 /** Entity type paragraph. */
 export type ParagraphUnion =

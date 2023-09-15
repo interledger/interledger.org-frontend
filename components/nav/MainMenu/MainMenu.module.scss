@@ -69,7 +69,7 @@
 
     @include mq($from: mainMenu) {
       position: absolute;
-      padding: to.rem(16px) 1000em;
+      padding: to.rem(16px) 1000em to.rem(27px);
       margin: 0 -1000em;
       top: var(--header-height);
       visibility: hidden;
