@@ -1442,7 +1442,7 @@ export type NodeArticleFragment = {
       }
     | { __typename: 'ParagraphContentTitle'; id: string; title: string }
     | {
-        __typename: 'ParagraphImageFullWidth';
+        __typename: 'ParagraphImage';
         id: string;
         landscapeImage: {
           __typename: 'MediaImage';
@@ -6494,7 +6494,7 @@ export type GetNodeByPathQuery = {
                     title: string;
                   }
                 | {
-                    __typename: 'ParagraphImageFullWidth';
+                    __typename: 'ParagraphImage';
                     id: string;
                     landscapeImage: {
                       __typename: 'MediaImage';
