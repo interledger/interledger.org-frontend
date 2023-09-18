@@ -510,7 +510,7 @@ export type NodeArticle = MetaTagInterface &
 export type NodeArticleSectionsUnion =
   | ParagraphButton
   | ParagraphContentTitle
-  | ParagraphImageFullWidth
+  | ParagraphImage
   | ParagraphSpacer
   | ParagraphText
   | ParagraphTwoColumnContent;
