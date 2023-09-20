@@ -17,6 +17,9 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
+  "browserslist": [
+    ">0.3%, last 2 versions, not dead"
+  ],
   "dependencies": {
     "@hookform/resolvers": "^3.2.0",
     "@tanstack/react-query": "^4.14.5",

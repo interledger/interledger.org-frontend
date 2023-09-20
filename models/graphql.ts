@@ -1802,7 +1802,7 @@ export type TalksAllResult = View & {
 };
 
 export type TalksByDateContextualFilterInput = {
-  field_date_time_value?: InputMaybe<Scalars['String']>;
+  field_starts_at_value?: InputMaybe<Scalars['String']>;
 };
 
 /** Result for view talks display graphql_3. */

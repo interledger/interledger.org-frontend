@@ -48,7 +48,7 @@ export const MenuItem = ({
       [styles.main]: type === 'main',
       [styles.submain]: type === 'submain',
     },
-    className
+    className,
   );
 
   const hasChildren = !!Children.toArray(children).length;
@@ -62,11 +62,17 @@ export const MenuItem = ({
       onMouseLeave={() => (hasSubmenu ? setSubMenuOpen(false) : null)}
     >
       {menuItem.url ? (
-        <Link href={menuItem.url} className={cn(styles.link)}>
+        <Link
+          href={menuItem.url}
+          className={cn(styles.link, styles.normalLink)}
+        >
           {menuItem.title}
         </Link>
       ) : (
-        <button className={cn(styles.link)} onClick={onClick}>
+        <button
+          className={cn(styles.link, styles.buttonLink)}
+          onClick={onClick}
+        >
           {menuItem.title}
           {hasChildren ? (
             <span className={styles.arrow}>
