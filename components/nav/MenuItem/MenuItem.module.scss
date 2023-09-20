@@ -12,7 +12,9 @@
   border: 0;
   padding: 0;
   font-weight: inherit;
+}
 
+.normalLink {
   &:hover {
     color: var(--color-primary);
   }
@@ -30,6 +32,7 @@
   &.active,
   &:hover {
     > .link {
+      text-decoration-color: var(--color-primary) !important;
       text-decoration: underline;
       text-underline-offset: to.rem(16px);
     }
