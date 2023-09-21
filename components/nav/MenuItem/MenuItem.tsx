@@ -52,6 +52,7 @@ export const MenuItem = ({
   );
 
   const hasChildren = !!Children.toArray(children).length;
+  console.log(menuItem.url);
 
   return (
     <m.li
@@ -61,7 +62,11 @@ export const MenuItem = ({
       onMouseOver={() => (hasSubmenu ? setSubMenuOpen(true) : null)}
       onMouseLeave={() => (hasSubmenu ? setSubMenuOpen(false) : null)}
     >
-      {menuItem.url ? (
+      {menuItem.url && menuItem.url === '/developers' ? (
+        <a href={menuItem.url} className={cn(styles.link, styles.normalLink)}>
+          {menuItem.title}
+        </a>
+      ) : menuItem.url ? (
         <Link
           href={menuItem.url}
           className={cn(styles.link, styles.normalLink)}
