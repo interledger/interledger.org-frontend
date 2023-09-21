@@ -6,7 +6,7 @@
     "analyze": "ANALYZE=true yarn build",
     "dev": "concurrently \"next dev\" \"yarn codegen:watch\"",
     "prebuild": "node scripts/generate-robots-txt.js",
-    "build": "next build",
+    "build": "yarn prebuild && next build",
     "start": "next start",
     "start:eb": "node server.js -p $PORT",
     "lint": "next lint",
