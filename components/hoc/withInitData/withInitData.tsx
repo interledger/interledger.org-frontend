@@ -10,15 +10,15 @@ type EmptyProps = {
 export function withInitData<T extends EmptyProps = EmptyProps>(
   getStaticPropsFunc: (
     ctx: GetStaticPropsContext,
-    queryClient: QueryClient
-  ) => Promise<T>
+    queryClient: QueryClient,
+  ) => Promise<T>,
 ) {
   return async (ctx: GetStaticPropsContext) => {
     const queryClient = new QueryClient(queryOptions);
 
     await queryClient.fetchQuery(
       useGetInitDataQuery.getKey(),
-      useGetInitDataQuery.fetcher()
+      useGetInitDataQuery.fetcher(),
     );
 
     return getStaticPropsFunc(ctx, queryClient);
