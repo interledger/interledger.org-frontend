@@ -87,7 +87,7 @@ const BasicPage: NextPage<BasicProps> = ({ slug }) => {
 
 export const getStaticProps: GetStaticProps = withInitData(
   async (context, queryClient) => {
-    const { preview, params } = context;
+    const { params } = context;
 
     const slugParts = params?.slug as string[];
     const slug = slugParts?.join('/') as string;
@@ -107,7 +107,6 @@ export const getStaticProps: GetStaticProps = withInitData(
     return {
       notFound: data.route === null,
       props: {
-        preview: preview ?? false,
         redirect:
           slug === '/home' ? { permanent: true, destination: '/' } : null,
         dehydratedState: dehydrate(queryClient),

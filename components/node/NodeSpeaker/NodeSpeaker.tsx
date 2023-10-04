@@ -53,8 +53,8 @@ export const NodeSpeaker = ({ className, node }: NodeSpeakerProps) => {
             !!node.talks.results.length
               ? node.talks.results.map((r) =>
                   r.__typename === 'NodeTalk' ? (
-                    <CardTalk key={r.id} talk={r} />
-                  ) : null
+                    <CardTalk key={r.id} talk={r} hideImage />
+                  ) : null,
                 )
               : null}
           </TwoColumn.Side>
