@@ -1,12 +1,12 @@
-import cn from 'classnames';
-import { NodeSpeakerFragment } from '@models/operations';
-import styles from './NodeSpeaker.module.scss';
+import { CardSpeakerTalk } from '@components/layout/CardSpeakerTalk/CardSpeakerTalk';
 import { Container } from '@components/layout/Container/Container';
+import { TwoColumn } from '@components/layout/TwoColumn/TwoColumn';
+import { MediaImage } from '@components/media/MediaImage/MediaImage';
 import { Text } from '@components/ui/Text/Text';
 import { RichText } from '@components/util/RichText/RichText';
-import { MediaImage } from '@components/media/MediaImage/MediaImage';
-import { TwoColumn } from '@components/layout/TwoColumn/TwoColumn';
-import { CardTalk } from '@components/layout/CardTalk/CardTalk';
+import { NodeSpeakerFragment } from '@models/operations';
+import cn from 'classnames';
+import styles from './NodeSpeaker.module.scss';
 export interface NodeSpeakerProps {
   /** Optional className for NodeSpeaker, pass in a sass module class to override component default */
   className?: string;
@@ -53,7 +53,7 @@ export const NodeSpeaker = ({ className, node }: NodeSpeakerProps) => {
             !!node.talks.results.length
               ? node.talks.results.map((r) =>
                   r.__typename === 'NodeTalk' ? (
-                    <CardTalk key={r.id} talk={r} hideImage />
+                    <CardSpeakerTalk key={r.id} talk={r} />
                   ) : null,
                 )
               : null}
