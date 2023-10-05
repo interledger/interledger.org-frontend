@@ -35,7 +35,7 @@
   color: var(--color-white);
   background-color: var(--color-black);
 
-  @include mq($from: tablet) {
+  @include mq($from: mainMenu) {
     --main-menu-mobile-bg-color: transparent;
   }
 }
