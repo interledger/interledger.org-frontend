@@ -9,18 +9,17 @@ export interface CardTalkProps {
   /** Optional className for CardTalk, pass in a sass module class to override component default */
   className?: string;
   talk: NodeTalkCardFragment;
-  hideImage?: boolean;
 }
 
 /**
  * CardTalk description
  */
 
-export const CardTalk = ({ className, talk, hideImage }: CardTalkProps) => {
+export const CardTalk = ({ className, talk }: CardTalkProps) => {
   const rootClassName = cn(styles.root, className);
   return (
     <Card className={rootClassName}>
-      {!!talk.speakers?.length && !hideImage ? (
+      {!!talk.speakers?.length ? (
         <CardImage media={talk.speakers[0].squareImage} />
       ) : null}
 
