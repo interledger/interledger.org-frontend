@@ -52,7 +52,6 @@ export const MenuItem = ({
   );
 
   const hasChildren = !!Children.toArray(children).length;
-  console.log(menuItem.url);
 
   return (
     <m.li

@@ -15,10 +15,7 @@ export interface CardTalkProps {
  * CardTalk description
  */
 
-export const CardTalk = ({
-  className,
-  talk,
-}: CardTalkProps) => {
+export const CardTalk = ({ className, talk }: CardTalkProps) => {
   const rootClassName = cn(styles.root, className);
   return (
     <Card className={rootClassName}>
