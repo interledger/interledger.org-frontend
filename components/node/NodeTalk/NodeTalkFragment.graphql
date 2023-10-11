@@ -43,4 +43,11 @@ fragment NodeTalkCardFragment on NodeTalk {
       ...MediaImageSquareFragment
     }
   }
+  isServiceSession
+  isPlenumSession
+  room {
+    sessionizeid
+    title
+    sort
+  }
 }
