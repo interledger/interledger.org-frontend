@@ -92,6 +92,7 @@
 .mobileSlotTime {
   display: block;
   padding: to.rem(5px) 0;
+  font-weight: bold;
 
   @include mq($from: mainMenu) {
     display: none;

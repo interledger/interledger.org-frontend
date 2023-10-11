@@ -4,7 +4,7 @@ import { NodeRoom, NodeTalk } from '@models/graphql';
 import { ParagraphScheduleDayFragment } from '@models/operations';
 import cn from 'classnames';
 import { addMinutes, format } from 'date-fns';
-import { sort, unique } from 'radash';
+import { group, sort, unique } from 'radash';
 import { CSSProperties, Fragment } from 'react';
 import styles from './ParagraphScheduleDay.module.scss';
 import { CardLink } from '@components/layout/Card/Card';
@@ -31,6 +31,8 @@ export const ParagraphScheduleDay = ({
   const talks = paragraph.talksView.results.filter(
     (t) => t.__typename === 'NodeTalk',
   ) as NodeTalk[];
+
+  const groupedTalks = group(talks, (t) => t.startsAt?.time);
 
   const times = talks.map((t) => {
     return {
@@ -133,61 +135,62 @@ export const ParagraphScheduleDay = ({
         ></div>
       ))}
 
-      {paragraph.talksView.results.map((t) =>
-        t.__typename === 'NodeTalk' ? (
-          <Fragment key={t.id}>
-            {t.startsAt ? (
-              <div className={styles.mobileSlotTime}>
-                <DateFormat
-                  date={new Date(t.startsAt.time)}
-                  dateFormat={'h:mmaaa '}
-                />
-              </div>
-            ) : null}
-            <div
-              className={cn(styles.talk, {
-                [styles.plenumSession]: t.isPlenumSession,
-              })}
-              style={{
-                gridColumn: t.isPlenumSession
-                  ? `track-${rooms[0].sessionizeid} / span ${rooms.length} `
-                  : `track-${t.room?.sessionizeid}`,
-                gridRow: `time-${format(
-                  new Date(t.startsAt?.time),
-                  'HHmm',
-                )} / time-${format(new Date(t.endsAt?.time), 'HHmm')}`,
-              }}
-            >
-              <h2>{t.title}</h2>
-              {!!t.speakers?.length ? <h3>{t.speakers[0].title}</h3> : null}
-              <div className={styles.talkInfo}>
-                <div className={styles.talkTime}>
-                  {t.startsAt ? (
-                    <DateFormat
-                      date={new Date(t.startsAt.time)}
-                      dateFormat={'h:mmaaa '}
-                    />
-                  ) : null}
-                  {t.startsAt && t.endsAt ? (
-                    <>
-                      {' '}
-                      -{' '}
-                      <Duration
-                        startsAt={new Date(t.startsAt.time)}
-                        endsAt={new Date(t.endsAt.time)}
+      {Object.entries(groupedTalks).map((g) => {
+        const time = g[0];
+        const talks = g[1];
+
+        return (
+          <Fragment key={time}>
+            <div className={styles.mobileSlotTime}>
+              <DateFormat date={new Date(time)} dateFormat={'h:mmaaa '} />
+            </div>
+            {talks?.map((t) => (
+              <div
+                key={t.id}
+                className={cn(styles.talk, {
+                  [styles.plenumSession]: t.isPlenumSession,
+                })}
+                style={{
+                  gridColumn: t.isPlenumSession
+                    ? `track-${rooms[0].sessionizeid} / span ${rooms.length} `
+                    : `track-${t.room?.sessionizeid}`,
+                  gridRow: `time-${format(
+                    new Date(t.startsAt?.time),
+                    'HHmm',
+                  )} / time-${format(new Date(t.endsAt?.time), 'HHmm')}`,
+                }}
+              >
+                <h2>{t.title}</h2>
+                {!!t.speakers?.length ? <h3>{t.speakers[0].title}</h3> : null}
+                <div className={styles.talkInfo}>
+                  <div className={styles.talkTime}>
+                    {t.startsAt ? (
+                      <DateFormat
+                        date={new Date(t.startsAt.time)}
+                        dateFormat={'h:mmaaa '}
                       />
-                    </>
+                    ) : null}
+                    {t.startsAt && t.endsAt ? (
+                      <>
+                        {' '}
+                        -{' '}
+                        <Duration
+                          startsAt={new Date(t.startsAt.time)}
+                          endsAt={new Date(t.endsAt.time)}
+                        />
+                      </>
+                    ) : null}
+                  </div>
+                  {!t.isPlenumSession ? (
+                    <div className={styles.talkRoom}>{t.room?.title}</div>
                   ) : null}
                 </div>
-                {!t.isPlenumSession ? (
-                  <div className={styles.talkRoom}>{t.room?.title}</div>
-                ) : null}
+                {!t.isPlenumSession ? <CardLink link={t.path} /> : null}
               </div>
-              {!t.isPlenumSession ? <CardLink link={t.path} /> : null}
-            </div>
+            ))}
           </Fragment>
-        ) : null,
-      )}
+        );
+      })}
     </div>
   );
 };
