@@ -9,6 +9,7 @@ import { NodeTalkFragment } from '@models/operations';
 import cn from 'classnames';
 import styles from './NodeTalk.module.scss';
 import { Video, VideoPlayer } from '@components/ui/VideoPlayer/VideoPlayer';
+import { getUtcDate } from '@lib/helpers';
 
 export interface NodeTalkProps {
   /** Optional className for NodeTalk, pass in a sass module class to override component default */
@@ -42,13 +43,13 @@ export const NodeTalk = ({ className, node }: NodeTalkProps) => {
         <Text variant="body2">
           <>
             <DateFormat
-              date={new Date(node.startsAt.time)}
+              date={getUtcDate(node.startsAt.time)}
               dateFormat={'dd.MM.yy h:mmaaa '}
             />
             -{' '}
             <Duration
-              startsAt={new Date(node.startsAt.time)}
-              endsAt={new Date(node.endsAt.time)}
+              startsAt={getUtcDate(node.startsAt.time)}
+              endsAt={getUtcDate(node.endsAt.time)}
             />
           </>
         </Text>

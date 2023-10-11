@@ -3,11 +3,13 @@ import { DateFormat } from '@components/util/DateFormat/DateFormat';
 import { NodeRoom, NodeTalk } from '@models/graphql';
 import { ParagraphScheduleDayFragment } from '@models/operations';
 import cn from 'classnames';
-import { addMinutes, format } from 'date-fns';
+import { addMinutes } from 'date-fns';
 import { group, sort, unique } from 'radash';
 import { CSSProperties, Fragment } from 'react';
 import styles from './ParagraphScheduleDay.module.scss';
 import { CardLink } from '@components/layout/Card/Card';
+import { toDate, format, utcToZonedTime } from 'date-fns-tz';
+import { getUtcDate } from '@lib/helpers';
 
 export interface ParagraphScheduleDayProps {
   /** Optional className for ParagraphScheduleDay, pass in a sass module class to override component default */
@@ -35,10 +37,11 @@ export const ParagraphScheduleDay = ({
   const groupedTalks = group(talks, (t) => t.startsAt?.time);
 
   const times = talks.map((t) => {
+    const utcDate = getUtcDate(t.startsAt?.time);
     return {
-      id: format(new Date(t.startsAt?.time), 'HHmm'),
-      formatted: format(new Date(t.startsAt?.time), 'h:mmaaa'),
-      minutes: format(new Date(t.startsAt?.time), 'mm'),
+      id: format(utcDate, 'HHmm'),
+      formatted: format(utcDate, 'h:mmaaa'),
+      minutes: format(utcDate, 'mm'),
     };
   });
 
@@ -50,9 +53,9 @@ export const ParagraphScheduleDay = ({
 
   const firstTalk = talks[0];
   const lastTalk = [...talks].pop();
-  const firstTalkDate = new Date(firstTalk.startsAt?.time);
+  const firstTalkDate = getUtcDate(firstTalk.startsAt?.time);
 
-  const lastTalkDate = new Date(lastTalk?.endsAt?.time);
+  const lastTalkDate = getUtcDate(lastTalk?.endsAt?.time);
   const differenceInTime =
     (lastTalkDate.getTime() - firstTalkDate.getTime()) / 60000;
   const slots = differenceInTime / 5;
@@ -142,7 +145,7 @@ export const ParagraphScheduleDay = ({
         return (
           <Fragment key={time}>
             <div className={styles.mobileSlotTime}>
-              <DateFormat date={new Date(time)} dateFormat={'h:mmaaa '} />
+              <DateFormat date={getUtcDate(time)} dateFormat={'h:mmaaa '} />
             </div>
             {talks?.map((t) => (
               <div
@@ -155,9 +158,9 @@ export const ParagraphScheduleDay = ({
                     ? `track-${rooms[0].sessionizeid} / span ${rooms.length} `
                     : `track-${t.room?.sessionizeid}`,
                   gridRow: `time-${format(
-                    new Date(t.startsAt?.time),
+                    getUtcDate(t.startsAt?.time),
                     'HHmm',
-                  )} / time-${format(new Date(t.endsAt?.time), 'HHmm')}`,
+                  )} / time-${format(getUtcDate(t.endsAt?.time), 'HHmm')}`,
                 }}
               >
                 <h2>{t.title}</h2>
@@ -166,7 +169,7 @@ export const ParagraphScheduleDay = ({
                   <div className={styles.talkTime}>
                     {t.startsAt ? (
                       <DateFormat
-                        date={new Date(t.startsAt.time)}
+                        date={getUtcDate(t.startsAt.time)}
                         dateFormat={'h:mmaaa '}
                       />
                     ) : null}
@@ -175,8 +178,8 @@ export const ParagraphScheduleDay = ({
                         {' '}
                         -{' '}
                         <Duration
-                          startsAt={new Date(t.startsAt.time)}
-                          endsAt={new Date(t.endsAt.time)}
+                          startsAt={getUtcDate(t.startsAt.time)}
+                          endsAt={getUtcDate(t.endsAt.time)}
                         />
                       </>
                     ) : null}
