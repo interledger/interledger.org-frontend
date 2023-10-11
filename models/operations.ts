@@ -9188,7 +9188,7 @@ export type GetNodesPathsQuery = {
       | { __typename?: 'NodeFoundationPage'; path: string }
       | { __typename?: 'NodePage'; path: string }
       | { __typename?: 'NodePeople'; path: string }
-      | { __typename?: 'NodeRoom' }
+      | { __typename?: 'NodeRoom'; path: string }
       | { __typename?: 'NodeSpeaker'; path: string }
       | { __typename?: 'NodeTalk'; path: string }
     >;

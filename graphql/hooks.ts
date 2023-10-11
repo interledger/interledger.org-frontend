@@ -1258,6 +1258,9 @@ export const GetNodesPathsQueryDocument = /*#__PURE__*/ `
       ... on NodePeople {
         path
       }
+      ... on NodeRoom {
+        path
+      }
     }
   }
 }
