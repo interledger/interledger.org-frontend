@@ -362,6 +362,13 @@ export const NodeTalkCardFragment = /*#__PURE__*/ `
       ...MediaImageSquareFragment
     }
   }
+  isServiceSession
+  isPlenumSession
+  room {
+    sessionizeid
+    title
+    sort
+  }
 }
     `;
 export const ParagraphTalksGridFragment = /*#__PURE__*/ `
