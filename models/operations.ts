@@ -533,6 +533,7 @@ type ParagraphsFragment_ParagraphNewsListings_ = {
           | { __typename?: 'NodeFoundationPage' }
           | { __typename?: 'NodePage' }
           | { __typename?: 'NodePeople' }
+          | { __typename?: 'NodeRoom' }
           | { __typename?: 'NodeSpeaker' }
           | { __typename?: 'NodeTalk' }
         >;
@@ -605,6 +606,7 @@ type ParagraphsFragment_ParagraphNewsListings_ = {
           | { __typename?: 'NodeFoundationPage' }
           | { __typename?: 'NodePage' }
           | { __typename?: 'NodePeople' }
+          | { __typename?: 'NodeRoom' }
           | { __typename?: 'NodeSpeaker' }
           | { __typename?: 'NodeTalk' }
         >;
@@ -689,6 +691,7 @@ type ParagraphsFragment_ParagraphPeopleGrid_ = {
                 };
               };
             }
+          | { __typename?: 'NodeRoom' }
           | { __typename?: 'NodeSpeaker' }
           | { __typename?: 'NodeTalk' }
         >;
@@ -766,12 +769,15 @@ type ParagraphsFragment_ParagraphSchedule_ = {
             | { __typename?: 'NodeFoundationPage' }
             | { __typename?: 'NodePage' }
             | { __typename?: 'NodePeople' }
+            | { __typename?: 'NodeRoom' }
             | { __typename?: 'NodeSpeaker' }
             | {
                 __typename: 'NodeTalk';
                 id: string;
                 title: string;
                 path: string;
+                isServiceSession?: boolean | null;
+                isPlenumSession?: boolean | null;
                 startsAt?: { __typename?: 'DateTime'; time: any } | null;
                 endsAt?: { __typename?: 'DateTime'; time: any } | null;
                 speakers?: Array<{
@@ -794,6 +800,12 @@ type ParagraphsFragment_ParagraphSchedule_ = {
                     };
                   };
                 }> | null;
+                room?: {
+                  __typename?: 'NodeRoom';
+                  sessionizeid: string;
+                  title: string;
+                  sort: number;
+                } | null;
               }
           >;
         }
@@ -864,6 +876,7 @@ type ParagraphsFragment_ParagraphSpeakersGrid_ = {
           | { __typename?: 'NodeFoundationPage' }
           | { __typename?: 'NodePage' }
           | { __typename?: 'NodePeople' }
+          | { __typename?: 'NodeRoom' }
           | {
               __typename: 'NodeSpeaker';
               id: string;
@@ -915,12 +928,15 @@ type ParagraphsFragment_ParagraphTalksGrid_ = {
           | { __typename?: 'NodeFoundationPage' }
           | { __typename?: 'NodePage' }
           | { __typename?: 'NodePeople' }
+          | { __typename?: 'NodeRoom' }
           | { __typename?: 'NodeSpeaker' }
           | {
               __typename: 'NodeTalk';
               id: string;
               title: string;
               path: string;
+              isServiceSession?: boolean | null;
+              isPlenumSession?: boolean | null;
               startsAt?: { __typename?: 'DateTime'; time: any } | null;
               endsAt?: { __typename?: 'DateTime'; time: any } | null;
               speakers?: Array<{
@@ -943,6 +959,12 @@ type ParagraphsFragment_ParagraphTalksGrid_ = {
                   };
                 };
               }> | null;
+              room?: {
+                __typename?: 'NodeRoom';
+                sessionizeid: string;
+                title: string;
+                sort: number;
+              } | null;
             }
         >;
       }
@@ -2294,6 +2316,7 @@ export type NodeFoundationPageFragment = {
                 | { __typename?: 'NodeFoundationPage' }
                 | { __typename?: 'NodePage' }
                 | { __typename?: 'NodePeople' }
+                | { __typename?: 'NodeRoom' }
                 | { __typename?: 'NodeSpeaker' }
                 | { __typename?: 'NodeTalk' }
               >;
@@ -2369,6 +2392,7 @@ export type NodeFoundationPageFragment = {
                 | { __typename?: 'NodeFoundationPage' }
                 | { __typename?: 'NodePage' }
                 | { __typename?: 'NodePeople' }
+                | { __typename?: 'NodeRoom' }
                 | { __typename?: 'NodeSpeaker' }
                 | { __typename?: 'NodeTalk' }
               >;
@@ -2452,6 +2476,7 @@ export type NodeFoundationPageFragment = {
                       };
                     };
                   }
+                | { __typename?: 'NodeRoom' }
                 | { __typename?: 'NodeSpeaker' }
                 | { __typename?: 'NodeTalk' }
               >;
@@ -3295,12 +3320,15 @@ export type NodePageFragment = {
                   | { __typename?: 'NodeFoundationPage' }
                   | { __typename?: 'NodePage' }
                   | { __typename?: 'NodePeople' }
+                  | { __typename?: 'NodeRoom' }
                   | { __typename?: 'NodeSpeaker' }
                   | {
                       __typename: 'NodeTalk';
                       id: string;
                       title: string;
                       path: string;
+                      isServiceSession?: boolean | null;
+                      isPlenumSession?: boolean | null;
                       startsAt?: { __typename?: 'DateTime'; time: any } | null;
                       endsAt?: { __typename?: 'DateTime'; time: any } | null;
                       speakers?: Array<{
@@ -3323,6 +3351,12 @@ export type NodePageFragment = {
                           };
                         };
                       }> | null;
+                      room?: {
+                        __typename?: 'NodeRoom';
+                        sessionizeid: string;
+                        title: string;
+                        sort: number;
+                      } | null;
                     }
                 >;
               }
@@ -3382,6 +3416,7 @@ export type NodePageFragment = {
                 | { __typename?: 'NodeFoundationPage' }
                 | { __typename?: 'NodePage' }
                 | { __typename?: 'NodePeople' }
+                | { __typename?: 'NodeRoom' }
                 | {
                     __typename: 'NodeSpeaker';
                     id: string;
@@ -3432,12 +3467,15 @@ export type NodePageFragment = {
                 | { __typename?: 'NodeFoundationPage' }
                 | { __typename?: 'NodePage' }
                 | { __typename?: 'NodePeople' }
+                | { __typename?: 'NodeRoom' }
                 | { __typename?: 'NodeSpeaker' }
                 | {
                     __typename: 'NodeTalk';
                     id: string;
                     title: string;
                     path: string;
+                    isServiceSession?: boolean | null;
+                    isPlenumSession?: boolean | null;
                     startsAt?: { __typename?: 'DateTime'; time: any } | null;
                     endsAt?: { __typename?: 'DateTime'; time: any } | null;
                     speakers?: Array<{
@@ -3460,6 +3498,12 @@ export type NodePageFragment = {
                         };
                       };
                     }> | null;
+                    room?: {
+                      __typename?: 'NodeRoom';
+                      sessionizeid: string;
+                      title: string;
+                      sort: number;
+                    } | null;
                   }
               >;
             }
@@ -3955,12 +3999,15 @@ export type NodeSpeakerFragment = {
           | { __typename?: 'NodeFoundationPage' }
           | { __typename?: 'NodePage' }
           | { __typename?: 'NodePeople' }
+          | { __typename?: 'NodeRoom' }
           | { __typename?: 'NodeSpeaker' }
           | {
               __typename: 'NodeTalk';
               id: string;
               title: string;
               path: string;
+              isServiceSession?: boolean | null;
+              isPlenumSession?: boolean | null;
               startsAt?: { __typename?: 'DateTime'; time: any } | null;
               endsAt?: { __typename?: 'DateTime'; time: any } | null;
               speakers?: Array<{
@@ -3983,6 +4030,12 @@ export type NodeSpeakerFragment = {
                   };
                 };
               }> | null;
+              room?: {
+                __typename?: 'NodeRoom';
+                sessionizeid: string;
+                title: string;
+                sort: number;
+              } | null;
             }
         >;
       };
@@ -4089,6 +4142,8 @@ export type NodeTalkCardFragment = {
   id: string;
   title: string;
   path: string;
+  isServiceSession?: boolean | null;
+  isPlenumSession?: boolean | null;
   startsAt?: { __typename?: 'DateTime'; time: any } | null;
   endsAt?: { __typename?: 'DateTime'; time: any } | null;
   speakers?: Array<{
@@ -4111,6 +4166,12 @@ export type NodeTalkCardFragment = {
       };
     };
   }> | null;
+  room?: {
+    __typename?: 'NodeRoom';
+    sessionizeid: string;
+    title: string;
+    sort: number;
+  } | null;
 };
 
 export type ParagraphAnchorFragment = {
@@ -5105,6 +5166,7 @@ export type ParagraphNewsListingsFragment = {
           | { __typename?: 'NodeFoundationPage' }
           | { __typename?: 'NodePage' }
           | { __typename?: 'NodePeople' }
+          | { __typename?: 'NodeRoom' }
           | { __typename?: 'NodeSpeaker' }
           | { __typename?: 'NodeTalk' }
         >;
@@ -5177,6 +5239,7 @@ export type ParagraphNewsListingsFragment = {
           | { __typename?: 'NodeFoundationPage' }
           | { __typename?: 'NodePage' }
           | { __typename?: 'NodePeople' }
+          | { __typename?: 'NodeRoom' }
           | { __typename?: 'NodeSpeaker' }
           | { __typename?: 'NodeTalk' }
         >;
@@ -5255,6 +5318,7 @@ export type GetParagraphNewsListing = {
             | { __typename?: 'NodeFoundationPage' }
             | { __typename?: 'NodePage' }
             | { __typename?: 'NodePeople' }
+            | { __typename?: 'NodeRoom' }
             | { __typename?: 'NodeSpeaker' }
             | { __typename?: 'NodeTalk' }
           >;
@@ -5330,6 +5394,7 @@ export type GetParagraphNewsListing = {
             | { __typename?: 'NodeFoundationPage' }
             | { __typename?: 'NodePage' }
             | { __typename?: 'NodePeople' }
+            | { __typename?: 'NodeRoom' }
             | { __typename?: 'NodeSpeaker' }
             | { __typename?: 'NodeTalk' }
           >;
@@ -5415,6 +5480,7 @@ export type ParagraphPeopleGridFragment = {
                 };
               };
             }
+          | { __typename?: 'NodeRoom' }
           | { __typename?: 'NodeSpeaker' }
           | { __typename?: 'NodeTalk' }
         >;
@@ -5510,12 +5576,15 @@ export type ParagraphScheduleFragment = {
             | { __typename?: 'NodeFoundationPage' }
             | { __typename?: 'NodePage' }
             | { __typename?: 'NodePeople' }
+            | { __typename?: 'NodeRoom' }
             | { __typename?: 'NodeSpeaker' }
             | {
                 __typename: 'NodeTalk';
                 id: string;
                 title: string;
                 path: string;
+                isServiceSession?: boolean | null;
+                isPlenumSession?: boolean | null;
                 startsAt?: { __typename?: 'DateTime'; time: any } | null;
                 endsAt?: { __typename?: 'DateTime'; time: any } | null;
                 speakers?: Array<{
@@ -5538,6 +5607,12 @@ export type ParagraphScheduleFragment = {
                     };
                   };
                 }> | null;
+                room?: {
+                  __typename?: 'NodeRoom';
+                  sessionizeid: string;
+                  title: string;
+                  sort: number;
+                } | null;
               }
           >;
         }
@@ -5565,12 +5640,15 @@ export type ParagraphScheduleDayFragment = {
           | { __typename?: 'NodeFoundationPage' }
           | { __typename?: 'NodePage' }
           | { __typename?: 'NodePeople' }
+          | { __typename?: 'NodeRoom' }
           | { __typename?: 'NodeSpeaker' }
           | {
               __typename: 'NodeTalk';
               id: string;
               title: string;
               path: string;
+              isServiceSession?: boolean | null;
+              isPlenumSession?: boolean | null;
               startsAt?: { __typename?: 'DateTime'; time: any } | null;
               endsAt?: { __typename?: 'DateTime'; time: any } | null;
               speakers?: Array<{
@@ -5593,6 +5671,12 @@ export type ParagraphScheduleDayFragment = {
                   };
                 };
               }> | null;
+              room?: {
+                __typename?: 'NodeRoom';
+                sessionizeid: string;
+                title: string;
+                sort: number;
+              } | null;
             }
         >;
       }
@@ -5672,6 +5756,7 @@ export type ParagraphSpeakersGridFragment = {
           | { __typename?: 'NodeFoundationPage' }
           | { __typename?: 'NodePage' }
           | { __typename?: 'NodePeople' }
+          | { __typename?: 'NodeRoom' }
           | {
               __typename: 'NodeSpeaker';
               id: string;
@@ -5723,12 +5808,15 @@ export type ParagraphTalksGridFragment = {
           | { __typename?: 'NodeFoundationPage' }
           | { __typename?: 'NodePage' }
           | { __typename?: 'NodePeople' }
+          | { __typename?: 'NodeRoom' }
           | { __typename?: 'NodeSpeaker' }
           | {
               __typename: 'NodeTalk';
               id: string;
               title: string;
               path: string;
+              isServiceSession?: boolean | null;
+              isPlenumSession?: boolean | null;
               startsAt?: { __typename?: 'DateTime'; time: any } | null;
               endsAt?: { __typename?: 'DateTime'; time: any } | null;
               speakers?: Array<{
@@ -5751,6 +5839,12 @@ export type ParagraphTalksGridFragment = {
                   };
                 };
               }> | null;
+              room?: {
+                __typename?: 'NodeRoom';
+                sessionizeid: string;
+                title: string;
+                sort: number;
+              } | null;
             }
         >;
       }
@@ -7341,6 +7435,7 @@ export type GetNodeByPathQuery = {
                             | { __typename?: 'NodeFoundationPage' }
                             | { __typename?: 'NodePage' }
                             | { __typename?: 'NodePeople' }
+                            | { __typename?: 'NodeRoom' }
                             | { __typename?: 'NodeSpeaker' }
                             | { __typename?: 'NodeTalk' }
                           >;
@@ -7416,6 +7511,7 @@ export type GetNodeByPathQuery = {
                             | { __typename?: 'NodeFoundationPage' }
                             | { __typename?: 'NodePage' }
                             | { __typename?: 'NodePeople' }
+                            | { __typename?: 'NodeRoom' }
                             | { __typename?: 'NodeSpeaker' }
                             | { __typename?: 'NodeTalk' }
                           >;
@@ -7502,6 +7598,7 @@ export type GetNodeByPathQuery = {
                                   };
                                 };
                               }
+                            | { __typename?: 'NodeRoom' }
                             | { __typename?: 'NodeSpeaker' }
                             | { __typename?: 'NodeTalk' }
                           >;
@@ -8339,12 +8436,15 @@ export type GetNodeByPathQuery = {
                               | { __typename?: 'NodeFoundationPage' }
                               | { __typename?: 'NodePage' }
                               | { __typename?: 'NodePeople' }
+                              | { __typename?: 'NodeRoom' }
                               | { __typename?: 'NodeSpeaker' }
                               | {
                                   __typename: 'NodeTalk';
                                   id: string;
                                   title: string;
                                   path: string;
+                                  isServiceSession?: boolean | null;
+                                  isPlenumSession?: boolean | null;
                                   startsAt?: {
                                     __typename?: 'DateTime';
                                     time: any;
@@ -8373,6 +8473,12 @@ export type GetNodeByPathQuery = {
                                       };
                                     };
                                   }> | null;
+                                  room?: {
+                                    __typename?: 'NodeRoom';
+                                    sessionizeid: string;
+                                    title: string;
+                                    sort: number;
+                                  } | null;
                                 }
                             >;
                           }
@@ -8432,6 +8538,7 @@ export type GetNodeByPathQuery = {
                             | { __typename?: 'NodeFoundationPage' }
                             | { __typename?: 'NodePage' }
                             | { __typename?: 'NodePeople' }
+                            | { __typename?: 'NodeRoom' }
                             | {
                                 __typename: 'NodeSpeaker';
                                 id: string;
@@ -8482,12 +8589,15 @@ export type GetNodeByPathQuery = {
                             | { __typename?: 'NodeFoundationPage' }
                             | { __typename?: 'NodePage' }
                             | { __typename?: 'NodePeople' }
+                            | { __typename?: 'NodeRoom' }
                             | { __typename?: 'NodeSpeaker' }
                             | {
                                 __typename: 'NodeTalk';
                                 id: string;
                                 title: string;
                                 path: string;
+                                isServiceSession?: boolean | null;
+                                isPlenumSession?: boolean | null;
                                 startsAt?: {
                                   __typename?: 'DateTime';
                                   time: any;
@@ -8516,6 +8626,12 @@ export type GetNodeByPathQuery = {
                                     };
                                   };
                                 }> | null;
+                                room?: {
+                                  __typename?: 'NodeRoom';
+                                  sessionizeid: string;
+                                  title: string;
+                                  sort: number;
+                                } | null;
                               }
                           >;
                         }
@@ -8932,12 +9048,15 @@ export type GetNodeByPathQuery = {
                       | { __typename?: 'NodeFoundationPage' }
                       | { __typename?: 'NodePage' }
                       | { __typename?: 'NodePeople' }
+                      | { __typename?: 'NodeRoom' }
                       | { __typename?: 'NodeSpeaker' }
                       | {
                           __typename: 'NodeTalk';
                           id: string;
                           title: string;
                           path: string;
+                          isServiceSession?: boolean | null;
+                          isPlenumSession?: boolean | null;
                           startsAt?: {
                             __typename?: 'DateTime';
                             time: any;
@@ -8966,6 +9085,12 @@ export type GetNodeByPathQuery = {
                               };
                             };
                           }> | null;
+                          room?: {
+                            __typename?: 'NodeRoom';
+                            sessionizeid: string;
+                            title: string;
+                            sort: number;
+                          } | null;
                         }
                     >;
                   };
@@ -9063,6 +9188,7 @@ export type GetNodesPathsQuery = {
       | { __typename?: 'NodeFoundationPage'; path: string }
       | { __typename?: 'NodePage'; path: string }
       | { __typename?: 'NodePeople'; path: string }
+      | { __typename?: 'NodeRoom' }
       | { __typename?: 'NodeSpeaker'; path: string }
       | { __typename?: 'NodeTalk'; path: string }
     >;
