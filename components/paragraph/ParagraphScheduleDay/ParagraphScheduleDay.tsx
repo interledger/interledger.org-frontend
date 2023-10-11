@@ -5,8 +5,9 @@ import { ParagraphScheduleDayFragment } from '@models/operations';
 import cn from 'classnames';
 import { addMinutes, format } from 'date-fns';
 import { sort, unique } from 'radash';
-import { CSSProperties } from 'react';
+import { CSSProperties, Fragment } from 'react';
 import styles from './ParagraphScheduleDay.module.scss';
+import { CardLink } from '@components/layout/Card/Card';
 
 export interface ParagraphScheduleDayProps {
   /** Optional className for ParagraphScheduleDay, pass in a sass module class to override component default */
@@ -34,7 +35,7 @@ export const ParagraphScheduleDay = ({
   const times = talks.map((t) => {
     return {
       id: format(new Date(t.startsAt?.time), 'HHmm'),
-      formatted: format(new Date(t.startsAt?.time), 'h:mm aaa'),
+      formatted: format(new Date(t.startsAt?.time), 'h:mmaaa'),
       minutes: format(new Date(t.startsAt?.time), 'mm'),
     };
   });
@@ -134,42 +135,57 @@ export const ParagraphScheduleDay = ({
 
       {paragraph.talksView.results.map((t) =>
         t.__typename === 'NodeTalk' ? (
-          <div
-            key={t.id}
-            className={cn(styles.talk, {
-              [styles.plenumSession]: t.isPlenumSession,
-            })}
-            style={{
-              gridColumn: t.isPlenumSession
-                ? `track-${rooms[0].sessionizeid} / span ${rooms.length} `
-                : `track-${t.room?.sessionizeid}`,
-              gridRow: `time-${format(
-                new Date(t.startsAt?.time),
-                'HHmm',
-              )} / time-${format(new Date(t.endsAt?.time), 'HHmm')}`,
-            }}
-          >
-            <h2>{t.title}</h2>
-            {!!t.speakers?.length ? <h3>{t.speakers[0].title}</h3> : null}
-            <div className={styles.talkTime}>
-              {t.startsAt ? (
+          <Fragment key={t.id}>
+            {t.startsAt ? (
+              <div className={styles.mobileSlotTime}>
                 <DateFormat
                   date={new Date(t.startsAt.time)}
                   dateFormat={'h:mmaaa '}
                 />
-              ) : null}
-              {t.startsAt && t.endsAt ? (
-                <>
-                  {' '}
-                  -{' '}
-                  <Duration
-                    startsAt={new Date(t.startsAt.time)}
-                    endsAt={new Date(t.endsAt.time)}
-                  />
-                </>
-              ) : null}
+              </div>
+            ) : null}
+            <div
+              className={cn(styles.talk, {
+                [styles.plenumSession]: t.isPlenumSession,
+              })}
+              style={{
+                gridColumn: t.isPlenumSession
+                  ? `track-${rooms[0].sessionizeid} / span ${rooms.length} `
+                  : `track-${t.room?.sessionizeid}`,
+                gridRow: `time-${format(
+                  new Date(t.startsAt?.time),
+                  'HHmm',
+                )} / time-${format(new Date(t.endsAt?.time), 'HHmm')}`,
+              }}
+            >
+              <h2>{t.title}</h2>
+              {!!t.speakers?.length ? <h3>{t.speakers[0].title}</h3> : null}
+              <div className={styles.talkInfo}>
+                <div className={styles.talkTime}>
+                  {t.startsAt ? (
+                    <DateFormat
+                      date={new Date(t.startsAt.time)}
+                      dateFormat={'h:mmaaa '}
+                    />
+                  ) : null}
+                  {t.startsAt && t.endsAt ? (
+                    <>
+                      {' '}
+                      -{' '}
+                      <Duration
+                        startsAt={new Date(t.startsAt.time)}
+                        endsAt={new Date(t.endsAt.time)}
+                      />
+                    </>
+                  ) : null}
+                </div>
+                {!t.isPlenumSession ? (
+                  <div className={styles.talkRoom}>{t.room?.title}</div>
+                ) : null}
+              </div>
+              {!t.isPlenumSession ? <CardLink link={t.path} /> : null}
             </div>
-          </div>
+          </Fragment>
         ) : null,
       )}
     </div>

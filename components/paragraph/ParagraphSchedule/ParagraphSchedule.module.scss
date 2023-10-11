@@ -15,7 +15,11 @@
   display: flex;
   margin-bottom: to.rem(60px);
   justify-content: center;
-  gap: to.rem(35px);
+  gap: to.rem(15px);
+
+  @include mq($from: mainMenu) {
+    gap: to.rem(35px);
+  }
 }
 
 .title {
@@ -29,7 +33,7 @@
 
 .dayButton {
   display: block;
-  font-size: to.rem(22px);
+  font-size: to.rem(18px);
   color: var(--color-white);
   background-color: transparent;
   border: 0;
@@ -37,7 +41,7 @@
   cursor: pointer;
   font-weight: 700;
 
-  @include mq($from: tablet) {
+  @include mq($from: mainMenu) {
     font-size: to.rem(30px);
   }
 }
