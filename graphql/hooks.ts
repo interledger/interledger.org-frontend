@@ -362,6 +362,13 @@ export const NodeTalkCardFragment = /*#__PURE__*/ `
       ...MediaImageSquareFragment
     }
   }
+  isServiceSession
+  isPlenumSession
+  room {
+    sessionizeid
+    title
+    sort
+  }
 }
     `;
 export const ParagraphTalksGridFragment = /*#__PURE__*/ `
@@ -1249,6 +1256,9 @@ export const GetNodesPathsQueryDocument = /*#__PURE__*/ `
         path
       }
       ... on NodePeople {
+        path
+      }
+      ... on NodeRoom {
         path
       }
     }

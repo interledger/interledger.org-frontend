@@ -6,6 +6,8 @@ import { useState } from 'react';
 import { Grid } from '@components/layout/Grid/Grid';
 import { Duration } from '@components/ui/Duration/Duration';
 import { DateFormat } from '@components/util/DateFormat/DateFormat';
+import { ParagraphScheduleDay } from '../ParagraphScheduleDay/ParagraphScheduleDay';
+import { getUtcDate } from '@lib/helpers';
 
 export interface ParagraphScheduleProps {
   /** Optional className for ParagraphSchedule, pass in a sass module class to override component default */
@@ -22,15 +24,12 @@ export const ParagraphSchedule = ({
   paragraph,
 }: ParagraphScheduleProps) => {
   const [active, setActive] = useState(paragraph.days[0].id);
-
   const rootClassName = cn(styles.root, className);
+
+  const dayTitle = paragraph.days.find((d) => d.id === active);
+
   return (
     <section className={rootClassName}>
-      {paragraph.title ? (
-        <Text className={styles.title} variant="h2" as="h1">
-          {paragraph.title}
-        </Text>
-      ) : null}
       <div className={styles.schedule}>
         <div className={styles.days}>
           {paragraph.days.map((d) => (
@@ -41,51 +40,20 @@ export const ParagraphSchedule = ({
               key={d.id}
               onClick={() => setActive(d.id)}
             >
-              <DateFormat date={new Date(d.date.time)} dateFormat={'EEEE'} />
+              <DateFormat date={getUtcDate(d.date.time)} dateFormat={'EEEE'} />
             </button>
           ))}
         </div>
+        <Text className={styles.date} variant="h2" as="h1">
+          <DateFormat
+            date={getUtcDate(dayTitle?.date.time)}
+            dateFormat={'EEEE d MMMM yyyy'}
+          />
+        </Text>
         {paragraph.days.map((d) =>
           d.id === active ? (
-            <Grid
-              key={d.id}
-              className={styles.talks}
-              cols={2}
-              colsTablet={2}
-              colsDesktop={3}
-            >
-              {d.talksView.__typename === 'TalksByDateResult'
-                ? d.talksView.results.map((t) =>
-                    t.__typename === 'NodeTalk' ? (
-                      <div key={t.id} className={styles.talk}>
-                        <h2>{t.title}</h2>
-                        {!!t.speakers?.length ? (
-                          <h3>{t.speakers[0].title}</h3>
-                        ) : null}
-                        <div className={styles.talkTime}>
-                          {t.startsAt ? (
-                            <DateFormat
-                              date={new Date(t.startsAt.time)}
-                              dateFormat={'h:mmaaa '}
-                            />
-                          ) : null}
-                          {t.startsAt && t.endsAt ? (
-                            <>
-                              {' '}
-                              -{' '}
-                              <Duration
-                                startsAt={new Date(t.startsAt.time)}
-                                endsAt={new Date(t.endsAt.time)}
-                              />
-                            </>
-                          ) : null}
-                        </div>
-                      </div>
-                    ) : null
-                  )
-                : null}
-            </Grid>
-          ) : null
+            <ParagraphScheduleDay key={d.id} paragraph={d} />
+          ) : null,
         )}
       </div>
     </section>

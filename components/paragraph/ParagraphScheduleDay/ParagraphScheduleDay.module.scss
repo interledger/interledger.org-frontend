@@ -5,4 +5,108 @@
 @use '@styles/base/helpers' as *;
 
 .root {
+  width: 100%;
+
+  @include mq($from: mainMenu) {
+    display: grid;
+    grid-column-gap: to.rem(2px);
+    grid-row-gap: to.rem(2px);
+  }
+}
+
+.room {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  font-size: fluid(0px, 24px);
+  padding: fluid(10px, 15px);
+  display: grid;
+  place-items: center;
+  text-align: center;
+  display: none;
+
+  @include mq($from: mainMenu) {
+    display: block;
+  }
+}
+
+.talk {
+  z-index: 2;
+  background-color: var(--color-primary);
+  padding: to.rem(20px);
+  color: var(--color-black);
+  margin-bottom: to.rem(20px);
+  position: relative;
+
+  h2,
+  h3 {
+    font-weight: 400;
+  }
+
+  h2 {
+    font-size: fluid(20px, 24px);
+    margin-bottom: to.rem(15px);
+  }
+
+  h3 {
+    font-size: to.rem(18px);
+  }
+
+  @include mq($from: mainMenu) {
+    margin-bottom: 0;
+  }
+}
+
+.plenumSession {
+  background-color: var(--color-white);
+  z-index: 1;
+}
+
+.talkInfo {
+  margin-top: to.rem(15px);
+  padding-top: to.rem(15px);
+  border-top: to.rem(1px) solid var(--color-black);
+  font-size: to.rem(18px);
+  font-weight: 700;
+}
+
+.talkTime {
+  white-space: nowrap;
+}
+
+.talkRoom {
+  margin-top: 5px;
+  @include mq($from: mainMenu) {
+    display: none;
+  }
+}
+
+.slot {
+  padding-top: to.rem(20px);
+  display: none;
+
+  @include mq($from: mainMenu) {
+    display: block;
+  }
+}
+
+.mobileSlotTime {
+  display: block;
+  padding: to.rem(5px) 0;
+  font-weight: bold;
+
+  @include mq($from: mainMenu) {
+    display: none;
+  }
+}
+
+.seperator {
+  height: to.rem(2px);
+  background-color: var(--color-black);
+  width: 100%;
+  margin-top: -2px;
+  display: none;
+
+  @include mq($from: mainMenu) {
+    display: block;
+  }
 }

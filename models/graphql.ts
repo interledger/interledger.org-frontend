@@ -734,6 +734,36 @@ export type NodePeople = MetaTagInterface &
   };
 
 /** Entity type node. */
+export type NodeRoom = MetaTagInterface &
+  NodeInterface & {
+    __typename?: 'NodeRoom';
+    /** The time that the node was last edited. */
+    changed: DateTime;
+    /** The time that the node was created. */
+    created: DateTime;
+    /** The Universally Unique IDentifier (UUID). */
+    id: Scalars['ID'];
+    /** Language */
+    langcode: Language;
+    /** The computed meta tags for the entity. */
+    metatag: Array<MetaTagUnion>;
+    /** URL alias */
+    path: Scalars['String'];
+    /** Promoted to front page */
+    promote: Scalars['Boolean'];
+    /** sessionizeID */
+    sessionizeid: Scalars['String'];
+    /** Sort */
+    sort: Scalars['Int'];
+    /** Published */
+    status: Scalars['Boolean'];
+    /** Sticky at top of lists */
+    sticky: Scalars['Boolean'];
+    /** Title */
+    title: Scalars['String'];
+  };
+
+/** Entity type node. */
 export type NodeSpeaker = MetaTagInterface &
   NodeInterface & {
     __typename?: 'NodeSpeaker';
@@ -800,6 +830,10 @@ export type NodeTalk = MetaTagInterface &
     endsAt?: Maybe<DateTime>;
     /** The Universally Unique IDentifier (UUID). */
     id: Scalars['ID'];
+    /** Is Plenum Session */
+    isPlenumSession?: Maybe<Scalars['Boolean']>;
+    /** Is Service Session */
+    isServiceSession?: Maybe<Scalars['Boolean']>;
     /** Language */
     langcode: Language;
     /** Live Video */
@@ -812,6 +846,8 @@ export type NodeTalk = MetaTagInterface &
     promote: Scalars['Boolean'];
     /** Recording Video */
     recordingVideo?: Maybe<MediaRemoteVideo>;
+    /** Room */
+    room?: Maybe<NodeRoom>;
     /** Speakers */
     speakers?: Maybe<Array<NodeSpeaker>>;
     /** Starts At */
@@ -831,6 +867,7 @@ export type NodeUnion =
   | NodeFoundationPage
   | NodePage
   | NodePeople
+  | NodeRoom
   | NodeSpeaker
   | NodeTalk;
 
