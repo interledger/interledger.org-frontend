@@ -39,6 +39,7 @@ jobs:
           cp -R .ebextensions Procfile public .next/standalone/* .next/standalone/.next deploy/
           cp -R .next/static deploy/.next/
           cd deploy && zip -r application.zip .ebextensions .next lib node_modules public package.json Procfile server.js
+        working-directory: ${{ github.workspace }}
 
       - name: Deploy to EB
         uses: einaregilsson/beanstalk-deploy@v21
@@ -51,6 +52,7 @@ jobs:
           region: ${{ secrets.AWS_DEFAULT_REGION }}
           deployment_package: application.zip
           existing_bucket_name: ${{ secrets.S3_BUCKET }}
+
   invalidate:
     runs-on: ubuntu-latest
     needs: [build, package]
